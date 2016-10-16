@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Hello World | Hexo</title>
+  <title>SSL Session | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在这中间必须要传递证书确定身份。
+为了在安全和性能之间寻找一个平衡点，SSL Session 是解决这个问题的一个方法。SSL Session的安全性是建立在必需要获取整个 Ses">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/10/16/hello-world/index.html">
+<meta property="og:title" content="SSL Session">
+<meta property="og:url" content="http://yoursite.com/2016/10/16/SSL-Session/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-10-16T01:58:02.000Z">
+<meta property="og:description" content="在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在这中间必须要传递证书确定身份。
+为了在安全和性能之间寻找一个平衡点，SSL Session 是解决这个问题的一个方法。SSL Session的安全性是建立在必需要获取整个 Ses">
+<meta property="og:updated_time" content="2016-10-16T03:14:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="SSL Session">
+<meta name="twitter:description" content="在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在这中间必须要传递证书确定身份。
+为了在安全和性能之间寻找一个平衡点，SSL Session 是解决这个问题的一个方法。SSL Session的安全性是建立在必需要获取整个 Ses">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -142,7 +142,7 @@ Quick">
 </nav>
 
       <div class="body-wrap">
-        <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-SSL-Session" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -152,7 +152,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      SSL Session
     </h1>
   
 
@@ -160,24 +160,25 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。<br>因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，<br>在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在<br>这中间必须要传递证书确定身份。</p>
+<p>为了在安全和性能之间寻找一个平衡点，SSL Session 是解决这个问题的一个方法。<br>SSL Session的安全性是建立在必需要获取整个 Session ，只是获取明文传输的的<br>Session ID 是无法握手成功的，Session是缓存在客户端中，要窃取客户端的Session<br>是非常困难的。</p>
+<p>在apache中实现了对SSL Session的回调，<br>在apache的post_config的SSL_init_Modules 中回调</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SSL_CTX_sess_set_new_cb(ctx,    ssl_callback_NewSessionCacheEntry);</div><div class="line">SSL_CTX_sess_set_get_cb(ctx,    ssl_callback_GetSessionCacheEntry);</div><div class="line">SSL_CTX_sess_set_remove_cb(ctx, ssl_callback_DelSessionCacheEntry);</div></pre></td></tr></table></figure>
+<p>这个回调函数在 SSL_CTX 中,</p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/10/16/hello-world/" class="archive-article-date">
-  	<time datetime="2016-10-16T01:54:47.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
+      <a href="/2016/10/16/SSL-Session/" class="archive-article-date">
+  	<time datetime="2016-10-16T03:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
 </a>
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
+	</div>
+
       
 
       <div class="clearfix"></div>
@@ -188,15 +189,20 @@ Quick">
   
 <nav id="article-nav">
   
-    <a href="/2016/10/16/Session-Ticket/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/10/16/flower/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Session Ticket
+          flower
         
       </div>
     </a>
   
+  
+    <a href="/2016/10/16/Apache-Cache/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Apache Cache</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 

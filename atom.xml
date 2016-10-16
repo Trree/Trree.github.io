@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-10-16T03:13:26.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Feilong</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Proxy Remote</title>
+    <link href="http://yoursite.com/2016/10/16/Proxy-Remote/"/>
+    <id>http://yoursite.com/2016/10/16/Proxy-Remote/</id>
+    <published>2016-10-16T03:03:19.000Z</published>
+    <updated>2016-10-16T03:13:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在apache当作网关的时候，正反向代理是最常被使用的服务</p>
+<p>在apache中我们最常使用的是反向代理服务，因为它不需要配置其他的东西，<br>在apache中配置好之后就可以跑（浏览器支持的协议）。</p>
+<p>在使用正向代理的时候就需要在浏览器或者需要客户端拦截和重定向服务，因为最终的<br>访问的服务与在浏览器中输入的IP地址是一样的。</p>
+<p>相比与正向代理和反向代理，远程代理的功能就没有他们那么的广泛，但是在有些场合需要使用。</p>
+<p>//todo<br>//是否可以将远程代理用于伪装地址的功能<br>//二级代理的实际应用场景是哪里</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在apache当作网关的时候，正反向代理是最常被使用的服务&lt;/p&gt;
+&lt;p&gt;在apache中我们最常使用的是反向代理服务，因为它不需要配置其他的东西，&lt;br&gt;在apache中配置好之后就可以跑（浏览器支持的协议）。&lt;/p&gt;
+&lt;p&gt;在使用正向代理的时候就需要在浏览器或者需要客户
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Net Tcp</title>
+    <link href="http://yoursite.com/2016/10/16/Net-Tcp/"/>
+    <id>http://yoursite.com/2016/10/16/Net-Tcp/</id>
+    <published>2016-10-16T03:02:39.000Z</published>
+    <updated>2016-10-16T03:08:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>将tcp的超时与重传的文档太多了，我也是从tcp/ip详解这本书上学习了。所以如果你对这个不熟悉，<br>希望你先看书，不然基于我自己的理解，很容易让人误解。<br>但是如果有大神，如果有什么写错，或者理解错误的东西，希望指出，不胜感激。</p>
+<p>//todo</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;将tcp的超时与重传的文档太多了，我也是从tcp/ip详解这本书上学习了。所以如果你对这个不熟悉，&lt;br&gt;希望你先看书，不然基于我自己的理解，很容易让人误解。&lt;br&gt;但是如果有大神，如果有什么写错，或者理解错误的东西，希望指出，不胜感激。&lt;/p&gt;
+&lt;p&gt;//todo&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Net arp</title>
+    <link href="http://yoursite.com/2016/10/16/Net-arp/"/>
+    <id>http://yoursite.com/2016/10/16/Net-arp/</id>
+    <published>2016-10-16T03:02:27.000Z</published>
+    <updated>2016-10-16T03:09:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在网络的使用中这个是我们比较少关注的一个协议，<br>它是用来查看ip地址和mac地址的对应关系。</p>
+<p>一般情况下网络问题很少出现在这个地方。而且如果查看这个值出现问题的时候，<br>一般是上层的协议出现了问题，或者就是整个网络出现了问题。</p>
+<p>但是今天需要讲述一个比较特殊的情况下arp的网络问题。<br>问题的起源是我使用openvpn搭建一个client-to-client 的环境。<br>就是使用一台openvpn的服务器，然后使用两台openvpn的客户端去连接openvpn的服务器。<br>我在openvpn中配好 client-to-client 选项后，<br>然后两台openvpn的客户端可以ping通服务端，也可以看到下发的策略。<br>但是在两台客户端的中相互ping对方，却是不通的。<br>查看ip和tcp，都是正常的。没有检查到异常，但是一直都是不通的。</p>
+<p>最后没有办法，只能按照网络协议层一层一层的往下去分析。<br>在windows的cmd下，查看路由 route print。路由正常。<br>ip和端口正常，ip层和tcp层都是正常的。<br>使用arp -a的指令，得到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">arp -a</div><div class="line"></div><div class="line">172.16.0.2 ether   00:ff:90:4e:20:cc   C  tap0</div><div class="line">172.16.0.3 ether   00:ff:90:4e:20:cc   C  tap0</div></pre></td></tr></table></figure>
+<p>172.16.0.0/16 是虚拟IP的地址，第三项是对应的Mac地址，<br>所以到链路层之后，有两个相同的mac地址。<br>所以从mac转换成IP地址的时候丢失了IP地址。所以一直访问不通。</p>
+<p>为什么会有两个相同的mac地址呢？第二个openvpn的客户端是直接复制第一个<br>openvpn的虚拟机。所以出现了两个相同的mac地址。修改其中一个虚拟IP的mac地址<br>之后就可以相互ping通对方了。</p>
+<p>如果想重现问题，可以将两个IP地址改成相同的mac地址，查看一下你的那边会出现什么情况。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在网络的使用中这个是我们比较少关注的一个协议，&lt;br&gt;它是用来查看ip地址和mac地址的对应关系。&lt;/p&gt;
+&lt;p&gt;一般情况下网络问题很少出现在这个地方。而且如果查看这个值出现问题的时候，&lt;br&gt;一般是上层的协议出现了问题，或者就是整个网络出现了问题。&lt;/p&gt;
+&lt;p&gt;但是今天
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Apache Openssl</title>
+    <link href="http://yoursite.com/2016/10/16/Apache-Openssl/"/>
+    <id>http://yoursite.com/2016/10/16/Apache-Openssl/</id>
+    <published>2016-10-16T03:02:17.000Z</published>
+    <updated>2016-10-16T03:05:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>apache在开发的是并不是将所有的东西都是自己实现的，而是采用了各种成熟的库。<br>在使用安全网关的时候，我们不可避免的需要使用 mod_ssl 的模块,而在实现<br>这个模块的时候最重要的就是使用了openssl库。<br>我们比较关注的是apache的网络层的过滤器，ssl的握手过程。</p>
+<p>//todo</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;apache在开发的是并不是将所有的东西都是自己实现的，而是采用了各种成熟的库。&lt;br&gt;在使用安全网关的时候，我们不可避免的需要使用 mod_ssl 的模块,而在实现&lt;br&gt;这个模块的时候最重要的就是使用了openssl库。&lt;br&gt;我们比较关注的是apache的网络层的过滤
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Apache Info</title>
+    <link href="http://yoursite.com/2016/10/16/Apache-Info/"/>
+    <id>http://yoursite.com/2016/10/16/Apache-Info/</id>
+    <published>2016-10-16T03:02:11.000Z</published>
+    <updated>2016-10-16T03:04:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在apache的使用中，如果是一个apache代理服务器，并且使用的证书的话，<br>我们不可避免的需要将从前端和证书中的信息传递给后端处理。<br>一般情况下，我们都是将这些信息绑定在http头中，cookie项中，这样后端比较容易处理。</p>
+<p>幸运的是，apache为我们提供了这么一个可选函数，可以任何的一个模块中获取<br>你需要的信息。<br>这个可选函数是在模块 mod_nw_ssl 中定义。</p>
+<blockquote>
+<p>APR_REGISTER_OPTIONAL_FN(ssl_var_lookup);</p>
+</blockquote>
+<p>那么这个可选函数可以获取哪些参数呢？</p>
+<ul>
+<li>前端http头中的信息</li>
+<li>ssl的参数，和对应使用的用户证书的各项内容。</li>
+<li>连接socket的各项参数</li>
+<li>格式化的各种时间</li>
+<li>保存在 r-&gt;notes 中的的环境变量</li>
+<li>如何找不到key对应的value，则返回空字符串。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在apache的使用中，如果是一个apache代理服务器，并且使用的证书的话，&lt;br&gt;我们不可避免的需要将从前端和证书中的信息传递给后端处理。&lt;br&gt;一般情况下，我们都是将这些信息绑定在http头中，cookie项中，这样后端比较容易处理。&lt;/p&gt;
+&lt;p&gt;幸运的是，apac
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Trap</title>
+    <link href="http://yoursite.com/2016/10/16/Trap/"/>
+    <id>http://yoursite.com/2016/10/16/Trap/</id>
+    <published>2016-10-16T03:02:00.000Z</published>
+    <updated>2016-10-16T03:02:00.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Timeout</title>
+    <link href="http://yoursite.com/2016/10/16/Timeout/"/>
+    <id>http://yoursite.com/2016/10/16/Timeout/</id>
+    <published>2016-10-16T03:01:53.000Z</published>
+    <updated>2016-10-16T03:19:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在apache的使用过程中，我们可以看到许多的超时设置，<br>因为apache是一个web服务器，所以它的超时是包含底层的超时设置，例如tcp协议的。<br>所以这一篇文档包含http，ssl，tcp等协议的超时设置。</p>
+<ul>
+<li><p>timeout tcp读写超时(wait_for_io_or_timeout)</p>
+<ul>
+<li>t &gt; 0  – read and write calls return APR_TIMEUP if specified time elapsess with no data read or written</li>
+<li>t == 0 – read and write calls never block</li>
+<li>t &lt; 0  – read and write calls block</li>
+</ul>
+</li>
+<li><p>keepalivetimeout</p>
+<ul>
+<li>在keepalivetimeout时间后没有子请求，断开连接(ap_process_http_connection)</li>
+</ul>
+</li>
+<li><p>proxytimeout</p>
+<ul>
+<li>没有设置的时候与 timeout 的一样</li>
+</ul>
+</li>
+<li><p>RequestReadTimeout（reqtimeout_init）</p>
+<ul>
+<li>设置读取http头和http正文最大和最小超时时间</li>
+</ul>
+</li>
+<li><p>默认值：</p>
+<ul>
+<li>MRT_DEFAULT_HEADER_TIMEOUT       20</li>
+<li>MRT_DEFAULT_HEADER_MAX_TIMEOUT   40</li>
+<li>MRT_DEFAULT_HEADER_MIN_RATE      500</li>
+<li>MRT_DEFAULT_BODY_TIMEOUT         20</li>
+<li>MRT_DEFAULT_BODY_MAX_TIMEOUT     0</li>
+<li>MRT_DEFAULT_BODY_MIN_RATE        500</li>
+</ul>
+</li>
+<li><p>SSLSessionCacheTimeout</p>
+<ul>
+<li>ssl session 超时时间</li>
+</ul>
+</li>
+</ul>
+<p>//todo<br>tcp的所有超时的地方，从第一个 客户端读取 syn ＋ ack 超时，<br>connect 超时<br>响应超时<br>读写超时<br>timewait超时</p>
+<p>超时重传机制<br>哪些会超时，哪些直接发送reset断开连接。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在apache的使用过程中，我们可以看到许多的超时设置，&lt;br&gt;因为apache是一个web服务器，所以它的超时是包含底层的超时设置，例如tcp协议的。&lt;br&gt;所以这一篇文档包含http，ssl，tcp等协议的超时设置。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;timeout tc
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>shaft</title>
+    <link href="http://yoursite.com/2016/10/16/shaft/"/>
+    <id>http://yoursite.com/2016/10/16/shaft/</id>
+    <published>2016-10-16T03:01:46.000Z</published>
+    <updated>2016-10-16T03:01:46.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Out of Windows</title>
+    <link href="http://yoursite.com/2016/10/16/Out-of-Windows/"/>
+    <id>http://yoursite.com/2016/10/16/Out-of-Windows/</id>
+    <published>2016-10-16T03:01:35.000Z</published>
+    <updated>2016-10-16T03:12:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>被困在车厢里。<br><br>车厢因为站票挤满了人，举步维艰，即使能移动，也只是在车厢里，最后还是回到自己的位置。<br><br>人身上发出的气味，泡面的腐味因不开窗而始终弥漫。有种窒息的感觉。<br><br>人们聊天的声音，手机叮叮响的声音爆炸在耳边。即使在深夜里，那永不停歇的火车运动的机械声。在深夜的梦里回响。<br><br>一个人趴在窗上，无事可做，仅仅趴在窗上，在那积满灰尘的窗上。一心望着外面。望着窗外。<br><br>转过一座山，并行的湖。<br><br>天地的蓝天白云相接。旋转而起的树木，碧波荡漾的竹林，其间点缀无数点点星星。九万里的大鸟在云层之外翱翔。<br><br>火车在盘着山，就如此彳亍着，有时可以看见火车外有人在奔跑，引起车里人的嘲哄声，但马上连他的背影也看不见了。<br><br>就这样一直望着窗外一天一夜，期间不断的食品叫卖声与引起的喧闹嘲杂声不闻不问。<br><br>突然有种莫名的冲动，毅然决然的跳下火车，投向那森林的最深处，走向海的绝渊中，飞向那无人触及的圣地。<br><br>雨打在窗外，凝聚，演绎着千姿百态，最后回于水中，雨仅仅只是水，但他或许会变成气，变成雾，雪，血。<br><br>突然有一刻，仅仅那一刻，从窗外投射来的一缕阳光，透过窗，透过身体，照在心上。<br></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;被困在车厢里。&lt;br&gt;&lt;br&gt;车厢因为站票挤满了人，举步维艰，即使能移动，也只是在车厢里，最后还是回到自己的位置。&lt;br&gt;&lt;br&gt;人身上发出的气味，泡面的腐味因不开窗而始终弥漫。有种窒息的感觉。&lt;br&gt;&lt;br&gt;人们聊天的声音，手机叮叮响的声音爆炸在耳边。即使在深夜里，那永不
+    
+    </summary>
+    
+    
+      <category term="独孤的海上" scheme="http://yoursite.com/tags/%E7%8B%AC%E5%AD%A4%E7%9A%84%E6%B5%B7%E4%B8%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP Session</title>
+    <link href="http://yoursite.com/2016/10/16/PHP-Session/"/>
+    <id>http://yoursite.com/2016/10/16/PHP-Session/</id>
+    <published>2016-10-16T03:01:02.000Z</published>
+    <updated>2016-10-16T03:12:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="PHP控制session的方法"><a href="#PHP控制session的方法" class="headerlink" title="PHP控制session的方法"></a>PHP控制session的方法</h3><p>环境：PHP的session控制使用crond定时检查<br><br>debian3， ubuntu14.0.4</p>
+<p>PHP的session文件保存在 /var/lib/php5 中，如果是使用cookie保存session的方法，<br><br>可以在浏览器中查看cookie，查看两个值是不是一样的。<br><br>如果你手动清除这个文件，登陆页面马上放回到你需要跳转的页面。<br><br>所以对session时间的控制就是对删除session文件时间的控制。<br></p>
+<p>删除session文件是使用 <br><br>首先查看 /etc/cron.d/php5 的文件<br></p>
+<blockquote>
+<p>09,39 <em>     </em> <em> </em>     root   [ -d /var/lib/php5   ] &amp;&amp; find /var/lib/php5/ -type f -cmin +$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm</p>
+</blockquote>
+<p>从这里可以看出系统定时检查session文件的修改时间，一旦超出maxlifetime，就将它删除。<br><br>所以最后的控制就在 /usr/lib/php5/maxlifetime 中。<br></p>
+<p>我们查看这个文件做了什么事情<br><br>这个文件中默认最大超时时间为 1440 秒，然后与 /etc/php5/*/php.ini 的session.gc_maxlifetime 时间比较，哪个大取哪个值。<br><br>在 /etc/php5/*/php.ini 中默认时间也是 1440 秒，所以非常的麻烦修改三个文件。<br></p>
+<h3 id="最简单的设置session超时时间"><a href="#最简单的设置session超时时间" class="headerlink" title="最简单的设置session超时时间"></a>最简单的设置session超时时间</h3><p>直接修改 /usr/lib/php5/maxlifetime<br></p>
+<blockquote>
+<p>echo $time</p>
+</blockquote>
+<p>这个 $time 就是你设置的超时分钟。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;PHP控制session的方法&quot;&gt;&lt;a href=&quot;#PHP控制session的方法&quot; class=&quot;headerlink&quot; title=&quot;PHP控制session的方法&quot;&gt;&lt;/a&gt;PHP控制session的方法&lt;/h3&gt;&lt;p&gt;环境：PHP的session控制使用
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>City</title>
+    <link href="http://yoursite.com/2016/10/16/City/"/>
+    <id>http://yoursite.com/2016/10/16/City/</id>
+    <published>2016-10-16T03:00:50.000Z</published>
+    <updated>2016-10-16T03:07:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>早上醒来，我突然发现自己得了空人症，这个城市还是原来的城市，这个城市的运作还是按照原来的方式，<br>可是在我的眼里看不到一个人，和这个人周边的东西。<br>仿佛这个世界上的人都消失了，只剩下机器在运作。</p>
+<p>你可以感受到，在街上还是有那么多的车在开，可是你看不到一个人，地铁仍在开，你可以悠闲的坐在任何一个位置，<br>因为没有人跟你抢，尤其是在中国这个大城市中，感觉尤为强烈。</p>
+<p>你就这样一个人走在这个空空荡荡的大街上，眼中空无一人。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;早上醒来，我突然发现自己得了空人症，这个城市还是原来的城市，这个城市的运作还是按照原来的方式，&lt;br&gt;可是在我的眼里看不到一个人，和这个人周边的东西。&lt;br&gt;仿佛这个世界上的人都消失了，只剩下机器在运作。&lt;/p&gt;
+&lt;p&gt;你可以感受到，在街上还是有那么多的车在开，可是你看不到
+    
+    </summary>
+    
+    
+      <category term="独孤的海上" scheme="http://yoursite.com/tags/%E7%8B%AC%E5%AD%A4%E7%9A%84%E6%B5%B7%E4%B8%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Summer</title>
+    <link href="http://yoursite.com/2016/10/16/Summer/"/>
+    <id>http://yoursite.com/2016/10/16/Summer/</id>
+    <published>2016-10-16T03:00:43.000Z</published>
+    <updated>2016-10-16T03:16:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>有时候会突然的想起你，我尽力去回想你的脸，你的笑容，我们在一起的每一个细节。<br>手机里面还有你的号码，你的照片。<br>可是这些都仿佛是一个遥远的梦，现在想来如此的不真实。<br>我一直埋得很深，我总是很忙的样子。<br>不愿意停下来，因为一旦停下来，仿佛一下子掉入一个无底的深渊。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有时候会突然的想起你，我尽力去回想你的脸，你的笑容，我们在一起的每一个细节。&lt;br&gt;手机里面还有你的号码，你的照片。&lt;br&gt;可是这些都仿佛是一个遥远的梦，现在想来如此的不真实。&lt;br&gt;我一直埋得很深，我总是很忙的样子。&lt;br&gt;不愿意停下来，因为一旦停下来，仿佛一下子掉入一个
+    
+    </summary>
+    
+    
+      <category term="独孤的海上" scheme="http://yoursite.com/tags/%E7%8B%AC%E5%AD%A4%E7%9A%84%E6%B5%B7%E4%B8%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Sword</title>
+    <link href="http://yoursite.com/2016/10/16/Sword/"/>
+    <id>http://yoursite.com/2016/10/16/Sword/</id>
+    <published>2016-10-16T03:00:36.000Z</published>
+    <updated>2016-10-16T03:17:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果我手中有一把剑，我会成为一位剑客，纵横四海，无所畏惧，可是我手中没有剑。<br><br>如果我会跳舞，我会在月光下，在舞台中央，在所有的目光中灼灼生辉，可是我不会跳舞。<br><br>如果我活在魏晋，我会成为一个放浪形骸的人，饮觞取酒，或宠辱不惊，或尽情悲痛，可是我活在不一样的时代。<br><br><br><br>如果，如果，我只是一个普普通通的一个人，什么也不会，什么也做不了。<br><br><br><br>给我一把剑，我却只会伤了别人，也伤了自己。<br><br>即使我会跳舞，却也会踩到你的脚，走错了步。<br><br>即使我回到那个时代，我依然会退缩，退缩到一个安全的地带。<br><br>我回不到过去，也没有如果。<br></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如果我手中有一把剑，我会成为一位剑客，纵横四海，无所畏惧，可是我手中没有剑。&lt;br&gt;&lt;br&gt;如果我会跳舞，我会在月光下，在舞台中央，在所有的目光中灼灼生辉，可是我不会跳舞。&lt;br&gt;&lt;br&gt;如果我活在魏晋，我会成为一个放浪形骸的人，饮觞取酒，或宠辱不惊，或尽情悲痛，可是我活在
+    
+    </summary>
+    
+    
+      <category term="独孤的海上" scheme="http://yoursite.com/tags/%E7%8B%AC%E5%AD%A4%E7%9A%84%E6%B5%B7%E4%B8%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Library</title>
+    <link href="http://yoursite.com/2016/10/16/Library/"/>
+    <id>http://yoursite.com/2016/10/16/Library/</id>
+    <published>2016-10-16T03:00:28.000Z</published>
+    <updated>2016-10-16T03:08:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>忽然明白，你并不是傲娇，你只是自卑而你，<br>你一直在逃避自我，你害怕真实的你，<br>你身处于海上，在一条小船上，你并不是一座孤岛，<br>你只是漂流的一条小船而已。<br>风来，你就吹风，随风而走，<br>雨来，你就在海上写字。<br>你就这样直接地暴露在这个海上，<br>唯一的陪伴就是你的海面的倒影，<br>可是这个只是使你更加的顾影自怜而已。<br>你现在的工作就是从船头走到船尾，然后再由船尾做回船头。</p>
+<p>忽然什么都不想做，就这样毫无目的的敲打着键盘，它会带我到哪里呢？<br>现在像是陷入了一个低谷中一样，看不到希望，明知道自己是一只<br>井底之蛙，却也无法爬出这个绝壁。<br>这只青蛙也许是悲哀的，其他的青蛙都能够很安然的活在这个世界中，<br>从不关心这个天，这个天外有什么？<br>可它偏偏看到一只天鹅飞过，这片天就变得不太一样了。<br>它明知道这片天不只是这么小，因为它看过有天鹅飞过，<br>它看见过的是别的从不在乎的。<br>它们从来就不关心这些。</p>
+<p>不知道是杜撰的还是一个真实的故事，一位智者让他的学生经过<br>一个花园，不回头的情况下获取一样你最喜欢的东西。<br>学生面对一开始的大麦穗的时候总是在想后面总会有更大的。<br>或者在犹豫的那一个刹那，身体已经跨过去了。<br>就像另一个智者告诉的，下一个总是最好的。<br>然后在自我安慰中在不经意间又跨过几步。<br>我只走了几步，我以为我的最重要的东西是比任何人都要快的到达终点，所以<br>我不愿意去等待，我总是急不可耐的就出发了。<br>然而我觉得我已经变得十分的老迈了。<br>我曾经为为没有尝过苹果而失望，现在尝过苹果变得更加的失望，<br>因为我失去了我最喜欢的那个苹果。</p>
+<p>讲故事总是非常的容易和轻巧，可是朝菌不知晦朔,蟪蛄不知春秋，<br>即使我们知道故事的结局是怎样的，可是依然无法改变。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;忽然明白，你并不是傲娇，你只是自卑而你，&lt;br&gt;你一直在逃避自我，你害怕真实的你，&lt;br&gt;你身处于海上，在一条小船上，你并不是一座孤岛，&lt;br&gt;你只是漂流的一条小船而已。&lt;br&gt;风来，你就吹风，随风而走，&lt;br&gt;雨来，你就在海上写字。&lt;br&gt;你就这样直接地暴露在这个海上，&lt;
+    
+    </summary>
+    
+    
+      <category term="独孤的海上" scheme="http://yoursite.com/tags/%E7%8B%AC%E5%AD%A4%E7%9A%84%E6%B5%B7%E4%B8%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>flower</title>
+    <link href="http://yoursite.com/2016/10/16/flower/"/>
+    <id>http://yoursite.com/2016/10/16/flower/</id>
+    <published>2016-10-16T03:00:15.000Z</published>
+    <updated>2016-10-16T03:00:15.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SSL Session</title>
+    <link href="http://yoursite.com/2016/10/16/SSL-Session/"/>
+    <id>http://yoursite.com/2016/10/16/SSL-Session/</id>
+    <published>2016-10-16T03:00:00.000Z</published>
+    <updated>2016-10-16T03:14:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。<br>因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，<br>在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在<br>这中间必须要传递证书确定身份。</p>
+<p>为了在安全和性能之间寻找一个平衡点，SSL Session 是解决这个问题的一个方法。<br>SSL Session的安全性是建立在必需要获取整个 Session ，只是获取明文传输的的<br>Session ID 是无法握手成功的，Session是缓存在客户端中，要窃取客户端的Session<br>是非常困难的。</p>
+<p>在apache中实现了对SSL Session的回调，<br>在apache的post_config的SSL_init_Modules 中回调</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SSL_CTX_sess_set_new_cb(ctx,    ssl_callback_NewSessionCacheEntry);</div><div class="line">SSL_CTX_sess_set_get_cb(ctx,    ssl_callback_GetSessionCacheEntry);</div><div class="line">SSL_CTX_sess_set_remove_cb(ctx, ssl_callback_DelSessionCacheEntry);</div></pre></td></tr></table></figure>
+<p>这个回调函数在 SSL_CTX 中,</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。&lt;br&gt;因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，&lt;br&gt;在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在&lt;br&gt;这中间必须要传递证书确定身份
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Apache Cache</title>
+    <link href="http://yoursite.com/2016/10/16/Apache-Cache/"/>
+    <id>http://yoursite.com/2016/10/16/Apache-Cache/</id>
+    <published>2016-10-16T02:59:47.000Z</published>
+    <updated>2016-10-16T03:04:09.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>apche 提供了cache的功能，能够将应用服务端的资源缓存在apache中，<br><br>尤其是在apache是代理服务器，原始服务器的物理距离非常远点时候，<br><br>性能就能够非常好的体现。<br></p>
+<p>所以此时的网关服务器也可以作为缓存服务器使用。<br>因为公司使用的是apache2.0系列的。<br>所以在它那里发现它只支持URL的strcasecmp匹配。<br>所以匹配所有的URL为 ‘/‘。但是我们希望提供普遍的过滤功能。<br>只缓存 .jpg,.png,.css 等不变的内容。而将经常需要改成的 .html , .js 不缓存。</p>
+<p>所以我们的方案是在 cacheenable 中增加一个可变参数，正则配置的参数。<br>当正则匹配存在的时候，只使用正则批准，如果不存在，则使用原来的<br>url的匹配。保证与原2.0的兼容性。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;apche 提供了cache的功能，能够将应用服务端的资源缓存在apache中，&lt;br&gt;&lt;br&gt;尤其是在apache是代理服务器，原始服务器的物理距离非常远点时候，&lt;br&gt;&lt;br&gt;性能就能够非常好的体现。&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;所以此时的网关服务器也可以作为缓存服务器使用。
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Schrodinger&#39;s cat</title>
+    <link href="http://yoursite.com/2016/10/16/Schrodinger-s-cat/"/>
+    <id>http://yoursite.com/2016/10/16/Schrodinger-s-cat/</id>
+    <published>2016-10-16T02:22:29.000Z</published>
+    <updated>2016-10-16T03:15:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>量子力学中，有一只神奇的猫，是薛定谔的猫。<br><br>在一个盒子里有一只猫，以及少量放射性物质。在一小时内，大约有50%的概率放射性物质将会衰变并释放出毒气杀死这只猫，剩50%的概率是放射性物质不会衰变而猫将活下来。<br><br>我们这个世界时间是一维的，所以我们只能看到一维的结果，可是它存在两种可能，而且两种可能发生的概率是一样的。<br><br>一维的时间我们只能看到一种可能，但不能因为我们看不到另外一种可能而否定它的存在，它就存在在那里。只是你无法感受。<br><br>世界是无数个平行世界叠加统计的结果，如果将这个世界分散出去，在同一个结果中蕴含了无数中可能。<br><br>平行世界的我现在一定还在419办公室，手里看着最新下载的论文，琢磨着作者想要表达什么，他在什么地方创新了，我从他这里又学到了什么，得到什么新的想法。<br><br>平行世界的我一定还在计算我们到底有多少个平行世界？我该怎么用 ergodic hypothesis 证明平行世界，怎样将系综理论与平行世界联系起来考虑呢？<br><br>平行世界的我一定看不到现在我，他怎么会去想呢？他也一定想不到。他只关心如何用热力学与统计物理的角度去证明平行世界，又怎么会在乎其他事情呢？<br><br>超越时间的存在。<br><br>我将所有的我重叠在同一时刻，他们是一条确定的轨迹。他们是如此的熟悉。可是如果将平行世界加入，这个世界就变得如此的庞杂。那一个平行世界的我是如此的陌生，我们之间也是如此的陌生。<br></p>
+<p>在某一刻，我仿佛回到了过去，无数个我坐在我的旁边，我看着他们，他们都很冷淡的看着我。他们不明白我心里的热切。<br><br>我又走到平行世界的我那里，那里的我是如此的截然不同。他们拥有不同的人生，截然不同的轨迹。<br></p>
+<p>在那一刻，觉得世界美好有趣极了，我可以跟平行世界的我谈话，跟不同成长时段的我谈话，听我讲故事，听他们讲我遗忘的事情，讲我从未经历但确实经历过的事情。<br></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;量子力学中，有一只神奇的猫，是薛定谔的猫。&lt;br&gt;&lt;br&gt;在一个盒子里有一只猫，以及少量放射性物质。在一小时内，大约有50%的概率放射性物质将会衰变并释放出毒气杀死这只猫，剩50%的概率是放射性物质不会衰变而猫将活下来。&lt;br&gt;&lt;br&gt;我们这个世界时间是一维的，所以我们只能
+    
+    </summary>
+    
+    
+      <category term="独孤的海上" scheme="http://yoursite.com/tags/%E7%8B%AC%E5%AD%A4%E7%9A%84%E6%B5%B7%E4%B8%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Tools</title>
+    <link href="http://yoursite.com/2016/10/16/Tools/"/>
+    <id>http://yoursite.com/2016/10/16/Tools/</id>
+    <published>2016-10-16T02:18:19.000Z</published>
+    <updated>2016-10-16T02:19:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>都说好的工具是成功的一半，并且好的工具对提升效率有非常大的帮助，所以在这里推荐一啊下好玩的工具。</p>
+<ul>
+<li>zeal(Mac dash) API 查看工具</li>
+<li>typrora        makrdown所见即所得工具</li>
+<li>launch         快速启动工具</li>
+<li>everything     快速文档搜索工具</li>
+<li>bash on-my-zsh</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;都说好的工具是成功的一半，并且好的工具对提升效率有非常大的帮助，所以在这里推荐一啊下好玩的工具。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;zeal(Mac dash) API 查看工具&lt;/li&gt;
+&lt;li&gt;typrora        makrdown所见即所得工具&lt;/li&gt;
+&lt;li&gt;la
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Session Ticket</title>
+    <link href="http://yoursite.com/2016/10/16/Session-Ticket/"/>
+    <id>http://yoursite.com/2016/10/16/Session-Ticket/</id>
+    <published>2016-10-16T02:09:15.000Z</published>
+    <updated>2016-10-16T02:15:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>#Session Ticket</p>
+<p>我们经常可以遇到这样的场景，我们希望登录一台设备的时候，<br>在另一台设备上也可以直接登录。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;#Session Ticket&lt;/p&gt;
+&lt;p&gt;我们经常可以遇到这样的场景，我们希望登录一台设备的时候，&lt;br&gt;在另一台设备上也可以直接登录。&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>

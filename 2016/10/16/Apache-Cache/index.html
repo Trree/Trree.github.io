@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Hello World | Hexo</title>
+  <title>Apache Cache | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="apche 提供了cache的功能，能够将应用服务端的资源缓存在apache中，尤其是在apache是代理服务器，原始服务器的物理距离非常远点时候，性能就能够非常好的体现。
+所以此时的网关服务器也可以作为缓存服务器使用。因为公司使用的是apache2.0系列的。所以在它那里发现它只支持URL的strcasecmp匹配。所以匹配所有的URL为 ‘/‘。但是我们希望提供普遍的过滤功能。只缓存 .jpg">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/10/16/hello-world/index.html">
+<meta property="og:title" content="Apache Cache">
+<meta property="og:url" content="http://yoursite.com/2016/10/16/Apache-Cache/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-10-16T01:58:02.000Z">
+<meta property="og:description" content="apche 提供了cache的功能，能够将应用服务端的资源缓存在apache中，尤其是在apache是代理服务器，原始服务器的物理距离非常远点时候，性能就能够非常好的体现。
+所以此时的网关服务器也可以作为缓存服务器使用。因为公司使用的是apache2.0系列的。所以在它那里发现它只支持URL的strcasecmp匹配。所以匹配所有的URL为 ‘/‘。但是我们希望提供普遍的过滤功能。只缓存 .jpg">
+<meta property="og:updated_time" content="2016-10-16T03:04:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="Apache Cache">
+<meta name="twitter:description" content="apche 提供了cache的功能，能够将应用服务端的资源缓存在apache中，尤其是在apache是代理服务器，原始服务器的物理距离非常远点时候，性能就能够非常好的体现。
+所以此时的网关服务器也可以作为缓存服务器使用。因为公司使用的是apache2.0系列的。所以在它那里发现它只支持URL的strcasecmp匹配。所以匹配所有的URL为 ‘/‘。但是我们希望提供普遍的过滤功能。只缓存 .jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -142,7 +142,7 @@ Quick">
 </nav>
 
       <div class="body-wrap">
-        <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Apache-Cache" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -152,7 +152,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Apache Cache
     </h1>
   
 
@@ -160,24 +160,23 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>apche 提供了cache的功能，能够将应用服务端的资源缓存在apache中，<br><br>尤其是在apache是代理服务器，原始服务器的物理距离非常远点时候，<br><br>性能就能够非常好的体现。<br></p>
+<p>所以此时的网关服务器也可以作为缓存服务器使用。<br>因为公司使用的是apache2.0系列的。<br>所以在它那里发现它只支持URL的strcasecmp匹配。<br>所以匹配所有的URL为 ‘/‘。但是我们希望提供普遍的过滤功能。<br>只缓存 .jpg,.png,.css 等不变的内容。而将经常需要改成的 .html , .js 不缓存。</p>
+<p>所以我们的方案是在 cacheenable 中增加一个可变参数，正则配置的参数。<br>当正则匹配存在的时候，只使用正则批准，如果不存在，则使用原来的<br>url的匹配。保证与原2.0的兼容性。</p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/10/16/hello-world/" class="archive-article-date">
-  	<time datetime="2016-10-16T01:54:47.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
+      <a href="/2016/10/16/Apache-Cache/" class="archive-article-date">
+  	<time datetime="2016-10-16T02:59:47.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
 </a>
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
+	</div>
+
       
 
       <div class="clearfix"></div>
@@ -188,15 +187,20 @@ Quick">
   
 <nav id="article-nav">
   
-    <a href="/2016/10/16/Session-Ticket/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/10/16/SSL-Session/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Session Ticket
+          SSL Session
         
       </div>
     </a>
   
+  
+    <a href="/2016/10/16/Schrodinger-s-cat/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Schrodinger&#39;s cat</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 

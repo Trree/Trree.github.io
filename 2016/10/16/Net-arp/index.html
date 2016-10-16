@@ -4,14 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016/10 | Hexo</title>
+  <title>Net arp | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2016/10/index.html">
+  <meta name="description" content="在网络的使用中这个是我们比较少关注的一个协议，它是用来查看ip地址和mac地址的对应关系。
+一般情况下网络问题很少出现在这个地方。而且如果查看这个值出现问题的时候，一般是上层的协议出现了问题，或者就是整个网络出现了问题。
+但是今天需要讲述一个比较特殊的情况下arp的网络问题。问题的起源是我使用openvpn搭建一个client-to-client 的环境。就是使用一台openvpn的服务器，然后使">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Net arp">
+<meta property="og:url" content="http://yoursite.com/2016/10/16/Net-arp/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在网络的使用中这个是我们比较少关注的一个协议，它是用来查看ip地址和mac地址的对应关系。
+一般情况下网络问题很少出现在这个地方。而且如果查看这个值出现问题的时候，一般是上层的协议出现了问题，或者就是整个网络出现了问题。
+但是今天需要讲述一个比较特殊的情况下arp的网络问题。问题的起源是我使用openvpn搭建一个client-to-client 的环境。就是使用一台openvpn的服务器，然后使">
+<meta property="og:updated_time" content="2016-10-16T03:09:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Net arp">
+<meta name="twitter:description" content="在网络的使用中这个是我们比较少关注的一个协议，它是用来查看ip地址和mac地址的对应关系。
+一般情况下网络问题很少出现在这个地方。而且如果查看这个值出现问题的时候，一般是上层的协议出现了问题，或者就是整个网络出现了问题。
+但是今天需要讲述一个比较特殊的情况下arp的网络问题。问题的起源是我使用openvpn搭建一个client-to-client 的环境。就是使用一台openvpn的服务器，然后使">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -135,331 +145,100 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-Net-arp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/16/Proxy-Remote/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:03:19.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/Proxy-Remote/">Proxy Remote</a>
+    <h1 class="article-title" itemprop="name">
+      Net arp
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/16/Net-Tcp/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:02:39.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/Net-Tcp/">Net Tcp</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在网络的使用中这个是我们比较少关注的一个协议，<br>它是用来查看ip地址和mac地址的对应关系。</p>
+<p>一般情况下网络问题很少出现在这个地方。而且如果查看这个值出现问题的时候，<br>一般是上层的协议出现了问题，或者就是整个网络出现了问题。</p>
+<p>但是今天需要讲述一个比较特殊的情况下arp的网络问题。<br>问题的起源是我使用openvpn搭建一个client-to-client 的环境。<br>就是使用一台openvpn的服务器，然后使用两台openvpn的客户端去连接openvpn的服务器。<br>我在openvpn中配好 client-to-client 选项后，<br>然后两台openvpn的客户端可以ping通服务端，也可以看到下发的策略。<br>但是在两台客户端的中相互ping对方，却是不通的。<br>查看ip和tcp，都是正常的。没有检查到异常，但是一直都是不通的。</p>
+<p>最后没有办法，只能按照网络协议层一层一层的往下去分析。<br>在windows的cmd下，查看路由 route print。路由正常。<br>ip和端口正常，ip层和tcp层都是正常的。<br>使用arp -a的指令，得到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">arp -a</div><div class="line"></div><div class="line">172.16.0.2 ether   00:ff:90:4e:20:cc   C  tap0</div><div class="line">172.16.0.3 ether   00:ff:90:4e:20:cc   C  tap0</div></pre></td></tr></table></figure>
+<p>172.16.0.0/16 是虚拟IP的地址，第三项是对应的Mac地址，<br>所以到链路层之后，有两个相同的mac地址。<br>所以从mac转换成IP地址的时候丢失了IP地址。所以一直访问不通。</p>
+<p>为什么会有两个相同的mac地址呢？第二个openvpn的客户端是直接复制第一个<br>openvpn的虚拟机。所以出现了两个相同的mac地址。修改其中一个虚拟IP的mac地址<br>之后就可以相互ping通对方了。</p>
+<p>如果想重现问题，可以将两个IP地址改成相同的mac地址，查看一下你的那边会出现什么情况。</p>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/16/Net-arp/" class="archive-article-date">
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/16/Net-arp/" class="archive-article-date">
   	<time datetime="2016-10-16T03:02:27.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/Net-arp/">Net arp</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/16/Apache-Openssl/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:02:17.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/Apache-Openssl/">Apache Openssl</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
+  
+<nav id="article-nav">
+  
+    <a href="/2016/10/16/Net-Tcp/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Net Tcp
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/16/Apache-Openssl/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Apache Openssl</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/16/Apache-Info/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:02:11.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/Apache-Info/">Apache Info</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/16/Trap/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:02:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/Trap/">Trap</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/16/Timeout/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:01:53.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/Timeout/">Timeout</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/16/shaft/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:01:46.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/shaft/">shaft</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/16/Out-of-Windows/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:01:35.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/Out-of-Windows/">Out of Windows</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/独孤的海上/">独孤的海上</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/16/PHP-Session/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:01:02.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/PHP-Session/">PHP Session</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2016/10/page/2/">2</a><a class="page-number" href="/archives/2016/10/page/3/">3</a><a class="extend next" rel="next" href="/archives/2016/10/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
       </div>
@@ -482,8 +261,8 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

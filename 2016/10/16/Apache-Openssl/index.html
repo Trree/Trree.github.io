@@ -4,14 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016/10 | Hexo</title>
+  <title>Apache Openssl | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2016/10/index.html">
+  <meta name="description" content="apache在开发的是并不是将所有的东西都是自己实现的，而是采用了各种成熟的库。在使用安全网关的时候，我们不可避免的需要使用 mod_ssl 的模块,而在实现这个模块的时候最重要的就是使用了openssl库。我们比较关注的是apache的网络层的过滤器，ssl的握手过程。
+//todo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Apache Openssl">
+<meta property="og:url" content="http://yoursite.com/2016/10/16/Apache-Openssl/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="apache在开发的是并不是将所有的东西都是自己实现的，而是采用了各种成熟的库。在使用安全网关的时候，我们不可避免的需要使用 mod_ssl 的模块,而在实现这个模块的时候最重要的就是使用了openssl库。我们比较关注的是apache的网络层的过滤器，ssl的握手过程。
+//todo">
+<meta property="og:updated_time" content="2016-10-16T03:05:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Apache Openssl">
+<meta name="twitter:description" content="apache在开发的是并不是将所有的东西都是自己实现的，而是采用了各种成熟的库。在使用安全网关的时候，我们不可避免的需要使用 mod_ssl 的模块,而在实现这个模块的时候最重要的就是使用了openssl库。我们比较关注的是apache的网络层的过滤器，ssl的握手过程。
+//todo">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -135,331 +142,94 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-Apache-Openssl" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
+    <h1 class="article-title" itemprop="name">
+      Apache Openssl
+    </h1>
   
+
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
       
+        <p>apache在开发的是并不是将所有的东西都是自己实现的，而是采用了各种成熟的库。<br>在使用安全网关的时候，我们不可避免的需要使用 mod_ssl 的模块,而在实现<br>这个模块的时候最重要的就是使用了openssl库。<br>我们比较关注的是apache的网络层的过滤器，ssl的握手过程。</p>
+<p>//todo</p>
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/16/Proxy-Remote/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:03:19.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/Proxy-Remote/">Proxy Remote</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/16/Net-Tcp/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:02:39.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/Net-Tcp/">Net Tcp</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/16/Net-arp/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:02:27.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/Net-arp/">Net arp</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/16/Apache-Openssl/" class="archive-article-date">
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/16/Apache-Openssl/" class="archive-article-date">
   	<time datetime="2016-10-16T03:02:17.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/Apache-Openssl/">Apache Openssl</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/16/Apache-Info/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:02:11.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/Apache-Info/">Apache Info</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
+  
+<nav id="article-nav">
+  
+    <a href="/2016/10/16/Net-arp/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Net arp
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/16/Apache-Info/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Apache Info</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/16/Trap/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:02:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/Trap/">Trap</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/16/Timeout/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:01:53.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/Timeout/">Timeout</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/16/shaft/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:01:46.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/shaft/">shaft</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/16/Out-of-Windows/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:01:35.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/Out-of-Windows/">Out of Windows</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/独孤的海上/">独孤的海上</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/16/PHP-Session/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:01:02.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/PHP-Session/">PHP Session</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2016/10/page/2/">2</a><a class="page-number" href="/archives/2016/10/page/3/">3</a><a class="extend next" rel="next" href="/archives/2016/10/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
       </div>
@@ -482,8 +252,8 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

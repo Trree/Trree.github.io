@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Hello World | Hexo</title>
+  <title>PHP Session | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="PHP控制session的方法环境：PHP的session控制使用crond定时检查debian3， ubuntu14.0.4
+PHP的session文件保存在 /var/lib/php5 中，如果是使用cookie保存session的方法，可以在浏览器中查看cookie，查看两个值是不是一样的。如果你手动清除这个文件，登陆页面马上放回到你需要跳转的页面。所以对session时间的控制就是对删除s">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/10/16/hello-world/index.html">
+<meta property="og:title" content="PHP Session">
+<meta property="og:url" content="http://yoursite.com/2016/10/16/PHP-Session/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-10-16T01:58:02.000Z">
+<meta property="og:description" content="PHP控制session的方法环境：PHP的session控制使用crond定时检查debian3， ubuntu14.0.4
+PHP的session文件保存在 /var/lib/php5 中，如果是使用cookie保存session的方法，可以在浏览器中查看cookie，查看两个值是不是一样的。如果你手动清除这个文件，登陆页面马上放回到你需要跳转的页面。所以对session时间的控制就是对删除s">
+<meta property="og:updated_time" content="2016-10-16T03:12:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="PHP Session">
+<meta name="twitter:description" content="PHP控制session的方法环境：PHP的session控制使用crond定时检查debian3， ubuntu14.0.4
+PHP的session文件保存在 /var/lib/php5 中，如果是使用cookie保存session的方法，可以在浏览器中查看cookie，查看两个值是不是一样的。如果你手动清除这个文件，登陆页面马上放回到你需要跳转的页面。所以对session时间的控制就是对删除s">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -142,7 +142,7 @@ Quick">
 </nav>
 
       <div class="body-wrap">
-        <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-PHP-Session" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -152,7 +152,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      PHP Session
     </h1>
   
 
@@ -160,24 +160,33 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h3 id="PHP控制session的方法"><a href="#PHP控制session的方法" class="headerlink" title="PHP控制session的方法"></a>PHP控制session的方法</h3><p>环境：PHP的session控制使用crond定时检查<br><br>debian3， ubuntu14.0.4</p>
+<p>PHP的session文件保存在 /var/lib/php5 中，如果是使用cookie保存session的方法，<br><br>可以在浏览器中查看cookie，查看两个值是不是一样的。<br><br>如果你手动清除这个文件，登陆页面马上放回到你需要跳转的页面。<br><br>所以对session时间的控制就是对删除session文件时间的控制。<br></p>
+<p>删除session文件是使用 <br><br>首先查看 /etc/cron.d/php5 的文件<br></p>
+<blockquote>
+<p>09,39 <em>     </em> <em> </em>     root   [ -d /var/lib/php5   ] &amp;&amp; find /var/lib/php5/ -type f -cmin +$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm</p>
+</blockquote>
+<p>从这里可以看出系统定时检查session文件的修改时间，一旦超出maxlifetime，就将它删除。<br><br>所以最后的控制就在 /usr/lib/php5/maxlifetime 中。<br></p>
+<p>我们查看这个文件做了什么事情<br><br>这个文件中默认最大超时时间为 1440 秒，然后与 /etc/php5/*/php.ini 的session.gc_maxlifetime 时间比较，哪个大取哪个值。<br><br>在 /etc/php5/*/php.ini 中默认时间也是 1440 秒，所以非常的麻烦修改三个文件。<br></p>
+<h3 id="最简单的设置session超时时间"><a href="#最简单的设置session超时时间" class="headerlink" title="最简单的设置session超时时间"></a>最简单的设置session超时时间</h3><p>直接修改 /usr/lib/php5/maxlifetime<br></p>
+<blockquote>
+<p>echo $time</p>
+</blockquote>
+<p>这个 $time 就是你设置的超时分钟。</p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/10/16/hello-world/" class="archive-article-date">
-  	<time datetime="2016-10-16T01:54:47.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
+      <a href="/2016/10/16/PHP-Session/" class="archive-article-date">
+  	<time datetime="2016-10-16T03:01:02.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
 </a>
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
+	</div>
+
       
 
       <div class="clearfix"></div>
@@ -188,15 +197,20 @@ Quick">
   
 <nav id="article-nav">
   
-    <a href="/2016/10/16/Session-Ticket/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/10/16/Out-of-Windows/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Session Ticket
+          Out of Windows
         
       </div>
     </a>
   
+  
+    <a href="/2016/10/16/City/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">City</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 

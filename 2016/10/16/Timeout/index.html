@@ -4,21 +4,30 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Hello World | Hexo</title>
+  <title>Timeout | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="在apache的使用过程中，我们可以看到许多的超时设置，因为apache是一个web服务器，所以它的超时是包含底层的超时设置，例如tcp协议的。所以这一篇文档包含http，ssl，tcp等协议的超时设置。
+
+timeout tcp读写超时(wait_for_io_or_timeout)
+
+t &amp;gt; 0  – read and write calls return APR_TIMEUP if s">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/10/16/hello-world/index.html">
+<meta property="og:title" content="Timeout">
+<meta property="og:url" content="http://yoursite.com/2016/10/16/Timeout/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-10-16T01:58:02.000Z">
+<meta property="og:description" content="在apache的使用过程中，我们可以看到许多的超时设置，因为apache是一个web服务器，所以它的超时是包含底层的超时设置，例如tcp协议的。所以这一篇文档包含http，ssl，tcp等协议的超时设置。
+
+timeout tcp读写超时(wait_for_io_or_timeout)
+
+t &amp;gt; 0  – read and write calls return APR_TIMEUP if s">
+<meta property="og:updated_time" content="2016-10-16T03:19:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="Timeout">
+<meta name="twitter:description" content="在apache的使用过程中，我们可以看到许多的超时设置，因为apache是一个web服务器，所以它的超时是包含底层的超时设置，例如tcp协议的。所以这一篇文档包含http，ssl，tcp等协议的超时设置。
+
+timeout tcp读写超时(wait_for_io_or_timeout)
+
+t &amp;gt; 0  – read and write calls return APR_TIMEUP if s">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -142,7 +151,7 @@ Quick">
 </nav>
 
       <div class="body-wrap">
-        <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Timeout" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -152,7 +161,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Timeout
     </h1>
   
 
@@ -160,22 +169,55 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>在apache的使用过程中，我们可以看到许多的超时设置，<br>因为apache是一个web服务器，所以它的超时是包含底层的超时设置，例如tcp协议的。<br>所以这一篇文档包含http，ssl，tcp等协议的超时设置。</p>
+<ul>
+<li><p>timeout tcp读写超时(wait_for_io_or_timeout)</p>
+<ul>
+<li>t &gt; 0  – read and write calls return APR_TIMEUP if specified time elapsess with no data read or written</li>
+<li>t == 0 – read and write calls never block</li>
+<li>t &lt; 0  – read and write calls block</li>
+</ul>
+</li>
+<li><p>keepalivetimeout</p>
+<ul>
+<li>在keepalivetimeout时间后没有子请求，断开连接(ap_process_http_connection)</li>
+</ul>
+</li>
+<li><p>proxytimeout</p>
+<ul>
+<li>没有设置的时候与 timeout 的一样</li>
+</ul>
+</li>
+<li><p>RequestReadTimeout（reqtimeout_init）</p>
+<ul>
+<li>设置读取http头和http正文最大和最小超时时间</li>
+</ul>
+</li>
+<li><p>默认值：</p>
+<ul>
+<li>MRT_DEFAULT_HEADER_TIMEOUT       20</li>
+<li>MRT_DEFAULT_HEADER_MAX_TIMEOUT   40</li>
+<li>MRT_DEFAULT_HEADER_MIN_RATE      500</li>
+<li>MRT_DEFAULT_BODY_TIMEOUT         20</li>
+<li>MRT_DEFAULT_BODY_MAX_TIMEOUT     0</li>
+<li>MRT_DEFAULT_BODY_MIN_RATE        500</li>
+</ul>
+</li>
+<li><p>SSLSessionCacheTimeout</p>
+<ul>
+<li>ssl session 超时时间</li>
+</ul>
+</li>
+</ul>
+<p>//todo<br>tcp的所有超时的地方，从第一个 客户端读取 syn ＋ ack 超时，<br>connect 超时<br>响应超时<br>读写超时<br>timewait超时</p>
+<p>超时重传机制<br>哪些会超时，哪些直接发送reset断开连接。</p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/10/16/hello-world/" class="archive-article-date">
-  	<time datetime="2016-10-16T01:54:47.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
+      <a href="/2016/10/16/Timeout/" class="archive-article-date">
+  	<time datetime="2016-10-16T03:01:53.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
 </a>
       
       
@@ -188,15 +230,20 @@ Quick">
   
 <nav id="article-nav">
   
-    <a href="/2016/10/16/Session-Ticket/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/10/16/Trap/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Session Ticket
+          Trap
         
       </div>
     </a>
   
+  
+    <a href="/2016/10/16/shaft/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">shaft</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
