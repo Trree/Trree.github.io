@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
-  
+  <title>Tree</title>
+  <subtitle>追寻一切未知</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
@@ -10,7 +10,7 @@
   
   <author>
     <name>Feilong</name>
-    
+    <email>wufeilongsky@gmail.com,wufeilongncu@163.com</email>
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
@@ -157,12 +157,19 @@
     <link href="http://yoursite.com/2016/10/16/Trap/"/>
     <id>http://yoursite.com/2016/10/16/Trap/</id>
     <published>2016-10-16T03:02:00.000Z</published>
-    <updated>2016-10-16T03:02:00.000Z</updated>
+    <updated>2016-10-16T03:25:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>为身所累，为圈所困。<br><br><br><br>记得有一次和朋友去寺庙玩，因为是在旅游，所以一路都是背着旅行包的。<br><br>由于那时候宁可信其有，不可信其无。<br><br>所以到了寺庙都会虔诚的拜拜，不是为了什么。<br><br>我就一间房一间房的去看，去拜拜。<br><br>当我来到一座大佛面前时，直接就拜了下去，<br><br>这时候在这间房子的老师傅说：“施主，拜佛的时候放下你的背包。”<br><br>犹如当头一棒，在路上已经忘了身上的负担，感觉背包已经和自己融为一体，<br><br><br><br>昨天去寒山寺，身上不着一物，忽然发现最重的负担是放不下，<br><br>背包可以放下，可是放不下就如着空气，无影无形中，<br><br>一个圈，一句话，却轻易的困住了自己。<br><br>在你最脆弱的时候犹如大山直接压着。<br><br>我看着金光闪闪的尊者和罗汉，可是我却找不大一个答案。<br><br>听着钟声，却是对愁。<br></p>
+]]></content>
     
     <summary type="html">
     
+      &lt;p&gt;为身所累，为圈所困。&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;记得有一次和朋友去寺庙玩，因为是在旅游，所以一路都是背着旅行包的。&lt;br&gt;&lt;br&gt;由于那时候宁可信其有，不可信其无。&lt;br&gt;&lt;br&gt;所以到了寺庙都会虔诚的拜拜，不是为了什么。&lt;br&gt;&lt;br&gt;我就一间房一间房的去看，去拜拜。
+    
     </summary>
     
+    
+      <category term="独孤的海上" scheme="http://yoursite.com/tags/%E7%8B%AC%E5%AD%A4%E7%9A%84%E6%B5%B7%E4%B8%8A/"/>
     
   </entry>
   
@@ -233,12 +240,20 @@
     <link href="http://yoursite.com/2016/10/16/shaft/"/>
     <id>http://yoursite.com/2016/10/16/shaft/</id>
     <published>2016-10-16T03:01:46.000Z</published>
-    <updated>2016-10-16T03:01:46.000Z</updated>
+    <updated>2016-10-16T03:26:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>每看到一口井，总会忍不住多看几眼。<br>在井中，我总可以看到自己的倒影。</p>
+]]></content>
     
     <summary type="html">
     
+      &lt;p&gt;每看到一口井，总会忍不住多看几眼。&lt;br&gt;在井中，我总可以看到自己的倒影。&lt;/p&gt;
+
+    
     </summary>
     
+    
+      <category term="独孤的海上" scheme="http://yoursite.com/tags/%E7%8B%AC%E5%AD%A4%E7%9A%84%E6%B5%B7%E4%B8%8A/"/>
     
   </entry>
   
@@ -391,12 +406,20 @@
     <link href="http://yoursite.com/2016/10/16/flower/"/>
     <id>http://yoursite.com/2016/10/16/flower/</id>
     <published>2016-10-16T03:00:15.000Z</published>
-    <updated>2016-10-16T03:00:15.000Z</updated>
+    <updated>2016-10-16T03:26:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><br><br>四月初，我看见路边的紫藤萝已经开了。<br><br>这种花开像瀑布一样，倾泻而下，一朵一朵鲜活的像一个个笑容一样，<br><br><br><br>可是我们去得太早，花开几多，零零散散。<br></p>
+]]></content>
     
     <summary type="html">
     
+      &lt;p&gt;&lt;br&gt;&lt;br&gt;四月初，我看见路边的紫藤萝已经开了。&lt;br&gt;&lt;br&gt;这种花开像瀑布一样，倾泻而下，一朵一朵鲜活的像一个个笑容一样，&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;可是我们去得太早，花开几多，零零散散。&lt;br&gt;&lt;/p&gt;
+
+    
     </summary>
     
+    
+      <category term="独孤的海上" scheme="http://yoursite.com/tags/%E7%8B%AC%E5%AD%A4%E7%9A%84%E6%B5%B7%E4%B8%8A/"/>
     
   </entry>
   
@@ -509,7 +532,7 @@
     <link href="http://yoursite.com/2016/10/16/Session-Ticket/"/>
     <id>http://yoursite.com/2016/10/16/Session-Ticket/</id>
     <published>2016-10-16T02:09:15.000Z</published>
-    <updated>2016-10-16T02:15:15.000Z</updated>
+    <updated>2016-10-16T03:15:25.000Z</updated>
     
     <content type="html"><![CDATA[<p>#Session Ticket</p>
 <p>我们经常可以遇到这样的场景，我们希望登录一台设备的时候，<br>在另一台设备上也可以直接登录。</p>

@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/10/16/shaft/</loc>
+    
+    <lastmod>2016-10-16T03:26:59.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/10/16/flower/</loc>
+    
+    <lastmod>2016-10-16T03:26:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/10/16/Trap/</loc>
+    
+    <lastmod>2016-10-16T03:25:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/10/16/Timeout/</loc>
     
     <lastmod>2016-10-16T03:19:54.000Z</lastmod>
@@ -19,6 +40,13 @@
     <loc>http://yoursite.com/2016/10/16/Summer/</loc>
     
     <lastmod>2016-10-16T03:16:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/10/16/Session-Ticket/</loc>
+    
+    <lastmod>2016-10-16T03:15:25.000Z</lastmod>
     
   </url>
   
@@ -107,37 +135,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/10/16/Trap/</loc>
-    
-    <lastmod>2016-10-16T03:02:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/10/16/shaft/</loc>
-    
-    <lastmod>2016-10-16T03:01:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/10/16/flower/</loc>
-    
-    <lastmod>2016-10-16T03:00:15.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2016/10/16/Tools/</loc>
     
     <lastmod>2016-10-16T02:19:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/10/16/Session-Ticket/</loc>
-    
-    <lastmod>2016-10-16T02:15:15.000Z</lastmod>
     
   </url>
   
