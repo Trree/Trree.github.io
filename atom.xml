@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-16T03:13:26.000Z</updated>
+  <updated>2016-10-17T11:59:52.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一个叫天南，一个叫地北</title>
+    <link href="http://yoursite.com/2016/10/17/wood/"/>
+    <id>http://yoursite.com/2016/10/17/wood/</id>
+    <published>2016-10-17T09:24:02.000Z</published>
+    <updated>2016-10-17T11:59:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>南方总是温润的。<br>南方的早晨像是在泼墨的绿中蒙着一层纱。<br>南方的雪是温和的，滋润美艳之至了，<br>这时候南方就是一幅留白的山水画了，</p>
+<p>懂得南方却不懂北方。<br>一个叫木头，一个叫马尾。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;南方总是温润的。&lt;br&gt;南方的早晨像是在泼墨的绿中蒙着一层纱。&lt;br&gt;南方的雪是温和的，滋润美艳之至了，&lt;br&gt;这时候南方就是一幅留白的山水画了，&lt;/p&gt;
+&lt;p&gt;懂得南方却不懂北方。&lt;br&gt;一个叫木头，一个叫马尾。&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+      <category term="Caprice" scheme="http://yoursite.com/tags/Caprice/"/>
+    
+  </entry>
   
   <entry>
     <title>Proxy Remote</title>
@@ -43,34 +67,36 @@
   </entry>
   
   <entry>
-    <title>Net Tcp</title>
+    <title>自述Tcp超时与重传</title>
     <link href="http://yoursite.com/2016/10/16/Net-Tcp/"/>
     <id>http://yoursite.com/2016/10/16/Net-Tcp/</id>
     <published>2016-10-16T03:02:39.000Z</published>
-    <updated>2016-10-16T03:08:35.000Z</updated>
+    <updated>2016-10-16T07:38:20.000Z</updated>
     
     <content type="html"><![CDATA[<p>将tcp的超时与重传的文档太多了，我也是从tcp/ip详解这本书上学习了。所以如果你对这个不熟悉，<br>希望你先看书，不然基于我自己的理解，很容易让人误解。<br>但是如果有大神，如果有什么写错，或者理解错误的东西，希望指出，不胜感激。</p>
-<p>//todo</p>
+<p>tcp的超时设置是为了防止网络问题和节省时间之间的一个平衡，<br>如果不设置超时，当一个ack没有获取，那么此时直接返回网络错误。<br>重传是为了防止偶然的网络问题。超时的时间间隔大部分都是指数间隔，<br>而不是线性的。</p>
+<p>tcp的所有超时的地方，从第一个客户端读取 syn ＋ ack 超时，<br>超时与重传<br>connect 超时<br>响应超时<br>读写超时<br>timewait超时</p>
+<p>超时重传机制<br>哪些会超时，哪些直接发送reset断开连接或者超时多长。</p>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;将tcp的超时与重传的文档太多了，我也是从tcp/ip详解这本书上学习了。所以如果你对这个不熟悉，&lt;br&gt;希望你先看书，不然基于我自己的理解，很容易让人误解。&lt;br&gt;但是如果有大神，如果有什么写错，或者理解错误的东西，希望指出，不胜感激。&lt;/p&gt;
-&lt;p&gt;//todo&lt;/p&gt;
+&lt;p&gt;tcp的超时设置是为
     
     </summary>
     
     
-      <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
+      <category term="Tech, Net" scheme="http://yoursite.com/tags/Tech-Net/"/>
     
   </entry>
   
   <entry>
-    <title>Net arp</title>
+    <title>一个偶然的arp网络错误</title>
     <link href="http://yoursite.com/2016/10/16/Net-arp/"/>
     <id>http://yoursite.com/2016/10/16/Net-arp/</id>
     <published>2016-10-16T03:02:27.000Z</published>
-    <updated>2016-10-16T03:09:27.000Z</updated>
+    <updated>2016-10-16T07:30:31.000Z</updated>
     
     <content type="html"><![CDATA[<p>在网络的使用中这个是我们比较少关注的一个协议，<br>它是用来查看ip地址和mac地址的对应关系。</p>
 <p>一般情况下网络问题很少出现在这个地方。而且如果查看这个值出现问题的时候，<br>一般是上层的协议出现了问题，或者就是整个网络出现了问题。</p>
@@ -96,11 +122,11 @@
   </entry>
   
   <entry>
-    <title>Apache Openssl</title>
+    <title>Apache实现Openssl握手过程</title>
     <link href="http://yoursite.com/2016/10/16/Apache-Openssl/"/>
     <id>http://yoursite.com/2016/10/16/Apache-Openssl/</id>
     <published>2016-10-16T03:02:17.000Z</published>
-    <updated>2016-10-16T03:05:36.000Z</updated>
+    <updated>2016-10-17T09:15:16.000Z</updated>
     
     <content type="html"><![CDATA[<p>apache在开发的是并不是将所有的东西都是自己实现的，而是采用了各种成熟的库。<br>在使用安全网关的时候，我们不可避免的需要使用 mod_ssl 的模块,而在实现<br>这个模块的时候最重要的就是使用了openssl库。<br>我们比较关注的是apache的网络层的过滤器，ssl的握手过程。</p>
 <p>//todo</p>
@@ -118,11 +144,11 @@
   </entry>
   
   <entry>
-    <title>Apache Info</title>
+    <title>获取Apache信息接口</title>
     <link href="http://yoursite.com/2016/10/16/Apache-Info/"/>
     <id>http://yoursite.com/2016/10/16/Apache-Info/</id>
     <published>2016-10-16T03:02:11.000Z</published>
-    <updated>2016-10-16T03:04:48.000Z</updated>
+    <updated>2016-10-16T07:31:41.000Z</updated>
     
     <content type="html"><![CDATA[<p>在apache的使用中，如果是一个apache代理服务器，并且使用的证书的话，<br>我们不可避免的需要将从前端和证书中的信息传递给后端处理。<br>一般情况下，我们都是将这些信息绑定在http头中，cookie项中，这样后端比较容易处理。</p>
 <p>幸运的是，apache为我们提供了这么一个可选函数，可以任何的一个模块中获取<br>你需要的信息。<br>这个可选函数是在模块 mod_nw_ssl 中定义。</p>
@@ -148,7 +174,7 @@
     </summary>
     
     
-      <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
+      <category term="Tech, Apache" scheme="http://yoursite.com/tags/Tech-Apache/"/>
     
   </entry>
   
@@ -177,11 +203,11 @@
   </entry>
   
   <entry>
-    <title>Timeout</title>
+    <title>Apache 超时设置</title>
     <link href="http://yoursite.com/2016/10/16/Timeout/"/>
     <id>http://yoursite.com/2016/10/16/Timeout/</id>
     <published>2016-10-16T03:01:53.000Z</published>
-    <updated>2016-10-16T03:19:54.000Z</updated>
+    <updated>2016-10-17T09:05:43.000Z</updated>
     
     <content type="html"><![CDATA[<p>在apache的使用过程中，我们可以看到许多的超时设置，<br>因为apache是一个web服务器，所以它的超时是包含底层的超时设置，例如tcp协议的。<br>所以这一篇文档包含http，ssl，tcp等协议的超时设置。</p>
 <ul>
@@ -223,8 +249,6 @@
 </ul>
 </li>
 </ul>
-<p>//todo<br>tcp的所有超时的地方，从第一个 客户端读取 syn ＋ ack 超时，<br>connect 超时<br>响应超时<br>读写超时<br>timewait超时</p>
-<p>超时重传机制<br>哪些会超时，哪些直接发送reset断开连接。</p>
 ]]></content>
     
     <summary type="html">
@@ -235,6 +259,8 @@
     
     </summary>
     
+    
+      <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
     
   </entry>
   
@@ -282,11 +308,11 @@
   </entry>
   
   <entry>
-    <title>PHP Session</title>
+    <title>PHP Session超时设置</title>
     <link href="http://yoursite.com/2016/10/16/PHP-Session/"/>
     <id>http://yoursite.com/2016/10/16/PHP-Session/</id>
     <published>2016-10-16T03:01:02.000Z</published>
-    <updated>2016-10-16T04:28:47.000Z</updated>
+    <updated>2016-10-16T07:30:54.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="PHP控制session的方法"><a href="#PHP控制session的方法" class="headerlink" title="PHP控制session的方法"></a>PHP控制session的方法</h3><p>环境：PHP的session控制使用crond定时检查<br>debian3， ubuntu14.0.4</p>
 <p>PHP的session文件保存在 /var/lib/php5 中，如果是使用cookie保存session的方法，<br>可以在浏览器中查看cookie，查看两个值是不是一样的。<br>如果你手动清除这个文件，登陆页面马上放回到你需要跳转的页面。<br>所以对session时间的控制就是对删除session文件时间的控制。</p>
@@ -383,11 +409,11 @@
   </entry>
   
   <entry>
-    <title>Library</title>
+    <title>Library_20160717</title>
     <link href="http://yoursite.com/2016/10/16/Library/"/>
     <id>http://yoursite.com/2016/10/16/Library/</id>
     <published>2016-10-16T03:00:28.000Z</published>
-    <updated>2016-10-16T03:08:00.000Z</updated>
+    <updated>2016-10-17T10:05:13.000Z</updated>
     
     <content type="html"><![CDATA[<p>忽然明白，你并不是傲娇，你只是自卑而你，<br>你一直在逃避自我，你害怕真实的你，<br>你身处于海上，在一条小船上，你并不是一座孤岛，<br>你只是漂流的一条小船而已。<br>风来，你就吹风，随风而走，<br>雨来，你就在海上写字。<br>你就这样直接地暴露在这个海上，<br>唯一的陪伴就是你的海面的倒影，<br>可是这个只是使你更加的顾影自怜而已。<br>你现在的工作就是从船头走到船尾，然后再由船尾做回船头。</p>
 <p>忽然什么都不想做，就这样毫无目的的敲打着键盘，它会带我到哪里呢？<br>现在像是陷入了一个低谷中一样，看不到希望，明知道自己是一只<br>井底之蛙，却也无法爬出这个绝壁。<br>这只青蛙也许是悲哀的，其他的青蛙都能够很安然的活在这个世界中，<br>从不关心这个天，这个天外有什么？<br>可它偏偏看到一只天鹅飞过，这片天就变得不太一样了。<br>它明知道这片天不只是这么小，因为它看过有天鹅飞过，<br>它看见过的是别的从不在乎的。<br>它们从来就不关心这些。</p>
@@ -402,16 +428,16 @@
     </summary>
     
     
-      <category term="独孤的海上" scheme="http://yoursite.com/tags/%E7%8B%AC%E5%AD%A4%E7%9A%84%E6%B5%B7%E4%B8%8A/"/>
+      <category term="Caprice" scheme="http://yoursite.com/tags/Caprice/"/>
     
   </entry>
   
   <entry>
-    <title>早开的花</title>
+    <title>早开的紫藤</title>
     <link href="http://yoursite.com/2016/10/16/flower/"/>
     <id>http://yoursite.com/2016/10/16/flower/</id>
     <published>2016-10-16T03:00:15.000Z</published>
-    <updated>2016-10-16T04:27:45.000Z</updated>
+    <updated>2016-10-17T09:04:53.000Z</updated>
     
     <content type="html"><![CDATA[<p>四月初，我看见路边的紫藤萝已经开了。<br>这种花开像瀑布一样，倾泻而下，一朵一朵鲜活的像一个个笑容一样，</p>
 <p>可是我们去得太早，花开几多，零零散散。</p>
@@ -460,7 +486,7 @@
     <link href="http://yoursite.com/2016/10/16/Apache-Cache/"/>
     <id>http://yoursite.com/2016/10/16/Apache-Cache/</id>
     <published>2016-10-16T02:59:47.000Z</published>
-    <updated>2016-10-16T04:32:08.000Z</updated>
+    <updated>2016-10-16T07:32:11.000Z</updated>
     
     <content type="html"><![CDATA[<p>apche 提供了cache的功能，能够将应用服务端的资源缓存在apache中，<br>尤其是在apache是代理服务器，原始服务器的物理距离非常远点时候，<br>性能就能够非常好的体现。</p>
 <p>所以此时的网关服务器也可以作为缓存服务器使用。<br>因为公司使用的是apache2.0系列的。<br>所以在它那里发现它只支持URL的strcasecmp匹配。<br>所以匹配所有的URL为 ‘/‘。但是我们希望提供普遍的过滤功能。<br>只缓存 .jpg,.png,.css 等不变的内容。而将经常需要改成的 .html , .js 不缓存。</p>
@@ -475,7 +501,7 @@
     </summary>
     
     
-      <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
+      <category term="Tech, Apache" scheme="http://yoursite.com/tags/Tech-Apache/"/>
     
   </entry>
   
@@ -531,28 +557,6 @@
     
     
       <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Session Ticket</title>
-    <link href="http://yoursite.com/2016/10/16/Session-Ticket/"/>
-    <id>http://yoursite.com/2016/10/16/Session-Ticket/</id>
-    <published>2016-10-16T02:09:15.000Z</published>
-    <updated>2016-10-16T03:15:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>#Session Ticket</p>
-<p>我们经常可以遇到这样的场景，我们希望登录一台设备的时候，<br>在另一台设备上也可以直接登录。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;#Session Ticket&lt;/p&gt;
-&lt;p&gt;我们经常可以遇到这样的场景，我们希望登录一台设备的时候，&lt;br&gt;在另一台设备上也可以直接登录。&lt;/p&gt;
-
-    
-    </summary>
-    
     
   </entry>
   

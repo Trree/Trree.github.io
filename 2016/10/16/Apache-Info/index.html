@@ -4,23 +4,23 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Apache Info | Tree</title>
+  <title>获取Apache信息接口 | Tree</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在apache的使用中，如果是一个apache代理服务器，并且使用的证书的话，我们不可避免的需要将从前端和证书中的信息传递给后端处理。一般情况下，我们都是将这些信息绑定在http头中，cookie项中，这样后端比较容易处理。
 幸运的是，apache为我们提供了这么一个可选函数，可以任何的一个模块中获取你需要的信息。这个可选函数是在模块 mod_nw_ssl 中定义。
 
 APR_REGISTER_O">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Apache Info">
+<meta property="og:title" content="获取Apache信息接口">
 <meta property="og:url" content="http://yoursite.com/2016/10/16/Apache-Info/index.html">
 <meta property="og:site_name" content="Tree">
 <meta property="og:description" content="在apache的使用中，如果是一个apache代理服务器，并且使用的证书的话，我们不可避免的需要将从前端和证书中的信息传递给后端处理。一般情况下，我们都是将这些信息绑定在http头中，cookie项中，这样后端比较容易处理。
 幸运的是，apache为我们提供了这么一个可选函数，可以任何的一个模块中获取你需要的信息。这个可选函数是在模块 mod_nw_ssl 中定义。
 
 APR_REGISTER_O">
-<meta property="og:updated_time" content="2016-10-16T03:04:48.000Z">
+<meta property="og:updated_time" content="2016-10-16T07:31:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Apache Info">
+<meta name="twitter:title" content="获取Apache信息接口">
 <meta name="twitter:description" content="在apache的使用中，如果是一个apache代理服务器，并且使用的证书的话，我们不可避免的需要将从前端和证书中的信息传递给后端处理。一般情况下，我们都是将这些信息绑定在http头中，cookie项中，这样后端比较容易处理。
 幸运的是，apache为我们提供了这么一个可选函数，可以任何的一个模块中获取你需要的信息。这个可选函数是在模块 mod_nw_ssl 中定义。
 
@@ -63,7 +63,7 @@ APR_REGISTER_O">
 	        
 				<li><a href="/tags/Tech">技术博客</a></li>
 	        
-				<li><a href="/tags/Caprice">独孤的海上</a></li>
+				<li><a href="/tags/Caprice">随想录</a></li>
 	        
 			</ul>
 		</nav>
@@ -134,7 +134,7 @@ APR_REGISTER_O">
 		        
 					<li><a href="/tags/Tech">技术博客</a></li>
 		        
-					<li><a href="/tags/Caprice">独孤的海上</a></li>
+					<li><a href="/tags/Caprice">随想录</a></li>
 		        
 				</ul>
 			</nav>
@@ -166,7 +166,7 @@ APR_REGISTER_O">
         
   
     <h1 class="article-title" itemprop="name">
-      Apache Info
+      获取Apache信息接口
     </h1>
   
 
@@ -199,7 +199,7 @@ APR_REGISTER_O">
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech-Apache/">Tech, Apache</a></li></ul>
 	</div>
 
       
@@ -216,7 +216,7 @@ APR_REGISTER_O">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Apache Openssl
+          Apache实现Openssl握手过程
         
       </div>
     </a>
@@ -257,7 +257,7 @@ APR_REGISTER_O">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Apache-Info" data-title="Apache Info" data-url="http://yoursite.com/2016/10/16/Apache-Info/"></div>
+	<div class="ds-thread" data-thread-key="Apache-Info" data-title="获取Apache信息接口" data-url="http://yoursite.com/2016/10/16/Apache-Info/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -336,7 +336,7 @@ APR_REGISTER_O">
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Caprice/" style="font-size: 15px;">Caprice</a> <a href="/tags/Tech/" style="font-size: 20px;">Tech</a> <a href="/tags/独孤的海上/" style="font-size: 10px;">独孤的海上</a>
+    				<a href="/tags/Caprice/" style="font-size: 20px;">Caprice</a> <a href="/tags/Tech/" style="font-size: 16.67px;">Tech</a> <a href="/tags/Tech-Apache/" style="font-size: 13.33px;">Tech, Apache</a> <a href="/tags/Tech-Net/" style="font-size: 10px;">Tech, Net</a>
     			</div>
     	</section>
     
@@ -346,7 +346,9 @@ APR_REGISTER_O">
   		
   			<div class="friends-wrap" id="js-friends">
   			
-  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.physixfan.com/">宇宙的心弦</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.geekonomics10000.com/">学而时嘻之</a>
   	        
   	        </div>
   		

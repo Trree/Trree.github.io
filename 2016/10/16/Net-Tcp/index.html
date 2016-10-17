@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Net Tcp | Tree</title>
+  <title>自述Tcp超时与重传 | Tree</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="将tcp的超时与重传的文档太多了，我也是从tcp/ip详解这本书上学习了。所以如果你对这个不熟悉，希望你先看书，不然基于我自己的理解，很容易让人误解。但是如果有大神，如果有什么写错，或者理解错误的东西，希望指出，不胜感激。
-//todo">
+tcp的超时设置是为了防止网络问题和节省时间之间的一个平衡，如果不设置超时，当一个ack没有获取，那么此时直接返回网络错误。重传是为了防止偶然的网络问题。超时的时间间隔大部分都">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Net Tcp">
+<meta property="og:title" content="自述Tcp超时与重传">
 <meta property="og:url" content="http://yoursite.com/2016/10/16/Net-Tcp/index.html">
 <meta property="og:site_name" content="Tree">
 <meta property="og:description" content="将tcp的超时与重传的文档太多了，我也是从tcp/ip详解这本书上学习了。所以如果你对这个不熟悉，希望你先看书，不然基于我自己的理解，很容易让人误解。但是如果有大神，如果有什么写错，或者理解错误的东西，希望指出，不胜感激。
-//todo">
-<meta property="og:updated_time" content="2016-10-16T03:08:35.000Z">
+tcp的超时设置是为了防止网络问题和节省时间之间的一个平衡，如果不设置超时，当一个ack没有获取，那么此时直接返回网络错误。重传是为了防止偶然的网络问题。超时的时间间隔大部分都">
+<meta property="og:updated_time" content="2016-10-16T07:38:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Net Tcp">
+<meta name="twitter:title" content="自述Tcp超时与重传">
 <meta name="twitter:description" content="将tcp的超时与重传的文档太多了，我也是从tcp/ip详解这本书上学习了。所以如果你对这个不熟悉，希望你先看书，不然基于我自己的理解，很容易让人误解。但是如果有大神，如果有什么写错，或者理解错误的东西，希望指出，不胜感激。
-//todo">
+tcp的超时设置是为了防止网络问题和节省时间之间的一个平衡，如果不设置超时，当一个ack没有获取，那么此时直接返回网络错误。重传是为了防止偶然的网络问题。超时的时间间隔大部分都">
   
     <link rel="alternative" href="/atom.xml" title="Tree" type="application/atom+xml">
   
@@ -57,7 +57,7 @@
 	        
 				<li><a href="/tags/Tech">技术博客</a></li>
 	        
-				<li><a href="/tags/Caprice">独孤的海上</a></li>
+				<li><a href="/tags/Caprice">随想录</a></li>
 	        
 			</ul>
 		</nav>
@@ -128,7 +128,7 @@
 		        
 					<li><a href="/tags/Tech">技术博客</a></li>
 		        
-					<li><a href="/tags/Caprice">独孤的海上</a></li>
+					<li><a href="/tags/Caprice">随想录</a></li>
 		        
 				</ul>
 			</nav>
@@ -160,7 +160,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Net Tcp
+      自述Tcp超时与重传
     </h1>
   
 
@@ -169,7 +169,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>将tcp的超时与重传的文档太多了，我也是从tcp/ip详解这本书上学习了。所以如果你对这个不熟悉，<br>希望你先看书，不然基于我自己的理解，很容易让人误解。<br>但是如果有大神，如果有什么写错，或者理解错误的东西，希望指出，不胜感激。</p>
-<p>//todo</p>
+<p>tcp的超时设置是为了防止网络问题和节省时间之间的一个平衡，<br>如果不设置超时，当一个ack没有获取，那么此时直接返回网络错误。<br>重传是为了防止偶然的网络问题。超时的时间间隔大部分都是指数间隔，<br>而不是线性的。</p>
+<p>tcp的所有超时的地方，从第一个客户端读取 syn ＋ ack 超时，<br>超时与重传<br>connect 超时<br>响应超时<br>读写超时<br>timewait超时</p>
+<p>超时重传机制<br>哪些会超时，哪些直接发送reset断开连接或者超时多长。</p>
 
       
     </div>
@@ -181,7 +183,7 @@
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech-Net/">Tech, Net</a></li></ul>
 	</div>
 
       
@@ -205,7 +207,7 @@
   
   
     <a href="/2016/10/16/Net-arp/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Net arp</div>
+      <div class="article-nav-title">一个偶然的arp网络错误</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -239,7 +241,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Net-Tcp" data-title="Net Tcp" data-url="http://yoursite.com/2016/10/16/Net-Tcp/"></div>
+	<div class="ds-thread" data-thread-key="Net-Tcp" data-title="自述Tcp超时与重传" data-url="http://yoursite.com/2016/10/16/Net-Tcp/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -318,7 +320,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Caprice/" style="font-size: 15px;">Caprice</a> <a href="/tags/Tech/" style="font-size: 20px;">Tech</a> <a href="/tags/独孤的海上/" style="font-size: 10px;">独孤的海上</a>
+    				<a href="/tags/Caprice/" style="font-size: 20px;">Caprice</a> <a href="/tags/Tech/" style="font-size: 16.67px;">Tech</a> <a href="/tags/Tech-Apache/" style="font-size: 13.33px;">Tech, Apache</a> <a href="/tags/Tech-Net/" style="font-size: 10px;">Tech, Net</a>
     			</div>
     	</section>
     
@@ -328,7 +330,9 @@
   		
   			<div class="friends-wrap" id="js-friends">
   			
-  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.physixfan.com/">宇宙的心弦</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.geekonomics10000.com/">学而时嘻之</a>
   	        
   	        </div>
   		

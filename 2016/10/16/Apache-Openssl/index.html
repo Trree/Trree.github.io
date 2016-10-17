@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Apache Openssl | Tree</title>
+  <title>Apache实现Openssl握手过程 | Tree</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="apache在开发的是并不是将所有的东西都是自己实现的，而是采用了各种成熟的库。在使用安全网关的时候，我们不可避免的需要使用 mod_ssl 的模块,而在实现这个模块的时候最重要的就是使用了openssl库。我们比较关注的是apache的网络层的过滤器，ssl的握手过程。
 //todo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Apache Openssl">
+<meta property="og:title" content="Apache实现Openssl握手过程">
 <meta property="og:url" content="http://yoursite.com/2016/10/16/Apache-Openssl/index.html">
 <meta property="og:site_name" content="Tree">
 <meta property="og:description" content="apache在开发的是并不是将所有的东西都是自己实现的，而是采用了各种成熟的库。在使用安全网关的时候，我们不可避免的需要使用 mod_ssl 的模块,而在实现这个模块的时候最重要的就是使用了openssl库。我们比较关注的是apache的网络层的过滤器，ssl的握手过程。
 //todo">
-<meta property="og:updated_time" content="2016-10-16T03:05:36.000Z">
+<meta property="og:updated_time" content="2016-10-17T09:15:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Apache Openssl">
+<meta name="twitter:title" content="Apache实现Openssl握手过程">
 <meta name="twitter:description" content="apache在开发的是并不是将所有的东西都是自己实现的，而是采用了各种成熟的库。在使用安全网关的时候，我们不可避免的需要使用 mod_ssl 的模块,而在实现这个模块的时候最重要的就是使用了openssl库。我们比较关注的是apache的网络层的过滤器，ssl的握手过程。
 //todo">
   
@@ -57,7 +57,7 @@
 	        
 				<li><a href="/tags/Tech">技术博客</a></li>
 	        
-				<li><a href="/tags/Caprice">独孤的海上</a></li>
+				<li><a href="/tags/Caprice">随想录</a></li>
 	        
 			</ul>
 		</nav>
@@ -128,7 +128,7 @@
 		        
 					<li><a href="/tags/Tech">技术博客</a></li>
 		        
-					<li><a href="/tags/Caprice">独孤的海上</a></li>
+					<li><a href="/tags/Caprice">随想录</a></li>
 		        
 				</ul>
 			</nav>
@@ -160,7 +160,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Apache Openssl
+      Apache实现Openssl握手过程
     </h1>
   
 
@@ -198,14 +198,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Net arp
+          一个偶然的arp网络错误
         
       </div>
     </a>
   
   
     <a href="/2016/10/16/Apache-Info/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Apache Info</div>
+      <div class="article-nav-title">获取Apache信息接口</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -239,7 +239,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Apache-Openssl" data-title="Apache Openssl" data-url="http://yoursite.com/2016/10/16/Apache-Openssl/"></div>
+	<div class="ds-thread" data-thread-key="Apache-Openssl" data-title="Apache实现Openssl握手过程" data-url="http://yoursite.com/2016/10/16/Apache-Openssl/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -318,7 +318,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Caprice/" style="font-size: 15px;">Caprice</a> <a href="/tags/Tech/" style="font-size: 20px;">Tech</a> <a href="/tags/独孤的海上/" style="font-size: 10px;">独孤的海上</a>
+    				<a href="/tags/Caprice/" style="font-size: 20px;">Caprice</a> <a href="/tags/Tech/" style="font-size: 16.67px;">Tech</a> <a href="/tags/Tech-Apache/" style="font-size: 13.33px;">Tech, Apache</a> <a href="/tags/Tech-Net/" style="font-size: 10px;">Tech, Net</a>
     			</div>
     	</section>
     
@@ -328,7 +328,9 @@
   		
   			<div class="friends-wrap" id="js-friends">
   			
-  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.physixfan.com/">宇宙的心弦</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.geekonomics10000.com/">学而时嘻之</a>
   	        
   	        </div>
   		

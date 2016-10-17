@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Timeout | Tree</title>
+  <title>Apache 超时设置 | Tree</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在apache的使用过程中，我们可以看到许多的超时设置，因为apache是一个web服务器，所以它的超时是包含底层的超时设置，例如tcp协议的。所以这一篇文档包含http，ssl，tcp等协议的超时设置。
 
@@ -12,7 +12,7 @@ timeout tcp读写超时(wait_for_io_or_timeout)
 
 t &amp;gt; 0  – read and write calls return APR_TIMEUP if s">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Timeout">
+<meta property="og:title" content="Apache 超时设置">
 <meta property="og:url" content="http://yoursite.com/2016/10/16/Timeout/index.html">
 <meta property="og:site_name" content="Tree">
 <meta property="og:description" content="在apache的使用过程中，我们可以看到许多的超时设置，因为apache是一个web服务器，所以它的超时是包含底层的超时设置，例如tcp协议的。所以这一篇文档包含http，ssl，tcp等协议的超时设置。
@@ -20,9 +20,9 @@ t &amp;gt; 0  – read and write calls return APR_TIMEUP if s">
 timeout tcp读写超时(wait_for_io_or_timeout)
 
 t &amp;gt; 0  – read and write calls return APR_TIMEUP if s">
-<meta property="og:updated_time" content="2016-10-16T03:19:54.000Z">
+<meta property="og:updated_time" content="2016-10-17T09:05:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Timeout">
+<meta name="twitter:title" content="Apache 超时设置">
 <meta name="twitter:description" content="在apache的使用过程中，我们可以看到许多的超时设置，因为apache是一个web服务器，所以它的超时是包含底层的超时设置，例如tcp协议的。所以这一篇文档包含http，ssl，tcp等协议的超时设置。
 
 timeout tcp读写超时(wait_for_io_or_timeout)
@@ -66,7 +66,7 @@ t &amp;gt; 0  – read and write calls return APR_TIMEUP if s">
 	        
 				<li><a href="/tags/Tech">技术博客</a></li>
 	        
-				<li><a href="/tags/Caprice">独孤的海上</a></li>
+				<li><a href="/tags/Caprice">随想录</a></li>
 	        
 			</ul>
 		</nav>
@@ -137,7 +137,7 @@ t &amp;gt; 0  – read and write calls return APR_TIMEUP if s">
 		        
 					<li><a href="/tags/Tech">技术博客</a></li>
 		        
-					<li><a href="/tags/Caprice">独孤的海上</a></li>
+					<li><a href="/tags/Caprice">随想录</a></li>
 		        
 				</ul>
 			</nav>
@@ -169,7 +169,7 @@ t &amp;gt; 0  – read and write calls return APR_TIMEUP if s">
         
   
     <h1 class="article-title" itemprop="name">
-      Timeout
+      Apache 超时设置
     </h1>
   
 
@@ -217,8 +217,6 @@ t &amp;gt; 0  – read and write calls return APR_TIMEUP if s">
 </ul>
 </li>
 </ul>
-<p>//todo<br>tcp的所有超时的地方，从第一个 客户端读取 syn ＋ ack 超时，<br>connect 超时<br>响应超时<br>读写超时<br>timewait超时</p>
-<p>超时重传机制<br>哪些会超时，哪些直接发送reset断开连接。</p>
 
       
     </div>
@@ -228,6 +226,11 @@ t &amp;gt; 0  – read and write calls return APR_TIMEUP if s">
   	<time datetime="2016-10-16T03:01:53.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
 </a>
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
+	</div>
+
       
 
       <div class="clearfix"></div>
@@ -283,7 +286,7 @@ t &amp;gt; 0  – read and write calls return APR_TIMEUP if s">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Timeout" data-title="Timeout" data-url="http://yoursite.com/2016/10/16/Timeout/"></div>
+	<div class="ds-thread" data-thread-key="Timeout" data-title="Apache 超时设置" data-url="http://yoursite.com/2016/10/16/Timeout/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -362,7 +365,7 @@ t &amp;gt; 0  – read and write calls return APR_TIMEUP if s">
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Caprice/" style="font-size: 15px;">Caprice</a> <a href="/tags/Tech/" style="font-size: 20px;">Tech</a> <a href="/tags/独孤的海上/" style="font-size: 10px;">独孤的海上</a>
+    				<a href="/tags/Caprice/" style="font-size: 20px;">Caprice</a> <a href="/tags/Tech/" style="font-size: 16.67px;">Tech</a> <a href="/tags/Tech-Apache/" style="font-size: 13.33px;">Tech, Apache</a> <a href="/tags/Tech-Net/" style="font-size: 10px;">Tech, Net</a>
     			</div>
     	</section>
     
@@ -372,7 +375,9 @@ t &amp;gt; 0  – read and write calls return APR_TIMEUP if s">
   		
   			<div class="friends-wrap" id="js-friends">
   			
-  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.physixfan.com/">宇宙的心弦</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.geekonomics10000.com/">学而时嘻之</a>
   	        
   	        </div>
   		
