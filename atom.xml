@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-17T12:33:09.000Z</updated>
+  <updated>2016-10-22T13:18:51.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,101 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深秋</title>
+    <link href="http://yoursite.com/2016/10/22/last-Fall/"/>
+    <id>http://yoursite.com/2016/10/22/last-Fall/</id>
+    <published>2016-10-22T09:28:47.000Z</published>
+    <updated>2016-10-22T13:18:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>北方的气温已经降了下来，有必要套一件大衣了。<br>南方开始下雨，连门都出不了，不然就要拖着一身的风雨回来了。<br>深秋时节最美，这是生命的大繁华的时刻。<br>不宽的水泥地，青色的矮墙，燃烧的银杏树，点燃金色的光芒，虽是下午，但是前方布满薄雾。显得非常的深远。<br>雨巷还是随处可见，丁香一样的姑娘早已经离去，雨水依然滴答这石板。<br>秋天是一个收获的季节。<br>桔树，葡萄树经过一个夏天的生长，现在人们欣喜的把果子采摘下来，成为了人们口中甜美的美食。</p>
+<p>深秋了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;北方的气温已经降了下来，有必要套一件大衣了。&lt;br&gt;南方开始下雨，连门都出不了，不然就要拖着一身的风雨回来了。&lt;br&gt;深秋时节最美，这是生命的大繁华的时刻。&lt;br&gt;不宽的水泥地，青色的矮墙，燃烧的银杏树，点燃金色的光芒，虽是下午，但是前方布满薄雾。显得非常的深远。&lt;br&gt;雨
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>如何做读书笔记</title>
+    <link href="http://yoursite.com/2016/10/20/read-note/"/>
+    <id>http://yoursite.com/2016/10/20/read-note/</id>
+    <published>2016-10-20T09:43:09.000Z</published>
+    <updated>2016-10-20T09:43:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>//todo</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;//todo&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+      <category term="Tool" scheme="http://yoursite.com/tags/Tool/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《黑客与画家》读书笔记</title>
+    <link href="http://yoursite.com/2016/10/20/geeker-and-drawer/"/>
+    <id>http://yoursite.com/2016/10/20/geeker-and-drawer/</id>
+    <published>2016-10-20T09:38:30.000Z</published>
+    <updated>2016-10-20T10:10:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="程序与艺术的区别"><a href="#程序与艺术的区别" class="headerlink" title="程序与艺术的区别"></a>程序与艺术的区别</h3><p>杜尚在一次美国举办的关于艺术品的参展中，展示了一件从<br>市场中随处可见的小孩子的便池。如果人问：什么是艺术，<br>那么这个参展的便池是艺术吗？既然参展，那么既然这个<br>是艺术，那么还有什么不是艺术呢？<br>艺术现在已经不是庙堂之高了。</p>
+<p>在书中作者讨论的是比较高端的程序员（黑客），但是<br>想想非常大众的程序员。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;程序与艺术的区别&quot;&gt;&lt;a href=&quot;#程序与艺术的区别&quot; class=&quot;headerlink&quot; title=&quot;程序与艺术的区别&quot;&gt;&lt;/a&gt;程序与艺术的区别&lt;/h3&gt;&lt;p&gt;杜尚在一次美国举办的关于艺术品的参展中，展示了一件从&lt;br&gt;市场中随处可见的小孩子的便池。如
+    
+    </summary>
+    
+    
+      <category term="Tool" scheme="http://yoursite.com/tags/Tool/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自测网关安全性</title>
+    <link href="http://yoursite.com/2016/10/20/gateway-s-safe/"/>
+    <id>http://yoursite.com/2016/10/20/gateway-s-safe/</id>
+    <published>2016-10-20T09:28:16.000Z</published>
+    <updated>2016-10-20T09:35:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>网关的主要作用是转换原B/S，C/S系统的协议，将原来未加密的协议转换成加密的协议。<br>在这里网关将未加密的HTTP协议或者TCP协议转换成SSL协议。<br>任何一个增加的系统都会增加安全性的问题，作为一款加密产品，那么它更应该注重自生的安全性问题。</p>
+<ul>
+<li>IP和端口扫描(nmap，netcat)</li>
+<li>对访问用户压测，看看有大量用户访问时是否会断开连接(burpsuit, ab, loadrunner)</li>
+<li>查看每一个连接中的关键数据是否加密</li>
+<li>传输的数据是否加密</li>
+<li>对文件上传和下载是否满足用户权限的要求，是否保护</li>
+<li>对shell和sql是否防止注入</li>
+<li>对网关的系统和服务器进行安全性扫描</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;网关的主要作用是转换原B/S，C/S系统的协议，将原来未加密的协议转换成加密的协议。&lt;br&gt;在这里网关将未加密的HTTP协议或者TCP协议转换成SSL协议。&lt;br&gt;任何一个增加的系统都会增加安全性的问题，作为一款加密产品，那么它更应该注重自生的安全性问题。&lt;/p&gt;
+&lt;ul&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
+    
+  </entry>
   
   <entry>
     <title>一个叫天南，一个叫地北</title>
@@ -451,110 +546,6 @@
     
     
       <category term="Caprice" scheme="http://yoursite.com/tags/Caprice/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SSL Session</title>
-    <link href="http://yoursite.com/2016/10/16/SSL-Session/"/>
-    <id>http://yoursite.com/2016/10/16/SSL-Session/</id>
-    <published>2016-10-16T03:00:00.000Z</published>
-    <updated>2016-10-16T03:14:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。<br>因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，<br>在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在<br>这中间必须要传递证书确定身份。</p>
-<p>为了在安全和性能之间寻找一个平衡点，SSL Session 是解决这个问题的一个方法。<br>SSL Session的安全性是建立在必需要获取整个 Session ，只是获取明文传输的的<br>Session ID 是无法握手成功的，Session是缓存在客户端中，要窃取客户端的Session<br>是非常困难的。</p>
-<p>在apache中实现了对SSL Session的回调，<br>在apache的post_config的SSL_init_Modules 中回调</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SSL_CTX_sess_set_new_cb(ctx,    ssl_callback_NewSessionCacheEntry);</div><div class="line">SSL_CTX_sess_set_get_cb(ctx,    ssl_callback_GetSessionCacheEntry);</div><div class="line">SSL_CTX_sess_set_remove_cb(ctx, ssl_callback_DelSessionCacheEntry);</div></pre></td></tr></table></figure>
-<p>这个回调函数在 SSL_CTX 中,</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。&lt;br&gt;因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，&lt;br&gt;在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在&lt;br&gt;这中间必须要传递证书确定身份
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Apache Cache</title>
-    <link href="http://yoursite.com/2016/10/16/Apache-Cache/"/>
-    <id>http://yoursite.com/2016/10/16/Apache-Cache/</id>
-    <published>2016-10-16T02:59:47.000Z</published>
-    <updated>2016-10-16T07:32:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>apche 提供了cache的功能，能够将应用服务端的资源缓存在apache中，<br>尤其是在apache是代理服务器，原始服务器的物理距离非常远点时候，<br>性能就能够非常好的体现。</p>
-<p>所以此时的网关服务器也可以作为缓存服务器使用。<br>因为公司使用的是apache2.0系列的。<br>所以在它那里发现它只支持URL的strcasecmp匹配。<br>所以匹配所有的URL为 ‘/‘。但是我们希望提供普遍的过滤功能。<br>只缓存 .jpg,.png,.css 等不变的内容。而将经常需要改成的 .html , .js 不缓存。</p>
-<p>所以我们的方案是在 cacheenable 中增加一个可变参数，正则配置的参数。<br>当正则匹配存在的时候，只使用正则批准，如果不存在，则使用原来的<br>url的匹配。保证与原2.0的兼容性。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;apche 提供了cache的功能，能够将应用服务端的资源缓存在apache中，&lt;br&gt;尤其是在apache是代理服务器，原始服务器的物理距离非常远点时候，&lt;br&gt;性能就能够非常好的体现。&lt;/p&gt;
-&lt;p&gt;所以此时的网关服务器也可以作为缓存服务器使用。&lt;br&gt;因为公司使用的是
-    
-    </summary>
-    
-    
-      <category term="Tech, Apache" scheme="http://yoursite.com/tags/Tech-Apache/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>薛定谔的猫</title>
-    <link href="http://yoursite.com/2016/10/16/Schrodinger-s-cat/"/>
-    <id>http://yoursite.com/2016/10/16/Schrodinger-s-cat/</id>
-    <published>2016-10-16T02:22:29.000Z</published>
-    <updated>2016-10-16T04:32:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>量子力学中，有一只神奇的猫，是薛定谔的猫。<br>在一个盒子里有一只猫，以及少量放射性物质。在一小时内，大约有50%的概率放射性物质将会衰变并释放出毒气杀死这只猫，剩50%的概率是放射性物质不会衰变而猫将活下来。<br>我们这个世界时间是一维的，所以我们只能看到一维的结果，可是它存在两种可能，而且两种可能发生的概率是一样的。<br>一维的时间我们只能看到一种可能，但不能因为我们看不到另外一种可能而否定它的存在，它就存在在那里。只是你无法感受。<br>世界是无数个平行世界叠加统计的结果，如果将这个世界分散出去，在同一个结果中蕴含了无数中可能。<br>平行世界的我现在一定还在419办公室，手里看着最新下载的论文，琢磨着作者想要表达什么，他在什么地方创新了，我从他这里又学到了什么，得到什么新的想法。<br>平行世界的我一定还在计算我们到底有多少个平行世界？我该怎么用 ergodic hypothesis 证明平行世界，怎样将系综理论与平行世界联系起来考虑呢？<br>平行世界的我一定看不到现在我，他怎么会去想呢？他也一定想不到。他只关心如何用热力学与统计物理的角度去证明平行世界，又怎么会在乎其他事情呢？<br>超越时间的存在。<br>我将所有的我重叠在同一时刻，他们是一条确定的轨迹。他们是如此的熟悉。可是如果将平行世界加入，这个世界就变得如此的庞杂。那一个平行世界的我是如此的陌生，我们之间也是如此的陌生。</p>
-<p>在某一刻，我仿佛回到了过去，无数个我坐在我的旁边，我看着他们，他们都很冷淡的看着我。他们不明白我心里的热切。<br>我又走到平行世界的我那里，那里的我是如此的截然不同。他们拥有不同的人生，截然不同的轨迹。</p>
-<p>在那一刻，觉得世界美好有趣极了，我可以跟平行世界的我谈话，跟不同成长时段的我谈话，听我讲故事，听他们讲我遗忘的事情，讲我从未经历但确实经历过的事情。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;量子力学中，有一只神奇的猫，是薛定谔的猫。&lt;br&gt;在一个盒子里有一只猫，以及少量放射性物质。在一小时内，大约有50%的概率放射性物质将会衰变并释放出毒气杀死这只猫，剩50%的概率是放射性物质不会衰变而猫将活下来。&lt;br&gt;我们这个世界时间是一维的，所以我们只能看到一维的结果，
-    
-    </summary>
-    
-    
-      <category term="Caprice" scheme="http://yoursite.com/tags/Caprice/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>工具</title>
-    <link href="http://yoursite.com/2016/10/16/Tools/"/>
-    <id>http://yoursite.com/2016/10/16/Tools/</id>
-    <published>2016-10-16T02:18:19.000Z</published>
-    <updated>2016-10-16T04:33:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>都说好的工具是成功的一半，并且好的工具对提升效率有非常大的帮助，所以在这里推荐一啊下好玩的工具。</p>
-<ul>
-<li>zeal(Mac dash) API 查看工具</li>
-<li>typrora        makrdown所见即所得工具</li>
-<li>launch         快速启动工具</li>
-<li>everything     快速文档搜索工具</li>
-<li>bash on-my-zsh</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;都说好的工具是成功的一半，并且好的工具对提升效率有非常大的帮助，所以在这里推荐一啊下好玩的工具。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;zeal(Mac dash) API 查看工具&lt;/li&gt;
-&lt;li&gt;typrora        makrdown所见即所得工具&lt;/li&gt;
-&lt;li&gt;la
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
     
   </entry>
   

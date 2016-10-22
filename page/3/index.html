@@ -148,6 +148,221 @@
       <div class="body-wrap">
         
   
+    <article id="post-SSL-Session" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/16/SSL-Session/">SSL Session</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。<br>因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，<br>在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在<br>这中间必须要传递证书确定身份。</p>
+<p>为了在安全和性能之间寻找一个平衡点，SSL Session 是解决这个问题的一个方法。<br>SSL Session的安全性是建立在必需要获取整个 Session ，只是获取明文传输的的<br>Session ID 是无法握手成功的，Session是缓存在客户端中，要窃取客户端的Session<br>是非常困难的。</p>
+<p>在apache中实现了对SSL Session的回调，<br>在apache的post_config的SSL_init_Modules 中回调</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SSL_CTX_sess_set_new_cb(ctx,    ssl_callback_NewSessionCacheEntry);</div><div class="line">SSL_CTX_sess_set_get_cb(ctx,    ssl_callback_GetSessionCacheEntry);</div><div class="line">SSL_CTX_sess_set_remove_cb(ctx, ssl_callback_DelSessionCacheEntry);</div></pre></td></tr></table></figure>
+<p>这个回调函数在 SSL_CTX 中,</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/16/SSL-Session/" class="archive-article-date">
+  	<time datetime="2016-10-16T03:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Apache-Cache" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/16/Apache-Cache/">Apache Cache</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>apche 提供了cache的功能，能够将应用服务端的资源缓存在apache中，<br>尤其是在apache是代理服务器，原始服务器的物理距离非常远点时候，<br>性能就能够非常好的体现。</p>
+<p>所以此时的网关服务器也可以作为缓存服务器使用。<br>因为公司使用的是apache2.0系列的。<br>所以在它那里发现它只支持URL的strcasecmp匹配。<br>所以匹配所有的URL为 ‘/‘。但是我们希望提供普遍的过滤功能。<br>只缓存 .jpg,.png,.css 等不变的内容。而将经常需要改成的 .html , .js 不缓存。</p>
+<p>所以我们的方案是在 cacheenable 中增加一个可变参数，正则配置的参数。<br>当正则匹配存在的时候，只使用正则批准，如果不存在，则使用原来的<br>url的匹配。保证与原2.0的兼容性。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/16/Apache-Cache/" class="archive-article-date">
+  	<time datetime="2016-10-16T02:59:47.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech-Apache/">Tech, Apache</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Schrodinger-s-cat" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/16/Schrodinger-s-cat/">薛定谔的猫</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>量子力学中，有一只神奇的猫，是薛定谔的猫。<br>在一个盒子里有一只猫，以及少量放射性物质。在一小时内，大约有50%的概率放射性物质将会衰变并释放出毒气杀死这只猫，剩50%的概率是放射性物质不会衰变而猫将活下来。<br>我们这个世界时间是一维的，所以我们只能看到一维的结果，可是它存在两种可能，而且两种可能发生的概率是一样的。<br>一维的时间我们只能看到一种可能，但不能因为我们看不到另外一种可能而否定它的存在，它就存在在那里。只是你无法感受。<br>世界是无数个平行世界叠加统计的结果，如果将这个世界分散出去，在同一个结果中蕴含了无数中可能。<br>平行世界的我现在一定还在419办公室，手里看着最新下载的论文，琢磨着作者想要表达什么，他在什么地方创新了，我从他这里又学到了什么，得到什么新的想法。<br>平行世界的我一定还在计算我们到底有多少个平行世界？我该怎么用 ergodic hypothesis 证明平行世界，怎样将系综理论与平行世界联系起来考虑呢？<br>平行世界的我一定看不到现在我，他怎么会去想呢？他也一定想不到。他只关心如何用热力学与统计物理的角度去证明平行世界，又怎么会在乎其他事情呢？<br>超越时间的存在。<br>我将所有的我重叠在同一时刻，他们是一条确定的轨迹。他们是如此的熟悉。可是如果将平行世界加入，这个世界就变得如此的庞杂。那一个平行世界的我是如此的陌生，我们之间也是如此的陌生。</p>
+<p>在某一刻，我仿佛回到了过去，无数个我坐在我的旁边，我看着他们，他们都很冷淡的看着我。他们不明白我心里的热切。<br>我又走到平行世界的我那里，那里的我是如此的截然不同。他们拥有不同的人生，截然不同的轨迹。</p>
+<p>在那一刻，觉得世界美好有趣极了，我可以跟平行世界的我谈话，跟不同成长时段的我谈话，听我讲故事，听他们讲我遗忘的事情，讲我从未经历但确实经历过的事情。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/16/Schrodinger-s-cat/" class="archive-article-date">
+  	<time datetime="2016-10-16T02:22:29.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Caprice/">Caprice</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Tools" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/16/Tools/">工具</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>都说好的工具是成功的一半，并且好的工具对提升效率有非常大的帮助，所以在这里推荐一啊下好玩的工具。</p>
+<ul>
+<li>zeal(Mac dash) API 查看工具</li>
+<li>typrora        makrdown所见即所得工具</li>
+<li>launch         快速启动工具</li>
+<li>everything     快速文档搜索工具</li>
+<li>bash on-my-zsh</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/16/Tools/" class="archive-article-date">
+  	<time datetime="2016-10-16T02:18:19.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Session-Ticket" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -311,7 +526,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Caprice/" style="font-size: 20px;">Caprice</a> <a href="/tags/Tech/" style="font-size: 16.67px;">Tech</a> <a href="/tags/Tech-Apache/" style="font-size: 13.33px;">Tech, Apache</a> <a href="/tags/Tech-Net/" style="font-size: 10px;">Tech, Net</a>
+    				<a href="/tags/Caprice/" style="font-size: 20px;">Caprice</a> <a href="/tags/Tech/" style="font-size: 16.67px;">Tech</a> <a href="/tags/Tech-Apache/" style="font-size: 13.33px;">Tech, Apache</a> <a href="/tags/Tech-Net/" style="font-size: 10px;">Tech, Net</a> <a href="/tags/Tool/" style="font-size: 13.33px;">Tool</a>
     			</div>
     	</section>
     
