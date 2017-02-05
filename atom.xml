@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-06T07:59:18.000Z</updated>
+  <updated>2017-02-05T14:39:03.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>技术支持过程优化</title>
+    <link href="http://yoursite.com/2017/02/05/ask-question/"/>
+    <id>http://yoursite.com/2017/02/05/ask-question/</id>
+    <published>2017-02-05T14:39:03.000Z</published>
+    <updated>2017-02-05T14:39:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>在问问题之前不需要问在不在，一般上班时间并且头像是亮着的话人是在的。</li>
+<li>这个项目的背景是怎样的？问题是在什么时候产生的，是在部署的时候还是网关在运行的时候产生的，如果是网关在运行的时候产生的，那么在之前有没有进行过什么操作。需要能够描述问题产生原因。而不是只是描述一个结果。</li>
+<li>问题能否重现，重现的方法是什么，如果不能重现，说明不能重现的理由。（在自己电脑中使用虚拟机搭建网关的环境）</li>
+<li>提供网关的版本号，升级包记录等相关信息。</li>
+<li>需要时要能够使用tcpdump到网关后台抓包。平时需要学会使用tcpdump和wireshare等简单的工具。</li>
+<li>简单的学会一些linux的命令行，vim等操作。</li>
+<li>问问题之前先参考wiki或者FAQ上是否存在类似的问题。</li>
+<li>学会怎么问问题。提供以上信息，并且能够一次性把问题描述清楚。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;在问问题之前不需要问在不在，一般上班时间并且头像是亮着的话人是在的。&lt;/li&gt;
+&lt;li&gt;这个项目的背景是怎样的？问题是在什么时候产生的，是在部署的时候还是网关在运行的时候产生的，如果是网关在运行的时候产生的，那么在之前有没有进行过什么操作。需要能够描述问题产生原
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>重复</title>
+    <link href="http://yoursite.com/2017/02/05/repetition-work/"/>
+    <id>http://yoursite.com/2017/02/05/repetition-work/</id>
+    <published>2017-02-05T14:36:33.000Z</published>
+    <updated>2017-02-05T14:36:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>想想你去年重复了哪些工作，哪些工作占用了你的大量时间，<br>技术支持的时候是对方没有描述清楚问题，还是自己没有理解好问题。<br>是对方在现场操作太慢，还是自己提供的文档不够齐全。</p>
+<p>在工作的时候哪些场景会让你不开心，不开心的原因是什么，<br>是因为事情本身，还是这种交互之间占据了太多时间，是对方的原因，还是自己没有讲清楚的原因。</p>
+<p>什么场景下你会感到非常的烦躁，是因为工作事情本身的原因，<br>还是没有休息好的原因。</p>
+<p>什么东西会影响你工作的效率，突然的电话的打扰，消息，邮箱的打扰。<br>身边同事的打扰，什么打扰你可以忍受，什么打扰你不可以忍受。<br>什么东西会促进你的工作效率，在工作的时候听音乐可以促进你的工作效率吗？<br>在什么情况下你需要音乐去促进你的效率。<br>还有什么硬件或者软件可以促进你的效率，你有争取去改进你的原有的什么方式吗？</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;想想你去年重复了哪些工作，哪些工作占用了你的大量时间，&lt;br&gt;技术支持的时候是对方没有描述清楚问题，还是自己没有理解好问题。&lt;br&gt;是对方在现场操作太慢，还是自己提供的文档不够齐全。&lt;/p&gt;
+&lt;p&gt;在工作的时候哪些场景会让你不开心，不开心的原因是什么，&lt;br&gt;是因为事情本身
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
+    
+  </entry>
   
   <entry>
     <title>人头马身</title>
@@ -543,55 +600,6 @@
     
     
       <category term="Caprice" scheme="http://yoursite.com/tags/Caprice/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>早开的紫藤</title>
-    <link href="http://yoursite.com/2016/10/16/flower/"/>
-    <id>http://yoursite.com/2016/10/16/flower/</id>
-    <published>2016-10-16T03:00:15.000Z</published>
-    <updated>2016-12-10T06:32:06.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>四月初，我看见路边的紫藤萝已经开了。<br>这种花开像瀑布一样，倾泻而下，一朵一朵鲜活的像一个个笑容一样，</p>
-<p>可是我们去得太早，花开几多，零零散散。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;四月初，我看见路边的紫藤萝已经开了。&lt;br&gt;这种花开像瀑布一样，倾泻而下，一朵一朵鲜活的像一个个笑容一样，&lt;/p&gt;
-&lt;p&gt;可是我们去得太早，花开几多，零零散散。&lt;/p&gt;
-
-    
-    </summary>
-    
-    
-      <category term="Caprice" scheme="http://yoursite.com/tags/Caprice/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SSL Session</title>
-    <link href="http://yoursite.com/2016/10/16/SSL-Session/"/>
-    <id>http://yoursite.com/2016/10/16/SSL-Session/</id>
-    <published>2016-10-16T03:00:00.000Z</published>
-    <updated>2016-10-16T03:14:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。<br>因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，<br>在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在<br>这中间必须要传递证书确定身份。</p>
-<p>为了在安全和性能之间寻找一个平衡点，SSL Session 是解决这个问题的一个方法。<br>SSL Session的安全性是建立在必需要获取整个 Session ，只是获取明文传输的的<br>Session ID 是无法握手成功的，Session是缓存在客户端中，要窃取客户端的Session<br>是非常困难的。</p>
-<p>在apache中实现了对SSL Session的回调，<br>在apache的post_config的SSL_init_Modules 中回调</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SSL_CTX_sess_set_new_cb(ctx,    ssl_callback_NewSessionCacheEntry);</div><div class="line">SSL_CTX_sess_set_get_cb(ctx,    ssl_callback_GetSessionCacheEntry);</div><div class="line">SSL_CTX_sess_set_remove_cb(ctx, ssl_callback_DelSessionCacheEntry);</div></pre></td></tr></table></figure>
-<p>这个回调函数在 SSL_CTX 中,</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。&lt;br&gt;因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，&lt;br&gt;在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在&lt;br&gt;这中间必须要传递证书确定身份
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
     
   </entry>
   

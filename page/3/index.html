@@ -148,6 +148,111 @@
       <div class="body-wrap">
         
   
+    <article id="post-flower" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/16/flower/">早开的紫藤</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>四月初，我看见路边的紫藤萝已经开了。<br>这种花开像瀑布一样，倾泻而下，一朵一朵鲜活的像一个个笑容一样，</p>
+<p>可是我们去得太早，花开几多，零零散散。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/16/flower/" class="archive-article-date">
+  	<time datetime="2016-10-16T03:00:15.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Caprice/">Caprice</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-SSL-Session" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/16/SSL-Session/">SSL Session</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。<br>因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，<br>在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在<br>这中间必须要传递证书确定身份。</p>
+<p>为了在安全和性能之间寻找一个平衡点，SSL Session 是解决这个问题的一个方法。<br>SSL Session的安全性是建立在必需要获取整个 Session ，只是获取明文传输的的<br>Session ID 是无法握手成功的，Session是缓存在客户端中，要窃取客户端的Session<br>是非常困难的。</p>
+<p>在apache中实现了对SSL Session的回调，<br>在apache的post_config的SSL_init_Modules 中回调</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SSL_CTX_sess_set_new_cb(ctx,    ssl_callback_NewSessionCacheEntry);</div><div class="line">SSL_CTX_sess_set_get_cb(ctx,    ssl_callback_GetSessionCacheEntry);</div><div class="line">SSL_CTX_sess_set_remove_cb(ctx, ssl_callback_DelSessionCacheEntry);</div></pre></td></tr></table></figure>
+<p>这个回调函数在 SSL_CTX 中,</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/16/SSL-Session/" class="archive-article-date">
+  	<time datetime="2016-10-16T03:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-16</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tech/">Tech</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Apache-Cache" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -472,7 +577,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Caprice/" style="font-size: 20px;">Caprice</a> <a href="/tags/Tech/" style="font-size: 16.67px;">Tech</a> <a href="/tags/Tech-Apache/" style="font-size: 13.33px;">Tech, Apache</a> <a href="/tags/Tech-Net/" style="font-size: 10px;">Tech, Net</a> <a href="/tags/人头马身/" style="font-size: 10px;">人头马身</a>
+    				<a href="/tags/Caprice/" style="font-size: 20px;">Caprice</a> <a href="/tags/Tech/" style="font-size: 20px;">Tech</a> <a href="/tags/Tech-Apache/" style="font-size: 15px;">Tech, Apache</a> <a href="/tags/Tech-Net/" style="font-size: 10px;">Tech, Net</a> <a href="/tags/人头马身/" style="font-size: 10px;">人头马身</a>
     			</div>
     	</section>
     
