@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2016/10/16/Library/</loc>
+    <loc>http://yoursite.com/2016/10/16/Net-arp/</loc>
     
-    <lastmod>2017-01-08T03:15:19.000Z</lastmod>
+    <lastmod>2017-01-21T09:27:48.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/12/19/YOU/</loc>
+    <loc>http://yoursite.com/2016/10/16/Library/</loc>
     
-    <lastmod>2016-12-20T01:11:36.000Z</lastmod>
+    <lastmod>2017-01-08T03:15:19.000Z</lastmod>
     
   </url>
   
@@ -40,20 +40,6 @@
     <loc>http://yoursite.com/2016/10/22/last-Fall/</loc>
     
     <lastmod>2016-10-22T13:18:51.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/10/20/geeker-and-drawer/</loc>
-    
-    <lastmod>2016-10-20T10:10:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/10/20/read-note/</loc>
-    
-    <lastmod>2016-10-20T09:43:53.000Z</lastmod>
     
   </url>
   
@@ -117,13 +103,6 @@
     <loc>http://yoursite.com/2016/10/16/PHP-Session/</loc>
     
     <lastmod>2016-10-16T07:30:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/10/16/Net-arp/</loc>
-    
-    <lastmod>2016-10-16T07:30:31.000Z</lastmod>
     
   </url>
   

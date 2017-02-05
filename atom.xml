@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-20T01:11:36.000Z</updated>
+  <updated>2016-11-06T07:59:18.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,26 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>YOU</title>
-    <link href="http://yoursite.com/2016/12/19/YOU/"/>
-    <id>http://yoursite.com/2016/12/19/YOU/</id>
-    <published>2016-12-19T11:19:19.000Z</published>
-    <updated>2016-12-20T01:11:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>[1]<br>年末，岁寒。<br>最近脑袋中总会浮现一幅画像<br>春意正浓，微风习习。到处都是生长的声音，柳条伸展出来，小草也青青。<br>人们早已脱下厚重的大衣，释放着身体的机能，任由身体的伸展。<br>那是一堂普通的公共课，但是气氛非常的压抑，<br>你站在身边，柳树站在我们身边。<br>湖水中的我们陪伴着我们。</p>
-<p>那一年，我21岁，是我的黄金时代，但是此时却是锦衣夜行，手头一堆民国大钞。<br>那时候的全身都想尽情的舒展，身上像是点燃了一团火，<br>那个时候对这个世界充满了憧憬，所有的一切都是未知的，所以所有的一切都是可能的。<br>所以那时候充满激情的活着，每天总是有无限的精力。<br>那时候你告诉我道理，仔细的倾听着，内心却不屑一顾，对这个世界充满着怀疑。<br>仿佛那只刚刚出行的小马一样，老牛，松鼠或许是十分真诚的告诉你他们身上存在的事实，<br>但是对于小马要过河反而没有更多的帮助，对前途的迷惘，对未知的恐惧，<br>所以我抛弃了一切，然后不顾一切的向前走着。虽然这样也存在着太多的危险。<br>但是我想去感受生活，感受所有的未知的一切，我知道我那是还在尽力的活着，<br>而且活得还是小有模样。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[1]&lt;br&gt;年末，岁寒。&lt;br&gt;最近脑袋中总会浮现一幅画像&lt;br&gt;春意正浓，微风习习。到处都是生长的声音，柳条伸展出来，小草也青青。&lt;br&gt;人们早已脱下厚重的大衣，释放着身体的机能，任由身体的伸展。&lt;br&gt;那是一堂普通的公共课，但是气氛非常的压抑，&lt;br&gt;你站在身边，柳树
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>人头马身</title>
@@ -86,50 +66,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>如何做读书笔记</title>
-    <link href="http://yoursite.com/2016/10/20/read-note/"/>
-    <id>http://yoursite.com/2016/10/20/read-note/</id>
-    <published>2016-10-20T09:43:09.000Z</published>
-    <updated>2016-10-20T09:43:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>//todo</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;//todo&lt;/p&gt;
-
-    
-    </summary>
-    
-    
-      <category term="Tool" scheme="http://yoursite.com/tags/Tool/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《黑客与画家》读书笔记</title>
-    <link href="http://yoursite.com/2016/10/20/geeker-and-drawer/"/>
-    <id>http://yoursite.com/2016/10/20/geeker-and-drawer/</id>
-    <published>2016-10-20T09:38:30.000Z</published>
-    <updated>2016-10-20T10:10:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="程序与艺术的区别"><a href="#程序与艺术的区别" class="headerlink" title="程序与艺术的区别"></a>程序与艺术的区别</h3><p>杜尚在一次美国举办的关于艺术品的参展中，展示了一件从<br>市场中随处可见的小孩子的便池。如果人问：什么是艺术，<br>那么这个参展的便池是艺术吗？既然参展，那么既然这个<br>是艺术，那么还有什么不是艺术呢？<br>艺术现在已经不是庙堂之高了。</p>
-<p>在书中作者讨论的是比较高端的程序员（黑客），但是<br>想想非常大众的程序员。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;程序与艺术的区别&quot;&gt;&lt;a href=&quot;#程序与艺术的区别&quot; class=&quot;headerlink&quot; title=&quot;程序与艺术的区别&quot;&gt;&lt;/a&gt;程序与艺术的区别&lt;/h3&gt;&lt;p&gt;杜尚在一次美国举办的关于艺术品的参展中，展示了一件从&lt;br&gt;市场中随处可见的小孩子的便池。如
-    
-    </summary>
-    
-    
-      <category term="Tool" scheme="http://yoursite.com/tags/Tool/"/>
     
   </entry>
   
@@ -243,16 +179,42 @@
     <link href="http://yoursite.com/2016/10/16/Net-arp/"/>
     <id>http://yoursite.com/2016/10/16/Net-arp/</id>
     <published>2016-10-16T03:02:27.000Z</published>
-    <updated>2016-10-16T07:30:31.000Z</updated>
+    <updated>2017-01-21T09:27:48.000Z</updated>
     
     <content type="html"><![CDATA[<p>在网络的使用中这个是我们比较少关注的一个协议，<br>它是用来查看ip地址和mac地址的对应关系。</p>
 <p>一般情况下网络问题很少出现在这个地方。而且如果查看这个值出现问题的时候，<br>一般是上层的协议出现了问题，或者就是整个网络出现了问题。</p>
 <p>但是今天需要讲述一个比较特殊的情况下arp的网络问题。<br>问题的起源是我使用openvpn搭建一个client-to-client 的环境。<br>就是使用一台openvpn的服务器，然后使用两台openvpn的客户端去连接openvpn的服务器。<br>我在openvpn中配好 client-to-client 选项后，<br>然后两台openvpn的客户端可以ping通服务端，也可以看到下发的策略。<br>但是在两台客户端的中相互ping对方，却是不通的。<br>查看ip和tcp，都是正常的。没有检查到异常，但是一直都是不通的。</p>
 <p>最后没有办法，只能按照网络协议层一层一层的往下去分析。<br>在windows的cmd下，查看路由 route print。路由正常。<br>ip和端口正常，ip层和tcp层都是正常的。<br>使用arp -a的指令，得到</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">arp -a</div><div class="line"></div><div class="line">172.16.0.2 ether   00:ff:90:4e:20:cc   C  tap0</div><div class="line">172.16.0.3 ether   00:ff:90:4e:20:cc   C  tap0</div></pre></td></tr></table></figure>
-<p>172.16.0.0/16 是虚拟IP的地址，第三项是对应的Mac地址，<br>所以到链路层之后，有两个相同的mac地址。<br>所以从mac转换成IP地址的时候丢失了IP地址。所以一直访问不通。</p>
+<p>172.16.0.0/16 是虚拟IP的地址，第三项是对应的Mac地址，<br>所以到链路层之后，有两个相同的mac地址。<br>所以从mac地址转换成IP地址的时候丢失了IP地址。所以一直访问不通。</p>
 <p>为什么会有两个相同的mac地址呢？第二个openvpn的客户端是直接复制第一个<br>openvpn的虚拟机。所以出现了两个相同的mac地址。修改其中一个虚拟IP的mac地址<br>之后就可以相互ping通对方了。</p>
 <p>如果想重现问题，可以将两个IP地址改成相同的mac地址，查看一下你的那边会出现什么情况。</p>
+<p>###虚拟IP</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arp -a</div><div class="line">192.168.41.97            ether   00:0C:29:EB:70:DA   C                     eth0</div><div class="line">192.168.41.92            ether   00:0C:29:EB:70:DA   C                     eth0</div></pre></td></tr></table></figure>
+<p>有时候我们可以在同一台机器上看到两个IP有相同的物理地址。<br>traceroute 这两个IP都是正常的，可以访问的。<br>没有出现上面不能访问的情况。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MAC destination</td>
+<td>MAC source</td>
+</tr>
+<tr>
+<td>Source Address</td>
+<td>Destination Address(ip/Virtual_ip)</td>
+</tr>
+<tr>
+<td>MAC destination</td>
+<td>MAC source</td>
+</tr>
+</tbody>
+</table>
+<p>在这种情况下主机中发出的数据中包含了目标地址的IP，所以可以正常到达目标主机。<br>但是如果是两个Mac相同，发送apr的tell数据包的时候，会有两个地方都会响应，<br>那么就会造成Mac地址冲突了。</p>
 ]]></content>
     
     <summary type="html">
@@ -557,6 +519,79 @@
     
     
       <category term="Caprice" scheme="http://yoursite.com/tags/Caprice/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Library_20160717</title>
+    <link href="http://yoursite.com/2016/10/16/Library/"/>
+    <id>http://yoursite.com/2016/10/16/Library/</id>
+    <published>2016-10-16T03:00:28.000Z</published>
+    <updated>2017-01-08T03:15:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>我看到你表现得很强势，你总是不让人质疑你。你的表情冷漠，你自负。你说你是一个天才。只是一个没人发现的天才。<br>可是，我却看到你的逃避，孤独，自卑，<br>你一直在逃避自己，你害怕真实的你，<br>你身处于海上，在一条小船上，你并不是一座孤岛，<br>你只是漂流的一条小船而已。<br>风来，你就吹风，随风而走，<br>雨来，你就在海上写字。<br>你就这样直接地暴露在这个海上，<br>唯一的陪伴就是你的海面的倒影，<br>可是这个只是使你更加的顾影自怜而已。</p>
+<p>忽然什么都不想做，就这样毫无目的的敲打着键盘，它会带我到哪里呢？<br>现在像是陷入了一个低谷中一样，看不到希望，明知道自己是一只<br>井底之蛙，却也无法爬出这个绝壁。<br>这只青蛙也许是悲哀的，其他的青蛙都能够很安然的活在这个世界中，<br>从不关心这个天，这个天外有什么？<br>可它偏偏看到一只天鹅飞过，这片天就变得不太一样了。<br>它明知道这片天不只是这么小，因为它看过有天鹅飞过，<br>它看见过的是别的从不在乎的。<br>它们从来就不关心这些。</p>
+<p>不知道是杜撰的还是一个真实的故事，一位智者让他的学生经过<br>一个花园，不回头的情况下获取一样你最喜欢的东西。<br>学生面对一开始的大麦穗的时候总是在想后面总会有更大的。<br>或者在犹豫的那一个刹那，身体已经跨过去了。<br>就像另一个智者告诉的，下一个总是最好的。<br>然后在自我安慰中在不经意间又跨过几步。<br>我只走了几步，我以为我的最重要的东西是比任何人都要快的到达终点，所以<br>我不愿意去等待，我总是急不可耐的就出发了。<br>然而我觉得我已经变得十分的老迈了。<br>我曾经为为没有尝过苹果而失望，现在尝过苹果变得更加的失望，<br>因为我失去了我最喜欢的那个苹果。</p>
+<p>讲故事总是非常的容易和轻巧，可是朝菌不知晦朔,蟪蛄不知春秋，<br>即使我们知道故事的结局是怎样的，可是依然无法改变。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我看到你表现得很强势，你总是不让人质疑你。你的表情冷漠，你自负。你说你是一个天才。只是一个没人发现的天才。&lt;br&gt;可是，我却看到你的逃避，孤独，自卑，&lt;br&gt;你一直在逃避自己，你害怕真实的你，&lt;br&gt;你身处于海上，在一条小船上，你并不是一座孤岛，&lt;br&gt;你只是漂流的一条小船
+    
+    </summary>
+    
+    
+      <category term="Caprice" scheme="http://yoursite.com/tags/Caprice/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>早开的紫藤</title>
+    <link href="http://yoursite.com/2016/10/16/flower/"/>
+    <id>http://yoursite.com/2016/10/16/flower/</id>
+    <published>2016-10-16T03:00:15.000Z</published>
+    <updated>2016-12-10T06:32:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>四月初，我看见路边的紫藤萝已经开了。<br>这种花开像瀑布一样，倾泻而下，一朵一朵鲜活的像一个个笑容一样，</p>
+<p>可是我们去得太早，花开几多，零零散散。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;四月初，我看见路边的紫藤萝已经开了。&lt;br&gt;这种花开像瀑布一样，倾泻而下，一朵一朵鲜活的像一个个笑容一样，&lt;/p&gt;
+&lt;p&gt;可是我们去得太早，花开几多，零零散散。&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+      <category term="Caprice" scheme="http://yoursite.com/tags/Caprice/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SSL Session</title>
+    <link href="http://yoursite.com/2016/10/16/SSL-Session/"/>
+    <id>http://yoursite.com/2016/10/16/SSL-Session/</id>
+    <published>2016-10-16T03:00:00.000Z</published>
+    <updated>2016-10-16T03:14:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。<br>因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，<br>在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在<br>这中间必须要传递证书确定身份。</p>
+<p>为了在安全和性能之间寻找一个平衡点，SSL Session 是解决这个问题的一个方法。<br>SSL Session的安全性是建立在必需要获取整个 Session ，只是获取明文传输的的<br>Session ID 是无法握手成功的，Session是缓存在客户端中，要窃取客户端的Session<br>是非常困难的。</p>
+<p>在apache中实现了对SSL Session的回调，<br>在apache的post_config的SSL_init_Modules 中回调</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SSL_CTX_sess_set_new_cb(ctx,    ssl_callback_NewSessionCacheEntry);</div><div class="line">SSL_CTX_sess_set_get_cb(ctx,    ssl_callback_GetSessionCacheEntry);</div><div class="line">SSL_CTX_sess_set_remove_cb(ctx, ssl_callback_DelSessionCacheEntry);</div></pre></td></tr></table></figure>
+<p>这个回调函数在 SSL_CTX 中,</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。&lt;br&gt;因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，&lt;br&gt;在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在&lt;br&gt;这中间必须要传递证书确定身份
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="http://yoursite.com/tags/Tech/"/>
     
   </entry>
   
