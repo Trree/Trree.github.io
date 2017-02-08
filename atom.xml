@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://trree.github.io/"/>
-  <updated>2017-02-07T10:53:35.000Z</updated>
+  <updated>2017-02-08T10:23:00.000Z</updated>
   <id>https://trree.github.io/</id>
   
   <author>
@@ -14,6 +14,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>问问题</title>
+    <link href="https://trree.github.io/2017/02/08/ask-question/"/>
+    <id>https://trree.github.io/2017/02/08/ask-question/</id>
+    <published>2017-02-08T10:23:00.000Z</published>
+    <updated>2017-02-08T10:23:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>在问问题之前不需要问在不在，一般上班时间并且头像是亮着的话人是在的。</li>
+<li>这个项目的背景是怎样的？问题是在什么时候产生的，是在部署的时候还是网关在运行的时候产生的，如果是网关在运行的时候产生的，那么在之前有没有进行过什么操作。需要能够描述问题产生原因。而不是只是描述一个结果。</li>
+<li>问题能否重现，重现的方法是什么，如果不能重现，说明不能重现的理由。（在自己电脑中使用虚拟机搭建网关的环境）</li>
+<li>提供网关的版本号，升级包记录等相关信息。</li>
+<li>需要时要能够使用tcpdump到网关后台抓包。平时需要学会使用tcpdump和wireshare等简单的工具。</li>
+<li>简单的学会一些linux的命令行，vim等操作。</li>
+<li>问问题之前先参考wiki或者FAQ上是否存在类似的问题。</li>
+<li>学会怎么问问题。提供以上信息，并且能够一次性把问题描述清楚。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;在问问题之前不需要问在不在，一般上班时间并且头像是亮着的话人是在的。&lt;/li&gt;
+&lt;li&gt;这个项目的背景是怎样的？问题是在什么时候产生的，是在部署的时候还是网关在运行的时候产生的，如果是网关在运行的时候产生的，那么在之前有没有进行过什么操作。需要能够描述问题产生原
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
+    
+  </entry>
   
   <entry>
     <title>Apache内存管理</title>
@@ -41,38 +73,6 @@
     
       &lt;p&gt;Apache 提供了自己的内存和资源管理方式，称作内存池，内存池在apache中任何一个阶段被使用，所以也被外部模块使用。&lt;br&gt;内存池可以管理内存，Sockets 和进程等服务系统所有的资源。&lt;/p&gt;
 &lt;p&gt;内存池的使用可以降低程序设计错误的可能性。在程序中如果由于疏忽或
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>技术支持过程优化</title>
-    <link href="https://trree.github.io/2017/02/05/ask-question/"/>
-    <id>https://trree.github.io/2017/02/05/ask-question/</id>
-    <published>2017-02-05T14:39:03.000Z</published>
-    <updated>2017-02-05T14:39:03.000Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>在问问题之前不需要问在不在，一般上班时间并且头像是亮着的话人是在的。</li>
-<li>这个项目的背景是怎样的？问题是在什么时候产生的，是在部署的时候还是网关在运行的时候产生的，如果是网关在运行的时候产生的，那么在之前有没有进行过什么操作。需要能够描述问题产生原因。而不是只是描述一个结果。</li>
-<li>问题能否重现，重现的方法是什么，如果不能重现，说明不能重现的理由。（在自己电脑中使用虚拟机搭建网关的环境）</li>
-<li>提供网关的版本号，升级包记录等相关信息。</li>
-<li>需要时要能够使用tcpdump到网关后台抓包。平时需要学会使用tcpdump和wireshare等简单的工具。</li>
-<li>简单的学会一些linux的命令行，vim等操作。</li>
-<li>问问题之前先参考wiki或者FAQ上是否存在类似的问题。</li>
-<li>学会怎么问问题。提供以上信息，并且能够一次性把问题描述清楚。</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;在问问题之前不需要问在不在，一般上班时间并且头像是亮着的话人是在的。&lt;/li&gt;
-&lt;li&gt;这个项目的背景是怎样的？问题是在什么时候产生的，是在部署的时候还是网关在运行的时候产生的，如果是网关在运行的时候产生的，那么在之前有没有进行过什么操作。需要能够描述问题产生原
     
     </summary>
     
