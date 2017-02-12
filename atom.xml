@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://trree.github.io/"/>
-  <updated>2017-02-08T10:23:00.000Z</updated>
+  <updated>2017-02-12T07:35:09.000Z</updated>
   <id>https://trree.github.io/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>thread</title>
+    <link href="https://trree.github.io/2017/02/12/thread/"/>
+    <id>https://trree.github.io/2017/02/12/thread/</id>
+    <published>2017-02-12T06:57:05.000Z</published>
+    <updated>2017-02-12T07:35:09.000Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/2017/02/12/thread/thread.gif" alt="organization" title="organization">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">只要我时间了，我就把这本书看完。</div><div class="line">如果我有很多钱，我就要去全世界旅游。</div></pre></td></tr></table></figure>
+<p>总是喜欢信誓旦旦的对别人说着一些话，<br>不知道最后多少人达成了目标。<br>就像小时候想要的那个模型。<br>现在可以轻而易举的买下小时候的想要的任何东西。<br>可是突然失去了对这件事情的乐趣。<br>时间与环境的变化，那么事情本事早就失去了它原本的意义。</p>
+<p>太多时候总喜欢用如果只要达到什么条件，<br>那么我就要做什么。喜欢把生活一步一步的规划，<br>达到一个目标之后，才开始进行下一步。<br>如果有一步陷入了困境，那么就一直阻塞在那一步。</p>
+<p>计算机人员在解释多核的时候，喜欢用一个人在多项任务<br>之间切换得够快，那么像是在同时处理多件事情一样。<br>但是我们不能像孙悟空或者技术总监一样分身。分配人员<br>同时处理不同的事情。</p>
+<p>但是可以像线程一样。<br>在保证主线程正常运行的时候，<br>使用多线程的方法，从现在慢慢就开始做自己喜欢的事情。<br>但是也要保证线程安全。</p>
+<p>refer: <a href="https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B" target="_blank" rel="external">thread</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/2017/02/12/thread/thread.gif&quot; alt=&quot;organization&quot; title=&quot;organization&quot;&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutt
+    
+    </summary>
+    
+    
+      <category term="Tech, Think" scheme="https://trree.github.io/tags/Tech-Think/"/>
+    
+  </entry>
   
   <entry>
     <title>问问题</title>
@@ -52,7 +80,7 @@
     <link href="https://trree.github.io/2017/02/06/apache-pool/"/>
     <id>https://trree.github.io/2017/02/06/apache-pool/</id>
     <published>2017-02-06T11:47:33.000Z</published>
-    <updated>2017-02-07T10:53:35.000Z</updated>
+    <updated>2017-02-12T07:33:24.000Z</updated>
     
     <content type="html"><![CDATA[<p>Apache 提供了自己的内存和资源管理方式，称作内存池，内存池在apache中任何一个阶段被使用，所以也被外部模块使用。<br>内存池可以管理内存，Sockets 和进程等服务系统所有的资源。</p>
 <p>内存池的使用可以降低程序设计错误的可能性。在程序中如果由于疏忽或错误造成程序未能释放已经不再使用的内存，造成内存泄露。<br>内存泄漏并非指内存在物理上的消失，而是应用程序分配某段内存后，由于设计错误，导致在释放该段内存之前就失去了对该段内存的控制，<br>从而造成了内存的浪费，其它的程序就不能够再使用这个内存段。</p>
@@ -582,29 +610,6 @@
     <summary type="html">
     
       &lt;p&gt;有时候会突然的想起你，我尽力去回想你的脸，你的笑容，我们在一起的每一个细节。&lt;br&gt;手机里面还有你的号码，你的照片。&lt;br&gt;可是这些都仿佛是一个遥远的梦，现在想来如此的不真实。&lt;br&gt;我一直埋得很深，我总是很忙的样子。&lt;br&gt;不愿意停下来，因为一旦停下来，仿佛一下子掉入一个
-    
-    </summary>
-    
-    
-      <category term="Caprice" scheme="https://trree.github.io/tags/Caprice/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑</title>
-    <link href="https://trree.github.io/2016/10/16/Sword/"/>
-    <id>https://trree.github.io/2016/10/16/Sword/</id>
-    <published>2016-10-16T03:00:36.000Z</published>
-    <updated>2016-10-16T04:31:48.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>如果我手中有一把剑，我会成为一位剑客，纵横四海，无所畏惧，可是我手中没有剑。<br>如果我会跳舞，我会在月光下，在舞台中央，在所有的目光中灼灼生辉，可是我不会跳舞。<br>如果我活在魏晋，我会成为一个放浪形骸的人，饮觞取酒，或宠辱不惊，或尽情悲痛，可是我活在不一样的时代。</p>
-<p>如果，如果，我只是一个普普通通的一个人，什么也不会，什么也做不了。</p>
-<p>给我一把剑，我却只会伤了别人，也伤了自己。<br>即使我会跳舞，却也会踩到你的脚，走错了步。<br>即使我回到那个时代，我依然会退缩，退缩到一个安全的地带。<br>我回不到过去，也没有如果。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;如果我手中有一把剑，我会成为一位剑客，纵横四海，无所畏惧，可是我手中没有剑。&lt;br&gt;如果我会跳舞，我会在月光下，在舞台中央，在所有的目光中灼灼生辉，可是我不会跳舞。&lt;br&gt;如果我活在魏晋，我会成为一个放浪形骸的人，饮觞取酒，或宠辱不惊，或尽情悲痛，可是我活在不一样的时代。&lt;
     
     </summary>
     
