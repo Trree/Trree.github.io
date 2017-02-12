@@ -837,87 +837,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Proxy-Remote" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/16/Proxy-Remote/">Proxy Remote</a>
-    </h1>
-  
-
-        
-        <a href="/2016/10/16/Proxy-Remote/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:03:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在apache当作网关的时候，正反向代理是最常被使用的服务</p>
-<p>在apache中我们最常使用的是反向代理服务，因为它不需要配置其他的东西，<br>在apache中配置好之后就可以跑（浏览器支持的协议）。</p>
-<p>在使用正向代理的时候就需要在浏览器或者需要客户端拦截和重定向服务，因为最终的<br>访问的服务与在浏览器中输入的IP地址是一样的。</p>
-<p>相比与正向代理和反向代理，远程代理的功能就没有他们那么的广泛，但是在有些场合需要使用。</p>
-<p>//todo<br>//是否可以将远程代理用于伪装地址的功能<br>//二级代理的实际应用场景是哪里</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/16/Proxy-Remote/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-  
     <article id="post-Net-Tcp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -966,6 +885,116 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/10/16/Net-Tcp/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+  
+    <article id="post-Net-arp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/16/Net-arp/">一个偶然的arp网络错误</a>
+    </h1>
+  
+
+        
+        <a href="/2016/10/16/Net-arp/" class="archive-article-date">
+  	<time datetime="2016-10-16T03:02:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在网络的使用中这个是我们比较少关注的一个协议，<br>它是用来查看ip地址和mac地址的对应关系。</p>
+<p>一般情况下网络问题很少出现在这个地方。而且如果查看这个值出现问题的时候，<br>一般是上层的协议出现了问题，或者就是整个网络出现了问题。</p>
+<p>但是今天需要讲述一个比较特殊的情况下arp的网络问题。<br>问题的起源是我使用openvpn搭建一个client-to-client 的环境。<br>就是使用一台openvpn的服务器，然后使用两台openvpn的客户端去连接openvpn的服务器。<br>我在openvpn中配好 client-to-client 选项后，<br>然后两台openvpn的客户端可以ping通服务端，也可以看到下发的策略。<br>但是在两台客户端的中相互ping对方，却是不通的。<br>查看ip和tcp，都是正常的。没有检查到异常，但是一直都是不通的。</p>
+<p>最后没有办法，只能按照网络协议层一层一层的往下去分析。<br>在windows的cmd下，查看路由 route print。路由正常。<br>ip和端口正常，ip层和tcp层都是正常的。<br>使用arp -a的指令，得到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">arp -a</div><div class="line"></div><div class="line">172.16.0.2 ether   00:ff:90:4e:20:cc   C  tap0</div><div class="line">172.16.0.3 ether   00:ff:90:4e:20:cc   C  tap0</div></pre></td></tr></table></figure>
+<p>172.16.0.0/16 是虚拟IP的地址，第三项是对应的Mac地址，<br>所以到链路层之后，有两个相同的mac地址。<br>所以从mac地址转换成IP地址的时候丢失了IP地址。所以一直访问不通。</p>
+<p>为什么会有两个相同的mac地址呢？第二个openvpn的客户端是直接复制第一个<br>openvpn的虚拟机。所以出现了两个相同的mac地址。修改其中一个虚拟IP的mac地址<br>之后就可以相互ping通对方了。</p>
+<p>如果想重现问题，可以将两个IP地址改成相同的mac地址，查看一下你的那边会出现什么情况。</p>
+<p>###虚拟IP</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arp -a</div><div class="line">192.168.41.97            ether   00:0C:29:EB:70:DA   C                     eth0</div><div class="line">192.168.41.92            ether   00:0C:29:EB:70:DA   C                     eth0</div></pre></td></tr></table></figure>
+<p>有时候我们可以在同一台机器上看到两个IP有相同的物理地址。<br>traceroute 这两个IP都是正常的，可以访问的。<br>没有出现上面不能访问的情况。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MAC destination</td>
+<td>MAC source</td>
+</tr>
+<tr>
+<td>Source Address</td>
+<td>Destination Address(ip/Virtual_ip)</td>
+</tr>
+<tr>
+<td>MAC destination</td>
+<td>MAC source</td>
+</tr>
+</tbody>
+</table>
+<p>在这种情况下主机中发出的数据中包含了目标地址的IP，所以可以正常到达目标主机。<br>但是如果是两个Mac相同，发送apr的tell数据包的时候，会有两个地方都会响应，<br>那么就会造成Mac地址冲突了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tech</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/10/16/Net-arp/">展开全文 >></a>
         </p>
       
 
@@ -1098,11 +1127,11 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Tech, Apache</a>
+                <a href="javascript:void(0)" class="js-tag color5">人头马身</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">人头马身</a>
+                <a href="javascript:void(0)" class="js-tag color3">Tech, Apache</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1110,11 +1139,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tech</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tech, Net</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tech, Net</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tech</a>
               </li>
              
               <li class="article-tag-list-item">

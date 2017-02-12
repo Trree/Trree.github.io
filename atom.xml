@@ -242,33 +242,6 @@
   </entry>
   
   <entry>
-    <title>Proxy Remote</title>
-    <link href="https://trree.github.io/2016/10/16/Proxy-Remote/"/>
-    <id>https://trree.github.io/2016/10/16/Proxy-Remote/</id>
-    <published>2016-10-16T03:03:19.000Z</published>
-    <updated>2016-10-16T03:13:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>在apache当作网关的时候，正反向代理是最常被使用的服务</p>
-<p>在apache中我们最常使用的是反向代理服务，因为它不需要配置其他的东西，<br>在apache中配置好之后就可以跑（浏览器支持的协议）。</p>
-<p>在使用正向代理的时候就需要在浏览器或者需要客户端拦截和重定向服务，因为最终的<br>访问的服务与在浏览器中输入的IP地址是一样的。</p>
-<p>相比与正向代理和反向代理，远程代理的功能就没有他们那么的广泛，但是在有些场合需要使用。</p>
-<p>//todo<br>//是否可以将远程代理用于伪装地址的功能<br>//二级代理的实际应用场景是哪里</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在apache当作网关的时候，正反向代理是最常被使用的服务&lt;/p&gt;
-&lt;p&gt;在apache中我们最常使用的是反向代理服务，因为它不需要配置其他的东西，&lt;br&gt;在apache中配置好之后就可以跑（浏览器支持的协议）。&lt;/p&gt;
-&lt;p&gt;在使用正向代理的时候就需要在浏览器或者需要客户
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
-    
-  </entry>
-  
-  <entry>
     <title>自述Tcp超时与重传</title>
     <link href="https://trree.github.io/2016/10/16/Net-Tcp/"/>
     <id>https://trree.github.io/2016/10/16/Net-Tcp/</id>
@@ -341,28 +314,6 @@
       &lt;p&gt;在网络的使用中这个是我们比较少关注的一个协议，&lt;br&gt;它是用来查看ip地址和mac地址的对应关系。&lt;/p&gt;
 &lt;p&gt;一般情况下网络问题很少出现在这个地方。而且如果查看这个值出现问题的时候，&lt;br&gt;一般是上层的协议出现了问题，或者就是整个网络出现了问题。&lt;/p&gt;
 &lt;p&gt;但是今天
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Apache实现Openssl握手过程</title>
-    <link href="https://trree.github.io/2016/10/16/Apache-Openssl/"/>
-    <id>https://trree.github.io/2016/10/16/Apache-Openssl/</id>
-    <published>2016-10-16T03:02:17.000Z</published>
-    <updated>2016-10-17T09:15:16.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>apache在开发的是并不是将所有的东西都是自己实现的，而是采用了各种成熟的库。<br>在使用安全网关的时候，我们不可避免的需要使用 mod_ssl 的模块,而在实现<br>这个模块的时候最重要的就是使用了openssl库。<br>我们比较关注的是apache的网络层的过滤器，ssl的握手过程。</p>
-<p>//todo</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;apache在开发的是并不是将所有的东西都是自己实现的，而是采用了各种成熟的库。&lt;br&gt;在使用安全网关的时候，我们不可避免的需要使用 mod_ssl 的模块,而在实现&lt;br&gt;这个模块的时候最重要的就是使用了openssl库。&lt;br&gt;我们比较关注的是apache的网络层的过滤
     
     </summary>
     
@@ -610,6 +561,53 @@
     <summary type="html">
     
       &lt;p&gt;有时候会突然的想起你，我尽力去回想你的脸，你的笑容，我们在一起的每一个细节。&lt;br&gt;手机里面还有你的号码，你的照片。&lt;br&gt;可是这些都仿佛是一个遥远的梦，现在想来如此的不真实。&lt;br&gt;我一直埋得很深，我总是很忙的样子。&lt;br&gt;不愿意停下来，因为一旦停下来，仿佛一下子掉入一个
+    
+    </summary>
+    
+    
+      <category term="Caprice" scheme="https://trree.github.io/tags/Caprice/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>剑</title>
+    <link href="https://trree.github.io/2016/10/16/Sword/"/>
+    <id>https://trree.github.io/2016/10/16/Sword/</id>
+    <published>2016-10-16T03:00:36.000Z</published>
+    <updated>2016-10-16T04:31:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果我手中有一把剑，我会成为一位剑客，纵横四海，无所畏惧，可是我手中没有剑。<br>如果我会跳舞，我会在月光下，在舞台中央，在所有的目光中灼灼生辉，可是我不会跳舞。<br>如果我活在魏晋，我会成为一个放浪形骸的人，饮觞取酒，或宠辱不惊，或尽情悲痛，可是我活在不一样的时代。</p>
+<p>如果，如果，我只是一个普普通通的一个人，什么也不会，什么也做不了。</p>
+<p>给我一把剑，我却只会伤了别人，也伤了自己。<br>即使我会跳舞，却也会踩到你的脚，走错了步。<br>即使我回到那个时代，我依然会退缩，退缩到一个安全的地带。<br>我回不到过去，也没有如果。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如果我手中有一把剑，我会成为一位剑客，纵横四海，无所畏惧，可是我手中没有剑。&lt;br&gt;如果我会跳舞，我会在月光下，在舞台中央，在所有的目光中灼灼生辉，可是我不会跳舞。&lt;br&gt;如果我活在魏晋，我会成为一个放浪形骸的人，饮觞取酒，或宠辱不惊，或尽情悲痛，可是我活在不一样的时代。&lt;
+    
+    </summary>
+    
+    
+      <category term="Caprice" scheme="https://trree.github.io/tags/Caprice/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Library_20160717</title>
+    <link href="https://trree.github.io/2016/10/16/Library/"/>
+    <id>https://trree.github.io/2016/10/16/Library/</id>
+    <published>2016-10-16T03:00:28.000Z</published>
+    <updated>2017-01-08T03:15:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>我看到你表现得很强势，你总是不让人质疑你。你的表情冷漠，你自负。你说你是一个天才。只是一个没人发现的天才。<br>可是，我却看到你的逃避，孤独，自卑，<br>你一直在逃避自己，你害怕真实的你，<br>你身处于海上，在一条小船上，你并不是一座孤岛，<br>你只是漂流的一条小船而已。<br>风来，你就吹风，随风而走，<br>雨来，你就在海上写字。<br>你就这样直接地暴露在这个海上，<br>唯一的陪伴就是你的海面的倒影，<br>可是这个只是使你更加的顾影自怜而已。</p>
+<p>忽然什么都不想做，就这样毫无目的的敲打着键盘，它会带我到哪里呢？<br>现在像是陷入了一个低谷中一样，看不到希望，明知道自己是一只<br>井底之蛙，却也无法爬出这个绝壁。<br>这只青蛙也许是悲哀的，其他的青蛙都能够很安然的活在这个世界中，<br>从不关心这个天，这个天外有什么？<br>可它偏偏看到一只天鹅飞过，这片天就变得不太一样了。<br>它明知道这片天不只是这么小，因为它看过有天鹅飞过，<br>它看见过的是别的从不在乎的。<br>它们从来就不关心这些。</p>
+<p>不知道是杜撰的还是一个真实的故事，一位智者让他的学生经过<br>一个花园，不回头的情况下获取一样你最喜欢的东西。<br>学生面对一开始的大麦穗的时候总是在想后面总会有更大的。<br>或者在犹豫的那一个刹那，身体已经跨过去了。<br>就像另一个智者告诉的，下一个总是最好的。<br>然后在自我安慰中在不经意间又跨过几步。<br>我只走了几步，我以为我的最重要的东西是比任何人都要快的到达终点，所以<br>我不愿意去等待，我总是急不可耐的就出发了。<br>然而我觉得我已经变得十分的老迈了。<br>我曾经为为没有尝过苹果而失望，现在尝过苹果变得更加的失望，<br>因为我失去了我最喜欢的那个苹果。</p>
+<p>讲故事总是非常的容易和轻巧，可是朝菌不知晦朔,蟪蛄不知春秋，<br>即使我们知道故事的结局是怎样的，可是依然无法改变。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我看到你表现得很强势，你总是不让人质疑你。你的表情冷漠，你自负。你说你是一个天才。只是一个没人发现的天才。&lt;br&gt;可是，我却看到你的逃避，孤独，自卑，&lt;br&gt;你一直在逃避自己，你害怕真实的你，&lt;br&gt;你身处于海上，在一条小船上，你并不是一座孤岛，&lt;br&gt;你只是漂流的一条小船
     
     </summary>
     

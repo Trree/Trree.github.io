@@ -206,38 +206,6 @@
 
     
   <url>
-    <loc>https://trree.github.io/2016/10/16/Session-Ticket/</loc>
-    <lastmod>2016-10-17T10:06:41.000Z</lastmod>
-    <data>
-        <display>
-        <title>Session Ticket</title>
-        <pubTime>2016-10-16T02:09:15.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://trree.github.io/2016/10/16/Apache-Openssl/</loc>
-    <lastmod>2016-10-17T09:15:16.000Z</lastmod>
-    <data>
-        <display>
-        <title>Apache实现Openssl握手过程</title>
-        <pubTime>2016-10-16T03:02:17.000Z</pubTime>
-        
-        <tag>Tech</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://trree.github.io/2016/10/16/Timeout/</loc>
     <lastmod>2016-10-17T09:05:43.000Z</lastmod>
     <data>
@@ -448,23 +416,6 @@
         <display>
         <title>SSL Session</title>
         <pubTime>2016-10-16T03:00:00.000Z</pubTime>
-        
-        <tag>Tech</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://trree.github.io/2016/10/16/Proxy-Remote/</loc>
-    <lastmod>2016-10-16T03:13:26.000Z</lastmod>
-    <data>
-        <display>
-        <title>Proxy Remote</title>
-        <pubTime>2016-10-16T03:03:19.000Z</pubTime>
         
         <tag>Tech</tag>
          
