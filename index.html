@@ -179,6 +179,118 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-apache-debug" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/22/apache-debug/">apache多种debug调试方式</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/22/apache-debug/" class="archive-article-date">
+  	<time datetime="2017-03-22T12:02:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>将正在测试的机器上都打开 coredump，等待重现<ul>
+<li>在linux系统中执行 ulimit -c unlimited</li>
+<li>配置文件中添加 CoreDumpDirectory directory</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>尝试 valgrind 追踪内存错误<ul>
+<li>valgrind –tool=memcheck –leak-check=yes –show-reachable=yes –error-limit=no  apache</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>strace 调试<ul>
+<li>strace -f -p pid</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>尝试用 gdb 启动，等待重现<ul>
+<li>使用gdb启动服务，直接run，等待进程崩溃</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>apache信号调试<ul>
+<li>gdb attach进主线程或者需要的线程</li>
+<li>breakpoints</li>
+<li>continue</li>
+<li>访问服务或者发信号</li>
+<li>gdb接收信号，然后continue</li>
+<li>调试</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tech</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/22/apache-debug/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+  
     <article id="post-wash-painting" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -923,86 +1035,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Net-Tcp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/16/Net-Tcp/">自述Tcp超时与重传</a>
-    </h1>
-  
-
-        
-        <a href="/2016/10/16/Net-Tcp/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:02:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>将tcp的超时与重传的文档太多了，我也是从tcp/ip详解这本书上学习了。所以如果你对这个不熟悉，<br>希望你先看书，不然基于我自己的理解，很容易让人误解。<br>但是如果有大神，如果有什么写错，或者理解错误的东西，希望指出，不胜感激。</p>
-<p>tcp的超时设置是为了防止网络问题和节省时间之间的一个平衡，<br>如果不设置超时，当一个ack没有获取，那么此时直接返回网络错误。<br>重传是为了防止偶然的网络问题。超时的时间间隔大部分都是指数间隔，<br>而不是线性的。</p>
-<p>tcp的所有超时的地方，从第一个客户端读取 syn ＋ ack 超时，<br>超时与重传<br>connect 超时<br>响应超时<br>读写超时<br>timewait超时</p>
-<p>超时重传机制<br>哪些会超时，哪些直接发送reset断开连接或者超时多长。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tech, Net</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/16/Net-Tcp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1123,11 +1155,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Tech, Think</a>
+                <a href="javascript:void(0)" class="js-tag color1">Think</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Think</a>
+                <a href="javascript:void(0)" class="js-tag color2">Tech, Think</a>
               </li>
             
             <div class="clearfix"></div>

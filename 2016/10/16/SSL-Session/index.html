@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://trree.github.io">
-  <title>SSL Session | Tree</title>
+  <title>SSL Session 和 Session Tickets | Tree</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在这中间必须要传递证书确定身份。
-为了在安全和性能之间寻找一个平衡点，SSL Session 是解决这个问题的一个方法。SSL Session的安全性是建立在必需要获取整个 Ses">
+  <meta name="description" content="背景在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在这中间必须要传递证书确定身份。
+为了在安全和性能之间寻找一个平衡点，SSL Session 是解决这个问题的一个方法。SSL Session的安全性是建立在必需要获取整个 S">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SSL Session">
+<meta property="og:title" content="SSL Session 和 Session Tickets">
 <meta property="og:url" content="https://trree.github.io/2016/10/16/SSL-Session/index.html">
 <meta property="og:site_name" content="Tree">
-<meta property="og:description" content="在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在这中间必须要传递证书确定身份。
-为了在安全和性能之间寻找一个平衡点，SSL Session 是解决这个问题的一个方法。SSL Session的安全性是建立在必需要获取整个 Ses">
-<meta property="og:updated_time" content="2016-10-16T03:14:26.000Z">
+<meta property="og:description" content="背景在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在这中间必须要传递证书确定身份。
+为了在安全和性能之间寻找一个平衡点，SSL Session 是解决这个问题的一个方法。SSL Session的安全性是建立在必需要获取整个 S">
+<meta property="og:updated_time" content="2017-03-22T12:01:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SSL Session">
-<meta name="twitter:description" content="在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在这中间必须要传递证书确定身份。
-为了在安全和性能之间寻找一个平衡点，SSL Session 是解决这个问题的一个方法。SSL Session的安全性是建立在必需要获取整个 Ses">
+<meta name="twitter:title" content="SSL Session 和 Session Tickets">
+<meta name="twitter:description" content="背景在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在这中间必须要传递证书确定身份。
+为了在安全和性能之间寻找一个平衡点，SSL Session 是解决这个问题的一个方法。SSL Session的安全性是建立在必需要获取整个 S">
   
     <link rel="alternative" href="/atom.xml" title="Tree" type="application/atom+xml">
   
@@ -188,7 +188,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      SSL Session
+      SSL Session 和 Session Tickets
     </h1>
   
 
@@ -201,11 +201,23 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。<br>因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，<br>在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在<br>这中间必须要传递证书确定身份。</p>
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。<br>因为https使用了tls/SSL协议，客户端与服务端进行ssl握手，<br>在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在<br>这中间必须要传递证书确定身份。</p>
 <p>为了在安全和性能之间寻找一个平衡点，SSL Session 是解决这个问题的一个方法。<br>SSL Session的安全性是建立在必需要获取整个 Session ，只是获取明文传输的的<br>Session ID 是无法握手成功的，Session是缓存在客户端中，要窃取客户端的Session<br>是非常困难的。</p>
-<p>在apache中实现了对SSL Session的回调，<br>在apache的post_config的SSL_init_Modules 中回调</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SSL_CTX_sess_set_new_cb(ctx,    ssl_callback_NewSessionCacheEntry);</div><div class="line">SSL_CTX_sess_set_get_cb(ctx,    ssl_callback_GetSessionCacheEntry);</div><div class="line">SSL_CTX_sess_set_remove_cb(ctx, ssl_callback_DelSessionCacheEntry);</div></pre></td></tr></table></figure>
-<p>这个回调函数在 SSL_CTX 中,</p>
+<p>SSLSessionTickets在apache中是默认开启的。如果需要关闭必须加上 SSLSessionTickets Off。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Client                                                              Server</div><div class="line"></div><div class="line">         ClientHello</div><div class="line"></div><div class="line">         (SessionTicket extension)      --------&gt;</div><div class="line"></div><div class="line">                                                          ServerHello</div><div class="line"></div><div class="line">                                      (empty SessionTicket extension)</div><div class="line"></div><div class="line">                                                     NewSessionTicket</div><div class="line"></div><div class="line">                                                   [ChangeCipherSpec]</div><div class="line"></div><div class="line">                                       &lt;--------             Finished</div><div class="line"></div><div class="line">         [ChangeCipherSpec]</div><div class="line"></div><div class="line">         Finished                      --------&gt;</div><div class="line"></div><div class="line">         Application Data              &lt;-------&gt;     Application Data</div></pre></td></tr></table></figure>
+<h3 id="测试session-ticket重用"><a href="#测试session-ticket重用" class="headerlink" title="测试session ticket重用"></a>测试session ticket重用</h3><blockquote>
+<p>openssl s_client -connect host:port -sess_out session_file</p>
+<p>openssl s_client -connect host:port -sess_in    session_file</p>
+</blockquote>
+<p><strong>第一次访问的New session</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">New, TLSv1/SSLv3, Cipher is ECDHE-RSA-AES256-GCM-SHA384</div><div class="line">Server public key is 2048 bit</div><div class="line">Secure Renegotiation IS supported</div><div class="line">Compression: NONE</div><div class="line">Expansion: NONE</div><div class="line">No ALPN negotiated</div><div class="line">SSL-Session:</div><div class="line">    Protocol  : TLSv1.2</div><div class="line">    Cipher    : ECDHE-RSA-AES256-GCM-SHA384</div><div class="line">    Session-ID: 596B3F7202A4E299F7EACF4C73818ED048085DFEA6DF31780C225C5D3045DD9A</div><div class="line">    Session-ID-ctx:</div><div class="line">    Master-Key: E96BA7797E9415D0C052F5212BEC6F9D009877C277535CB7B121B091BF24AA1FA06FD2FABE9E59EDBA6499412CD404B1</div><div class="line">    Key-Arg   : None</div><div class="line">    PSK identity: None</div><div class="line">    PSK identity hint: None</div><div class="line">    SRP username: None</div><div class="line">    TLS session ticket lifetime hint: 300 (seconds)</div><div class="line">    TLS session ticket:</div><div class="line">    0000 - a0 b1 ee 17 03 57 df 58-f0 fc 7e 34 8e f7 c1 13   .....W.X..~4....</div><div class="line">    0010 - 7a af d5 05 49 ea 1c 34-07 01 6e 08 f2 92 90 3f   z...I..4..n....?</div><div class="line">    0020 - e0 82 f9 c3 5f 27 88 98-fc 2e d3 36 bf d0 71 c3   ...._&apos;.....6..q.</div><div class="line">    0030 - c2 41 93 dd ac ba 80 15-9c 6f c2 07 ac 28 0f a7   .A.......o...(..</div><div class="line">    0040 - 3a 1a 0e 58 74 09 36 0b-ce fe 52 95 6b b6 f1 f7   :..Xt.6...R.k...</div><div class="line">    0050 - dd 75 b8 04 8e ae 08 65-c5 e0 bb 49 0c f6 8a 9f   .u.....e...I....</div><div class="line">    0060 - 51 f1 36 44 35 a3 1d 07-dd 3a 48 63 4a e7 74 a4   Q.6D5....:HcJ.t.</div><div class="line">    0070 - c5 3e 0a 1e 5a fd 10 66-18 0f ae e2 c0 87 77 3c   .&gt;..Z..f......w&lt;</div><div class="line">    0080 - 32 73 68 12 4e 89 76 aa-0f c3 99 90 96 36 2a 40   2sh.N.v......6*@</div><div class="line">    0090 - d2 60 a6 6d 8d da a6 46-13 16 89 56 a0 28 f1 2c   .`.m...F...V.(.,</div><div class="line">    00a0 - 9c 7d 21 df 05 b6 1e 7c-99 cb 7b 5a a8 97 f3 72   .&#125;!....|..&#123;Z...r</div><div class="line">    00b0 - ba 1d 6d 7e a3 99 bc 4b-a8 81 a6 7a b9 e3 9e d4   ..m~...K...z....</div><div class="line">    Start Time: 1490175208</div><div class="line"></div><div class="line">    Timeout   : 300 (sec)</div><div class="line"></div><div class="line">    Verify return code: 19 (self signed certificate in certificate chain)</div></pre></td></tr></table></figure>
+<p><strong>使用session访问</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">Reused, TLSv1/SSLv3, Cipher is ECDHE-RSA-AES256-GCM-SHA384</div><div class="line">Server public key is 2048 bit</div><div class="line">Secure Renegotiation IS supported</div><div class="line">Compression: NONE</div><div class="line">Expansion: NONE</div><div class="line">No ALPN negotiated</div><div class="line">SSL-Session:</div><div class="line">    Protocol  : TLSv1.2</div><div class="line">    Cipher    : ECDHE-RSA-AES256-GCM-SHA384</div><div class="line">    Session-ID: 596B3F7202A4E299F7EACF4C73818ED048085DFEA6DF31780C225C5D3045DD9A</div><div class="line">    Session-ID-ctx:</div><div class="line">    Master-Key: E96BA7797E9415D0C052F5212BEC6F9D009877C277535CB7B121B091BF24AA1FA06FD2FABE9E59EDBA6499412CD404B1</div><div class="line">    Key-Arg   : None</div><div class="line">    PSK identity: None</div><div class="line">    PSK identity hint: None</div><div class="line">    SRP username: None</div><div class="line">    TLS session ticket lifetime hint: 300 (seconds)</div><div class="line">    TLS session ticket:</div><div class="line">    0000 - a0 b1 ee 17 03 57 df 58-f0 fc 7e 34 8e f7 c1 13   .....W.X..~4....</div><div class="line">    0010 - 7a af d5 05 49 ea 1c 34-07 01 6e 08 f2 92 90 3f   z...I..4..n....?</div><div class="line">    0020 - e0 82 f9 c3 5f 27 88 98-fc 2e d3 36 bf d0 71 c3   ...._&apos;.....6..q.</div><div class="line">    0030 - c2 41 93 dd ac ba 80 15-9c 6f c2 07 ac 28 0f a7   .A.......o...(..</div><div class="line">    0040 - 3a 1a 0e 58 74 09 36 0b-ce fe 52 95 6b b6 f1 f7   :..Xt.6...R.k...</div><div class="line">    0050 - dd 75 b8 04 8e ae 08 65-c5 e0 bb 49 0c f6 8a 9f   .u.....e...I....</div><div class="line">    0060 - 51 f1 36 44 35 a3 1d 07-dd 3a 48 63 4a e7 74 a4   Q.6D5....:HcJ.t.</div><div class="line">    0070 - c5 3e 0a 1e 5a fd 10 66-18 0f ae e2 c0 87 77 3c   .&gt;..Z..f......w&lt;</div><div class="line">    0080 - 32 73 68 12 4e 89 76 aa-0f c3 99 90 96 36 2a 40   2sh.N.v......6*@</div><div class="line">    0090 - d2 60 a6 6d 8d da a6 46-13 16 89 56 a0 28 f1 2c   .`.m...F...V.(.,</div><div class="line">    00a0 - 9c 7d 21 df 05 b6 1e 7c-99 cb 7b 5a a8 97 f3 72   .&#125;!....|..&#123;Z...r</div><div class="line">    00b0 - ba 1d 6d 7e a3 99 bc 4b-a8 81 a6 7a b9 e3 9e d4   ..m~...K...z....</div><div class="line">    Start Time: 1490175208</div><div class="line"></div><div class="line">    Timeout   : 300 (sec)</div><div class="line"></div><div class="line">    Verify return code: 19 (self signed certificate in certificate chain)</div></pre></td></tr></table></figure>
+<h3 id="session-id-重用测试"><a href="#session-id-重用测试" class="headerlink" title="session-id 重用测试"></a>session-id 重用测试</h3><blockquote>
+<p>openssl s_client -connect host:port -reconnect</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">New, TLSv1/SSLv3, Cipher is AES256-SHA</div><div class="line">Server public key is 2048 bit</div><div class="line">SSL-Session:</div><div class="line">    Protocol  : TLSv1</div><div class="line">    Cipher    : AES256-SHA</div><div class="line">    Session-ID: 405763BDF7B0AFC42E44F865DFCB277167E347CCC393B374544671FC161570D5</div><div class="line">    Session-ID-ctx:</div><div class="line">    Master-Key: 566E880A4F167098ECFE1EC4230B4BF7A932211DBDE24033976C90BCA7D04813457E7D395D2FEF19B12175181C070C55</div><div class="line">    Key-Arg   : None</div><div class="line">    Start Time: 1490175819</div><div class="line">    Timeout   : 300 (sec)</div><div class="line">    Verify return code: 19 (self signed certificate in certificate chain</div><div class="line">---</div><div class="line">drop connection and then reconnect</div><div class="line">CONNECTED(00000003)</div><div class="line">---</div><div class="line"></div><div class="line">Reused, TLSv1/SSLv3, Cipher is AES256-SHA</div><div class="line">SSL-Session:</div><div class="line">    Protocol  : TLSv1</div><div class="line">    Cipher    : AES256-SHA</div><div class="line">    Session-ID: 405763BDF7B0AFC42E44F865DFCB277167E347CCC393B374544671FC161570D5</div><div class="line">    Session-ID-ctx:</div><div class="line">    Master-Key: 566E880A4F167098ECFE1EC4230B4BF7A932211DBDE24033976C90BCA7D04813457E7D395D2FEF19B12175181C070C55</div><div class="line">    Key-Arg   : None</div><div class="line">    Start Time: 1490175819</div><div class="line">    Timeout   : 300 (sec)</div><div class="line">    Verify return code: 19 (self signed certificate in certificate chain)</div><div class="line">---</div></pre></td></tr></table></figure>
+<p>refer:<a href="https://www.feistyduck.com/library/openssl-cookbook/online/ch-testing-with-openssl.html" target="_blank" rel="external">openssl cookbook</a></p>
 
       
 
@@ -340,7 +352,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="SSL-Session" data-title="SSL Session" data-url="https://trree.github.io/2016/10/16/SSL-Session/"></div>
+	<div class="ds-thread" data-thread-key="SSL-Session" data-title="SSL Session 和 Session Tickets" data-url="https://trree.github.io/2016/10/16/SSL-Session/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -490,11 +502,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Tech, Think</a>
+                <a href="javascript:void(0)" class="js-tag color1">Think</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Think</a>
+                <a href="javascript:void(0)" class="js-tag color2">Tech, Think</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,54 +6,42 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://trree.github.io">
-  <title>工具 | Tree</title>
+  <title>apache多种debug调试方式 | Tree</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="都说好的工具是成功的一半，并且好的工具对提升效率有非常大的帮助，所以在这里推荐一啊下好玩的工具。
-windows软件
+  <meta name="description" content="将正在测试的机器上都打开 coredump，等待重现
+在linux系统中执行 ulimit -c unlimited
+配置文件中添加 CoreDumpDirectory directory
 
-zeal(Mac dash) API 查看工具
-typrora        makrdown所见即所得工具
-launch         快速启动工具
-everything     快速文档搜索工具
-bash on-my-zsh
 
-在线工具
 
-processon
-workflo">
+
+尝试 valgrind 追踪内存错误
+valgrind –tool=memcheck –leak-check=yes –show-reachable=yes –error-limit=no  apac">
 <meta property="og:type" content="article">
-<meta property="og:title" content="工具">
-<meta property="og:url" content="https://trree.github.io/2016/10/16/Tools/index.html">
+<meta property="og:title" content="apache多种debug调试方式">
+<meta property="og:url" content="https://trree.github.io/2017/03/22/apache-debug/index.html">
 <meta property="og:site_name" content="Tree">
-<meta property="og:description" content="都说好的工具是成功的一半，并且好的工具对提升效率有非常大的帮助，所以在这里推荐一啊下好玩的工具。
-windows软件
+<meta property="og:description" content="将正在测试的机器上都打开 coredump，等待重现
+在linux系统中执行 ulimit -c unlimited
+配置文件中添加 CoreDumpDirectory directory
 
-zeal(Mac dash) API 查看工具
-typrora        makrdown所见即所得工具
-launch         快速启动工具
-everything     快速文档搜索工具
-bash on-my-zsh
 
-在线工具
 
-processon
-workflo">
-<meta property="og:updated_time" content="2017-02-21T06:14:01.000Z">
+
+尝试 valgrind 追踪内存错误
+valgrind –tool=memcheck –leak-check=yes –show-reachable=yes –error-limit=no  apac">
+<meta property="og:updated_time" content="2017-03-22T12:20:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="工具">
-<meta name="twitter:description" content="都说好的工具是成功的一半，并且好的工具对提升效率有非常大的帮助，所以在这里推荐一啊下好玩的工具。
-windows软件
+<meta name="twitter:title" content="apache多种debug调试方式">
+<meta name="twitter:description" content="将正在测试的机器上都打开 coredump，等待重现
+在linux系统中执行 ulimit -c unlimited
+配置文件中添加 CoreDumpDirectory directory
 
-zeal(Mac dash) API 查看工具
-typrora        makrdown所见即所得工具
-launch         快速启动工具
-everything     快速文档搜索工具
-bash on-my-zsh
 
-在线工具
 
-processon
-workflo">
+
+尝试 valgrind 追踪内存错误
+valgrind –tool=memcheck –leak-check=yes –show-reachable=yes –error-limit=no  apac">
   
     <link rel="alternative" href="/atom.xml" title="Tree" type="application/atom+xml">
   
@@ -214,50 +202,61 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Tools" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-apache-debug" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      工具
+      apache多种debug调试方式
     </h1>
   
 
         
-        <a href="/2016/10/16/Tools/" class="archive-article-date">
-  	<time datetime="2016-10-16T02:18:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-16</time>
+        <a href="/2017/03/22/apache-debug/" class="archive-article-date">
+  	<time datetime="2017-03-22T12:02:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>都说好的工具是成功的一半，并且好的工具对提升效率有非常大的帮助，所以在这里推荐一啊下好玩的工具。</p>
-<p><strong>windows软件</strong></p>
-<ul>
-<li>zeal(Mac dash) API 查看工具</li>
-<li>typrora        makrdown所见即所得工具</li>
-<li>launch         快速启动工具</li>
-<li>everything     快速文档搜索工具</li>
-<li>bash on-my-zsh</li>
+        <ul>
+<li>将正在测试的机器上都打开 coredump，等待重现<ul>
+<li>在linux系统中执行 ulimit -c unlimited</li>
+<li>配置文件中添加 CoreDumpDirectory directory</li>
 </ul>
-<p><strong>在线工具</strong></p>
-<ul>
-<li>processon</li>
-<li>workflowy</li>
-<li>google analyze</li>
-<li>baidu analyze</li>
-<li>google drive</li>
+</li>
 </ul>
-<p><strong>blog</strong></p>
 <ul>
-<li>hexo</li>
+<li>尝试 valgrind 追踪内存错误<ul>
+<li>valgrind –tool=memcheck –leak-check=yes –show-reachable=yes –error-limit=no  apache</li>
 </ul>
-<p><strong>翻墙</strong></p>
+</li>
+</ul>
 <ul>
-<li>XX-Net</li>
+<li>strace 调试<ul>
+<li>strace -f -p pid</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>尝试用 gdb 启动，等待重现<ul>
+<li>使用gdb启动服务，直接run，等待进程崩溃</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>apache信号调试<ul>
+<li>gdb attach进主线程或者需要的线程</li>
+<li>breakpoints</li>
+<li>continue</li>
+<li>访问服务或者发信号</li>
+<li>gdb接收信号，然后continue</li>
+<li>调试</li>
+</ul>
+</li>
 </ul>
 
       
@@ -354,7 +353,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://trree.github.io/2016/10/16/Tools/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://trree.github.io/2017/03/22/apache-debug/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -368,18 +367,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2016/10/16/Schrodinger-s-cat/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          薛定谔的猫
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/10/16/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2017/02/15/wash-painting/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">水墨画的扩展</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -393,7 +383,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Tools" data-title="工具" data-url="https://trree.github.io/2016/10/16/Tools/"></div>
+	<div class="ds-thread" data-thread-key="apache-debug" data-title="apache多种debug调试方式" data-url="https://trree.github.io/2017/03/22/apache-debug/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

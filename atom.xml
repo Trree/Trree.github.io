@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://trree.github.io/"/>
-  <updated>2017-02-15T13:24:22.000Z</updated>
+  <updated>2017-03-22T12:20:05.000Z</updated>
   <id>https://trree.github.io/</id>
   
   <author>
@@ -14,6 +14,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>apache多种debug调试方式</title>
+    <link href="https://trree.github.io/2017/03/22/apache-debug/"/>
+    <id>https://trree.github.io/2017/03/22/apache-debug/</id>
+    <published>2017-03-22T12:02:01.000Z</published>
+    <updated>2017-03-22T12:20:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>将正在测试的机器上都打开 coredump，等待重现<ul>
+<li>在linux系统中执行 ulimit -c unlimited</li>
+<li>配置文件中添加 CoreDumpDirectory directory</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>尝试 valgrind 追踪内存错误<ul>
+<li>valgrind –tool=memcheck –leak-check=yes –show-reachable=yes –error-limit=no  apache</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>strace 调试<ul>
+<li>strace -f -p pid</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>尝试用 gdb 启动，等待重现<ul>
+<li>使用gdb启动服务，直接run，等待进程崩溃</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>apache信号调试<ul>
+<li>gdb attach进主线程或者需要的线程</li>
+<li>breakpoints</li>
+<li>continue</li>
+<li>访问服务或者发信号</li>
+<li>gdb接收信号，然后continue</li>
+<li>调试</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;将正在测试的机器上都打开 coredump，等待重现&lt;ul&gt;
+&lt;li&gt;在linux系统中执行 ulimit -c unlimited&lt;/li&gt;
+&lt;li&gt;配置文件中添加 CoreDumpDirectory directory&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
+    
+  </entry>
   
   <entry>
     <title>水墨画的扩展</title>
@@ -596,29 +658,6 @@
     <summary type="html">
     
       &lt;p&gt;有时候会突然的想起你，我尽力去回想你的脸，你的笑容，我们在一起的每一个细节。&lt;br&gt;手机里面还有你的号码，你的照片。&lt;br&gt;可是这些都仿佛是一个遥远的梦，现在想来如此的不真实。&lt;br&gt;我一直埋得很深，我总是很忙的样子。&lt;br&gt;不愿意停下来，因为一旦停下来，仿佛一下子掉入一个
-    
-    </summary>
-    
-    
-      <category term="Caprice" scheme="https://trree.github.io/tags/Caprice/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑</title>
-    <link href="https://trree.github.io/2016/10/16/Sword/"/>
-    <id>https://trree.github.io/2016/10/16/Sword/</id>
-    <published>2016-10-16T03:00:36.000Z</published>
-    <updated>2016-10-16T04:31:48.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>如果我手中有一把剑，我会成为一位剑客，纵横四海，无所畏惧，可是我手中没有剑。<br>如果我会跳舞，我会在月光下，在舞台中央，在所有的目光中灼灼生辉，可是我不会跳舞。<br>如果我活在魏晋，我会成为一个放浪形骸的人，饮觞取酒，或宠辱不惊，或尽情悲痛，可是我活在不一样的时代。</p>
-<p>如果，如果，我只是一个普普通通的一个人，什么也不会，什么也做不了。</p>
-<p>给我一把剑，我却只会伤了别人，也伤了自己。<br>即使我会跳舞，却也会踩到你的脚，走错了步。<br>即使我回到那个时代，我依然会退缩，退缩到一个安全的地带。<br>我回不到过去，也没有如果。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;如果我手中有一把剑，我会成为一位剑客，纵横四海，无所畏惧，可是我手中没有剑。&lt;br&gt;如果我会跳舞，我会在月光下，在舞台中央，在所有的目光中灼灼生辉，可是我不会跳舞。&lt;br&gt;如果我活在魏晋，我会成为一个放浪形骸的人，饮觞取酒，或宠辱不惊，或尽情悲痛，可是我活在不一样的时代。&lt;
     
     </summary>
     
