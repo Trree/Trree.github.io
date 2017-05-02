@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://trree.github.io/"/>
-  <updated>2017-03-22T12:20:05.000Z</updated>
+  <updated>2017-05-02T11:43:33.000Z</updated>
   <id>https://trree.github.io/</id>
   
   <author>
@@ -14,6 +14,73 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>系统内存不足</title>
+    <link href="https://trree.github.io/2017/04/27/outOfMemory/"/>
+    <id>https://trree.github.io/2017/04/27/outOfMemory/</id>
+    <published>2017-04-27T02:22:15.000Z</published>
+    <updated>2017-05-02T11:43:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="现象及分析"><a href="#现象及分析" class="headerlink" title="现象及分析"></a>现象及分析</h2><p>有时候我们会面临一些非常情况的现象，<br>没有异常的情况下进程无缘无故的退出，<br>无法写如日志文件。<br>非常奇怪的错误抛出在终端。</p>
+<p>这个时候就需要查看一下系统日志 kern.log 了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">MAIN kernel: [17832.300370]  [&lt;c1090380&gt;] ? oom_kill_process+0x60/0x201</div><div class="line">MAIN kernel: [17832.300408]  [&lt;c10908fd&gt;] ? __out_of_memory+0xf4/0x107</div><div class="line">MAIN kernel: [17832.300445]  [&lt;c109096a&gt;] ? out_of_memory+0x5a/0x7c</div><div class="line">MAIN kernel: [17832.300482]  [&lt;c109322c&gt;] ? __alloc_pages_nodemask+0x3ef/0x4d9</div><div class="line">MAIN kernel: [17832.300522]  [&lt;c109460d&gt;] ? __do_page_cache_readahead+0x98/0x16b</div><div class="line">MAIN kernel: [17832.300562]  [&lt;c10946f4&gt;] ? ra_submit+0x14/0x18</div><div class="line">MAIN kernel: [17832.300597]  [&lt;c108ec9a&gt;] ? filemap_fault+0x16d/0x2e6</div><div class="line">MAIN kernel: [17832.300634]  [&lt;c10a0c9a&gt;] ? __do_fault+0x53/0x3fb</div><div class="line">MAIN kernel: [17832.300670]  [&lt;c10a2f56&gt;] ? handle_mm_fault+0x4d1/0xa22</div><div class="line">MAIN kernel: [17832.300708]  [&lt;c1144ae3&gt;] ? copy_to_user+0x29/0xf8</div><div class="line">MAIN kernel: [17832.300745]  [&lt;c10c6b9a&gt;] ? poll_select_copy_remaining+0xbd/0xd9</div><div class="line">MAIN kernel: [17832.300785]  [&lt;c12830a8&gt;] ? do_page_fault+0x2f1/0x307</div><div class="line">MAIN kernel: [17832.300822]  [&lt;c1282db7&gt;] ? do_page_fault+0x0/0x307</div><div class="line">MAIN kernel: [17832.300857]  [&lt;c12815e3&gt;] ? error_code+0x73/0x78</div></pre></td></tr></table></figure>
+<p>这个时候我们可以发现内存已经不足了。<br>Linux的保护机制在杀内存消耗大的进程。<br>所以会有进程无缘无故的推出。<br>有一些日志是先写到buffer的内存中，然后再调用日志接口把内存中的日志刷到文件中。<br>此时内存已经不足了，所以内存中已经写不进去了。<br>最终我们看到的现象就是写不到文件中。</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><h3 id="内存确实不足"><a href="#内存确实不足" class="headerlink" title="内存确实不足"></a>内存确实不足</h3><p>最简单的办法就是直接使用 top 工具。<br>使用Memory usage的排序方式，实时查看进程的内存占用情况。<br>查看哪个服务占用了非常大的内存空间。<br>检查一下为什么占用的内存空间非常大。<br>是不是真的需要。</p>
+<h3 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h3><p>使用 valgrind 的工具运行程序检测内存释放出现泄漏。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;现象及分析&quot;&gt;&lt;a href=&quot;#现象及分析&quot; class=&quot;headerlink&quot; title=&quot;现象及分析&quot;&gt;&lt;/a&gt;现象及分析&lt;/h2&gt;&lt;p&gt;有时候我们会面临一些非常情况的现象，&lt;br&gt;没有异常的情况下进程无缘无故的退出，&lt;br&gt;无法写如日志文件。&lt;br&gt;非
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tcp-handshark</title>
+    <link href="https://trree.github.io/2017/03/28/tcp-handshark/"/>
+    <id>https://trree.github.io/2017/03/28/tcp-handshark/</id>
+    <published>2017-03-28T13:44:05.000Z</published>
+    <updated>2017-03-29T03:08:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>tcp 报头的各个字段的作用<br>想象一下自己去设计一个TCP协议，如何保证面向连接，可靠的，基于字节流的。因为每个报文都是要发送的，所以你要怎么保证它的简洁性，不浪费资源。<br>It originated in the initial network implementation in which it complemented the Internet Protocol (IP). </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">source port:  源端口</div><div class="line">destination port: 目标端口</div><div class="line">sequence number: 序号，每一个TCP报文段都会有一个序列，序列号字段段值其实是本报文段所发送段第一个字节的序号，通过序号来确保服务的可靠性和有序性。</div><div class="line">ack number:确认号</div><div class="line">Data offset:数据偏移</div><div class="line">Reserved:保留字段</div><div class="line">URG(urgent)：紧急指针</div><div class="line">ACK ：确认字段 </div><div class="line">PSH：推送字段</div><div class="line">RST：复位字段</div><div class="line">SYN：同步字段</div><div class="line">FIN：终止字段</div><div class="line">Windows size：窗口大小</div><div class="line">checksum：检验和</div><div class="line">Urgent pointer：紧急指针</div><div class="line">options：选项</div></pre></td></tr></table></figure>
+<h3 id="tcp-三次握手"><a href="#tcp-三次握手" class="headerlink" title="tcp 三次握手"></a>tcp 三次握手</h3><p>为什么tcp握手需要三次？这个保证了什么东西？</p>
+<ul>
+<li>客户端发送一个 SYN 给服务端。</li>
+<li>服务端返回一个ack和syn给客户端确认。</li>
+<li>客户端在返回一个ack确认。tcp连接建立。</li>
+</ul>
+<p>如果只有两次握手会怎样？<br>客户端发送了一个连接请求的SYN，但是由于网络问题，以至这个连接释放之后才到达服务端，<br>这时候服务器发送 ack 和 syn 给客户端。<br>如果此时就建立连接，由于客户端已经废弃了这个 SYN，所以这个连接客户端什么<br>都不会发送，白白浪费了资源。</p>
+<p>DDoS攻击的也有相似的原理</p>
+<blockquote>
+<p>为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误。</p>
+</blockquote>
+<h3 id="tcp-四次分手"><a href="#tcp-四次分手" class="headerlink" title="tcp 四次分手"></a>tcp 四次分手</h3><ul>
+<li>客户端发送一个 FIN 给服务端</li>
+<li>服务端发送一个ACK 确定</li>
+<li>服务端再发送一个 FIN 接收服务端的连接</li>
+<li>客户端发送 ACK 确定后关闭连接</li>
+</ul>
+<p>半连接的时候是怎么处理的？<br>为什么要四次握手？<br>time_wait 的作用是什么？危害是什么？</p>
+<p>tcp 连接是全双工的，所以一边发送FIN，都需要另一边 ACK 确定。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;tcp 报头的各个字段的作用&lt;br&gt;想象一下自己去设计一个TCP协议，如何保证面向连接，可靠的，基于字节流的。因为每个报文都是要发送的，所以你要怎么保证它的简洁性，不浪费资源。&lt;br&gt;It originated in the initial network implemen
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
+    
+  </entry>
   
   <entry>
     <title>apache多种debug调试方式</title>
@@ -618,51 +685,6 @@
     
     
       <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>空城</title>
-    <link href="https://trree.github.io/2016/10/16/City/"/>
-    <id>https://trree.github.io/2016/10/16/City/</id>
-    <published>2016-10-16T03:00:50.000Z</published>
-    <updated>2016-10-16T04:30:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>早上醒来，我突然发现自己得了空人症，这个城市还是原来的城市，这个城市的运作还是按照原来的方式，<br>可是在我的眼里看不到一个人，和这个人周边的东西。<br>仿佛这个世界上的人都消失了，只剩下机器在运作。</p>
-<p>你可以感受到，在街上还是有那么多的车在开，可是你看不到一个人，地铁仍在开，你可以悠闲的坐在任何一个位置，<br>因为没有人跟你抢，尤其是在中国这个大城市中，感觉尤为强烈。</p>
-<p>你就这样一个人走在这个空空荡荡的大街上，眼中空无一人。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;早上醒来，我突然发现自己得了空人症，这个城市还是原来的城市，这个城市的运作还是按照原来的方式，&lt;br&gt;可是在我的眼里看不到一个人，和这个人周边的东西。&lt;br&gt;仿佛这个世界上的人都消失了，只剩下机器在运作。&lt;/p&gt;
-&lt;p&gt;你可以感受到，在街上还是有那么多的车在开，可是你看不到
-    
-    </summary>
-    
-    
-      <category term="Caprice" scheme="https://trree.github.io/tags/Caprice/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>夏天</title>
-    <link href="https://trree.github.io/2016/10/16/Summer/"/>
-    <id>https://trree.github.io/2016/10/16/Summer/</id>
-    <published>2016-10-16T03:00:43.000Z</published>
-    <updated>2016-10-16T04:31:20.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>有时候会突然的想起你，我尽力去回想你的脸，你的笑容，我们在一起的每一个细节。<br>手机里面还有你的号码，你的照片。<br>可是这些都仿佛是一个遥远的梦，现在想来如此的不真实。<br>我一直埋得很深，我总是很忙的样子。<br>不愿意停下来，因为一旦停下来，仿佛一下子掉入一个无底的深渊。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;有时候会突然的想起你，我尽力去回想你的脸，你的笑容，我们在一起的每一个细节。&lt;br&gt;手机里面还有你的号码，你的照片。&lt;br&gt;可是这些都仿佛是一个遥远的梦，现在想来如此的不真实。&lt;br&gt;我一直埋得很深，我总是很忙的样子。&lt;br&gt;不愿意停下来，因为一旦停下来，仿佛一下子掉入一个
-    
-    </summary>
-    
-    
-      <category term="Caprice" scheme="https://trree.github.io/tags/Caprice/"/>
     
   </entry>
   

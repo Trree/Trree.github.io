@@ -6,27 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://trree.github.io">
-  <title>重复 | Tree</title>
+  <title>系统内存不足 | Tree</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="想想你去年重复了哪些工作，哪些工作占用了你的大量时间，技术支持的时候是对方没有描述清楚问题，还是自己没有理解好问题。是对方在现场操作太慢，还是自己提供的文档不够齐全。
-在工作的时候哪些场景会让你不开心，不开心的原因是什么，是因为事情本身，还是这种交互之间占据了太多时间，是对方的原因，还是自己没有讲清楚的原因。
-什么场景下你会感到非常的烦躁，是因为工作事情本身的原因，还是没有休息好的原因。
-什么东西">
+  <meta name="description" content="现象及分析有时候我们会面临一些非常情况的现象，没有异常的情况下进程无缘无故的退出，无法写如日志文件。非常奇怪的错误抛出在终端。
+这个时候就需要查看一下系统日志 kern.log 了。
+1234567891011121314MAIN kernel: [17832.300370]  [&amp;lt;c1090380&amp;gt;] ? oom_kill_process+0x60/0x201MAIN kernel:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="重复">
-<meta property="og:url" content="https://trree.github.io/2017/02/05/repetition-work/index.html">
+<meta property="og:title" content="系统内存不足">
+<meta property="og:url" content="https://trree.github.io/2017/04/27/outOfMemory/index.html">
 <meta property="og:site_name" content="Tree">
-<meta property="og:description" content="想想你去年重复了哪些工作，哪些工作占用了你的大量时间，技术支持的时候是对方没有描述清楚问题，还是自己没有理解好问题。是对方在现场操作太慢，还是自己提供的文档不够齐全。
-在工作的时候哪些场景会让你不开心，不开心的原因是什么，是因为事情本身，还是这种交互之间占据了太多时间，是对方的原因，还是自己没有讲清楚的原因。
-什么场景下你会感到非常的烦躁，是因为工作事情本身的原因，还是没有休息好的原因。
-什么东西">
-<meta property="og:updated_time" content="2017-02-05T14:36:56.000Z">
+<meta property="og:description" content="现象及分析有时候我们会面临一些非常情况的现象，没有异常的情况下进程无缘无故的退出，无法写如日志文件。非常奇怪的错误抛出在终端。
+这个时候就需要查看一下系统日志 kern.log 了。
+1234567891011121314MAIN kernel: [17832.300370]  [&amp;lt;c1090380&amp;gt;] ? oom_kill_process+0x60/0x201MAIN kernel:">
+<meta property="og:updated_time" content="2017-05-02T11:43:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="重复">
-<meta name="twitter:description" content="想想你去年重复了哪些工作，哪些工作占用了你的大量时间，技术支持的时候是对方没有描述清楚问题，还是自己没有理解好问题。是对方在现场操作太慢，还是自己提供的文档不够齐全。
-在工作的时候哪些场景会让你不开心，不开心的原因是什么，是因为事情本身，还是这种交互之间占据了太多时间，是对方的原因，还是自己没有讲清楚的原因。
-什么场景下你会感到非常的烦躁，是因为工作事情本身的原因，还是没有休息好的原因。
-什么东西">
+<meta name="twitter:title" content="系统内存不足">
+<meta name="twitter:description" content="现象及分析有时候我们会面临一些非常情况的现象，没有异常的情况下进程无缘无故的退出，无法写如日志文件。非常奇怪的错误抛出在终端。
+这个时候就需要查看一下系统日志 kern.log 了。
+1234567891011121314MAIN kernel: [17832.300370]  [&amp;lt;c1090380&amp;gt;] ? oom_kill_process+0x60/0x201MAIN kernel:">
   
     <link rel="alternative" href="/atom.xml" title="Tree" type="application/atom+xml">
   
@@ -187,30 +184,32 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-repetition-work" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-outOfMemory" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      重复
+      系统内存不足
     </h1>
   
 
         
-        <a href="/2017/02/05/repetition-work/" class="archive-article-date">
-  	<time datetime="2017-02-05T14:36:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-05</time>
+        <a href="/2017/04/27/outOfMemory/" class="archive-article-date">
+  	<time datetime="2017-04-27T02:22:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>想想你去年重复了哪些工作，哪些工作占用了你的大量时间，<br>技术支持的时候是对方没有描述清楚问题，还是自己没有理解好问题。<br>是对方在现场操作太慢，还是自己提供的文档不够齐全。</p>
-<p>在工作的时候哪些场景会让你不开心，不开心的原因是什么，<br>是因为事情本身，还是这种交互之间占据了太多时间，是对方的原因，还是自己没有讲清楚的原因。</p>
-<p>什么场景下你会感到非常的烦躁，是因为工作事情本身的原因，<br>还是没有休息好的原因。</p>
-<p>什么东西会影响你工作的效率，突然的电话的打扰，消息，邮箱的打扰。<br>身边同事的打扰，什么打扰你可以忍受，什么打扰你不可以忍受。<br>什么东西会促进你的工作效率，在工作的时候听音乐可以促进你的工作效率吗？<br>在什么情况下你需要音乐去促进你的效率。<br>还有什么硬件或者软件可以促进你的效率，你有争取去改进你的原有的什么方式吗？</p>
+        <h2 id="现象及分析"><a href="#现象及分析" class="headerlink" title="现象及分析"></a>现象及分析</h2><p>有时候我们会面临一些非常情况的现象，<br>没有异常的情况下进程无缘无故的退出，<br>无法写如日志文件。<br>非常奇怪的错误抛出在终端。</p>
+<p>这个时候就需要查看一下系统日志 kern.log 了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">MAIN kernel: [17832.300370]  [&lt;c1090380&gt;] ? oom_kill_process+0x60/0x201</div><div class="line">MAIN kernel: [17832.300408]  [&lt;c10908fd&gt;] ? __out_of_memory+0xf4/0x107</div><div class="line">MAIN kernel: [17832.300445]  [&lt;c109096a&gt;] ? out_of_memory+0x5a/0x7c</div><div class="line">MAIN kernel: [17832.300482]  [&lt;c109322c&gt;] ? __alloc_pages_nodemask+0x3ef/0x4d9</div><div class="line">MAIN kernel: [17832.300522]  [&lt;c109460d&gt;] ? __do_page_cache_readahead+0x98/0x16b</div><div class="line">MAIN kernel: [17832.300562]  [&lt;c10946f4&gt;] ? ra_submit+0x14/0x18</div><div class="line">MAIN kernel: [17832.300597]  [&lt;c108ec9a&gt;] ? filemap_fault+0x16d/0x2e6</div><div class="line">MAIN kernel: [17832.300634]  [&lt;c10a0c9a&gt;] ? __do_fault+0x53/0x3fb</div><div class="line">MAIN kernel: [17832.300670]  [&lt;c10a2f56&gt;] ? handle_mm_fault+0x4d1/0xa22</div><div class="line">MAIN kernel: [17832.300708]  [&lt;c1144ae3&gt;] ? copy_to_user+0x29/0xf8</div><div class="line">MAIN kernel: [17832.300745]  [&lt;c10c6b9a&gt;] ? poll_select_copy_remaining+0xbd/0xd9</div><div class="line">MAIN kernel: [17832.300785]  [&lt;c12830a8&gt;] ? do_page_fault+0x2f1/0x307</div><div class="line">MAIN kernel: [17832.300822]  [&lt;c1282db7&gt;] ? do_page_fault+0x0/0x307</div><div class="line">MAIN kernel: [17832.300857]  [&lt;c12815e3&gt;] ? error_code+0x73/0x78</div></pre></td></tr></table></figure>
+<p>这个时候我们可以发现内存已经不足了。<br>Linux的保护机制在杀内存消耗大的进程。<br>所以会有进程无缘无故的推出。<br>有一些日志是先写到buffer的内存中，然后再调用日志接口把内存中的日志刷到文件中。<br>此时内存已经不足了，所以内存中已经写不进去了。<br>最终我们看到的现象就是写不到文件中。</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><h3 id="内存确实不足"><a href="#内存确实不足" class="headerlink" title="内存确实不足"></a>内存确实不足</h3><p>最简单的办法就是直接使用 top 工具。<br>使用Memory usage的排序方式，实时查看进程的内存占用情况。<br>查看哪个服务占用了非常大的内存空间。<br>检查一下为什么占用的内存空间非常大。<br>是不是真的需要。</p>
+<h3 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h3><p>使用 valgrind 的工具运行程序检测内存释放出现泄漏。</p>
 
       
 
@@ -306,7 +305,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://trree.github.io/2017/02/05/repetition-work/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://trree.github.io/2017/04/27/outOfMemory/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -320,18 +319,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/02/06/apache-pool/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Apache内存管理
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/10/25/20161025/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">人头马身</div>
+    <a href="/2017/03/28/tcp-handshark/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">tcp-handshark</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -345,7 +335,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="repetition-work" data-title="重复" data-url="https://trree.github.io/2017/02/05/repetition-work/"></div>
+	<div class="ds-thread" data-thread-key="outOfMemory" data-title="系统内存不足" data-url="https://trree.github.io/2017/04/27/outOfMemory/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
