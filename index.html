@@ -268,7 +268,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/tcp-handshark/">tcp-handshark</a>
+      <a class="article-title" href="/2017/03/28/tcp-handshark/">TCP 握手</a>
     </h1>
   
 
@@ -281,7 +281,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>tcp 报头的各个字段的作用<br>想象一下自己去设计一个TCP协议，如何保证面向连接，可靠的，基于字节流的。因为每个报文都是要发送的，所以你要怎么保证它的简洁性，不浪费资源。<br>It originated in the initial network implementation in which it complemented the Internet Protocol (IP). </p>
+        <p>tcp 报头的各个字段的作用<br>想象一下自己去设计一个TCP协议，最中的是保证可靠性。因为每个报文都是要包含这些字段，所以你要怎么保证它的简洁性，不浪费资源。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">source port:  源端口</div><div class="line">destination port: 目标端口</div><div class="line">sequence number: 序号，每一个TCP报文段都会有一个序列，序列号字段段值其实是本报文段所发送段第一个字节的序号，通过序号来确保服务的可靠性和有序性。</div><div class="line">ack number:确认号</div><div class="line">Data offset:数据偏移</div><div class="line">Reserved:保留字段</div><div class="line">URG(urgent)：紧急指针</div><div class="line">ACK ：确认字段 </div><div class="line">PSH：推送字段</div><div class="line">RST：复位字段</div><div class="line">SYN：同步字段</div><div class="line">FIN：终止字段</div><div class="line">Windows size：窗口大小</div><div class="line">checksum：检验和</div><div class="line">Urgent pointer：紧急指针</div><div class="line">options：选项</div></pre></td></tr></table></figure>
 <h3 id="tcp-三次握手"><a href="#tcp-三次握手" class="headerlink" title="tcp 三次握手"></a>tcp 三次握手</h3><p>为什么tcp握手需要三次？这个保证了什么东西？</p>
 <ul>
@@ -294,7 +294,7 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误。</p>
 </blockquote>
-<h3 id="tcp-四次分手"><a href="#tcp-四次分手" class="headerlink" title="tcp 四次分手"></a>tcp 四次分手</h3><ul>
+<h3 id="tcp-四次挥手"><a href="#tcp-四次挥手" class="headerlink" title="tcp 四次挥手"></a>tcp 四次挥手</h3><ul>
 <li>客户端发送一个 FIN 给服务端</li>
 <li>服务端发送一个ACK 确定</li>
 <li>服务端再发送一个 FIN 接收服务端的连接</li>
@@ -1154,11 +1154,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Tech, Apache</a>
+                <a href="javascript:void(0)" class="js-tag color3">Caprice</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Caprice</a>
+                <a href="javascript:void(0)" class="js-tag color3">Tech, Apache</a>
               </li>
              
               <li class="article-tag-list-item">
