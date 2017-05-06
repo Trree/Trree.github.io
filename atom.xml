@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://trree.github.io/"/>
-  <updated>2017-05-02T11:43:33.000Z</updated>
+  <updated>2017-05-06T10:06:37.000Z</updated>
   <id>https://trree.github.io/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搬家</title>
+    <link href="https://trree.github.io/2017/05/06/20170506/"/>
+    <id>https://trree.github.io/2017/05/06/20170506/</id>
+    <published>2017-05-06T09:21:59.000Z</published>
+    <updated>2017-05-06T10:06:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近搬了新的住处，在那个地方也住了两年，现在回想一下，<br>为什么自己会忍受那样的住了2年，我为什么要这么说呢？<br>因为那时候刚来上海，所以对生活对要求也不是很高，<br>是跟朋友合租的，地理位置挺方便的，而且价格也挺合理，<br>造成的结果就是房子比较老，所以一切配套的都是老家具。<br>因为对这个地方最初对定位就是睡觉。所以满足生活的基本<br>要求就满足了。就这样度过了两年。</p>
+<p>现在搬到公司附近，有了属于自己的独立的空间。<br>而且家具都是比较新的。这一切突然激发了自己的装饰欲望。</p>
+<p>于是在地板上铺好地毯。买了自己一直想种的花。<br><img src="/2017/05/06/20170506/flow.jpg" alt="organization" title="organization"></p>
+<p>买了梵高的星空，买了花瓶。<br>买了衣架，买了真空袋把一切都收拾的整整齐齐。<br>就连常年治不好的叠被子也因为不和谐而变得自然。</p>
+<p>一直知道自己需要什么，可是在老的住处，看着<br>那些陈旧的老东西，所有都还是老样子，没有改变。</p>
+<p>这一切都从我拥有了一双象牙筷子说起。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近搬了新的住处，在那个地方也住了两年，现在回想一下，&lt;br&gt;为什么自己会忍受那样的住了2年，我为什么要这么说呢？&lt;br&gt;因为那时候刚来上海，所以对生活对要求也不是很高，&lt;br&gt;是跟朋友合租的，地理位置挺方便的，而且价格也挺合理，&lt;br&gt;造成的结果就是房子比较老，所以一切配
+    
+    </summary>
+    
+    
+      <category term="Think" scheme="https://trree.github.io/tags/Think/"/>
+    
+  </entry>
   
   <entry>
     <title>系统内存不足</title>
@@ -653,39 +679,6 @@
     
     
       <category term="Caprice" scheme="https://trree.github.io/tags/Caprice/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP Session超时设置</title>
-    <link href="https://trree.github.io/2016/10/16/PHP-Session/"/>
-    <id>https://trree.github.io/2016/10/16/PHP-Session/</id>
-    <published>2016-10-16T03:01:02.000Z</published>
-    <updated>2016-10-16T07:30:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="PHP控制session的方法"><a href="#PHP控制session的方法" class="headerlink" title="PHP控制session的方法"></a>PHP控制session的方法</h3><p>环境：PHP的session控制使用crond定时检查<br>debian3， ubuntu14.0.4</p>
-<p>PHP的session文件保存在 /var/lib/php5 中，如果是使用cookie保存session的方法，<br>可以在浏览器中查看cookie，查看两个值是不是一样的。<br>如果你手动清除这个文件，登陆页面马上放回到你需要跳转的页面。<br>所以对session时间的控制就是对删除session文件时间的控制。</p>
-<p>删除session文件是使用<br>首先查看 /etc/cron.d/php5 的文件</p>
-<blockquote>
-<p>09,39 <em>     </em> <em> </em>     root   [ -d /var/lib/php5   ] &amp;&amp; find /var/lib/php5/ -type f -cmin +$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm</p>
-</blockquote>
-<p>从这里可以看出系统定时检查session文件的修改时间，一旦超出maxlifetime，就将它删除。<br>所以最后的控制就在 /usr/lib/php5/maxlifetime 中。</p>
-<p>我们查看这个文件做了什么事情<br>这个文件中默认最大超时时间为 1440 秒，然后与 /etc/php5/*/php.ini 的session.gc_maxlifetime 时间比较，哪个大取哪个值。<br>在 /etc/php5/*/php.ini 中默认时间也是 1440 秒，所以非常的麻烦修改三个文件。</p>
-<h3 id="最简单的设置session超时时间"><a href="#最简单的设置session超时时间" class="headerlink" title="最简单的设置session超时时间"></a>最简单的设置session超时时间</h3><p>直接修改 /usr/lib/php5/maxlifetime</p>
-<blockquote>
-<p>echo $time</p>
-</blockquote>
-<p>这个 $time 就是你设置的超时分钟。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;PHP控制session的方法&quot;&gt;&lt;a href=&quot;#PHP控制session的方法&quot; class=&quot;headerlink&quot; title=&quot;PHP控制session的方法&quot;&gt;&lt;/a&gt;PHP控制session的方法&lt;/h3&gt;&lt;p&gt;环境：PHP的session控制使用
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
     
   </entry>
   
