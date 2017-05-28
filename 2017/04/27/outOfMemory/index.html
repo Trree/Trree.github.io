@@ -8,22 +8,16 @@
   <link rel="dns-prefetch" href="https://trree.github.io">
   <title>系统内存不足 | Tree</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="现象及分析有时候我们会面临一些非常情况的现象，没有异常的情况下进程无缘无故的退出，无法写如日志文件。非常奇怪的错误抛出在终端。
-这个时候就需要查看一下系统日志 kern.log 了。
-1234567891011121314MAIN kernel: [17832.300370]  [&amp;lt;c1090380&amp;gt;] ? oom_kill_process+0x60/0x201MAIN kernel:">
+  <meta name="description" content="有时候我们会面临一些非常情况的现象，没有异常的情况下进程无缘无故的退出，无法写如日志文件。非常奇怪的错误抛出在终端。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="系统内存不足">
 <meta property="og:url" content="https://trree.github.io/2017/04/27/outOfMemory/index.html">
 <meta property="og:site_name" content="Tree">
-<meta property="og:description" content="现象及分析有时候我们会面临一些非常情况的现象，没有异常的情况下进程无缘无故的退出，无法写如日志文件。非常奇怪的错误抛出在终端。
-这个时候就需要查看一下系统日志 kern.log 了。
-1234567891011121314MAIN kernel: [17832.300370]  [&amp;lt;c1090380&amp;gt;] ? oom_kill_process+0x60/0x201MAIN kernel:">
-<meta property="og:updated_time" content="2017-05-02T11:43:33.000Z">
+<meta property="og:description" content="有时候我们会面临一些非常情况的现象，没有异常的情况下进程无缘无故的退出，无法写如日志文件。非常奇怪的错误抛出在终端。">
+<meta property="og:updated_time" content="2017-05-28T12:07:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统内存不足">
-<meta name="twitter:description" content="现象及分析有时候我们会面临一些非常情况的现象，没有异常的情况下进程无缘无故的退出，无法写如日志文件。非常奇怪的错误抛出在终端。
-这个时候就需要查看一下系统日志 kern.log 了。
-1234567891011121314MAIN kernel: [17832.300370]  [&amp;lt;c1090380&amp;gt;] ? oom_kill_process+0x60/0x201MAIN kernel:">
+<meta name="twitter:description" content="有时候我们会面临一些非常情况的现象，没有异常的情况下进程无缘无故的退出，无法写如日志文件。非常奇怪的错误抛出在终端。">
   
     <link rel="alternative" href="/atom.xml" title="Tree" type="application/atom+xml">
   
@@ -204,7 +198,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="现象及分析"><a href="#现象及分析" class="headerlink" title="现象及分析"></a>现象及分析</h2><p>有时候我们会面临一些非常情况的现象，<br>没有异常的情况下进程无缘无故的退出，<br>无法写如日志文件。<br>非常奇怪的错误抛出在终端。</p>
+        <p>有时候我们会面临一些非常情况的现象，<br>没有异常的情况下进程无缘无故的退出，<br>无法写如日志文件。<br>非常奇怪的错误抛出在终端。<br><a id="more"></a></p>
+<h2 id="现象及分析"><a href="#现象及分析" class="headerlink" title="现象及分析"></a>现象及分析</h2><p>有时候我们会面临一些非常情况的现象，<br>没有异常的情况下进程无缘无故的退出，<br>无法写如日志文件。<br>非常奇怪的错误抛出在终端。</p>
 <p>这个时候就需要查看一下系统日志 kern.log 了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">MAIN kernel: [17832.300370]  [&lt;c1090380&gt;] ? oom_kill_process+0x60/0x201</div><div class="line">MAIN kernel: [17832.300408]  [&lt;c10908fd&gt;] ? __out_of_memory+0xf4/0x107</div><div class="line">MAIN kernel: [17832.300445]  [&lt;c109096a&gt;] ? out_of_memory+0x5a/0x7c</div><div class="line">MAIN kernel: [17832.300482]  [&lt;c109322c&gt;] ? __alloc_pages_nodemask+0x3ef/0x4d9</div><div class="line">MAIN kernel: [17832.300522]  [&lt;c109460d&gt;] ? __do_page_cache_readahead+0x98/0x16b</div><div class="line">MAIN kernel: [17832.300562]  [&lt;c10946f4&gt;] ? ra_submit+0x14/0x18</div><div class="line">MAIN kernel: [17832.300597]  [&lt;c108ec9a&gt;] ? filemap_fault+0x16d/0x2e6</div><div class="line">MAIN kernel: [17832.300634]  [&lt;c10a0c9a&gt;] ? __do_fault+0x53/0x3fb</div><div class="line">MAIN kernel: [17832.300670]  [&lt;c10a2f56&gt;] ? handle_mm_fault+0x4d1/0xa22</div><div class="line">MAIN kernel: [17832.300708]  [&lt;c1144ae3&gt;] ? copy_to_user+0x29/0xf8</div><div class="line">MAIN kernel: [17832.300745]  [&lt;c10c6b9a&gt;] ? poll_select_copy_remaining+0xbd/0xd9</div><div class="line">MAIN kernel: [17832.300785]  [&lt;c12830a8&gt;] ? do_page_fault+0x2f1/0x307</div><div class="line">MAIN kernel: [17832.300822]  [&lt;c1282db7&gt;] ? do_page_fault+0x0/0x307</div><div class="line">MAIN kernel: [17832.300857]  [&lt;c12815e3&gt;] ? error_code+0x73/0x78</div></pre></td></tr></table></figure>
 <p>这个时候我们可以发现内存已经不足了。<br>Linux的保护机制在杀内存消耗大的进程。<br>所以会有进程无缘无故的推出。<br>有一些日志是先写到buffer的内存中，然后再调用日志接口把内存中的日志刷到文件中。<br>此时内存已经不足了，所以内存中已经写不进去了。<br>最终我们看到的现象就是写不到文件中。</p>
@@ -474,7 +469,7 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tech</a>
+                <a href="javascript:void(0)" class="js-tag color1">Think</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -482,7 +477,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Think</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tech</a>
               </li>
              
               <li class="article-tag-list-item">

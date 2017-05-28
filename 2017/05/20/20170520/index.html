@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://trree.github.io">
-  <title>Apache 压力测试后的127连接 | Tree</title>
+  <title>Apache 压力测试后的大量本地连接 | Tree</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在对Apache（prefork多进程模式）进行压力测试对时候，发现一旦停止压力测试对时候。会出现非常多的 127.0.0.1:447 连接">
+  <meta name="description" content="在对Apache（prefork多进程模式）进行压力测试对时候，发现一旦停止压力测试对时候。会出现非常多的本地连接">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Apache 压力测试后的127连接">
+<meta property="og:title" content="Apache 压力测试后的大量本地连接">
 <meta property="og:url" content="https://trree.github.io/2017/05/20/20170520/index.html">
 <meta property="og:site_name" content="Tree">
-<meta property="og:description" content="在对Apache（prefork多进程模式）进行压力测试对时候，发现一旦停止压力测试对时候。会出现非常多的 127.0.0.1:447 连接">
-<meta property="og:updated_time" content="2017-05-28T11:31:00.000Z">
+<meta property="og:description" content="在对Apache（prefork多进程模式）进行压力测试对时候，发现一旦停止压力测试对时候。会出现非常多的本地连接">
+<meta property="og:updated_time" content="2017-05-28T12:06:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Apache 压力测试后的127连接">
-<meta name="twitter:description" content="在对Apache（prefork多进程模式）进行压力测试对时候，发现一旦停止压力测试对时候。会出现非常多的 127.0.0.1:447 连接">
+<meta name="twitter:title" content="Apache 压力测试后的大量本地连接">
+<meta name="twitter:description" content="在对Apache（prefork多进程模式）进行压力测试对时候，发现一旦停止压力测试对时候。会出现非常多的本地连接">
   
     <link rel="alternative" href="/atom.xml" title="Tree" type="application/atom+xml">
   
@@ -185,7 +185,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      Apache 压力测试后的127连接
+      Apache 压力测试后的大量本地连接
     </h1>
   
 
@@ -198,7 +198,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在对Apache（prefork多进程模式）进行压力测试对时候，<br>发现一旦停止压力测试对时候。<br>会出现非常多的 127.0.0.1:447 连接<br><a id="more"></a> </p>
+        <p>在对Apache（prefork多进程模式）进行压力测试对时候，<br>发现一旦停止压力测试对时候。<br>会出现非常多的本地连接<br><a id="more"></a> </p>
 <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在对Apache（prefork多进程模式）进行压力测试对时候，<br>客户端IP：192.168.41.96<br>网关IP和端口; 0.0.0.0:447<br>发现一旦停止压力测试对时候。<br>使用 netstat -an | grep 127<br>会出现非常多的 127.0.0.1:447 连接</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tcp        0      0 127.0.0.1:38984         127.0.0.1:447           TIME_WAIT</div><div class="line">tcp        0      0 127.0.0.1:38994         127.0.0.1:447           TIME_WAIT</div></pre></td></tr></table></figure>
 <p>查看的时候连接都已经是 TIME_WAIT 的状态，无法查看它是通过哪些进程查看它建立连接。<br>我们怀疑这些连接可能对性能会有影响。<br>所以对这个问题进行了排查。</p>
@@ -348,7 +348,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="20170520" data-title="Apache 压力测试后的127连接" data-url="https://trree.github.io/2017/05/20/20170520/"></div>
+	<div class="ds-thread" data-thread-key="20170520" data-title="Apache 压力测试后的大量本地连接" data-url="https://trree.github.io/2017/05/20/20170520/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -478,7 +478,7 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tech</a>
+                <a href="javascript:void(0)" class="js-tag color1">Think</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -486,7 +486,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Think</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tech</a>
               </li>
              
               <li class="article-tag-list-item">

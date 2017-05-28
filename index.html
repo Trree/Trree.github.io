@@ -199,7 +199,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>五月好像一瞬间就过去了，在中间没有留下任何的痕迹。<br>生活仿佛没有波澜的心跳线。<br>火车穿过悠长的隧道。窗外失去了风景。<br>一切都在轨道上面。</p>
+
       
 
       
@@ -262,7 +263,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/20/20170520/">Apache 压力测试后的127连接</a>
+      <a class="article-title" href="/2017/05/20/20170520/">Apache 压力测试后的大量本地连接</a>
     </h1>
   
 
@@ -275,7 +276,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在对Apache（prefork多进程模式）进行压力测试对时候，<br>发现一旦停止压力测试对时候。<br>会出现非常多的 127.0.0.1:447 连接<br>
+        <p>在对Apache（prefork多进程模式）进行压力测试对时候，<br>发现一旦停止压力测试对时候。<br>会出现非常多的本地连接<br>
         
           <a class="article-more-a" href="/2017/05/20/20170520/#more">more >></a>
         
@@ -354,13 +355,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近搬了新的住处，在那个地方也住了两年，现在回想一下，<br>为什么自己会忍受那样的住了2年，我为什么要这么说呢？<br>因为那时候刚来上海，所以对生活对要求也不是很高，<br>是跟朋友合租的，地理位置挺方便的，而且价格也挺合理，<br>造成的结果就是房子比较老，所以一切配套的都是老家具。<br>因为对这个地方最初对定位就是睡觉。所以满足生活的基本<br>要求就满足了。就这样度过了两年。</p>
-<p>现在搬到公司附近，有了属于自己的独立的空间。<br>而且家具都是比较新的。这一切突然激发了自己的装饰欲望。</p>
-<p>于是在地板上铺好地毯。买了自己一直想种的花。<br><img src="/2017/05/06/20170506/flow.jpg" alt="organization" title="organization"></p>
-<p>买了梵高的星空，买了花瓶。<br>买了衣架，买了真空袋把一切都收拾的整整齐齐。<br>就连常年治不好的叠被子也因为不和谐而变得自然。</p>
-<p>一直知道自己需要什么，可是在老的住处，看着<br>那些陈旧的老东西，所有都还是老样子，没有改变。</p>
-<p>这一切都从我拥有了一双象牙筷子说起。</p>
-
+        <p>最近搬了新的住处，忽然不明白自己为什么在那里住了2年。<br>
+        
+          <a class="article-more-a" href="/2017/05/06/20170506/#more">more >></a>
+        
       
 
       
@@ -436,13 +434,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="现象及分析"><a href="#现象及分析" class="headerlink" title="现象及分析"></a>现象及分析</h2><p>有时候我们会面临一些非常情况的现象，<br>没有异常的情况下进程无缘无故的退出，<br>无法写如日志文件。<br>非常奇怪的错误抛出在终端。</p>
-<p>这个时候就需要查看一下系统日志 kern.log 了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">MAIN kernel: [17832.300370]  [&lt;c1090380&gt;] ? oom_kill_process+0x60/0x201</div><div class="line">MAIN kernel: [17832.300408]  [&lt;c10908fd&gt;] ? __out_of_memory+0xf4/0x107</div><div class="line">MAIN kernel: [17832.300445]  [&lt;c109096a&gt;] ? out_of_memory+0x5a/0x7c</div><div class="line">MAIN kernel: [17832.300482]  [&lt;c109322c&gt;] ? __alloc_pages_nodemask+0x3ef/0x4d9</div><div class="line">MAIN kernel: [17832.300522]  [&lt;c109460d&gt;] ? __do_page_cache_readahead+0x98/0x16b</div><div class="line">MAIN kernel: [17832.300562]  [&lt;c10946f4&gt;] ? ra_submit+0x14/0x18</div><div class="line">MAIN kernel: [17832.300597]  [&lt;c108ec9a&gt;] ? filemap_fault+0x16d/0x2e6</div><div class="line">MAIN kernel: [17832.300634]  [&lt;c10a0c9a&gt;] ? __do_fault+0x53/0x3fb</div><div class="line">MAIN kernel: [17832.300670]  [&lt;c10a2f56&gt;] ? handle_mm_fault+0x4d1/0xa22</div><div class="line">MAIN kernel: [17832.300708]  [&lt;c1144ae3&gt;] ? copy_to_user+0x29/0xf8</div><div class="line">MAIN kernel: [17832.300745]  [&lt;c10c6b9a&gt;] ? poll_select_copy_remaining+0xbd/0xd9</div><div class="line">MAIN kernel: [17832.300785]  [&lt;c12830a8&gt;] ? do_page_fault+0x2f1/0x307</div><div class="line">MAIN kernel: [17832.300822]  [&lt;c1282db7&gt;] ? do_page_fault+0x0/0x307</div><div class="line">MAIN kernel: [17832.300857]  [&lt;c12815e3&gt;] ? error_code+0x73/0x78</div></pre></td></tr></table></figure>
-<p>这个时候我们可以发现内存已经不足了。<br>Linux的保护机制在杀内存消耗大的进程。<br>所以会有进程无缘无故的推出。<br>有一些日志是先写到buffer的内存中，然后再调用日志接口把内存中的日志刷到文件中。<br>此时内存已经不足了，所以内存中已经写不进去了。<br>最终我们看到的现象就是写不到文件中。</p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><h3 id="内存确实不足"><a href="#内存确实不足" class="headerlink" title="内存确实不足"></a>内存确实不足</h3><p>最简单的办法就是直接使用 top 工具。<br>使用Memory usage的排序方式，实时查看进程的内存占用情况。<br>查看哪个服务占用了非常大的内存空间。<br>检查一下为什么占用的内存空间非常大。<br>是不是真的需要。</p>
-<h3 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h3><p>使用 valgrind 的工具运行程序检测内存释放出现泄漏。</p>
-
+        <p>有时候我们会面临一些非常情况的现象，<br>没有异常的情况下进程无缘无故的退出，<br>无法写如日志文件。<br>非常奇怪的错误抛出在终端。<br>
+        
+          <a class="article-more-a" href="/2017/04/27/outOfMemory/#more">more >></a>
+        
       
 
       
@@ -518,28 +513,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>tcp 报头的各个字段的作用<br>想象一下自己去设计一个TCP协议，最中的是保证可靠性。因为每个报文都是要包含这些字段，所以你要怎么保证它的简洁性，不浪费资源。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">source port:  源端口</div><div class="line">destination port: 目标端口</div><div class="line">sequence number: 序号，每一个TCP报文段都会有一个序列，序列号字段段值其实是本报文段所发送段第一个字节的序号，通过序号来确保服务的可靠性和有序性。</div><div class="line">ack number:确认号</div><div class="line">Data offset:数据偏移</div><div class="line">Reserved:保留字段</div><div class="line">URG(urgent)：紧急指针</div><div class="line">ACK ：确认字段 </div><div class="line">PSH：推送字段</div><div class="line">RST：复位字段</div><div class="line">SYN：同步字段</div><div class="line">FIN：终止字段</div><div class="line">Windows size：窗口大小</div><div class="line">checksum：检验和</div><div class="line">Urgent pointer：紧急指针</div><div class="line">options：选项</div></pre></td></tr></table></figure>
-<h3 id="tcp-三次握手"><a href="#tcp-三次握手" class="headerlink" title="tcp 三次握手"></a>tcp 三次握手</h3><p>为什么tcp握手需要三次？这个保证了什么东西？</p>
-<ul>
-<li>客户端发送一个 SYN 给服务端。</li>
-<li>服务端返回一个ack和syn给客户端确认。</li>
-<li>客户端在返回一个ack确认。tcp连接建立。</li>
-</ul>
-<p>如果只有两次握手会怎样？<br>客户端发送了一个连接请求的SYN，但是由于网络问题，以至这个连接释放之后才到达服务端，<br>这时候服务器发送 ack 和 syn 给客户端。<br>如果此时就建立连接，由于客户端已经废弃了这个 SYN，所以这个连接客户端什么<br>都不会发送，白白浪费了资源。</p>
-<p>DDoS攻击的也有相似的原理</p>
-<blockquote>
-<p>为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误。</p>
-</blockquote>
-<h3 id="tcp-四次挥手"><a href="#tcp-四次挥手" class="headerlink" title="tcp 四次挥手"></a>tcp 四次挥手</h3><ul>
-<li>客户端发送一个 FIN 给服务端</li>
-<li>服务端发送一个ACK 确定</li>
-<li>服务端再发送一个 FIN 接收服务端的连接</li>
-<li>客户端发送 ACK 确定后关闭连接</li>
-</ul>
-<p>半连接的时候是怎么处理的？<br>为什么要四次握手？<br>time_wait 的作用是什么？危害是什么？</p>
-<p>tcp 连接是全双工的，所以一边发送FIN，都需要另一边 ACK 确定。</p>
-
+        <p>tcp 报头的各个字段的作用<br>想象一下自己去设计一个TCP协议，最中的是保证可靠性。因为每个报文都是要包含这些字段，所以你要怎么保证它的简洁性，不浪费资源。<br>
+        
+          <a class="article-more-a" href="/2017/03/28/tcp-handshark/#more">more >></a>
+        
       
 
       
@@ -813,14 +790,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <img src="/2017/02/12/thread/thread.gif" alt="organization" title="organization">
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">只要我时间了，我就把这本书看完。</div><div class="line">如果我有很多钱，我就要去全世界旅游。</div></pre></td></tr></table></figure>
-<p>总是喜欢信誓旦旦的对别人说着一些话，<br>不知道最后多少人达成了目标。<br>就像小时候想要的那个模型。<br>现在可以轻而易举的买下小时候的想要的任何东西。<br>可是突然失去了对这件事情的乐趣。<br>时间与环境的变化，那么事情本事早就失去了它原本的意义。</p>
-<p>太多时候总喜欢用如果只要达到什么条件，<br>那么我就要做什么。喜欢把生活一步一步的规划，<br>达到一个目标之后，才开始进行下一步。<br>如果有一步陷入了困境，那么就一直阻塞在那一步。</p>
-<p>计算机人员在解释多核的时候，喜欢用一个人在多项任务<br>之间切换得够快，那么像是在同时处理多件事情一样。<br>但是我们不能像孙悟空或者技术总监一样分身。分配人员<br>同时处理不同的事情。</p>
-<p>但是可以像线程一样。<br>在保证主线程正常运行的时候，<br>使用多线程的方法，从现在慢慢就开始做自己喜欢的事情。<br>但是也要保证线程安全。</p>
-<p>refer: <a href="https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B" target="_blank" rel="external">thread</a></p>
-
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">只要我时间了，我就把这本书看完。</div><div class="line">如果我有很多钱，我就要去全世界旅游。</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/02/12/thread/#more">more >></a>
+        
       
 
       
@@ -982,20 +955,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Apache 提供了自己的内存和资源管理方式，称作内存池，内存池在apache中任何一个阶段被使用，所以也被外部模块使用。<br>内存池可以管理内存，Sockets 和进程等服务系统所有的资源。</p>
-<p>内存池的使用可以降低程序设计错误的可能性。在程序中如果由于疏忽或错误造成程序未能释放已经不再使用的内存，造成内存泄露。<br>内存泄漏并非指内存在物理上的消失，而是应用程序分配某段内存后，由于设计错误，导致在释放该段内存之前就失去了对该段内存的控制，<br>从而造成了内存的浪费，其它的程序就不能够再使用这个内存段。</p>
-<p>客户端的程序因为运行不是非常长时间，退出后操作系统会自动释放资源，所以不是造成太大的危害。但是在服务端端程序由于长期运行，<br>即使是一点地内存泄漏由于长期内存泄露造成服务端的崩溃。</p>
-<p>尤其需要注意Sockets。如果建立了一个Socket，但是在业务完成时没有释放它，那么其它的程序就不能使用这块内存。这些不断建立但<br>是未释放的Sockets会造成内存，CPU被占满。此时服务端一定会崩溃。许多服务端现在基本都是以多线程或者多进程的方式工作，这些<br>进程或者线程如果不按设计退出只能被管理员中断。如果一个程序不停止运行，那么服务端端资源会被立马占满并且崩溃。</p>
-<p>随着内存池的使用，开发者可以在一个已知生命周期的内存池中使用内存，sockets和进程。一旦这个内存池被摧毁，那么所有的资源都<br>会自动的释放。这样就只有一些仔细考虑后额外的例程才会需要考虑释放内存的事情。这样就变得更简单明了，减少了开发者的负担。</p>
-<p>重要的是，内存池可以提升服务器的性能。通常一个程序使用和释放内存，由于系统需要从虚拟内存中分配和释放内存，这些会造成<br>许多的开销，这将显著的降低性能。并且，不管请求了多少内存，系统通常分配一个最小数量的空间。<br>那么这将造成许多小的内存空间被浪费。经常这样做的话，那么你需要关注这些小内存的价值了.</p>
-<h3 id="内建池和生命周期"><a href="#内建池和生命周期" class="headerlink" title="内建池和生命周期"></a>内建池和生命周期</h3><img src="/2017/02/06/apache-pool/pools_hierarchy.gif" alt="organization" title="organization">
-<p>Apache内建的内存池都有不同的生命周期，如上图所示，该图描述了池的继承的层次结构。pglobal存在于服务器的真个运行周期，<br>pchaild存在于整个子虚拟机主机的生命周期，pconn是每一个连接的生命周期，preq是每一个请求的生命周期。通常开发者使用<br>最小的生命周期最小存储空间最小存放数据。</p>
-<p>如果开发者需要一个非常大的内存空间，而且没有一个合适生命周期的内存池。一个任意内建池的子池可以被创建。程序可以像<br>内建池一样使用这个内存池，也可以在不需要这个内存池的时候释放它。如果忘记了释放这个内存池，那么在它的父池被释放的<br>时候它会被自动释放。释放pglobal的时候，所以的子池都将被自动释放。每一个连接池是子服务池处理连接，所有的请求池都<br>是对应了连接池。</p>
-<h3 id="内存池的内部结构"><a href="#内存池的内部结构" class="headerlink" title="内存池的内部结构"></a>内存池的内部结构</h3><img src="/2017/02/06/apache-pool/pools_block.gif" alt="organization" title="organization">
-<p>如上图所示，一个池内部链接了一系列的子池，数据块，进程和回调函数。如果需要分配内存需要使用预定义的函数。这些函数<br>不只是分配内存，并且也可以释放内存。同样的进程也可以通过内存池建立，内存释放的时候进程结束。此外，每个池可以保存<br>关于在销毁所有存储器之前被调用的函数的信息。这样文件处理程序和套接字都可以注册一个池去销毁它。</p>
-<p>当一个内存池被销毁的时候，apache首先回调清理函数。所有注册的文件句柄和Sockets将被关闭。之后，池讲终止所有的注册<br>和进程。这些结束之后，数据块就被释放。通常apache并不是真的释放被其它程序使用的内存。而是将它从池中删除，将这段<br>内存放入空闲的内存块中。这样就将分配和释放内存的消耗降至最低。内核将立即分配这些空闲的内存。只有在池中所有的内<br>存都用完时才需要分配新的空间。</p>
-<p>refer: <a href="http://www.fmc-modeling.org/category/projects/apache/amp/4_6Memory_resource.html" target="_blank" rel="external">Memory_resource</a></p>
-
+        <p>Apache 提供了自己的内存和资源管理方式，称作内存池，内存池在apache中任何一个阶段被使用，所以也被外部模块使用。<br>内存池可以管理内存，Sockets 和进程等服务系统所有的资源。<br>
+        
+          <a class="article-more-a" href="/2017/02/06/apache-pool/#more">more >></a>
+        
       
 
       
@@ -1151,7 +1114,7 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tech</a>
+                <a href="javascript:void(0)" class="js-tag color1">Think</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1159,7 +1122,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Think</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tech</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://trree.github.io/"/>
-  <updated>2017-05-28T11:05:26.000Z</updated>
+  <updated>2017-05-28T12:16:01.000Z</updated>
   <id>https://trree.github.io/</id>
   
   <author>
@@ -20,9 +20,15 @@
     <link href="https://trree.github.io/2017/05/28/disMay/"/>
     <id>https://trree.github.io/2017/05/28/disMay/</id>
     <published>2017-05-28T11:04:21.000Z</published>
-    <updated>2017-05-28T11:05:26.000Z</updated>
+    <updated>2017-05-28T12:16:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>五月好像一瞬间就过去了，在中间没有留下任何的痕迹。<br>生活仿佛没有波澜的心跳线。<br>火车穿过悠长的隧道。窗外失去了风景。<br>一切都在轨道上面。</p>
+]]></content>
     
     <summary type="html">
+    
+      &lt;p&gt;五月好像一瞬间就过去了，在中间没有留下任何的痕迹。&lt;br&gt;生活仿佛没有波澜的心跳线。&lt;br&gt;火车穿过悠长的隧道。窗外失去了风景。&lt;br&gt;一切都在轨道上面。&lt;/p&gt;
+
     
     </summary>
     
@@ -32,13 +38,13 @@
   </entry>
   
   <entry>
-    <title>Apache 压力测试后的127连接</title>
+    <title>Apache 压力测试后的大量本地连接</title>
     <link href="https://trree.github.io/2017/05/20/20170520/"/>
     <id>https://trree.github.io/2017/05/20/20170520/</id>
     <published>2017-05-20T05:32:10.000Z</published>
-    <updated>2017-05-28T11:31:00.000Z</updated>
+    <updated>2017-05-28T12:06:33.000Z</updated>
     
-    <content type="html"><![CDATA[<p>在对Apache（prefork多进程模式）进行压力测试对时候，<br>发现一旦停止压力测试对时候。<br>会出现非常多的 127.0.0.1:447 连接<br><a id="more"></a> </p>
+    <content type="html"><![CDATA[<p>在对Apache（prefork多进程模式）进行压力测试对时候，<br>发现一旦停止压力测试对时候。<br>会出现非常多的本地连接<br><a id="more"></a> </p>
 <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在对Apache（prefork多进程模式）进行压力测试对时候，<br>客户端IP：192.168.41.96<br>网关IP和端口; 0.0.0.0:447<br>发现一旦停止压力测试对时候。<br>使用 netstat -an | grep 127<br>会出现非常多的 127.0.0.1:447 连接</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tcp        0      0 127.0.0.1:38984         127.0.0.1:447           TIME_WAIT</div><div class="line">tcp        0      0 127.0.0.1:38994         127.0.0.1:447           TIME_WAIT</div></pre></td></tr></table></figure>
 <p>查看的时候连接都已经是 TIME_WAIT 的状态，无法查看它是通过哪些进程查看它建立连接。<br>我们怀疑这些连接可能对性能会有影响。<br>所以对这个问题进行了排查。</p>
@@ -58,7 +64,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;在对Apache（prefork多进程模式）进行压力测试对时候，&lt;br&gt;发现一旦停止压力测试对时候。&lt;br&gt;会出现非常多的 127.0.0.1:447 连接&lt;br&gt;
+      &lt;p&gt;在对Apache（prefork多进程模式）进行压力测试对时候，&lt;br&gt;发现一旦停止压力测试对时候。&lt;br&gt;会出现非常多的本地连接&lt;br&gt;
     
     </summary>
     
@@ -72,9 +78,10 @@
     <link href="https://trree.github.io/2017/05/06/20170506/"/>
     <id>https://trree.github.io/2017/05/06/20170506/</id>
     <published>2017-05-06T09:21:59.000Z</published>
-    <updated>2017-05-06T10:06:37.000Z</updated>
+    <updated>2017-05-28T12:19:01.000Z</updated>
     
-    <content type="html"><![CDATA[<p>最近搬了新的住处，在那个地方也住了两年，现在回想一下，<br>为什么自己会忍受那样的住了2年，我为什么要这么说呢？<br>因为那时候刚来上海，所以对生活对要求也不是很高，<br>是跟朋友合租的，地理位置挺方便的，而且价格也挺合理，<br>造成的结果就是房子比较老，所以一切配套的都是老家具。<br>因为对这个地方最初对定位就是睡觉。所以满足生活的基本<br>要求就满足了。就这样度过了两年。</p>
+    <content type="html"><![CDATA[<p>最近搬了新的住处，忽然不明白自己为什么在那里住了2年。<br><a id="more"></a></p>
+<p>最近搬了新的住处，在那个地方也住了两年，现在回想一下，<br>为什么自己会忍受那样的住了2年，我为什么要这么说呢？<br>因为那时候刚来上海，所以对生活对要求也不是很高，<br>是跟朋友合租的，地理位置挺方便的，而且价格也挺合理，<br>造成的结果就是房子比较老，所以一切配套的都是老家具。<br>因为对这个地方最初对定位就是睡觉。所以满足生活的基本<br>要求就满足了。就这样度过了两年。</p>
 <p>现在搬到公司附近，有了属于自己的独立的空间。<br>而且家具都是比较新的。这一切突然激发了自己的装饰欲望。</p>
 <p>于是在地板上铺好地毯。买了自己一直想种的花。<br><img src="/2017/05/06/20170506/flow.jpg" alt="organization" title="organization"></p>
 <p>买了梵高的星空，买了花瓶。<br>买了衣架，买了真空袋把一切都收拾的整整齐齐。<br>就连常年治不好的叠被子也因为不和谐而变得自然。</p>
@@ -84,7 +91,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;最近搬了新的住处，在那个地方也住了两年，现在回想一下，&lt;br&gt;为什么自己会忍受那样的住了2年，我为什么要这么说呢？&lt;br&gt;因为那时候刚来上海，所以对生活对要求也不是很高，&lt;br&gt;是跟朋友合租的，地理位置挺方便的，而且价格也挺合理，&lt;br&gt;造成的结果就是房子比较老，所以一切配
+      &lt;p&gt;最近搬了新的住处，忽然不明白自己为什么在那里住了2年。&lt;br&gt;
     
     </summary>
     
@@ -98,9 +105,10 @@
     <link href="https://trree.github.io/2017/04/27/outOfMemory/"/>
     <id>https://trree.github.io/2017/04/27/outOfMemory/</id>
     <published>2017-04-27T02:22:15.000Z</published>
-    <updated>2017-05-02T11:43:33.000Z</updated>
+    <updated>2017-05-28T12:07:16.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="现象及分析"><a href="#现象及分析" class="headerlink" title="现象及分析"></a>现象及分析</h2><p>有时候我们会面临一些非常情况的现象，<br>没有异常的情况下进程无缘无故的退出，<br>无法写如日志文件。<br>非常奇怪的错误抛出在终端。</p>
+    <content type="html"><![CDATA[<p>有时候我们会面临一些非常情况的现象，<br>没有异常的情况下进程无缘无故的退出，<br>无法写如日志文件。<br>非常奇怪的错误抛出在终端。<br><a id="more"></a></p>
+<h2 id="现象及分析"><a href="#现象及分析" class="headerlink" title="现象及分析"></a>现象及分析</h2><p>有时候我们会面临一些非常情况的现象，<br>没有异常的情况下进程无缘无故的退出，<br>无法写如日志文件。<br>非常奇怪的错误抛出在终端。</p>
 <p>这个时候就需要查看一下系统日志 kern.log 了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">MAIN kernel: [17832.300370]  [&lt;c1090380&gt;] ? oom_kill_process+0x60/0x201</div><div class="line">MAIN kernel: [17832.300408]  [&lt;c10908fd&gt;] ? __out_of_memory+0xf4/0x107</div><div class="line">MAIN kernel: [17832.300445]  [&lt;c109096a&gt;] ? out_of_memory+0x5a/0x7c</div><div class="line">MAIN kernel: [17832.300482]  [&lt;c109322c&gt;] ? __alloc_pages_nodemask+0x3ef/0x4d9</div><div class="line">MAIN kernel: [17832.300522]  [&lt;c109460d&gt;] ? __do_page_cache_readahead+0x98/0x16b</div><div class="line">MAIN kernel: [17832.300562]  [&lt;c10946f4&gt;] ? ra_submit+0x14/0x18</div><div class="line">MAIN kernel: [17832.300597]  [&lt;c108ec9a&gt;] ? filemap_fault+0x16d/0x2e6</div><div class="line">MAIN kernel: [17832.300634]  [&lt;c10a0c9a&gt;] ? __do_fault+0x53/0x3fb</div><div class="line">MAIN kernel: [17832.300670]  [&lt;c10a2f56&gt;] ? handle_mm_fault+0x4d1/0xa22</div><div class="line">MAIN kernel: [17832.300708]  [&lt;c1144ae3&gt;] ? copy_to_user+0x29/0xf8</div><div class="line">MAIN kernel: [17832.300745]  [&lt;c10c6b9a&gt;] ? poll_select_copy_remaining+0xbd/0xd9</div><div class="line">MAIN kernel: [17832.300785]  [&lt;c12830a8&gt;] ? do_page_fault+0x2f1/0x307</div><div class="line">MAIN kernel: [17832.300822]  [&lt;c1282db7&gt;] ? do_page_fault+0x0/0x307</div><div class="line">MAIN kernel: [17832.300857]  [&lt;c12815e3&gt;] ? error_code+0x73/0x78</div></pre></td></tr></table></figure>
 <p>这个时候我们可以发现内存已经不足了。<br>Linux的保护机制在杀内存消耗大的进程。<br>所以会有进程无缘无故的推出。<br>有一些日志是先写到buffer的内存中，然后再调用日志接口把内存中的日志刷到文件中。<br>此时内存已经不足了，所以内存中已经写不进去了。<br>最终我们看到的现象就是写不到文件中。</p>
@@ -110,7 +118,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;现象及分析&quot;&gt;&lt;a href=&quot;#现象及分析&quot; class=&quot;headerlink&quot; title=&quot;现象及分析&quot;&gt;&lt;/a&gt;现象及分析&lt;/h2&gt;&lt;p&gt;有时候我们会面临一些非常情况的现象，&lt;br&gt;没有异常的情况下进程无缘无故的退出，&lt;br&gt;无法写如日志文件。&lt;br&gt;非
+      &lt;p&gt;有时候我们会面临一些非常情况的现象，&lt;br&gt;没有异常的情况下进程无缘无故的退出，&lt;br&gt;无法写如日志文件。&lt;br&gt;非常奇怪的错误抛出在终端。&lt;br&gt;
     
     </summary>
     
@@ -124,9 +132,9 @@
     <link href="https://trree.github.io/2017/03/28/tcp-handshark/"/>
     <id>https://trree.github.io/2017/03/28/tcp-handshark/</id>
     <published>2017-03-28T13:44:05.000Z</published>
-    <updated>2017-05-02T12:14:39.000Z</updated>
+    <updated>2017-05-28T12:19:52.000Z</updated>
     
-    <content type="html"><![CDATA[<p>tcp 报头的各个字段的作用<br>想象一下自己去设计一个TCP协议，最中的是保证可靠性。因为每个报文都是要包含这些字段，所以你要怎么保证它的简洁性，不浪费资源。</p>
+    <content type="html"><![CDATA[<p>tcp 报头的各个字段的作用<br>想象一下自己去设计一个TCP协议，最中的是保证可靠性。因为每个报文都是要包含这些字段，所以你要怎么保证它的简洁性，不浪费资源。<br><a id="more"></a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">source port:  源端口</div><div class="line">destination port: 目标端口</div><div class="line">sequence number: 序号，每一个TCP报文段都会有一个序列，序列号字段段值其实是本报文段所发送段第一个字节的序号，通过序号来确保服务的可靠性和有序性。</div><div class="line">ack number:确认号</div><div class="line">Data offset:数据偏移</div><div class="line">Reserved:保留字段</div><div class="line">URG(urgent)：紧急指针</div><div class="line">ACK ：确认字段 </div><div class="line">PSH：推送字段</div><div class="line">RST：复位字段</div><div class="line">SYN：同步字段</div><div class="line">FIN：终止字段</div><div class="line">Windows size：窗口大小</div><div class="line">checksum：检验和</div><div class="line">Urgent pointer：紧急指针</div><div class="line">options：选项</div></pre></td></tr></table></figure>
 <h3 id="tcp-三次握手"><a href="#tcp-三次握手" class="headerlink" title="tcp 三次握手"></a>tcp 三次握手</h3><p>为什么tcp握手需要三次？这个保证了什么东西？</p>
 <ul>
@@ -151,8 +159,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;tcp 报头的各个字段的作用&lt;br&gt;想象一下自己去设计一个TCP协议，最中的是保证可靠性。因为每个报文都是要包含这些字段，所以你要怎么保证它的简洁性，不浪费资源。&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td clas
+      &lt;p&gt;tcp 报头的各个字段的作用&lt;br&gt;想象一下自己去设计一个TCP协议，最中的是保证可靠性。因为每个报文都是要包含这些字段，所以你要怎么保证它的简洁性，不浪费资源。&lt;br&gt;
     
     </summary>
     
@@ -263,10 +270,11 @@
     <link href="https://trree.github.io/2017/02/12/thread/"/>
     <id>https://trree.github.io/2017/02/12/thread/</id>
     <published>2017-02-12T06:57:05.000Z</published>
-    <updated>2017-02-12T07:35:09.000Z</updated>
+    <updated>2017-05-28T12:20:37.000Z</updated>
     
-    <content type="html"><![CDATA[<img src="/2017/02/12/thread/thread.gif" alt="organization" title="organization">
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">只要我时间了，我就把这本书看完。</div><div class="line">如果我有很多钱，我就要去全世界旅游。</div></pre></td></tr></table></figure>
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">只要我时间了，我就把这本书看完。</div><div class="line">如果我有很多钱，我就要去全世界旅游。</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<img src="/2017/02/12/thread/thread.gif" alt="organization" title="organization">
 <p>总是喜欢信誓旦旦的对别人说着一些话，<br>不知道最后多少人达成了目标。<br>就像小时候想要的那个模型。<br>现在可以轻而易举的买下小时候的想要的任何东西。<br>可是突然失去了对这件事情的乐趣。<br>时间与环境的变化，那么事情本事早就失去了它原本的意义。</p>
 <p>太多时候总喜欢用如果只要达到什么条件，<br>那么我就要做什么。喜欢把生活一步一步的规划，<br>达到一个目标之后，才开始进行下一步。<br>如果有一步陷入了困境，那么就一直阻塞在那一步。</p>
 <p>计算机人员在解释多核的时候，喜欢用一个人在多项任务<br>之间切换得够快，那么像是在同时处理多件事情一样。<br>但是我们不能像孙悟空或者技术总监一样分身。分配人员<br>同时处理不同的事情。</p>
@@ -276,8 +284,7 @@
     
     <summary type="html">
     
-      &lt;img src=&quot;/2017/02/12/thread/thread.gif&quot; alt=&quot;organization&quot; title=&quot;organization&quot;&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutt
+      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;只要我时间了，我就把这本书看完。&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;如果我有很多钱，我就要去全世界旅游。&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -323,9 +330,9 @@
     <link href="https://trree.github.io/2017/02/06/apache-pool/"/>
     <id>https://trree.github.io/2017/02/06/apache-pool/</id>
     <published>2017-02-06T11:47:33.000Z</published>
-    <updated>2017-02-12T07:33:24.000Z</updated>
+    <updated>2017-05-28T12:21:12.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Apache 提供了自己的内存和资源管理方式，称作内存池，内存池在apache中任何一个阶段被使用，所以也被外部模块使用。<br>内存池可以管理内存，Sockets 和进程等服务系统所有的资源。</p>
+    <content type="html"><![CDATA[<p>Apache 提供了自己的内存和资源管理方式，称作内存池，内存池在apache中任何一个阶段被使用，所以也被外部模块使用。<br>内存池可以管理内存，Sockets 和进程等服务系统所有的资源。<br><a id="more"></a></p>
 <p>内存池的使用可以降低程序设计错误的可能性。在程序中如果由于疏忽或错误造成程序未能释放已经不再使用的内存，造成内存泄露。<br>内存泄漏并非指内存在物理上的消失，而是应用程序分配某段内存后，由于设计错误，导致在释放该段内存之前就失去了对该段内存的控制，<br>从而造成了内存的浪费，其它的程序就不能够再使用这个内存段。</p>
 <p>客户端的程序因为运行不是非常长时间，退出后操作系统会自动释放资源，所以不是造成太大的危害。但是在服务端端程序由于长期运行，<br>即使是一点地内存泄漏由于长期内存泄露造成服务端的崩溃。</p>
 <p>尤其需要注意Sockets。如果建立了一个Socket，但是在业务完成时没有释放它，那么其它的程序就不能使用这块内存。这些不断建立但<br>是未释放的Sockets会造成内存，CPU被占满。此时服务端一定会崩溃。许多服务端现在基本都是以多线程或者多进程的方式工作，这些<br>进程或者线程如果不按设计退出只能被管理员中断。如果一个程序不停止运行，那么服务端端资源会被立马占满并且崩溃。</p>
@@ -342,8 +349,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Apache 提供了自己的内存和资源管理方式，称作内存池，内存池在apache中任何一个阶段被使用，所以也被外部模块使用。&lt;br&gt;内存池可以管理内存，Sockets 和进程等服务系统所有的资源。&lt;/p&gt;
-&lt;p&gt;内存池的使用可以降低程序设计错误的可能性。在程序中如果由于疏忽或
+      &lt;p&gt;Apache 提供了自己的内存和资源管理方式，称作内存池，内存池在apache中任何一个阶段被使用，所以也被外部模块使用。&lt;br&gt;内存池可以管理内存，Sockets 和进程等服务系统所有的资源。&lt;br&gt;
     
     </summary>
     
