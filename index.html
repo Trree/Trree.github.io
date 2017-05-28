@@ -179,6 +179,97 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-20170520" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/20/20170520/">Apache 压力测试后的127连接</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/20/20170520/" class="archive-article-date">
+  	<time datetime="2017-05-20T05:32:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在对Apache（prefork多进程模式）进行压力测试对时候，<br>客户端IP：192.168.41.96<br>网关IP和端口; 0.0.0.0:447<br>发现一旦停止压力测试对时候。<br>使用 netstat -an | grep 127<br>会出现非常多的 127.0.0.1:447 连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tcp        0      0 127.0.0.1:38984         127.0.0.1:447           TIME_WAIT</div><div class="line">tcp        0      0 127.0.0.1:38994         127.0.0.1:447           TIME_WAIT</div></pre></td></tr></table></figure>
+<p>查看的时候连接都已经是 TIME_WAIT 的状态，无法查看它是通过哪些进程查看它建立连接。<br>我们怀疑这些连接可能对性能会有影响。<br>所以对这个问题进行了排查。</p>
+<h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><p>因为所有的127.0.0.1的端口都与447端口断开连接，又因为这些无法有效都用gdb调试。<br>所以使用 strace 的方式跟踪进程。</p>
+<blockquote>
+<p>strace -p 683 -o filename_childpid<br>strace -p 899 -o filename_masterpid</p>
+</blockquote>
+<p>filename_childpid  是在压力测试的时候临时创建出来的子进程<br>filename_masterpid 是Apache的主进程</p>
+<p>在压力测试时候出现的子进程中可以看到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">accept(3, &#123;sa_family=AF_INET, sin_port=htons(36448), sin_addr=inet_addr(&quot;127.0.0.1&quot;)&#125;, [16]) = 6</div><div class="line">getsockname(6, &#123;sa_family=AF_INET, sin_port=htons(447), sin_addr=inet_addr(&quot;127.0.0.1&quot;)&#125;, [16]) = 0</div></pre></td></tr></table></figure>
+<p>发现这个子进程是accept了连接。但是这些环回地址是如何产生的？</p>
+<p>查看主进程的 strace 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">waitpid(-1, 0xbffffa18, WNOHANG|WUNTRACED) = 0</div><div class="line">select(0, NULL, NULL, NULL, &#123;1, 0&#125;)     = 0 (Timeout)</div><div class="line">write(5, &quot;!&quot;, 1)                        = 1</div><div class="line">socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 9</div><div class="line">fcntl64(9, F_GETFL)                     = 0x2 (flags O_RDWR)</div><div class="line">fcntl64(9, F_SETFL, O_RDWR|O_NONBLOCK)  = 0</div><div class="line">connect(9, &#123;sa_family=AF_INET, sin_port=htons(447), sin_addr=inet_addr(&quot;0.0.0.0&quot;)&#125;, 16) = -1 EINPROGRESS (Operation now in progress)</div><div class="line">poll([&#123;fd=9, events=POLLOUT, revents=POLLOUT&#125;], 1, 3000) = 1</div><div class="line">getsockopt(9, SOL_SOCKET, SO_ERROR, [0], [4]) = 0</div><div class="line">close(9)                                = 0</div><div class="line">--- SIGCHLD (Child exited) @ 0 (0) ---</div></pre></td></tr></table></figure>
+<p>从这里发现Apache的主进程发了connect连接，然后自己断开连接。<br>但是为什么回出现这种情况呢？需要进一步查看代码查找原因。</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>压力测试的时候起了非常多的子进程。<br>但是压力测试之后不需要那么多的进程。<br>此时临时建立的子进程都阻塞在select上面。<br>Apache采用都策略就是主进程与阻塞都子进程建立连接，<br>然后关闭连接，所以看到都现象如上。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tech</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/20/20170520/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+  
     <article id="post-20170506" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -976,95 +1067,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-20161025" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/25/20161025/">人头马身</a>
-    </h1>
-  
-
-        
-        <a href="/2016/10/25/20161025/" class="archive-article-date">
-  	<time datetime="2016-10-25T00:48:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>(一)</p>
-<p>来到这个城市已经十年，时间在指尖上溜过，却什么也不曾留下，一无所有的来，可是比到来变得更加得一无所有，<br>来的时候以为能够在这个城市留下辉煌，可是我是留下来，也把我的卑微也留下。<br>如果我手中有一把剑，我会成为一位剑客，纵横四海，无所畏惧，可是我手中没有剑。<br>如果我会跳舞，我会在月光下，在舞台中央，在所有的目光中灼灼生辉，可是我不会跳舞。<br>如果我活在魏晋，我会成为一个放浪形骸的人，饮觞取酒，或宠辱不惊，或尽情悲痛，可是我活在不一样的时代。<br>如果，如果，我只是一个普普通通的一个人，什么也不会，什么也做不了。<br>如果我手中有一个键盘，是的，我手中现在只剩下键盘。看着屏幕，顾影自怜。<br>我是一名程序员，版本更新之后，旧的代码已经面目全非。时间也就变得面目全非。</p>
-<p>你是否感觉到，这个世界每时每刻都在变化，在你闭上眼的那一刻，在你早上醒过来的那一刻，你已经转换到了另一个时空，<br>细微的变化并没有让你察觉，可是在睁开眼睛的那一刻，你是否有一丝的恍惚?<br>你不能同时存在一条河里两次，你不动，水已经动了，你跟着水动，位置已经变了。<br>我已经变得越来越恍惚，越来越心不在焉，头脑昏沉。我的意志感觉不受束缚，手也已经开始不受控制。<br>“你好，我叫陈晓，来自你的平行世界。”<br>仿佛一瞬间清醒过来，感觉到恐惧，难道那个世界的科技已经发达到了这种程度。<br>不知道为什么那个平行世界会找上我,难道是他能够感受到每个时间线，在所有的时间线上选择了我。或者我们身上有着一个相同的时间节点。<br>记得那是一个非常普通的的晚上，我坐在我的电脑前面，可能那个时候我意外的成为了一个叠加态，在理论物理和工作两个态之间做选择。<br>我的世界坍塌在工作上面，而另一个我坍塌在做科研，而且是理论物理的方向。<br>“如果你能够看到，那么在明天凌晨2点到xx区xx路xx广场见面。”</p>
-<p>刚上出租车，出租车司机就开始自说自话了，聊东聊西。他们是这个城市半夜的孤魂，永远也找不到自己的出口。<br>接着就开始抱怨：“那些男司机每天下班回家，家里都会做好饭，喜好衣服，把一切都弄好，我们呢？休息的时候<br>还要早起洗衣服做饭，拖地板。永远没有休息的时候。”<br>“其实我还算幸运的了，我载完你去洗车，然后去交接车子之后就可以回家了。<br>我的一个同事就辛苦的多了，好不容易在老家盖起了房子，贷款还没还清，老公就检查出来癌症，<br>平常她的老公也没有对她怎么怎么好，可是却要一起去承担这种事情。看她的样子都老了好多。”<br>她没有讲完我就到目的地了，可是感觉她永远也有讲不完的故事，然后对着不同的人讲着相似的故事。</p>
-<p>下车之后12点多了，在这个城市中游荡，此时正是盛宴之后。商厦这时候都已经关门，却依然发出艳丽的霓虹灯。<br>路灯这时候撑起昏黄的小伞，清冷的空气扑面而来。<br>这时候路上已经没有什么人，可以听见脚底与路面的摩擦的声音。呼吸的声音。<br>月亮挂在高远的天空中。<br>此刻仿佛有着黑洞在靠近，将一切都吸引过去，包括光，内心也变得恐惧起来。</p>
-<p>静谧一下子被打破，所有的东西都动了起来。一切都开始扭曲。<br>所有的东西都长出了脚，高楼缓慢笨拙的移动着，路灯开始奔跑起来，远方传来响亮的嘶吼声。<br>仿佛一只蚂蚁在人群之中一样，他们走动，巨大的脚掌在空中移动，明与暗不停的交错，我却也无处可躲，<br>我是如此的微小，他们也感受不到我的存在。</p>
-<p>在慌乱中我呆滞地站在原地，看着一切。</p>
-<p>(2)</p>
-<p>达达的马蹄，一匹马在暗黑的玻璃上，在流动的水上飞跃。<br>它停在我的面前，载起我，飞驰而上，<br>流动的城市形成了一个八卦阵的形状。一辆辆车子在其中左突，右冲，可是总是在这个城市中打圈。</p>
-<p>是的，他的人生毫无价值，你看，他蜷缩在那个角落中，衣衫褴褛，比一张废纸还不如。</p>
-<p>你看那个齿轮，他天生就是一块齿轮吗？<br>你知道齿轮的生产过程马？他们本是一块铁，因为特殊的需要，经过高温溶成铁水，然后浇筑在模版上。</p>
-<p>来到镜子面前，仔细的端详着这张脸，这么熟悉，我仔细的看着，仿佛看着一个非常熟悉是字一样，突然间变得非常的陌生，<br>文字好像突然有了形象，而这张脸仿佛逐渐变成了一个符号，没有什么特点，没有美丑，没有颜色，只剩下一个粗劣的线条。<br>另一面镜子就竖在对面，瞬间这张脸被复制了无数遍，</p>
-<p>你是谁，你在干什么，你想要什么？</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">人头马身</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/25/20161025/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1165,6 +1167,14 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Tech</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Think</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">人头马身</a>
               </li>
              
@@ -1173,19 +1183,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Think</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Caprice</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Tech, Net</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tech</a>
               </li>
              
               <li class="article-tag-list-item">

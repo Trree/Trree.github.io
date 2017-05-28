@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://trree.github.io">
-  <title>Tree</title>
+  <title>Apache 压力测试后的127连接 | Tree</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Linux服务的开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tree">
-<meta property="og:url" content="https://trree.github.io/page/2/index.html">
+  <meta name="description" content="背景在对Apache（prefork多进程模式）进行压力测试对时候，客户端IP：192.168.41.96网关IP和端口; 0.0.0.0:447发现一旦停止压力测试对时候。使用 netstat -an | grep 127会出现非常多的 127.0.0.1:447 连接
+12tcp        0      0 127.0.0.1:38984         127.0.0.1:447">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Apache 压力测试后的127连接">
+<meta property="og:url" content="https://trree.github.io/2017/05/20/20170520/index.html">
 <meta property="og:site_name" content="Tree">
-<meta property="og:description" content="Linux服务的开发">
+<meta property="og:description" content="背景在对Apache（prefork多进程模式）进行压力测试对时候，客户端IP：192.168.41.96网关IP和端口; 0.0.0.0:447发现一旦停止压力测试对时候。使用 netstat -an | grep 127会出现非常多的 127.0.0.1:447 连接
+12tcp        0      0 127.0.0.1:38984         127.0.0.1:447">
+<meta property="og:updated_time" content="2017-05-21T05:26:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tree">
-<meta name="twitter:description" content="Linux服务的开发">
+<meta name="twitter:title" content="Apache 压力测试后的127连接">
+<meta name="twitter:description" content="背景在对Apache（prefork多进程模式）进行压力测试对时候，客户端IP：192.168.41.96网关IP和端口; 0.0.0.0:447发现一旦停止压力测试对时候。使用 netstat -an | grep 127会出现非常多的 127.0.0.1:447 连接
+12tcp        0      0 127.0.0.1:38984         127.0.0.1:447">
   
     <link rel="alternative" href="/atom.xml" title="Tree" type="application/atom+xml">
   
@@ -177,750 +181,70 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-20161025" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-20170520" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/25/20161025/">人头马身</a>
+    <h1 class="article-title" itemprop="name">
+      Apache 压力测试后的127连接
     </h1>
   
 
         
-        <a href="/2016/10/25/20161025/" class="archive-article-date">
-  	<time datetime="2016-10-25T00:48:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-25</time>
+        <a href="/2017/05/20/20170520/" class="archive-article-date">
+  	<time datetime="2017-05-20T05:32:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>(一)</p>
-<p>来到这个城市已经十年，时间在指尖上溜过，却什么也不曾留下，一无所有的来，可是比到来变得更加得一无所有，<br>来的时候以为能够在这个城市留下辉煌，可是我是留下来，也把我的卑微也留下。<br>如果我手中有一把剑，我会成为一位剑客，纵横四海，无所畏惧，可是我手中没有剑。<br>如果我会跳舞，我会在月光下，在舞台中央，在所有的目光中灼灼生辉，可是我不会跳舞。<br>如果我活在魏晋，我会成为一个放浪形骸的人，饮觞取酒，或宠辱不惊，或尽情悲痛，可是我活在不一样的时代。<br>如果，如果，我只是一个普普通通的一个人，什么也不会，什么也做不了。<br>如果我手中有一个键盘，是的，我手中现在只剩下键盘。看着屏幕，顾影自怜。<br>我是一名程序员，版本更新之后，旧的代码已经面目全非。时间也就变得面目全非。</p>
-<p>你是否感觉到，这个世界每时每刻都在变化，在你闭上眼的那一刻，在你早上醒过来的那一刻，你已经转换到了另一个时空，<br>细微的变化并没有让你察觉，可是在睁开眼睛的那一刻，你是否有一丝的恍惚?<br>你不能同时存在一条河里两次，你不动，水已经动了，你跟着水动，位置已经变了。<br>我已经变得越来越恍惚，越来越心不在焉，头脑昏沉。我的意志感觉不受束缚，手也已经开始不受控制。<br>“你好，我叫陈晓，来自你的平行世界。”<br>仿佛一瞬间清醒过来，感觉到恐惧，难道那个世界的科技已经发达到了这种程度。<br>不知道为什么那个平行世界会找上我,难道是他能够感受到每个时间线，在所有的时间线上选择了我。或者我们身上有着一个相同的时间节点。<br>记得那是一个非常普通的的晚上，我坐在我的电脑前面，可能那个时候我意外的成为了一个叠加态，在理论物理和工作两个态之间做选择。<br>我的世界坍塌在工作上面，而另一个我坍塌在做科研，而且是理论物理的方向。<br>“如果你能够看到，那么在明天凌晨2点到xx区xx路xx广场见面。”</p>
-<p>刚上出租车，出租车司机就开始自说自话了，聊东聊西。他们是这个城市半夜的孤魂，永远也找不到自己的出口。<br>接着就开始抱怨：“那些男司机每天下班回家，家里都会做好饭，喜好衣服，把一切都弄好，我们呢？休息的时候<br>还要早起洗衣服做饭，拖地板。永远没有休息的时候。”<br>“其实我还算幸运的了，我载完你去洗车，然后去交接车子之后就可以回家了。<br>我的一个同事就辛苦的多了，好不容易在老家盖起了房子，贷款还没还清，老公就检查出来癌症，<br>平常她的老公也没有对她怎么怎么好，可是却要一起去承担这种事情。看她的样子都老了好多。”<br>她没有讲完我就到目的地了，可是感觉她永远也有讲不完的故事，然后对着不同的人讲着相似的故事。</p>
-<p>下车之后12点多了，在这个城市中游荡，此时正是盛宴之后。商厦这时候都已经关门，却依然发出艳丽的霓虹灯。<br>路灯这时候撑起昏黄的小伞，清冷的空气扑面而来。<br>这时候路上已经没有什么人，可以听见脚底与路面的摩擦的声音。呼吸的声音。<br>月亮挂在高远的天空中。<br>此刻仿佛有着黑洞在靠近，将一切都吸引过去，包括光，内心也变得恐惧起来。</p>
-<p>静谧一下子被打破，所有的东西都动了起来。一切都开始扭曲。<br>所有的东西都长出了脚，高楼缓慢笨拙的移动着，路灯开始奔跑起来，远方传来响亮的嘶吼声。<br>仿佛一只蚂蚁在人群之中一样，他们走动，巨大的脚掌在空中移动，明与暗不停的交错，我却也无处可躲，<br>我是如此的微小，他们也感受不到我的存在。</p>
-<p>在慌乱中我呆滞地站在原地，看着一切。</p>
-<p>(2)</p>
-<p>达达的马蹄，一匹马在暗黑的玻璃上，在流动的水上飞跃。<br>它停在我的面前，载起我，飞驰而上，<br>流动的城市形成了一个八卦阵的形状。一辆辆车子在其中左突，右冲，可是总是在这个城市中打圈。</p>
-<p>是的，他的人生毫无价值，你看，他蜷缩在那个角落中，衣衫褴褛，比一张废纸还不如。</p>
-<p>你看那个齿轮，他天生就是一块齿轮吗？<br>你知道齿轮的生产过程马？他们本是一块铁，因为特殊的需要，经过高温溶成铁水，然后浇筑在模版上。</p>
-<p>来到镜子面前，仔细的端详着这张脸，这么熟悉，我仔细的看着，仿佛看着一个非常熟悉是字一样，突然间变得非常的陌生，<br>文字好像突然有了形象，而这张脸仿佛逐渐变成了一个符号，没有什么特点，没有美丑，没有颜色，只剩下一个粗劣的线条。<br>另一面镜子就竖在对面，瞬间这张脸被复制了无数遍，</p>
-<p>你是谁，你在干什么，你想要什么？</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">人头马身</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/25/20161025/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-  
-    <article id="post-last-Fall" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/22/last-Fall/">深秋</a>
-    </h1>
-  
-
-        
-        <a href="/2016/10/22/last-Fall/" class="archive-article-date">
-  	<time datetime="2016-10-22T09:28:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>北方的气温已经降了下来，有必要套一件大衣了。<br>南方开始下雨，连门都出不了，不然就要拖着一身的风雨回来了。<br>深秋时节最美，这是生命的大繁华的时刻。<br>不宽的水泥地，青色的矮墙，燃烧的银杏树，点燃金色的光芒，虽是下午，但是前方布满薄雾。显得非常的深远。<br>雨巷还是随处可见，丁香一样的姑娘早已经离去，雨水依然滴答这石板。<br>秋天是一个收获的季节。<br>桔树，葡萄树经过一个夏天的生长，现在人们欣喜的把果子采摘下来，成为了人们口中甜美的美食。</p>
-<p>深秋了。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/22/last-Fall/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-  
-    <article id="post-gateway-s-safe" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/20/gateway-s-safe/">自测网关安全性</a>
-    </h1>
-  
-
-        
-        <a href="/2016/10/20/gateway-s-safe/" class="archive-article-date">
-  	<time datetime="2016-10-20T09:28:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>网关的主要作用是转换原B/S，C/S系统的协议，将原来未加密的协议转换成加密的协议。<br>在这里网关将未加密的HTTP协议或者TCP协议转换成SSL协议。<br>任何一个增加的系统都会增加安全性的问题，作为一款加密产品，那么它更应该注重自生的安全性问题。</p>
-<ul>
-<li>IP和端口扫描(nmap，netcat)</li>
-<li>对访问用户压测，看看有大量用户访问时是否会断开连接(burpsuit, ab, loadrunner)</li>
-<li>查看每一个连接中的关键数据是否加密</li>
-<li>传输的数据是否加密</li>
-<li>对文件上传和下载是否满足用户权限的要求，是否保护</li>
-<li>对shell和sql是否防止注入</li>
-<li>对网关的系统和服务器进行安全性扫描</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/20/gateway-s-safe/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-  
-    <article id="post-wood" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/17/wood/">一个叫天南，一个叫地北</a>
-    </h1>
-  
-
-        
-        <a href="/2016/10/17/wood/" class="archive-article-date">
-  	<time datetime="2016-10-17T09:24:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>南方总是温润的。<br>南方的一半是水组成的，水的一半给了人，另一半却给了眼睛。到那里都是水波荡漾一片。<br>南方的早晨总是在泼绿中蒙着一层纱。犹抱琵琶半遮面的。<br>南方的雪是温和的，滋润美艳之至了，这时候南方就是一幅留白的山水画了，<br>南方是一棵柳树，她就那样站在那里，微风轻拂着柳条，岁月静好。<br>南方的冬天却也是暴戾的，毫不留情的把你的脚放到冰中，<br>喜欢着南方的好，忍受着南方的暴戾。</p>
-<p>懂得南方却不懂北方。<br>一个叫木头，一个叫马尾。<br>                        -———记于北方途中</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Caprice</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/17/wood/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-  
-    <article id="post-Net-Tcp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/16/Net-Tcp/">自述Tcp超时与重传</a>
-    </h1>
-  
-
-        
-        <a href="/2016/10/16/Net-Tcp/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:02:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>将tcp的超时与重传的文档太多了，我也是从tcp/ip详解这本书上学习了。所以如果你对这个不熟悉，<br>希望你先看书，不然基于我自己的理解，很容易让人误解。<br>但是如果有大神，如果有什么写错，或者理解错误的东西，希望指出，不胜感激。</p>
-<p>tcp的超时设置是为了防止网络问题和节省时间之间的一个平衡，<br>如果不设置超时，当一个ack没有获取，那么此时直接返回网络错误。<br>重传是为了防止偶然的网络问题。超时的时间间隔大部分都是指数间隔，<br>而不是线性的。</p>
-<p>tcp的所有超时的地方，从第一个客户端读取 syn ＋ ack 超时，<br>超时与重传<br>connect 超时<br>响应超时<br>读写超时<br>timewait超时</p>
-<p>超时重传机制<br>哪些会超时，哪些直接发送reset断开连接或者超时多长。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tech, Net</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/16/Net-Tcp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-  
-    <article id="post-Net-arp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/16/Net-arp/">一个偶然的arp网络错误</a>
-    </h1>
-  
-
-        
-        <a href="/2016/10/16/Net-arp/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:02:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在网络的使用中这个是我们比较少关注的一个协议，<br>它是用来查看ip地址和mac地址的对应关系。</p>
-<p>一般情况下网络问题很少出现在这个地方。而且如果查看这个值出现问题的时候，<br>一般是上层的协议出现了问题，或者就是整个网络出现了问题。</p>
-<p>但是今天需要讲述一个比较特殊的情况下arp的网络问题。<br>问题的起源是我使用openvpn搭建一个client-to-client 的环境。<br>就是使用一台openvpn的服务器，然后使用两台openvpn的客户端去连接openvpn的服务器。<br>我在openvpn中配好 client-to-client 选项后，<br>然后两台openvpn的客户端可以ping通服务端，也可以看到下发的策略。<br>但是在两台客户端的中相互ping对方，却是不通的。<br>查看ip和tcp，都是正常的。没有检查到异常，但是一直都是不通的。</p>
-<p>最后没有办法，只能按照网络协议层一层一层的往下去分析。<br>在windows的cmd下，查看路由 route print。路由正常。<br>ip和端口正常，ip层和tcp层都是正常的。<br>使用arp -a的指令，得到</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">arp -a</div><div class="line"></div><div class="line">172.16.0.2 ether   00:ff:90:4e:20:cc   C  tap0</div><div class="line">172.16.0.3 ether   00:ff:90:4e:20:cc   C  tap0</div></pre></td></tr></table></figure>
-<p>172.16.0.0/16 是虚拟IP的地址，第三项是对应的Mac地址，<br>所以到链路层之后，有两个相同的mac地址。<br>所以从mac地址转换成IP地址的时候丢失了IP地址。所以一直访问不通。</p>
-<p>为什么会有两个相同的mac地址呢？第二个openvpn的客户端是直接复制第一个<br>openvpn的虚拟机。所以出现了两个相同的mac地址。修改其中一个虚拟IP的mac地址<br>之后就可以相互ping通对方了。</p>
-<p>如果想重现问题，可以将两个IP地址改成相同的mac地址，查看一下你的那边会出现什么情况。</p>
-<p>###虚拟IP</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arp -a</div><div class="line">192.168.41.97            ether   00:0C:29:EB:70:DA   C                     eth0</div><div class="line">192.168.41.92            ether   00:0C:29:EB:70:DA   C                     eth0</div></pre></td></tr></table></figure>
-<p>有时候我们可以在同一台机器上看到两个IP有相同的物理地址。<br>traceroute 这两个IP都是正常的，可以访问的。<br>没有出现上面不能访问的情况。</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>MAC destination</td>
-<td>MAC source</td>
-</tr>
-<tr>
-<td>Source Address</td>
-<td>Destination Address(ip/Virtual_ip)</td>
-</tr>
-<tr>
-<td>MAC destination</td>
-<td>MAC source</td>
-</tr>
-</tbody>
-</table>
-<p>在这种情况下主机中发出的数据中包含了目标地址的IP，所以可以正常到达目标主机。<br>但是如果是两个Mac相同，发送apr的tell数据包的时候，会有两个地方都会响应，<br>那么就会造成Mac地址冲突了。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/16/Net-arp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-  
-    <article id="post-Apache-Info" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/16/Apache-Info/">获取Apache信息接口</a>
-    </h1>
-  
-
-        
-        <a href="/2016/10/16/Apache-Info/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:02:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在apache的使用中，如果是一个apache代理服务器，并且使用的证书的话，<br>我们不可避免的需要将从前端和证书中的信息传递给后端处理。<br>一般情况下，我们都是将这些信息绑定在http头中，cookie项中，这样后端比较容易处理。</p>
-<p>幸运的是，apache为我们提供了这么一个可选函数，可以任何的一个模块中获取<br>你需要的信息。<br>这个可选函数是在模块 mod_nw_ssl 中定义。</p>
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在对Apache（prefork多进程模式）进行压力测试对时候，<br>客户端IP：192.168.41.96<br>网关IP和端口; 0.0.0.0:447<br>发现一旦停止压力测试对时候。<br>使用 netstat -an | grep 127<br>会出现非常多的 127.0.0.1:447 连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tcp        0      0 127.0.0.1:38984         127.0.0.1:447           TIME_WAIT</div><div class="line">tcp        0      0 127.0.0.1:38994         127.0.0.1:447           TIME_WAIT</div></pre></td></tr></table></figure>
+<p>查看的时候连接都已经是 TIME_WAIT 的状态，无法查看它是通过哪些进程查看它建立连接。<br>我们怀疑这些连接可能对性能会有影响。<br>所以对这个问题进行了排查。</p>
+<h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><p>因为所有的127.0.0.1的端口都与447端口断开连接，又因为这些无法有效都用gdb调试。<br>所以使用 strace 的方式跟踪进程。</p>
 <blockquote>
-<p>APR_REGISTER_OPTIONAL_FN(ssl_var_lookup);</p>
+<p>strace -p 683 -o filename_childpid<br>strace -p 899 -o filename_masterpid</p>
 </blockquote>
-<p>那么这个可选函数可以获取哪些参数呢？</p>
-<ul>
-<li>前端http头中的信息</li>
-<li>ssl的参数，和对应使用的用户证书的各项内容。</li>
-<li>连接socket的各项参数</li>
-<li>格式化的各种时间</li>
-<li>保存在 r-&gt;notes 中的的环境变量</li>
-<li>如何找不到key对应的value，则返回空字符串。</li>
-</ul>
+<p>filename_childpid  是在压力测试的时候临时创建出来的子进程<br>filename_masterpid 是Apache的主进程</p>
+<p>在压力测试时候出现的子进程中可以看到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">accept(3, &#123;sa_family=AF_INET, sin_port=htons(36448), sin_addr=inet_addr(&quot;127.0.0.1&quot;)&#125;, [16]) = 6</div><div class="line">getsockname(6, &#123;sa_family=AF_INET, sin_port=htons(447), sin_addr=inet_addr(&quot;127.0.0.1&quot;)&#125;, [16]) = 0</div></pre></td></tr></table></figure>
+<p>发现这个子进程是accept了连接。但是这些环回地址是如何产生的？</p>
+<p>查看主进程的 strace 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">waitpid(-1, 0xbffffa18, WNOHANG|WUNTRACED) = 0</div><div class="line">select(0, NULL, NULL, NULL, &#123;1, 0&#125;)     = 0 (Timeout)</div><div class="line">write(5, &quot;!&quot;, 1)                        = 1</div><div class="line">socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 9</div><div class="line">fcntl64(9, F_GETFL)                     = 0x2 (flags O_RDWR)</div><div class="line">fcntl64(9, F_SETFL, O_RDWR|O_NONBLOCK)  = 0</div><div class="line">connect(9, &#123;sa_family=AF_INET, sin_port=htons(447), sin_addr=inet_addr(&quot;0.0.0.0&quot;)&#125;, 16) = -1 EINPROGRESS (Operation now in progress)</div><div class="line">poll([&#123;fd=9, events=POLLOUT, revents=POLLOUT&#125;], 1, 3000) = 1</div><div class="line">getsockopt(9, SOL_SOCKET, SO_ERROR, [0], [4]) = 0</div><div class="line">close(9)                                = 0</div><div class="line">--- SIGCHLD (Child exited) @ 0 (0) ---</div></pre></td></tr></table></figure>
+<p>从这里发现Apache的主进程发了connect连接，然后自己断开连接。<br>但是为什么回出现这种情况呢？需要进一步查看代码查找原因。</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>压力测试的时候起了非常多的子进程。<br>但是压力测试之后不需要那么多的进程。<br>此时临时建立的子进程都阻塞在select上面。<br>Apache采用都策略就是主进程与阻塞都子进程建立连接，<br>然后关闭连接，所以看到都现象如上。</p>
 
       
 
       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Tech, Apache</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/16/Apache-Info/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-  
-    <article id="post-Trap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/16/Trap/">困</a>
-    </h1>
-  
-
-        
-        <a href="/2016/10/16/Trap/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:02:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>为身所累，为圈所困。</p>
-<p>记得有一次和朋友去寺庙玩，因为是在旅游，所以一路都是背着旅行包的。<br>由于那时候宁可信其有，不可信其无。<br>所以到了寺庙都会虔诚的拜拜，不是为了什么。<br>我就一间房一间房的去看，去拜拜。<br>当我来到一座大佛面前时，直接就拜了下去，<br>这时候在这间房子的老师傅说：”施主，拜佛的时候放下你的背包.”<br>犹如当头一棒，在路上已经忘了身上的负担，感觉背包已经和自己融为一体，</p>
-<p>昨天去寒山寺，身上不着一物，忽然发现最重的负担是放不下，<br>背包可以放下，可是放不下就如着空气，无影无形中，<br>一个圈，一句话，却轻易的困住了自己。<br>在你最脆弱的时候犹如大山直接压着。<br>我看着金光闪闪的尊者和罗汉，可是我却找不大一个答案。<br>听着钟声，却是对愁。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Caprice</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/16/Trap/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-  
-    <article id="post-Timeout" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/16/Timeout/">Apache 超时设置</a>
-    </h1>
-  
-
-        
-        <a href="/2016/10/16/Timeout/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:01:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在apache的使用过程中，我们可以看到许多的超时设置，<br>因为apache是一个web服务器，所以它的超时是包含底层的超时设置，例如tcp协议的。<br>所以这一篇文档包含http，ssl，tcp等协议的超时设置。</p>
-<ul>
-<li><p>timeout tcp读写超时(wait_for_io_or_timeout)</p>
-<ul>
-<li>t &gt; 0  – read and write calls return APR_TIMEUP if specified time elapsess with no data read or written</li>
-<li>t == 0 – read and write calls never block</li>
-<li>t &lt; 0  – read and write calls block</li>
-</ul>
-</li>
-<li><p>keepalivetimeout</p>
-<ul>
-<li>在keepalivetimeout时间后没有子请求，断开连接(ap_process_http_connection)</li>
-</ul>
-</li>
-<li><p>proxytimeout</p>
-<ul>
-<li>没有设置的时候与 timeout 的一样</li>
-</ul>
-</li>
-<li><p>RequestReadTimeout（reqtimeout_init）</p>
-<ul>
-<li>设置读取http头和http正文最大和最小超时时间</li>
-</ul>
-</li>
-<li><p>默认值：</p>
-<ul>
-<li>MRT_DEFAULT_HEADER_TIMEOUT       20</li>
-<li>MRT_DEFAULT_HEADER_MAX_TIMEOUT   40</li>
-<li>MRT_DEFAULT_HEADER_MIN_RATE      500</li>
-<li>MRT_DEFAULT_BODY_TIMEOUT         20</li>
-<li>MRT_DEFAULT_BODY_MAX_TIMEOUT     0</li>
-<li>MRT_DEFAULT_BODY_MIN_RATE        500</li>
-</ul>
-</li>
-<li><p>SSLSessionCacheTimeout</p>
-<ul>
-<li>ssl session 超时时间</li>
-</ul>
-</li>
-</ul>
-
-      
-
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/blogImg/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -940,20 +264,101 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/16/Timeout/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://trree.github.io/2017/05/20/20170520/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/05/06/20170506/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">搬家</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="20170520" data-title="Apache 压力测试后的127连接" data-url="https://trree.github.io/2017/05/20/20170520/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
 
 
 <script>
@@ -971,95 +376,6 @@ var _hmt = _hmt || [];
 })();
 </script>
 
-
-
-  
-    <article id="post-shaft" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/16/shaft/">井</a>
-    </h1>
-  
-
-        
-        <a href="/2016/10/16/shaft/" class="archive-article-date">
-  	<time datetime="2016-10-16T03:01:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>村里有一口井<br>每至夜深人静之时<br>总能听见它涌动的声音<br>折磨无法入睡</p>
-<p>我在村子里面徘徊<br>村头两座小山<br>村尾两棵大白杨<br>那一口井就藏在村中间</p>
-<p>我像一头野牛一样在这里面冲撞<br>我 留着汗奔跑，我将坝台高驻<br>我爬上山，我爬上树<br>不，我不能停歇</p>
-<p>我找到这口井了<br>毁灭它，将石头掩埋<br>将热闹覆盖</p>
-<p>夜深人静，我听见泉水涌动的声音<br>将石头取出<br>将热闹去除<br>只身跳入这口井中</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Caprice</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/16/shaft/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -1088,8 +404,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

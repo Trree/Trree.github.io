@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://trree.github.io/"/>
-  <updated>2017-05-06T10:06:37.000Z</updated>
+  <updated>2017-05-21T05:26:20.000Z</updated>
   <id>https://trree.github.io/</id>
   
   <author>
@@ -14,6 +14,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Apache 压力测试后的127连接</title>
+    <link href="https://trree.github.io/2017/05/20/20170520/"/>
+    <id>https://trree.github.io/2017/05/20/20170520/</id>
+    <published>2017-05-20T05:32:10.000Z</published>
+    <updated>2017-05-21T05:26:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在对Apache（prefork多进程模式）进行压力测试对时候，<br>客户端IP：192.168.41.96<br>网关IP和端口; 0.0.0.0:447<br>发现一旦停止压力测试对时候。<br>使用 netstat -an | grep 127<br>会出现非常多的 127.0.0.1:447 连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tcp        0      0 127.0.0.1:38984         127.0.0.1:447           TIME_WAIT</div><div class="line">tcp        0      0 127.0.0.1:38994         127.0.0.1:447           TIME_WAIT</div></pre></td></tr></table></figure>
+<p>查看的时候连接都已经是 TIME_WAIT 的状态，无法查看它是通过哪些进程查看它建立连接。<br>我们怀疑这些连接可能对性能会有影响。<br>所以对这个问题进行了排查。</p>
+<h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><p>因为所有的127.0.0.1的端口都与447端口断开连接，又因为这些无法有效都用gdb调试。<br>所以使用 strace 的方式跟踪进程。</p>
+<blockquote>
+<p>strace -p 683 -o filename_childpid<br>strace -p 899 -o filename_masterpid</p>
+</blockquote>
+<p>filename_childpid  是在压力测试的时候临时创建出来的子进程<br>filename_masterpid 是Apache的主进程</p>
+<p>在压力测试时候出现的子进程中可以看到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">accept(3, &#123;sa_family=AF_INET, sin_port=htons(36448), sin_addr=inet_addr(&quot;127.0.0.1&quot;)&#125;, [16]) = 6</div><div class="line">getsockname(6, &#123;sa_family=AF_INET, sin_port=htons(447), sin_addr=inet_addr(&quot;127.0.0.1&quot;)&#125;, [16]) = 0</div></pre></td></tr></table></figure>
+<p>发现这个子进程是accept了连接。但是这些环回地址是如何产生的？</p>
+<p>查看主进程的 strace 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">waitpid(-1, 0xbffffa18, WNOHANG|WUNTRACED) = 0</div><div class="line">select(0, NULL, NULL, NULL, &#123;1, 0&#125;)     = 0 (Timeout)</div><div class="line">write(5, &quot;!&quot;, 1)                        = 1</div><div class="line">socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 9</div><div class="line">fcntl64(9, F_GETFL)                     = 0x2 (flags O_RDWR)</div><div class="line">fcntl64(9, F_SETFL, O_RDWR|O_NONBLOCK)  = 0</div><div class="line">connect(9, &#123;sa_family=AF_INET, sin_port=htons(447), sin_addr=inet_addr(&quot;0.0.0.0&quot;)&#125;, 16) = -1 EINPROGRESS (Operation now in progress)</div><div class="line">poll([&#123;fd=9, events=POLLOUT, revents=POLLOUT&#125;], 1, 3000) = 1</div><div class="line">getsockopt(9, SOL_SOCKET, SO_ERROR, [0], [4]) = 0</div><div class="line">close(9)                                = 0</div><div class="line">--- SIGCHLD (Child exited) @ 0 (0) ---</div></pre></td></tr></table></figure>
+<p>从这里发现Apache的主进程发了connect连接，然后自己断开连接。<br>但是为什么回出现这种情况呢？需要进一步查看代码查找原因。</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>压力测试的时候起了非常多的子进程。<br>但是压力测试之后不需要那么多的进程。<br>此时临时建立的子进程都阻塞在select上面。<br>Apache采用都策略就是主进程与阻塞都子进程建立连接，<br>然后关闭连接，所以看到都现象如上。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h3&gt;&lt;p&gt;在对Apache（prefork多进程模式）进行压力测试对时候，&lt;br&gt;客户端IP：192.168.41.96&lt;br&gt;网关IP和端口; 0.
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
+    
+  </entry>
   
   <entry>
     <title>搬家</title>
@@ -653,27 +688,6 @@
       &lt;p&gt;村里有一口井&lt;br&gt;每至夜深人静之时&lt;br&gt;总能听见它涌动的声音&lt;br&gt;折磨无法入睡&lt;/p&gt;
 &lt;p&gt;我在村子里面徘徊&lt;br&gt;村头两座小山&lt;br&gt;村尾两棵大白杨&lt;br&gt;那一口井就藏在村中间&lt;/p&gt;
 &lt;p&gt;我像一头野牛一样在这里面冲撞&lt;br&gt;我 留着汗奔跑，我将坝台高驻&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="Caprice" scheme="https://trree.github.io/tags/Caprice/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>窗外</title>
-    <link href="https://trree.github.io/2016/10/16/Out-of-Windows/"/>
-    <id>https://trree.github.io/2016/10/16/Out-of-Windows/</id>
-    <published>2016-10-16T03:01:35.000Z</published>
-    <updated>2016-10-16T04:28:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>被困在车厢里。<br>车厢因为站票挤满了人，举步维艰，即使能移动，也只是在车厢里，最后还是回到自己的位置。<br>人身上发出的气味，泡面的腐味因不开窗而始终弥漫。有种窒息的感觉。<br>人们聊天的声音，手机叮叮响的声音爆炸在耳边。即使在深夜里，那永不停歇的火车运动的机械声。在深夜的梦里回响。<br>一个人趴在窗上，无事可做，仅仅趴在窗上，在那积满灰尘的窗上。一心望着外面。望着窗外。<br>转过一座山，并行的湖。<br>天地的蓝天白云相接。旋转而起的树木，碧波荡漾的竹林，其间点缀无数点点星星。九万里的大鸟在云层之外翱翔。<br>火车在盘着山，就如此彳亍着，有时可以看见火车外有人在奔跑，引起车里人的嘲哄声，但马上连他的背影也看不见了。<br>就这样一直望着窗外一天一夜，期间不断的食品叫卖声与引起的喧闹嘲杂声不闻不问。<br>突然有种莫名的冲动，毅然决然的跳下火车，投向那森林的最深处，走向海的绝渊中，飞向那无人触及的圣地。<br>雨打在窗外，凝聚，演绎着千姿百态，最后回于水中，雨仅仅只是水，但他或许会变成气，变成雾，雪，血。<br>突然有一刻，仅仅那一刻，从窗外投射来的一缕阳光，透过窗，透过身体，照在心上。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;被困在车厢里。&lt;br&gt;车厢因为站票挤满了人，举步维艰，即使能移动，也只是在车厢里，最后还是回到自己的位置。&lt;br&gt;人身上发出的气味，泡面的腐味因不开窗而始终弥漫。有种窒息的感觉。&lt;br&gt;人们聊天的声音，手机叮叮响的声音爆炸在耳边。即使在深夜里，那永不停歇的火车运动的机械声。
     
     </summary>
     
