@@ -8,19 +8,16 @@
   <link rel="dns-prefetch" href="https://trree.github.io">
   <title>Apache 压力测试后的127连接 | Tree</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景在对Apache（prefork多进程模式）进行压力测试对时候，客户端IP：192.168.41.96网关IP和端口; 0.0.0.0:447发现一旦停止压力测试对时候。使用 netstat -an | grep 127会出现非常多的 127.0.0.1:447 连接
-12tcp        0      0 127.0.0.1:38984         127.0.0.1:447">
+  <meta name="description" content="在对Apache（prefork多进程模式）进行压力测试对时候，发现一旦停止压力测试对时候。会出现非常多的 127.0.0.1:447 连接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Apache 压力测试后的127连接">
 <meta property="og:url" content="https://trree.github.io/2017/05/20/20170520/index.html">
 <meta property="og:site_name" content="Tree">
-<meta property="og:description" content="背景在对Apache（prefork多进程模式）进行压力测试对时候，客户端IP：192.168.41.96网关IP和端口; 0.0.0.0:447发现一旦停止压力测试对时候。使用 netstat -an | grep 127会出现非常多的 127.0.0.1:447 连接
-12tcp        0      0 127.0.0.1:38984         127.0.0.1:447">
-<meta property="og:updated_time" content="2017-05-21T05:26:20.000Z">
+<meta property="og:description" content="在对Apache（prefork多进程模式）进行压力测试对时候，发现一旦停止压力测试对时候。会出现非常多的 127.0.0.1:447 连接">
+<meta property="og:updated_time" content="2017-05-28T11:31:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache 压力测试后的127连接">
-<meta name="twitter:description" content="背景在对Apache（prefork多进程模式）进行压力测试对时候，客户端IP：192.168.41.96网关IP和端口; 0.0.0.0:447发现一旦停止压力测试对时候。使用 netstat -an | grep 127会出现非常多的 127.0.0.1:447 连接
-12tcp        0      0 127.0.0.1:38984         127.0.0.1:447">
+<meta name="twitter:description" content="在对Apache（prefork多进程模式）进行压力测试对时候，发现一旦停止压力测试对时候。会出现非常多的 127.0.0.1:447 连接">
   
     <link rel="alternative" href="/atom.xml" title="Tree" type="application/atom+xml">
   
@@ -201,7 +198,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在对Apache（prefork多进程模式）进行压力测试对时候，<br>客户端IP：192.168.41.96<br>网关IP和端口; 0.0.0.0:447<br>发现一旦停止压力测试对时候。<br>使用 netstat -an | grep 127<br>会出现非常多的 127.0.0.1:447 连接</p>
+        <p>在对Apache（prefork多进程模式）进行压力测试对时候，<br>发现一旦停止压力测试对时候。<br>会出现非常多的 127.0.0.1:447 连接<br><a id="more"></a> </p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在对Apache（prefork多进程模式）进行压力测试对时候，<br>客户端IP：192.168.41.96<br>网关IP和端口; 0.0.0.0:447<br>发现一旦停止压力测试对时候。<br>使用 netstat -an | grep 127<br>会出现非常多的 127.0.0.1:447 连接</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tcp        0      0 127.0.0.1:38984         127.0.0.1:447           TIME_WAIT</div><div class="line">tcp        0      0 127.0.0.1:38994         127.0.0.1:447           TIME_WAIT</div></pre></td></tr></table></figure>
 <p>查看的时候连接都已经是 TIME_WAIT 的状态，无法查看它是通过哪些进程查看它建立连接。<br>我们怀疑这些连接可能对性能会有影响。<br>所以对这个问题进行了排查。</p>
 <h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><p>因为所有的127.0.0.1的端口都与447端口断开连接，又因为这些无法有效都用gdb调试。<br>所以使用 strace 的方式跟踪进程。</p>
@@ -324,6 +322,15 @@ var _hmt = _hmt || [];
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/05/28/disMay/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          消失的五月
+        
+      </div>
+    </a>
   
   
     <a href="/2017/05/06/20170506/" id="article-nav-older" class="article-nav-link-wrap">
@@ -471,15 +478,15 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Think</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Tech</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">人头马身</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Think</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,6 +499,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Tech, Net</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">一个程序员的日常</a>
               </li>
              
               <li class="article-tag-list-item">
