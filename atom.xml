@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://trree.github.io/"/>
-  <updated>2017-05-28T12:16:01.000Z</updated>
+  <updated>2017-06-03T02:15:35.000Z</updated>
   <id>https://trree.github.io/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>无序</title>
+    <link href="https://trree.github.io/2017/05/30/longway/"/>
+    <id>https://trree.github.io/2017/05/30/longway/</id>
+    <published>2017-05-30T09:25:42.000Z</published>
+    <updated>2017-06-03T02:15:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>你装饰了别人的梦<br>明月装饰了你的窗子，<br>你站在桥上看风景，<br>看风景人在楼上看你。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;你装饰了别人的梦&lt;br&gt;明月装饰了你的窗子，&lt;br&gt;你站在桥上看风景，&lt;br&gt;看风景人在楼上看你。&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+      <category term="一个程序员都日常" scheme="https://trree.github.io/tags/%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F%E5%91%98%E9%83%BD%E6%97%A5%E5%B8%B8/"/>
+    
+  </entry>
   
   <entry>
     <title>消失的五月</title>
@@ -627,68 +649,6 @@
     
     
       <category term="Caprice" scheme="https://trree.github.io/tags/Caprice/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Apache 超时设置</title>
-    <link href="https://trree.github.io/2016/10/16/Timeout/"/>
-    <id>https://trree.github.io/2016/10/16/Timeout/</id>
-    <published>2016-10-16T03:01:53.000Z</published>
-    <updated>2016-10-17T09:05:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>在apache的使用过程中，我们可以看到许多的超时设置，<br>因为apache是一个web服务器，所以它的超时是包含底层的超时设置，例如tcp协议的。<br>所以这一篇文档包含http，ssl，tcp等协议的超时设置。</p>
-<ul>
-<li><p>timeout tcp读写超时(wait_for_io_or_timeout)</p>
-<ul>
-<li>t &gt; 0  – read and write calls return APR_TIMEUP if specified time elapsess with no data read or written</li>
-<li>t == 0 – read and write calls never block</li>
-<li>t &lt; 0  – read and write calls block</li>
-</ul>
-</li>
-<li><p>keepalivetimeout</p>
-<ul>
-<li>在keepalivetimeout时间后没有子请求，断开连接(ap_process_http_connection)</li>
-</ul>
-</li>
-<li><p>proxytimeout</p>
-<ul>
-<li>没有设置的时候与 timeout 的一样</li>
-</ul>
-</li>
-<li><p>RequestReadTimeout（reqtimeout_init）</p>
-<ul>
-<li>设置读取http头和http正文最大和最小超时时间</li>
-</ul>
-</li>
-<li><p>默认值：</p>
-<ul>
-<li>MRT_DEFAULT_HEADER_TIMEOUT       20</li>
-<li>MRT_DEFAULT_HEADER_MAX_TIMEOUT   40</li>
-<li>MRT_DEFAULT_HEADER_MIN_RATE      500</li>
-<li>MRT_DEFAULT_BODY_TIMEOUT         20</li>
-<li>MRT_DEFAULT_BODY_MAX_TIMEOUT     0</li>
-<li>MRT_DEFAULT_BODY_MIN_RATE        500</li>
-</ul>
-</li>
-<li><p>SSLSessionCacheTimeout</p>
-<ul>
-<li>ssl session 超时时间</li>
-</ul>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在apache的使用过程中，我们可以看到许多的超时设置，&lt;br&gt;因为apache是一个web服务器，所以它的超时是包含底层的超时设置，例如tcp协议的。&lt;br&gt;所以这一篇文档包含http，ssl，tcp等协议的超时设置。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;timeout tc
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
     
   </entry>
   

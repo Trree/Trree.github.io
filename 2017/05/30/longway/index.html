@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://trree.github.io">
-  <title>TCP 握手 | Tree</title>
+  <title>无序 | Tree</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tcp 报头的各个字段的作用想象一下自己去设计一个TCP协议，最中的是保证可靠性。因为每个报文都是要包含这些字段，所以你要怎么保证它的简洁性，不浪费资源。">
+  <meta name="description" content="你装饰了别人的梦明月装饰了你的窗子，你站在桥上看风景，看风景人在楼上看你。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TCP 握手">
-<meta property="og:url" content="https://trree.github.io/2017/03/28/tcp-handshark/index.html">
+<meta property="og:title" content="无序">
+<meta property="og:url" content="https://trree.github.io/2017/05/30/longway/index.html">
 <meta property="og:site_name" content="Tree">
-<meta property="og:description" content="tcp 报头的各个字段的作用想象一下自己去设计一个TCP协议，最中的是保证可靠性。因为每个报文都是要包含这些字段，所以你要怎么保证它的简洁性，不浪费资源。">
-<meta property="og:updated_time" content="2017-05-28T12:19:52.000Z">
+<meta property="og:description" content="你装饰了别人的梦明月装饰了你的窗子，你站在桥上看风景，看风景人在楼上看你。">
+<meta property="og:updated_time" content="2017-06-03T02:15:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TCP 握手">
-<meta name="twitter:description" content="tcp 报头的各个字段的作用想象一下自己去设计一个TCP协议，最中的是保证可靠性。因为每个报文都是要包含这些字段，所以你要怎么保证它的简洁性，不浪费资源。">
+<meta name="twitter:title" content="无序">
+<meta name="twitter:description" content="你装饰了别人的梦明月装饰了你的窗子，你站在桥上看风景，看风景人在楼上看你。">
   
     <link rel="alternative" href="/atom.xml" title="Tree" type="application/atom+xml">
   
@@ -178,47 +178,27 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-tcp-handshark" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-longway" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      TCP 握手
+      无序
     </h1>
   
 
         
-        <a href="/2017/03/28/tcp-handshark/" class="archive-article-date">
-  	<time datetime="2017-03-28T13:44:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
+        <a href="/2017/05/30/longway/" class="archive-article-date">
+  	<time datetime="2017-05-30T09:25:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>tcp 报头的各个字段的作用<br>想象一下自己去设计一个TCP协议，最中的是保证可靠性。因为每个报文都是要包含这些字段，所以你要怎么保证它的简洁性，不浪费资源。<br><a id="more"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">source port:  源端口</div><div class="line">destination port: 目标端口</div><div class="line">sequence number: 序号，每一个TCP报文段都会有一个序列，序列号字段段值其实是本报文段所发送段第一个字节的序号，通过序号来确保服务的可靠性和有序性。</div><div class="line">ack number:确认号</div><div class="line">Data offset:数据偏移</div><div class="line">Reserved:保留字段</div><div class="line">URG(urgent)：紧急指针</div><div class="line">ACK ：确认字段 </div><div class="line">PSH：推送字段</div><div class="line">RST：复位字段</div><div class="line">SYN：同步字段</div><div class="line">FIN：终止字段</div><div class="line">Windows size：窗口大小</div><div class="line">checksum：检验和</div><div class="line">Urgent pointer：紧急指针</div><div class="line">options：选项</div></pre></td></tr></table></figure>
-<h3 id="tcp-三次握手"><a href="#tcp-三次握手" class="headerlink" title="tcp 三次握手"></a>tcp 三次握手</h3><p>为什么tcp握手需要三次？这个保证了什么东西？</p>
-<ul>
-<li>客户端发送一个 SYN 给服务端。</li>
-<li>服务端返回一个ack和syn给客户端确认。</li>
-<li>客户端在返回一个ack确认。tcp连接建立。</li>
-</ul>
-<p>如果只有两次握手会怎样？<br>客户端发送了一个连接请求的SYN，但是由于网络问题，以至这个连接释放之后才到达服务端，<br>这时候服务器发送 ack 和 syn 给客户端。<br>如果此时就建立连接，由于客户端已经废弃了这个 SYN，所以这个连接客户端什么<br>都不会发送，白白浪费了资源。</p>
-<p>DDoS攻击的也有相似的原理</p>
-<blockquote>
-<p>为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误。</p>
-</blockquote>
-<h3 id="tcp-四次挥手"><a href="#tcp-四次挥手" class="headerlink" title="tcp 四次挥手"></a>tcp 四次挥手</h3><ul>
-<li>客户端发送一个 FIN 给服务端</li>
-<li>服务端发送一个ACK 确定</li>
-<li>服务端再发送一个 FIN 接收服务端的连接</li>
-<li>客户端发送 ACK 确定后关闭连接</li>
-</ul>
-<p>半连接的时候是怎么处理的？<br>为什么要四次握手？<br>time_wait 的作用是什么？危害是什么？</p>
-<p>tcp 连接是全双工的，所以一边发送FIN，都需要另一边 ACK 确定。</p>
+        <p>你装饰了别人的梦<br>明月装饰了你的窗子，<br>你站在桥上看风景，<br>看风景人在楼上看你。</p>
 
       
 
@@ -258,7 +238,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tech</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">一个程序员都日常</a>
         		</li>
       		
 		</ul>
@@ -314,7 +294,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://trree.github.io/2017/03/28/tcp-handshark/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://trree.github.io/2017/05/30/longway/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -328,18 +308,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/04/27/outOfMemory/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          系统内存不足
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/22/apache-debug/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">apache多种debug调试方式</div>
+    <a href="/2017/05/28/disMay/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">消失的五月</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -353,7 +324,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="tcp-handshark" data-title="TCP 握手" data-url="https://trree.github.io/2017/03/28/tcp-handshark/"></div>
+	<div class="ds-thread" data-thread-key="longway" data-title="无序" data-url="https://trree.github.io/2017/05/30/longway/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
