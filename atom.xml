@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://trree.github.io/"/>
-  <updated>2017-06-03T12:20:20.000Z</updated>
+  <updated>2017-06-04T15:39:51.000Z</updated>
   <id>https://trree.github.io/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>背诵</title>
+    <link href="https://trree.github.io/2017/06/04/recitation/"/>
+    <id>https://trree.github.io/2017/06/04/recitation/</id>
+    <published>2017-06-04T15:26:07.000Z</published>
+    <updated>2017-06-04T15:39:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这个周末都在准备周一需要背诵的材料。<br>仔细想想，我花了两天的准备时间，自己真正花在背诵的时间其实很少很少。<br>究其原因，是大部分的时间都不再状态，什么叫不在状态，<br>就是你想背诵的时候，脑袋里面总是有其它的挥之不去的东西。<br>其实对需要背诵的材料是非常非常的排斥，在内心里面不愿意去背诵它。<br>背诵的过程也不像敲代码一样有明显的奖励过程。会让自己非常的兴奋。<br>背诵的过程是非常的痛苦与平淡。<br>像是小和尚念经，有口无心一样。</p>
+<p>现在想想，你花了两天时间都在准备这个，其实这是一个非常大的误区。<br>背诵是不可能百分百在状态的。<br>人在一天中不同的状态适合处理不同的事务。<br>就像早晨是适合背诵东西的，因为此刻你的心思无杂念。<br>晚上也是适合的，因为此刻是比较安静的。<br>但是上午或者下午对于我却是不太适合，<br>我是逻辑型思考，所有的东西需要依靠逻辑来串联到一起，就像一个哈希表一样。</p>
+<p>说的这么多，其实想要表达的是，不要太强求自己，合理规划时间，<br>在对的时间做对的事情，在合适的时间做合适的事情。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这个周末都在准备周一需要背诵的材料。&lt;br&gt;仔细想想，我花了两天的准备时间，自己真正花在背诵的时间其实很少很少。&lt;br&gt;究其原因，是大部分的时间都不再状态，什么叫不在状态，&lt;br&gt;就是你想背诵的时候，脑袋里面总是有其它的挥之不去的东西。&lt;br&gt;其实对需要背诵的材料是非常非常
+    
+    </summary>
+    
+    
+      <category term="Think" scheme="https://trree.github.io/tags/Think/"/>
+    
+  </entry>
   
   <entry>
     <title>早班地铁的爱情</title>
@@ -622,41 +645,6 @@
     
     
       <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>获取Apache信息接口</title>
-    <link href="https://trree.github.io/2016/10/16/Apache-Info/"/>
-    <id>https://trree.github.io/2016/10/16/Apache-Info/</id>
-    <published>2016-10-16T03:02:11.000Z</published>
-    <updated>2016-10-16T07:31:41.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>在apache的使用中，如果是一个apache代理服务器，并且使用的证书的话，<br>我们不可避免的需要将从前端和证书中的信息传递给后端处理。<br>一般情况下，我们都是将这些信息绑定在http头中，cookie项中，这样后端比较容易处理。</p>
-<p>幸运的是，apache为我们提供了这么一个可选函数，可以任何的一个模块中获取<br>你需要的信息。<br>这个可选函数是在模块 mod_nw_ssl 中定义。</p>
-<blockquote>
-<p>APR_REGISTER_OPTIONAL_FN(ssl_var_lookup);</p>
-</blockquote>
-<p>那么这个可选函数可以获取哪些参数呢？</p>
-<ul>
-<li>前端http头中的信息</li>
-<li>ssl的参数，和对应使用的用户证书的各项内容。</li>
-<li>连接socket的各项参数</li>
-<li>格式化的各种时间</li>
-<li>保存在 r-&gt;notes 中的的环境变量</li>
-<li>如何找不到key对应的value，则返回空字符串。</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在apache的使用中，如果是一个apache代理服务器，并且使用的证书的话，&lt;br&gt;我们不可避免的需要将从前端和证书中的信息传递给后端处理。&lt;br&gt;一般情况下，我们都是将这些信息绑定在http头中，cookie项中，这样后端比较容易处理。&lt;/p&gt;
-&lt;p&gt;幸运的是，apac
-    
-    </summary>
-    
-    
-      <category term="Tech, Apache" scheme="https://trree.github.io/tags/Tech-Apache/"/>
     
   </entry>
   
