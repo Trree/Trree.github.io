@@ -179,6 +179,260 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-apapche-pratice" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/09/apapche-pratice/">Apache 讲解</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/09/apapche-pratice/" class="archive-article-date">
+  	<time datetime="2017-07-09T03:26:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="简单服务器流程"><a href="#简单服务器流程" class="headerlink" title="简单服务器流程"></a>简单服务器流程</h3><img src="/2017/07/09/apapche-pratice/web.png" alt="organization" title="organization">
+<p>Q1：<a href="http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/" target="_blank" rel="external">简述在浏览器中输入 www.baidu.com 之后发生的一系列事情</a></p>
+<p>appendix1：<a href="https://stackoverflow.com/questions/246859/http-1-0-vs-1-1" target="_blank" rel="external">http1.0 vs http1.1</a></p>
+<h3 id="I-O-模型"><a href="#I-O-模型" class="headerlink" title="I/O 模型"></a>I/O 模型</h3><ul>
+<li>阻塞式 I/O 模型  <img src="/2017/07/09/apapche-pratice/block-i-o.png" alt="organization" title="organization"></li>
+<li>非阻塞 I/O 模型  <img src="/2017/07/09/apapche-pratice/non-block-i-o.png" alt="organization" title="organization"></li>
+<li>I/O 复用 模型    <img src="/2017/07/09/apapche-pratice/io-sync.png" alt="organization" title="organization"></li>
+<li>异步 I/O 模型    <img src="/2017/07/09/apapche-pratice/io-async.png" alt="organization" title="organization"></li>
+</ul>
+<p><a href="http://download.csdn.net/download/xumaojun/4680440" target="_blank" rel="external"><em>UNIX网络编程</em>(卷1)：套接字联网API(第3版)</a></p>
+<h3 id="工作模式"><a href="#工作模式" class="headerlink" title="工作模式"></a>工作模式</h3><ul>
+<li><a href="https://httpd.apache.org/docs/2.4/mod/event.html" target="_blank" rel="external">event</a>(多进程多线程)</li>
+</ul>
+<ul>
+<li><a href="https://httpd.apache.org/docs/2.4/mod/prefork.html" target="_blank" rel="external">prefork</a>(多进程)</li>
+</ul>
+<ul>
+<li><a href="https://httpd.apache.org/docs/2.4/mod/worker.html" target="_blank" rel="external">worker</a>(多进程多线程)</li>
+</ul>
+<p><strong>查看apache的工作模式</strong></p>
+<blockquote>
+<p>/usr/sbin/apachectl -V</p>
+</blockquote>
+<h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><p><a href="https://trree.github.io/2017/02/06/apache-pool/">内存管理</a></p>
+<h3 id="核心数据结构"><a href="#核心数据结构" class="headerlink" title="核心数据结构"></a>核心数据结构</h3><img src="/2017/07/09/apapche-pratice/datastruct.png" alt="organization" title="organization">
+<p><strong>request的关键元素</strong></p>
+<p>The most essential part of any request is the <strong>request record</strong>. In a call to a handler function, this is represented by the <strong>request_rec</strong> structure passed along with every call that is made. This struct, typically just referred to as <code>r</code> in modules, contains all the information you need for your module to fully process any HTTP request and respond accordingly.</p>
+<p>Some key elements of the <code>request_rec</code>structure are:</p>
+<ul>
+<li><code>r-&gt;handler (char*):</code> Contains the name of the handler the server is currently asking to do the handling of this request</li>
+<li><code>r-&gt;method (char*):</code> Contains the HTTP method being used, f.x. GET or POST</li>
+<li><code>r-&gt;filename (char*):</code> Contains the translated filename the client is requesting</li>
+<li><code>r-&gt;args (char*):</code> Contains the query string of the request, if any</li>
+<li><code>r-&gt;headers_in (apr_table_t*):</code> Contains all the headers sent by the client</li>
+<li><code>r-&gt;connection (conn_rec*):</code> A record containing information about the current connection</li>
+<li><code>r-&gt;user (char*):</code> If the URI requires authentication, this is set to the username provided</li>
+<li><code>r-&gt;useragent_ip (char*):</code> The IP address of the client connecting to us</li>
+<li><code>r-&gt;pool (apr_pool_t*)</code>: The memory pool of this request. We’ll discuss this in the “<a href="https://httpd.apache.org/docs/2.4/en/developer/#memory" target="_blank" rel="external">Memory management</a>“ chapter.</li>
+</ul>
+<p><a href="http://wiki.koal.com/wiki/index.php/Apache:%E6%A0%B8%E5%BF%83%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" target="_blank" rel="external">核心数据结构</a></p>
+<h3 id="mod-helloworld-模块讲解"><a href="#mod-helloworld-模块讲解" class="headerlink" title="mod_helloworld 模块讲解"></a>mod_helloworld 模块讲解</h3><p><a href="https://httpd.apache.org/docs/2.4/en/developer/modguide.html" target="_blank" rel="external">modguide</a></p>
+<p><a href="http://wiki.koal.com/wiki/index.php/Apache:%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B" target="_blank" rel="external">Apache: 启动流程</a></p>
+<p><a href="http://wiki.koal.com/wiki/index.php/Apache:%E8%BF%9E%E6%8E%A5/%E8%AF%B7%E6%B1%82%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B" target="_blank" rel="external">Apache: 连接 / 请求处理流程</a></p>
+<blockquote>
+<p>apxs -n helloworld -g</p>
+</blockquote>
+<p><strong>Defining a module</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"httpd.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"http_config.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"http_protocol.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ap_config.h"</span></span></div><div class="line"></div><div class="line"><span class="comment">/* The sample content handler */</span></div><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">helloworld_handler</span><span class="params">(request_rec *r)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">strcmp</span>(r-&gt;handler, <span class="string">"helloworld"</span>)) &#123;</div><div class="line">        <span class="keyword">return</span> DECLINED;</div><div class="line">    &#125;</div><div class="line">    r-&gt;content_type = <span class="string">"text/html"</span>;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (!r-&gt;header_only)</div><div class="line">        ap_rputs(<span class="string">"The sample page from mod_helloworld.c\n"</span>, r);</div><div class="line">    <span class="keyword">return</span> OK;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">helloworld_register_hooks</span><span class="params">(<span class="keyword">apr_pool_t</span> *p)</span></span></div><div class="line">&#123;</div><div class="line">    ap_hook_handler(helloworld_handler, <span class="literal">NULL</span>, <span class="literal">NULL</span>, APR_HOOK_MIDDLE);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/* Dispatch list for API hooks */</span></div><div class="line"><span class="comment">/* 标记服务器能够加载的模块名 */</span></div><div class="line"><span class="comment">/* 为模块配置设置一个命名空间 */</span></div><div class="line"><span class="keyword">module</span> AP_MODULE_DECLARE_DATA helloworld_module = &#123;</div><div class="line">    STANDARD20_MODULE_STUFF,</div><div class="line">    <span class="literal">NULL</span>,                  <span class="comment">/* create per-dir    config structures */</span></div><div class="line">    <span class="literal">NULL</span>,                  <span class="comment">/* merge  per-dir    config structures */</span></div><div class="line">    <span class="literal">NULL</span>,                  <span class="comment">/* create per-server config structures */</span></div><div class="line">    <span class="literal">NULL</span>,                  <span class="comment">/* merge  per-server config structures */</span></div><div class="line">    helloworld_directives, <span class="comment">/* table of config file commands       */</span></div><div class="line">    helloworld_register_hooks  <span class="comment">/* register hooks                      */</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</div><div class="line">    <span class="keyword">int</span>         enabled;      <span class="comment">/* Enable or disable our module */</span></div><div class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *path;         <span class="comment">/* Some path to...something */</span></div><div class="line">    <span class="keyword">int</span>         typeOfAction; <span class="comment">/* 1 means action A, 2 means action B and so on */</span></div><div class="line">&#125; example_config;</div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="keyword">const</span> command_rec helloworld_directives[] =</div><div class="line">&#123;</div><div class="line">    AP_INIT_TAKE1(<span class="string">"exampleEnabled"</span>, example_set_enabled, <span class="literal">NULL</span>, RSRC_CONF, <span class="string">"Enable or disable mod_example"</span>),</div><div class="line">    AP_INIT_TAKE1(<span class="string">"examplePath"</span>, example_set_path, <span class="literal">NULL</span>, RSRC_CONF, <span class="string">"The path to whatever"</span>),</div><div class="line">    AP_INIT_TAKE2(<span class="string">"exampleAction"</span>, example_set_action, <span class="literal">NULL</span>, RSRC_CONF, <span class="string">"Special action value!"</span>),</div><div class="line">    &#123; <span class="literal">NULL</span> &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<img src="/2017/07/09/apapche-pratice/build_a_mod_4.png" alt="organization" title="organization">
+<h4 id="配置的作用域"><a href="#配置的作用域" class="headerlink" title="配置的作用域"></a>配置的作用域</h4><ul>
+<li>OR_ALL 所有的地方使用</li>
+<li>ACCESS_CONF：允许指令出现这Directiory Location 区间<strong>以内</strong>的顶级命令区，一般是用来设置特定文的指令控制</li>
+<li>RSRC_CONF: 允许指令出现在 Directiory Location 区间<strong>以外</strong>的顶级命令区</li>
+</ul>
+<h4 id="配置段合并"><a href="#配置段合并" class="headerlink" title="配置段合并"></a>配置段合并</h4><p>配置段会按非常特别的顺序依次生效，由于这会对配置指令的处理结果产生重大影响，因此理解它的流程非常重要。</p>
+<p>合并的顺序是：</p>
+<ol>
+<li><code>&lt;Directory&gt;</code>(除了正则表达式)和<code>.htaccess</code>同时处理；(如果允许的话，<code>.htaccess</code>的设置会覆盖<code>&lt;Directory&gt;</code>的设置)</li>
+<li><code>&lt;DirectoryMatch&gt;</code>(和<code>&lt;Directory ~&gt;</code>)</li>
+<li><code>&lt;Files&gt;</code>和<code>&lt;FilesMatch&gt;</code>同时处理</li>
+<li><code>&lt;Location&gt;</code>和<code>&lt;LocationMatch&gt;</code>同时处理</li>
+</ol>
+<p>除了<code>&lt;Directory&gt;</code>，每个组都按它们在配置文件中出现的顺序被依次处理，而<code>&lt;Directory&gt;</code>(上面的第1组)，会按字典顺序由短到长被依次处理。例如：<code>&lt;Directory /var/web/dir&gt;</code>会先于<code>&lt;Directory /var/web/dir/subdir&gt;</code>被处理。如果有多个指向同一个目录的<code>&lt;Directory&gt;</code>段，则按它们在配置文件中的顺序被依次处理。用<code>Include</code>指令包含进来的配置被视为按原样插入到<code>Include</code>指令的位置。</p>
+<p>位于<code>&lt;VirtualHost&gt;</code>容器中的配置段在外部对应的段处理完毕<em>以后</em>再处理，这样就允许虚拟主机覆盖主服务器的设置。</p>
+<p><strong>代码示例</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> *<span class="title">create_dir_conf</span><span class="params">(<span class="keyword">apr_pool_t</span> *pool, <span class="keyword">char</span> *context)</span> </span>&#123;</div><div class="line">    context = context ? context : <span class="string">"(undefined context)"</span>;</div><div class="line">    example_config *cfg = apr_pcalloc(pool, <span class="keyword">sizeof</span>(example_config));</div><div class="line">    <span class="keyword">if</span>(cfg) &#123;</div><div class="line">        <span class="comment">/* Set some default values */</span></div><div class="line">        <span class="built_in">strcpy</span>(cfg-&gt;context, context);</div><div class="line">        cfg-&gt;enabled = <span class="number">0</span>;</div><div class="line">        cfg-&gt;path = <span class="string">"/foo/bar"</span>;</div><div class="line">        cfg-&gt;typeOfAction = <span class="number">0x11</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> cfg;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> *<span class="title">merge_dir_conf</span><span class="params">(<span class="keyword">apr_pool_t</span> *pool, <span class="keyword">void</span> *BASE, <span class="keyword">void</span> *ADD)</span> </span>&#123;</div><div class="line">    example_config *base = (example_config *) BASE ; <span class="comment">/* This is what was set in the parent context */</span></div><div class="line">    example_config *add = (example_config *) ADD ;   <span class="comment">/* This is what is set in the new context */</span></div><div class="line">    example_config *conf = (example_config *) create_dir_conf(pool, <span class="string">"Merged configuration"</span>); <span class="comment">/* This will be the merged configuration */</span></div><div class="line">    </div><div class="line">    <span class="comment">/* Merge configurations */</span></div><div class="line">    conf-&gt;enabled = ( add-&gt;enabled == <span class="number">0</span> ) ? base-&gt;enabled : add-&gt;enabled ;</div><div class="line">    conf-&gt;typeOfAction = add-&gt;typeOfAction ? add-&gt;typeOfAction : base-&gt;typeOfAction;</div><div class="line">    <span class="built_in">strcpy</span>(conf-&gt;path, <span class="built_in">strlen</span>(add-&gt;path) ? add-&gt;path : base-&gt;path);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> conf ;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">module</span> AP_MODULE_DECLARE_DATA   example_module =</div><div class="line">&#123;</div><div class="line">    STANDARD20_MODULE_STUFF,</div><div class="line">    create_dir_conf, <span class="comment">/* Per-directory configuration handler */</span></div><div class="line">    merge_dir_conf,  <span class="comment">/* Merge handler for per-directory configurations */</span></div><div class="line">    <span class="literal">NULL</span>,            <span class="comment">/* Per-server configuration handler */</span></div><div class="line">    <span class="literal">NULL</span>,            <span class="comment">/* Merge handler for per-server configurations */</span></div><div class="line">    directives,      <span class="comment">/* Any directives we may have for httpd */</span></div><div class="line">    register_hooks   <span class="comment">/* Our hook registering function */</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="hook-钩子"><a href="#hook-钩子" class="headerlink" title="hook 钩子"></a>hook 钩子</h3><img src="/2017/07/09/apapche-pratice/build_a_mod_2.png" alt="organization" title="organization">
+<p><strong>钩子的处理</strong></p>
+<ul>
+<li><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*在这个钩子处按照顺序运行所有的被注册函数*/</span></div><div class="line">AP_IMPLEMENT_HOOK_VOID(do_something, (request_rec *r, <span class="keyword">int</span> n), (r, n))</div></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*在这个钩子处运行所有的被注册函数直到返回了一个不是DECLINED的值*/</span></div><div class="line">AP_IMPLEMENT_HOOK_RUN_FIRST(<span class="keyword">int</span>, do_something, (request_rec *r, <span class="keyword">int</span> n), (r, n), DECLINED)</div></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*运行所有的函数直到或者除非返回一个错误*/</span></div><div class="line">AP_IMPLEMENT_HOOK_RUN_ALL(<span class="keyword">int</span>, do_something, (request_rec *r, <span class="keyword">int</span> n), (r, n), OK, DECLINED)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>其它有用的钩子</strong></p>
+<p>Hooking into the request handling phase is but one of many hooks that you can create. Some other ways of hooking are:</p>
+<ul>
+<li><p><code>ap_hook_child_init</code>: Place a hook that executes when a child process is spawned (commonly used for initializing modules after the server has forked)</p>
+</li>
+<li><p><code>ap_hook_pre_config</code>: Place a hook that executes before any configuration data has been read (very early hook)</p>
+</li>
+<li><p><code>ap_hook_post_config</code>: Place a hook that executes after configuration has been parsed, but before the server has forked</p>
+</li>
+<li><p><code>ap_hook_translate_name</code>: Place a hook that executes when a URI needs to be translated into a filename on the server (think <code>mod_rewrite</code>)</p>
+</li>
+<li><p><code>ap_hook_quick_handler</code>: Similar to <code>ap_hook_handler</code>, except it is run before any other request hooks (translation, auth, fixups etc)</p>
+</li>
+<li><p><code>ap_hook_log_transaction</code>: Place a hook that executes when the server is about to add a log entry of the current request</p>
+<p>​</p>
+</li>
+</ul>
+<h3 id="代码调试"><a href="#代码调试" class="headerlink" title="代码调试"></a>代码调试</h3><p><a href="https://trree.github.io/2017/03/22/apache-debug/">apache调试</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Apache</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/09/apapche-pratice/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+  
+    <article id="post-restful" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/09/restful/">restful 接口设计</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/09/restful/" class="archive-article-date">
+  	<time datetime="2017-06-09T10:20:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在工作中需要实现一个跨平台，易实现，方便调试排错的接口。<br>经过考虑之后，发现restful接口是非常合适的。</p>
+<p>接口的实现是基于c++的boost的。所以有两个非常重要的boost库需要介绍一下。</p>
+<p>首先我们需要想想我们需要怎样的借口调用方式，健壮的，易扩展的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">connecton.handle_request(&quot;/handlers/&#123;id&#125;/&#123;number:[0-9]+&#125;&quot;)</div><div class="line">					.get(boost::bind(handle_))</div><div class="line">                .get([](served::response &amp; res, const served::request &amp; req) &#123;</div><div class="line">                        res &lt;&lt; &quot;id: &quot;;</div><div class="line">                        res &lt;&lt; req.params[&quot;id&quot;];</div><div class="line">                        res &lt;&lt; &quot;, number: &quot;;</div><div class="line">                        res &lt;&lt; req.params[&quot;number&quot;];</div><div class="line">                &#125;)</div><div class="line">                .post([](served::response &amp; res, const served::request &amp; req) &#123;</div><div class="line">                        res &lt;&lt; &quot;id: &quot;;</div><div class="line">                        res &lt;&lt; req.params[&quot;id&quot;];</div><div class="line">                        res &lt;&lt; &quot;, number: &quot;;</div><div class="line">                        res &lt;&lt; req.params[&quot;number&quot;];</div><div class="line"></div><div class="line">                        std::cout &lt;&lt; req.body() &lt;&lt; std::endl;</div><div class="line">                &#125;);</div></pre></td></tr></table></figure>
+<p><strong>boost::functon</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">typedef std::function&lt;void(response &amp;, const request &amp;)&gt;  served_req_handler;</div></pre></td></tr></table></figure>
+<p>boost::function 的boost提供的一个回调函数。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tech</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/09/restful/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+  
     <article id="post-recitation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -815,204 +1069,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-apache-debug" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/22/apache-debug/">apache多种debug调试方式</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/22/apache-debug/" class="archive-article-date">
-  	<time datetime="2017-03-22T12:02:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>将正在测试的机器上都打开 coredump，等待重现<ul>
-<li>在linux系统中执行 ulimit -c unlimited</li>
-<li>配置文件中添加 CoreDumpDirectory directory</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>尝试 valgrind 追踪内存错误<ul>
-<li>valgrind –tool=memcheck –leak-check=yes –show-reachable=yes –error-limit=no  apache</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>strace 调试<ul>
-<li>strace -f -p pid</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>尝试用 gdb 启动，等待重现<ul>
-<li>使用gdb启动服务，直接run，等待进程崩溃</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>apache信号调试<ul>
-<li>gdb attach进主线程或者需要的线程</li>
-<li>breakpoints</li>
-<li>continue</li>
-<li>访问服务或者发信号</li>
-<li>gdb接收信号，然后continue</li>
-<li>调试</li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/22/apache-debug/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-  
-    <article id="post-wash-painting" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/15/wash-painting/">水墨画的扩展</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/15/wash-painting/" class="archive-article-date">
-  	<time datetime="2017-02-15T01:02:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>高与远</strong></p>
-<ul>
-<li>水墨画的山水图的结构是非常紧凑的,仿佛有人在极目远望，<br>所有的东西都压缩在一起，视线越远，山峰就变得越高。</li>
-</ul>
-<p><strong>层次</strong></p>
-<p>水墨虽然都是黑色的，但是浓与淡将空间区分开来，<br>在表现早晨的水雾的时候，效果尤其明显。<br>一些清晰可见，一些若隐若现。</p>
-<p><strong>维度</strong></p>
-<p>将这些山水画45度角摆放的时候，会产生一种奇艺的效果，<br>仿佛二维的图形有了三维的效果。山水变得立体起来。</p>
-<p><strong>时间</strong></p>
-<p>仿佛整个世界凝聚于这个瞬间，这个瞬间的所有变化在<br>意想不到的瞬间出现，然后凝聚。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Think</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/15/wash-painting/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1113,11 +1169,11 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tech</a>
+                <a href="javascript:void(0)" class="js-tag color5">人头马身</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">人头马身</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tech</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1125,15 +1181,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Tech, Apache</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Caprice</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Tech, Apache</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Tech, Net</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Apache</a>
               </li>
              
               <li class="article-tag-list-item">

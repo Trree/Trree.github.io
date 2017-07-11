@@ -6,23 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://trree.github.io">
-  <title>获取Apache信息接口 | Tree</title>
+  <title>绑定Apache信息 | Tree</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在apache的使用中，如果是一个apache代理服务器，并且使用的证书的话，我们不可避免的需要将从前端和证书中的信息传递给后端处理。一般情况下，我们都是将这些信息绑定在http头中，cookie项中，这样后端比较容易处理。
 幸运的是，apache为我们提供了这么一个可选函数，可以任何的一个模块中获取你需要的信息。这个可选函数是在模块 mod_nw_ssl 中定义。
 
 APR_REGISTER_O">
 <meta property="og:type" content="article">
-<meta property="og:title" content="获取Apache信息接口">
+<meta property="og:title" content="绑定Apache信息">
 <meta property="og:url" content="https://trree.github.io/2016/10/16/Apache-Info/index.html">
 <meta property="og:site_name" content="Tree">
 <meta property="og:description" content="在apache的使用中，如果是一个apache代理服务器，并且使用的证书的话，我们不可避免的需要将从前端和证书中的信息传递给后端处理。一般情况下，我们都是将这些信息绑定在http头中，cookie项中，这样后端比较容易处理。
 幸运的是，apache为我们提供了这么一个可选函数，可以任何的一个模块中获取你需要的信息。这个可选函数是在模块 mod_nw_ssl 中定义。
 
 APR_REGISTER_O">
-<meta property="og:updated_time" content="2016-10-16T07:31:41.000Z">
+<meta property="og:updated_time" content="2017-07-09T03:01:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="获取Apache信息接口">
+<meta name="twitter:title" content="绑定Apache信息">
 <meta name="twitter:description" content="在apache的使用中，如果是一个apache代理服务器，并且使用的证书的话，我们不可避免的需要将从前端和证书中的信息传递给后端处理。一般情况下，我们都是将这些信息绑定在http头中，cookie项中，这样后端比较容易处理。
 幸运的是，apache为我们提供了这么一个可选函数，可以任何的一个模块中获取你需要的信息。这个可选函数是在模块 mod_nw_ssl 中定义。
 
@@ -194,7 +194,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      获取Apache信息接口
+      绑定Apache信息
     </h1>
   
 
@@ -212,14 +212,37 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>APR_REGISTER_OPTIONAL_FN(ssl_var_lookup);</p>
 </blockquote>
-<p>那么这个可选函数可以获取哪些参数呢？</p>
+<p><strong>可选函数</strong></p>
+<p><a href="">apache 可选函数原理</a></p>
+<p><strong>可选函数实现</strong></p>
+<p><strong>声明</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">APR_DECLARE_OPTIONAL_FN(char *, ssl_var_lookup,                        </div><div class="line"> ​                        (apr_pool_t *,  server_rec *,                        </div><div class="line"> ​                        conn_rec *, request_rec *,                        </div><div class="line"> ​                        char *));</div></pre></td></tr></table></figure>
+<p><strong>实现</strong></p>
+<blockquote>
+<p>char <em>ssl_var_lookup(apr_pool_t </em>p, server_rec <em>s, conn_rec </em>c, request_rec <em>r, char </em>var)</p>
+</blockquote>
+<p><strong>注册</strong></p>
+<blockquote>
+<p>APR_REGISTER_OPTIONAL_FN(ssl_var_lookup);</p>
+</blockquote>
+<p><strong>获取</strong></p>
+<blockquote>
+<p>static APR_OPTIONAL_FN_TYPE(ssl_var_lookup) *pfn_ssl_lookup = NULL;<br>pfn_ssl_lookup = APR_RETRIEVE_OPTIONAL_FN(ssl_var_lookup);</p>
+</blockquote>
+<p><strong>调用</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">if (pfn_ssl_lookup) &#123;</div><div class="line">  	server_rec *s = r-&gt;server ? r-&gt;server : c-&gt;base_server; </div><div class="line">  	value = pfn_ssl_lookup(pool, s, c, r, var);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>信息绑定原理</strong></p>
+<p><strong>可查询信息</strong></p>
 <ul>
-<li>前端http头中的信息</li>
-<li>ssl的参数，和对应使用的用户证书的各项内容。</li>
-<li>连接socket的各项参数</li>
-<li>格式化的各种时间</li>
-<li>保存在 r-&gt;notes 中的的环境变量</li>
-<li>如何找不到key对应的value，则返回空字符串。</li>
+<li>http 头中的信息</li>
+<li>ssl 的参数，和对应使用的用户证书的各项内容。</li>
+<li>连接 socket 的各项参数- 格式化的各种时间</li>
+<li>保存在 r-&gt;notes 中的的环境变量- 如何找不到 key 对应的 value，则返回空字符串。</li>
+</ul>
+<p><strong>如何防止假冒参数</strong></p>
+<p>? 如果用户服务器里面有一个与网关相同的参数，你会怎么处理？</p>
+<ul>
+<li>用下划线替换假冒URL参数名的第一个字符  </li>
 </ul>
 
       
@@ -355,7 +378,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Apache-Info" data-title="获取Apache信息接口" data-url="https://trree.github.io/2016/10/16/Apache-Info/"></div>
+	<div class="ds-thread" data-thread-key="Apache-Info" data-title="绑定Apache信息" data-url="https://trree.github.io/2016/10/16/Apache-Info/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -485,11 +508,11 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tech</a>
+                <a href="javascript:void(0)" class="js-tag color5">人头马身</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">人头马身</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tech</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,15 +520,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Tech, Apache</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Caprice</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Tech, Apache</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Tech, Net</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Apache</a>
               </li>
              
               <li class="article-tag-list-item">
