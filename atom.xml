@@ -4,9 +4,9 @@
   <subtitle>追寻一切未知</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://trree.github.io/"/>
-  <updated>2017-07-09T03:44:24.000Z</updated>
-  <id>https://trree.github.io/</id>
+  <link href="%5Bobject%20Object%5D/"/>
+  <updated>2017-07-16T07:13:19.000Z</updated>
+  <id>[object Object]/</id>
   
   <author>
     <name>Feilong</name>
@@ -17,19 +17,19 @@
   
   <entry>
     <title>Apache 讲解</title>
-    <link href="https://trree.github.io/2017/07/09/apapche-pratice/"/>
-    <id>https://trree.github.io/2017/07/09/apapche-pratice/</id>
+    <link href="%5Bobject%20Object%5D/2017/07/09/apapche-pratice/"/>
+    <id>[object Object]/2017/07/09/apapche-pratice/</id>
     <published>2017-07-09T03:26:10.000Z</published>
-    <updated>2017-07-09T03:44:24.000Z</updated>
+    <updated>2017-07-16T07:13:19.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="简单服务器流程"><a href="#简单服务器流程" class="headerlink" title="简单服务器流程"></a>简单服务器流程</h3><img src="/2017/07/09/apapche-pratice/web.png" alt="organization" title="organization">
-<p>Q1：<a href="http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/" target="_blank" rel="external">简述在浏览器中输入 www.baidu.com 之后发生的一系列事情</a></p>
+    <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="简单服务器流程"><a href="#简单服务器流程" class="headerlink" title="简单服务器流程"></a>简单服务器流程</h3><p>Q1：<a href="http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/" target="_blank" rel="external">简述在浏览器中输入 www.baidu.com 之后发生的一系列事情</a></p>
+
 <p>appendix1：<a href="https://stackoverflow.com/questions/246859/http-1-0-vs-1-1" target="_blank" rel="external">http1.0 vs http1.1</a></p>
 <h3 id="I-O-模型"><a href="#I-O-模型" class="headerlink" title="I/O 模型"></a>I/O 模型</h3><ul>
-<li>阻塞式 I/O 模型  <img src="/2017/07/09/apapche-pratice/block-i-o.png" alt="organization" title="organization"></li>
-<li>非阻塞 I/O 模型  <img src="/2017/07/09/apapche-pratice/non-block-i-o.png" alt="organization" title="organization"></li>
-<li>I/O 复用 模型    <img src="/2017/07/09/apapche-pratice/io-sync.png" alt="organization" title="organization"></li>
-<li>异步 I/O 模型    <img src="/2017/07/09/apapche-pratice/io-async.png" alt="organization" title="organization"></li>
+<li>阻塞式 I/O 模型  </li>
+<li>非阻塞 I/O 模型  </li>
+<li>I/O 复用 模型    </li>
+<li>异步 I/O 模型    </li>
 </ul>
 <p><a href="http://download.csdn.net/download/xumaojun/4680440" target="_blank" rel="external"><em>UNIX网络编程</em>(卷1)：套接字联网API(第3版)</a></p>
 <h3 id="工作模式"><a href="#工作模式" class="headerlink" title="工作模式"></a>工作模式</h3><ul>
@@ -45,8 +45,8 @@
 <blockquote>
 <p>/usr/sbin/apachectl -V</p>
 </blockquote>
-<h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><p><a href="https://trree.github.io/2017/02/06/apache-pool/">内存管理</a></p>
-<h3 id="核心数据结构"><a href="#核心数据结构" class="headerlink" title="核心数据结构"></a>核心数据结构</h3><img src="/2017/07/09/apapche-pratice/datastruct.png" alt="organization" title="organization">
+<h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><p><a href="https://trree.github.io/2017/02/06/apache-pool/" target="_blank" rel="external">内存管理</a></p>
+<h3 id="核心数据结构"><a href="#核心数据结构" class="headerlink" title="核心数据结构"></a>核心数据结构</h3>
 <p><strong>request的关键元素</strong></p>
 <p>The most essential part of any request is the <strong>request record</strong>. In a call to a handler function, this is represented by the <strong>request_rec</strong> structure passed along with every call that is made. This struct, typically just referred to as <code>r</code> in modules, contains all the information you need for your module to fully process any HTTP request and respond accordingly.</p>
 <p>Some key elements of the <code>request_rec</code>structure are:</p>
@@ -69,9 +69,58 @@
 <p>apxs -n helloworld -g</p>
 </blockquote>
 <p><strong>Defining a module</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"httpd.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"http_config.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"http_protocol.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ap_config.h"</span></span></div><div class="line"></div><div class="line"><span class="comment">/* The sample content handler */</span></div><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">helloworld_handler</span><span class="params">(request_rec *r)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">strcmp</span>(r-&gt;handler, <span class="string">"helloworld"</span>)) &#123;</div><div class="line">        <span class="keyword">return</span> DECLINED;</div><div class="line">    &#125;</div><div class="line">    r-&gt;content_type = <span class="string">"text/html"</span>;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (!r-&gt;header_only)</div><div class="line">        ap_rputs(<span class="string">"The sample page from mod_helloworld.c\n"</span>, r);</div><div class="line">    <span class="keyword">return</span> OK;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">helloworld_register_hooks</span><span class="params">(<span class="keyword">apr_pool_t</span> *p)</span></span></div><div class="line">&#123;</div><div class="line">    ap_hook_handler(helloworld_handler, <span class="literal">NULL</span>, <span class="literal">NULL</span>, APR_HOOK_MIDDLE);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/* Dispatch list for API hooks */</span></div><div class="line"><span class="comment">/* 标记服务器能够加载的模块名 */</span></div><div class="line"><span class="comment">/* 为模块配置设置一个命名空间 */</span></div><div class="line"><span class="keyword">module</span> AP_MODULE_DECLARE_DATA helloworld_module = &#123;</div><div class="line">    STANDARD20_MODULE_STUFF,</div><div class="line">    <span class="literal">NULL</span>,                  <span class="comment">/* create per-dir    config structures */</span></div><div class="line">    <span class="literal">NULL</span>,                  <span class="comment">/* merge  per-dir    config structures */</span></div><div class="line">    <span class="literal">NULL</span>,                  <span class="comment">/* create per-server config structures */</span></div><div class="line">    <span class="literal">NULL</span>,                  <span class="comment">/* merge  per-server config structures */</span></div><div class="line">    helloworld_directives, <span class="comment">/* table of config file commands       */</span></div><div class="line">    helloworld_register_hooks  <span class="comment">/* register hooks                      */</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</div><div class="line">    <span class="keyword">int</span>         enabled;      <span class="comment">/* Enable or disable our module */</span></div><div class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *path;         <span class="comment">/* Some path to...something */</span></div><div class="line">    <span class="keyword">int</span>         typeOfAction; <span class="comment">/* 1 means action A, 2 means action B and so on */</span></div><div class="line">&#125; example_config;</div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="keyword">const</span> command_rec helloworld_directives[] =</div><div class="line">&#123;</div><div class="line">    AP_INIT_TAKE1(<span class="string">"exampleEnabled"</span>, example_set_enabled, <span class="literal">NULL</span>, RSRC_CONF, <span class="string">"Enable or disable mod_example"</span>),</div><div class="line">    AP_INIT_TAKE1(<span class="string">"examplePath"</span>, example_set_path, <span class="literal">NULL</span>, RSRC_CONF, <span class="string">"The path to whatever"</span>),</div><div class="line">    AP_INIT_TAKE2(<span class="string">"exampleAction"</span>, example_set_action, <span class="literal">NULL</span>, RSRC_CONF, <span class="string">"Special action value!"</span>),</div><div class="line">    &#123; <span class="literal">NULL</span> &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<img src="/2017/07/09/apapche-pratice/build_a_mod_4.png" alt="organization" title="organization">
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"httpd.h"</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"http_config.h"</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"http_protocol.h"</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"ap_config.h"</span></span>
+
+<span class="token comment" spellcheck="true">/* The sample content handler */</span>
+<span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">helloworld_handler</span><span class="token punctuation">(</span>request_rec <span class="token operator">*</span>r<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">strcmp</span><span class="token punctuation">(</span>r<span class="token operator">-></span>handler<span class="token punctuation">,</span> <span class="token string">"helloworld"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> DECLINED<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    r<span class="token operator">-></span>content_type <span class="token operator">=</span> <span class="token string">"text/html"</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>r<span class="token operator">-></span>header_only<span class="token punctuation">)</span>
+        <span class="token function">ap_rputs</span><span class="token punctuation">(</span><span class="token string">"The sample page from mod_helloworld.c\n"</span><span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> OK<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">helloworld_register_hooks</span><span class="token punctuation">(</span>apr_pool_t <span class="token operator">*</span>p<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">ap_hook_handler</span><span class="token punctuation">(</span>helloworld_handler<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> APR_HOOK_MIDDLE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* Dispatch list for API hooks */</span>
+<span class="token comment" spellcheck="true">/* 标记服务器能够加载的模块名 */</span>
+<span class="token comment" spellcheck="true">/* 为模块配置设置一个命名空间 */</span>
+module AP_MODULE_DECLARE_DATA helloworld_module <span class="token operator">=</span> <span class="token punctuation">{</span>
+    STANDARD20_MODULE_STUFF<span class="token punctuation">,</span>
+    <span class="token constant">NULL</span><span class="token punctuation">,</span>                  <span class="token comment" spellcheck="true">/* create per-dir    config structures */</span>
+    <span class="token constant">NULL</span><span class="token punctuation">,</span>                  <span class="token comment" spellcheck="true">/* merge  per-dir    config structures */</span>
+    <span class="token constant">NULL</span><span class="token punctuation">,</span>                  <span class="token comment" spellcheck="true">/* create per-server config structures */</span>
+    <span class="token constant">NULL</span><span class="token punctuation">,</span>                  <span class="token comment" spellcheck="true">/* merge  per-server config structures */</span>
+    helloworld_directives<span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/* table of config file commands       */</span>
+    helloworld_register_hooks  <span class="token comment" spellcheck="true">/* register hooks                      */</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><pre class=" language-c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span>         enabled<span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">/* Enable or disable our module */</span>
+    <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>path<span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">/* Some path to...something */</span>
+    <span class="token keyword">int</span>         typeOfAction<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* 1 means action A, 2 means action B and so on */</span>
+<span class="token punctuation">}</span> example_config<span class="token punctuation">;</span>
+
+<span class="token keyword">static</span> <span class="token keyword">const</span> command_rec helloworld_directives<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span>
+<span class="token punctuation">{</span>
+    <span class="token function">AP_INIT_TAKE1</span><span class="token punctuation">(</span><span class="token string">"exampleEnabled"</span><span class="token punctuation">,</span> example_set_enabled<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> RSRC_CONF<span class="token punctuation">,</span> <span class="token string">"Enable or disable mod_example"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">AP_INIT_TAKE1</span><span class="token punctuation">(</span><span class="token string">"examplePath"</span><span class="token punctuation">,</span> example_set_path<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> RSRC_CONF<span class="token punctuation">,</span> <span class="token string">"The path to whatever"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">AP_INIT_TAKE2</span><span class="token punctuation">(</span><span class="token string">"exampleAction"</span><span class="token punctuation">,</span> example_set_action<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> RSRC_CONF<span class="token punctuation">,</span> <span class="token string">"Special action value!"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> <span class="token constant">NULL</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+
 <h4 id="配置的作用域"><a href="#配置的作用域" class="headerlink" title="配置的作用域"></a>配置的作用域</h4><ul>
 <li>OR_ALL 所有的地方使用</li>
 <li>ACCESS_CONF：允许指令出现这Directiory Location 区间<strong>以内</strong>的顶级命令区，一般是用来设置特定文的指令控制</li>
@@ -88,15 +137,59 @@
 <p>除了<code>&lt;Directory&gt;</code>，每个组都按它们在配置文件中出现的顺序被依次处理，而<code>&lt;Directory&gt;</code>(上面的第1组)，会按字典顺序由短到长被依次处理。例如：<code>&lt;Directory /var/web/dir&gt;</code>会先于<code>&lt;Directory /var/web/dir/subdir&gt;</code>被处理。如果有多个指向同一个目录的<code>&lt;Directory&gt;</code>段，则按它们在配置文件中的顺序被依次处理。用<code>Include</code>指令包含进来的配置被视为按原样插入到<code>Include</code>指令的位置。</p>
 <p>位于<code>&lt;VirtualHost&gt;</code>容器中的配置段在外部对应的段处理完毕<em>以后</em>再处理，这样就允许虚拟主机覆盖主服务器的设置。</p>
 <p><strong>代码示例</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> *<span class="title">create_dir_conf</span><span class="params">(<span class="keyword">apr_pool_t</span> *pool, <span class="keyword">char</span> *context)</span> </span>&#123;</div><div class="line">    context = context ? context : <span class="string">"(undefined context)"</span>;</div><div class="line">    example_config *cfg = apr_pcalloc(pool, <span class="keyword">sizeof</span>(example_config));</div><div class="line">    <span class="keyword">if</span>(cfg) &#123;</div><div class="line">        <span class="comment">/* Set some default values */</span></div><div class="line">        <span class="built_in">strcpy</span>(cfg-&gt;context, context);</div><div class="line">        cfg-&gt;enabled = <span class="number">0</span>;</div><div class="line">        cfg-&gt;path = <span class="string">"/foo/bar"</span>;</div><div class="line">        cfg-&gt;typeOfAction = <span class="number">0x11</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> cfg;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> *<span class="title">merge_dir_conf</span><span class="params">(<span class="keyword">apr_pool_t</span> *pool, <span class="keyword">void</span> *BASE, <span class="keyword">void</span> *ADD)</span> </span>&#123;</div><div class="line">    example_config *base = (example_config *) BASE ; <span class="comment">/* This is what was set in the parent context */</span></div><div class="line">    example_config *add = (example_config *) ADD ;   <span class="comment">/* This is what is set in the new context */</span></div><div class="line">    example_config *conf = (example_config *) create_dir_conf(pool, <span class="string">"Merged configuration"</span>); <span class="comment">/* This will be the merged configuration */</span></div><div class="line">    </div><div class="line">    <span class="comment">/* Merge configurations */</span></div><div class="line">    conf-&gt;enabled = ( add-&gt;enabled == <span class="number">0</span> ) ? base-&gt;enabled : add-&gt;enabled ;</div><div class="line">    conf-&gt;typeOfAction = add-&gt;typeOfAction ? add-&gt;typeOfAction : base-&gt;typeOfAction;</div><div class="line">    <span class="built_in">strcpy</span>(conf-&gt;path, <span class="built_in">strlen</span>(add-&gt;path) ? add-&gt;path : base-&gt;path);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> conf ;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">module</span> AP_MODULE_DECLARE_DATA   example_module =</div><div class="line">&#123;</div><div class="line">    STANDARD20_MODULE_STUFF,</div><div class="line">    create_dir_conf, <span class="comment">/* Per-directory configuration handler */</span></div><div class="line">    merge_dir_conf,  <span class="comment">/* Merge handler for per-directory configurations */</span></div><div class="line">    <span class="literal">NULL</span>,            <span class="comment">/* Per-server configuration handler */</span></div><div class="line">    <span class="literal">NULL</span>,            <span class="comment">/* Merge handler for per-server configurations */</span></div><div class="line">    directives,      <span class="comment">/* Any directives we may have for httpd */</span></div><div class="line">    register_hooks   <span class="comment">/* Our hook registering function */</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<h3 id="hook-钩子"><a href="#hook-钩子" class="headerlink" title="hook 钩子"></a>hook 钩子</h3><img src="/2017/07/09/apapche-pratice/build_a_mod_2.png" alt="organization" title="organization">
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token operator">*</span><span class="token function">create_dir_conf</span><span class="token punctuation">(</span>apr_pool_t <span class="token operator">*</span>pool<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    context <span class="token operator">=</span> context <span class="token operator">?</span> context <span class="token punctuation">:</span> <span class="token string">"(undefined context)"</span><span class="token punctuation">;</span>
+    example_config <span class="token operator">*</span>cfg <span class="token operator">=</span> <span class="token function">apr_pcalloc</span><span class="token punctuation">(</span>pool<span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>example_config<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>cfg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">/* Set some default values */</span>
+        <span class="token function">strcpy</span><span class="token punctuation">(</span>cfg<span class="token operator">-></span>context<span class="token punctuation">,</span> context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cfg<span class="token operator">-></span>enabled <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        cfg<span class="token operator">-></span>path <span class="token operator">=</span> <span class="token string">"/foo/bar"</span><span class="token punctuation">;</span>
+        cfg<span class="token operator">-></span>typeOfAction <span class="token operator">=</span> <span class="token number">0x11</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> cfg<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token operator">*</span><span class="token function">merge_dir_conf</span><span class="token punctuation">(</span>apr_pool_t <span class="token operator">*</span>pool<span class="token punctuation">,</span> <span class="token keyword">void</span> <span class="token operator">*</span>BASE<span class="token punctuation">,</span> <span class="token keyword">void</span> <span class="token operator">*</span>ADD<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    example_config <span class="token operator">*</span>base <span class="token operator">=</span> <span class="token punctuation">(</span>example_config <span class="token operator">*</span><span class="token punctuation">)</span> BASE <span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* This is what was set in the parent context */</span>
+    example_config <span class="token operator">*</span>add <span class="token operator">=</span> <span class="token punctuation">(</span>example_config <span class="token operator">*</span><span class="token punctuation">)</span> ADD <span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">/* This is what is set in the new context */</span>
+    example_config <span class="token operator">*</span>conf <span class="token operator">=</span> <span class="token punctuation">(</span>example_config <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token function">create_dir_conf</span><span class="token punctuation">(</span>pool<span class="token punctuation">,</span> <span class="token string">"Merged configuration"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* This will be the merged configuration */</span>
+
+    <span class="token comment" spellcheck="true">/* Merge configurations */</span>
+    conf<span class="token operator">-></span>enabled <span class="token operator">=</span> <span class="token punctuation">(</span> add<span class="token operator">-></span>enabled <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">)</span> <span class="token operator">?</span> base<span class="token operator">-></span>enabled <span class="token punctuation">:</span> add<span class="token operator">-></span>enabled <span class="token punctuation">;</span>
+    conf<span class="token operator">-></span>typeOfAction <span class="token operator">=</span> add<span class="token operator">-></span>typeOfAction <span class="token operator">?</span> add<span class="token operator">-></span>typeOfAction <span class="token punctuation">:</span> base<span class="token operator">-></span>typeOfAction<span class="token punctuation">;</span>
+    <span class="token function">strcpy</span><span class="token punctuation">(</span>conf<span class="token operator">-></span>path<span class="token punctuation">,</span> <span class="token function">strlen</span><span class="token punctuation">(</span>add<span class="token operator">-></span>path<span class="token punctuation">)</span> <span class="token operator">?</span> add<span class="token operator">-></span>path <span class="token punctuation">:</span> base<span class="token operator">-></span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> conf <span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+module AP_MODULE_DECLARE_DATA   example_module <span class="token operator">=</span>
+<span class="token punctuation">{</span>
+    STANDARD20_MODULE_STUFF<span class="token punctuation">,</span>
+    create_dir_conf<span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/* Per-directory configuration handler */</span>
+    merge_dir_conf<span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">/* Merge handler for per-directory configurations */</span>
+    <span class="token constant">NULL</span><span class="token punctuation">,</span>            <span class="token comment" spellcheck="true">/* Per-server configuration handler */</span>
+    <span class="token constant">NULL</span><span class="token punctuation">,</span>            <span class="token comment" spellcheck="true">/* Merge handler for per-server configurations */</span>
+    directives<span class="token punctuation">,</span>      <span class="token comment" spellcheck="true">/* Any directives we may have for httpd */</span>
+    register_hooks   <span class="token comment" spellcheck="true">/* Our hook registering function */</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="hook-钩子"><a href="#hook-钩子" class="headerlink" title="hook 钩子"></a>hook 钩子</h3>
 <p><strong>钩子的处理</strong></p>
 <ul>
-<li><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*在这个钩子处按照顺序运行所有的被注册函数*/</span></div><div class="line">AP_IMPLEMENT_HOOK_VOID(do_something, (request_rec *r, <span class="keyword">int</span> n), (r, n))</div></pre></td></tr></table></figure>
+<li><pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*在这个钩子处按照顺序运行所有的被注册函数*/</span>
+<span class="token function">AP_IMPLEMENT_HOOK_VOID</span><span class="token punctuation">(</span>do_something<span class="token punctuation">,</span> <span class="token punctuation">(</span>request_rec <span class="token operator">*</span>r<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>r<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
 </li>
-<li><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*在这个钩子处运行所有的被注册函数直到返回了一个不是DECLINED的值*/</span></div><div class="line">AP_IMPLEMENT_HOOK_RUN_FIRST(<span class="keyword">int</span>, do_something, (request_rec *r, <span class="keyword">int</span> n), (r, n), DECLINED)</div></pre></td></tr></table></figure>
+</ul>
+<ul>
+<li><pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*在这个钩子处运行所有的被注册函数直到返回了一个不是DECLINED的值*/</span>
+<span class="token function">AP_IMPLEMENT_HOOK_RUN_FIRST</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> do_something<span class="token punctuation">,</span> <span class="token punctuation">(</span>request_rec <span class="token operator">*</span>r<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>r<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">,</span> DECLINED<span class="token punctuation">)</span>
+</code></pre>
 </li>
-<li><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*运行所有的函数直到或者除非返回一个错误*/</span></div><div class="line">AP_IMPLEMENT_HOOK_RUN_ALL(<span class="keyword">int</span>, do_something, (request_rec *r, <span class="keyword">int</span> n), (r, n), OK, DECLINED)</div></pre></td></tr></table></figure>
+<li><pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*运行所有的函数直到或者除非返回一个错误*/</span>
+<span class="token function">AP_IMPLEMENT_HOOK_RUN_ALL</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> do_something<span class="token punctuation">,</span> <span class="token punctuation">(</span>request_rec <span class="token operator">*</span>r<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>r<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">,</span> OK<span class="token punctuation">,</span> DECLINED<span class="token punctuation">)</span>
+</code></pre>
 </li>
 </ul>
 <p><strong>其它有用的钩子</strong></p>
@@ -116,7 +209,7 @@
 <p>​</p>
 </li>
 </ul>
-<h3 id="代码调试"><a href="#代码调试" class="headerlink" title="代码调试"></a>代码调试</h3><p><a href="https://trree.github.io/2017/03/22/apache-debug/">apache调试</a></p>
+<h3 id="代码调试"><a href="#代码调试" class="headerlink" title="代码调试"></a>代码调试</h3><p><a href="https://trree.github.io/2017/03/22/apache-debug/" target="_blank" rel="external">apache调试</a></p>
 ]]></content>
     
     <summary type="html">
@@ -126,24 +219,43 @@
     </summary>
     
     
-      <category term="Apache" scheme="https://trree.github.io/tags/Apache/"/>
+      <category term="Apache" scheme="%5Bobject%20Object%5D/tags/Apache/"/>
     
   </entry>
   
   <entry>
     <title>restful 接口设计</title>
-    <link href="https://trree.github.io/2017/06/09/restful/"/>
-    <id>https://trree.github.io/2017/06/09/restful/</id>
+    <link href="%5Bobject%20Object%5D/2017/06/09/restful/"/>
+    <id>[object Object]/2017/06/09/restful/</id>
     <published>2017-06-09T10:20:03.000Z</published>
-    <updated>2017-07-09T03:25:12.000Z</updated>
+    <updated>2017-07-13T01:20:55.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近在工作中需要实现一个跨平台，易实现，方便调试排错的接口。<br>经过考虑之后，发现restful接口是非常合适的。</p>
 <p>接口的实现是基于c++的boost的。所以有两个非常重要的boost库需要介绍一下。</p>
 <p>首先我们需要想想我们需要怎样的借口调用方式，健壮的，易扩展的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">connecton.handle_request(&quot;/handlers/&#123;id&#125;/&#123;number:[0-9]+&#125;&quot;)</div><div class="line">					.get(boost::bind(handle_))</div><div class="line">                .get([](served::response &amp; res, const served::request &amp; req) &#123;</div><div class="line">                        res &lt;&lt; &quot;id: &quot;;</div><div class="line">                        res &lt;&lt; req.params[&quot;id&quot;];</div><div class="line">                        res &lt;&lt; &quot;, number: &quot;;</div><div class="line">                        res &lt;&lt; req.params[&quot;number&quot;];</div><div class="line">                &#125;)</div><div class="line">                .post([](served::response &amp; res, const served::request &amp; req) &#123;</div><div class="line">                        res &lt;&lt; &quot;id: &quot;;</div><div class="line">                        res &lt;&lt; req.params[&quot;id&quot;];</div><div class="line">                        res &lt;&lt; &quot;, number: &quot;;</div><div class="line">                        res &lt;&lt; req.params[&quot;number&quot;];</div><div class="line"></div><div class="line">                        std::cout &lt;&lt; req.body() &lt;&lt; std::endl;</div><div class="line">                &#125;);</div></pre></td></tr></table></figure>
+<pre><code>RequestHandler requesthandler;
+requesthandler.set_handler(&quot;sessions&quot;)
+  .get(boost::bind(&amp;handle_sessions_get_method, _1, _2))
+  .post(boost::bind(&amp;handle_sessions_post_method, _1, _2, boost::ref(vm)))
+  .put(boost::bind(&amp;handle_sessions_put_method, _1, _2))
+  .del(boost::bind(&amp;handle_sessions_delete_method, _1, _2));
+</code></pre><p>我们在这个接口中注册请求处理函数，分别处理 get，post，put，delete请求。</p>
+<p><strong>Q1：为什么所有的method请求是连接在一起的？</strong><br>我们需要保持source的唯一性，一个source只能被声明一次，</p>
+<pre><code>/*  -&gt;  表示 key-&gt;value 的数据结构 */
+source: sessions
+action: get ,post, put, del
+callback: handle_sessions_*_method
+
+                           ++++++++++++++++++++++++++++++++++++++++++++
+    +++++++++++++          |  get   -&gt;  handle_sessions_get_method    |
+    |  sessions |  ---&gt;    |  post  -&gt;  handle_sessions_get_method    |
+    +++++++++++++          |  put   -&gt;  handle_sessions_put_method    |
+                           |  del   -&gt;  handle_sessions_delete_method |
+                           ++++++++++++++++++++++++++++++++++++++++++++
+</code></pre><p>整个的调用就是两个 key-&gt; value 的形式</p>
 <p><strong>boost::functon</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">typedef std::function&lt;void(response &amp;, const request &amp;)&gt;  served_req_handler;</div></pre></td></tr></table></figure>
-<p>boost::function 的boost提供的一个回调函数。</p>
+<pre><code>typedef std::function&lt;void(response &amp;, const request &amp;)&gt;  served_req_handler;
+</code></pre><p>boost::function 的boost提供的一个回调函数。</p>
 ]]></content>
     
     <summary type="html">
@@ -155,14 +267,14 @@
     </summary>
     
     
-      <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
+      <category term="Tech" scheme="%5Bobject%20Object%5D/tags/Tech/"/>
     
   </entry>
   
   <entry>
     <title>背诵</title>
-    <link href="https://trree.github.io/2017/06/04/recitation/"/>
-    <id>https://trree.github.io/2017/06/04/recitation/</id>
+    <link href="%5Bobject%20Object%5D/2017/06/04/recitation/"/>
+    <id>[object Object]/2017/06/04/recitation/</id>
     <published>2017-06-04T15:26:07.000Z</published>
     <updated>2017-06-04T15:39:51.000Z</updated>
     
@@ -178,14 +290,14 @@
     </summary>
     
     
-      <category term="Think" scheme="https://trree.github.io/tags/Think/"/>
+      <category term="Think" scheme="%5Bobject%20Object%5D/tags/Think/"/>
     
   </entry>
   
   <entry>
     <title>早班地铁的爱情</title>
-    <link href="https://trree.github.io/2017/06/03/subway/"/>
-    <id>https://trree.github.io/2017/06/03/subway/</id>
+    <link href="%5Bobject%20Object%5D/2017/06/03/subway/"/>
+    <id>[object Object]/2017/06/03/subway/</id>
     <published>2017-06-03T02:20:08.000Z</published>
     <updated>2017-06-03T12:20:20.000Z</updated>
     
@@ -210,14 +322,14 @@
     </summary>
     
     
-      <category term="王小波门下走狗" scheme="https://trree.github.io/tags/%E7%8E%8B%E5%B0%8F%E6%B3%A2%E9%97%A8%E4%B8%8B%E8%B5%B0%E7%8B%97/"/>
+      <category term="王小波门下走狗" scheme="%5Bobject%20Object%5D/tags/%E7%8E%8B%E5%B0%8F%E6%B3%A2%E9%97%A8%E4%B8%8B%E8%B5%B0%E7%8B%97/"/>
     
   </entry>
   
   <entry>
     <title>无序</title>
-    <link href="https://trree.github.io/2017/05/30/longway/"/>
-    <id>https://trree.github.io/2017/05/30/longway/</id>
+    <link href="%5Bobject%20Object%5D/2017/05/30/longway/"/>
+    <id>[object Object]/2017/05/30/longway/</id>
     <published>2017-05-30T09:25:42.000Z</published>
     <updated>2017-06-03T02:16:48.000Z</updated>
     
@@ -232,14 +344,14 @@
     </summary>
     
     
-      <category term="一个程序员都日常" scheme="https://trree.github.io/tags/%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F%E5%91%98%E9%83%BD%E6%97%A5%E5%B8%B8/"/>
+      <category term="一个程序员都日常" scheme="%5Bobject%20Object%5D/tags/%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F%E5%91%98%E9%83%BD%E6%97%A5%E5%B8%B8/"/>
     
   </entry>
   
   <entry>
     <title>消失的五月</title>
-    <link href="https://trree.github.io/2017/05/28/disMay/"/>
-    <id>https://trree.github.io/2017/05/28/disMay/</id>
+    <link href="%5Bobject%20Object%5D/2017/05/28/disMay/"/>
+    <id>[object Object]/2017/05/28/disMay/</id>
     <published>2017-05-28T11:04:21.000Z</published>
     <updated>2017-05-28T12:16:01.000Z</updated>
     
@@ -254,32 +366,44 @@
     </summary>
     
     
-      <category term="一个程序员的日常" scheme="https://trree.github.io/tags/%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+      <category term="一个程序员的日常" scheme="%5Bobject%20Object%5D/tags/%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
     
   </entry>
   
   <entry>
     <title>Apache 压力测试后的大量本地连接</title>
-    <link href="https://trree.github.io/2017/05/20/20170520/"/>
-    <id>https://trree.github.io/2017/05/20/20170520/</id>
+    <link href="%5Bobject%20Object%5D/2017/05/20/20170520/"/>
+    <id>[object Object]/2017/05/20/20170520/</id>
     <published>2017-05-20T05:32:10.000Z</published>
     <updated>2017-05-28T12:06:33.000Z</updated>
     
     <content type="html"><![CDATA[<p>在对Apache（prefork多进程模式）进行压力测试对时候，<br>发现一旦停止压力测试对时候。<br>会出现非常多的本地连接<br><a id="more"></a> </p>
 <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在对Apache（prefork多进程模式）进行压力测试对时候，<br>客户端IP：192.168.41.96<br>网关IP和端口; 0.0.0.0:447<br>发现一旦停止压力测试对时候。<br>使用 netstat -an | grep 127<br>会出现非常多的 127.0.0.1:447 连接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tcp        0      0 127.0.0.1:38984         127.0.0.1:447           TIME_WAIT</div><div class="line">tcp        0      0 127.0.0.1:38994         127.0.0.1:447           TIME_WAIT</div></pre></td></tr></table></figure>
-<p>查看的时候连接都已经是 TIME_WAIT 的状态，无法查看它是通过哪些进程查看它建立连接。<br>我们怀疑这些连接可能对性能会有影响。<br>所以对这个问题进行了排查。</p>
+<pre><code>tcp        0      0 127.0.0.1:38984         127.0.0.1:447           TIME_WAIT
+tcp        0      0 127.0.0.1:38994         127.0.0.1:447           TIME_WAIT
+</code></pre><p>查看的时候连接都已经是 TIME_WAIT 的状态，无法查看它是通过哪些进程查看它建立连接。<br>我们怀疑这些连接可能对性能会有影响。<br>所以对这个问题进行了排查。</p>
 <h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><p>因为所有的127.0.0.1的端口都与447端口断开连接，又因为这些无法有效都用gdb调试。<br>所以使用 strace 的方式跟踪进程。</p>
 <blockquote>
 <p>strace -p 683 -o filename_childpid<br>strace -p 899 -o filename_masterpid</p>
 </blockquote>
 <p>filename_childpid  是在压力测试的时候临时创建出来的子进程<br>filename_masterpid 是Apache的主进程</p>
 <p>在压力测试时候出现的子进程中可以看到</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">accept(3, &#123;sa_family=AF_INET, sin_port=htons(36448), sin_addr=inet_addr(&quot;127.0.0.1&quot;)&#125;, [16]) = 6</div><div class="line">getsockname(6, &#123;sa_family=AF_INET, sin_port=htons(447), sin_addr=inet_addr(&quot;127.0.0.1&quot;)&#125;, [16]) = 0</div></pre></td></tr></table></figure>
-<p>发现这个子进程是accept了连接。但是这些环回地址是如何产生的？</p>
+<pre><code>accept(3, {sa_family=AF_INET, sin_port=htons(36448), sin_addr=inet_addr(&quot;127.0.0.1&quot;)}, [16]) = 6
+getsockname(6, {sa_family=AF_INET, sin_port=htons(447), sin_addr=inet_addr(&quot;127.0.0.1&quot;)}, [16]) = 0
+</code></pre><p>发现这个子进程是accept了连接。但是这些环回地址是如何产生的？</p>
 <p>查看主进程的 strace 文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">waitpid(-1, 0xbffffa18, WNOHANG|WUNTRACED) = 0</div><div class="line">select(0, NULL, NULL, NULL, &#123;1, 0&#125;)     = 0 (Timeout)</div><div class="line">write(5, &quot;!&quot;, 1)                        = 1</div><div class="line">socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 9</div><div class="line">fcntl64(9, F_GETFL)                     = 0x2 (flags O_RDWR)</div><div class="line">fcntl64(9, F_SETFL, O_RDWR|O_NONBLOCK)  = 0</div><div class="line">connect(9, &#123;sa_family=AF_INET, sin_port=htons(447), sin_addr=inet_addr(&quot;0.0.0.0&quot;)&#125;, 16) = -1 EINPROGRESS (Operation now in progress)</div><div class="line">poll([&#123;fd=9, events=POLLOUT, revents=POLLOUT&#125;], 1, 3000) = 1</div><div class="line">getsockopt(9, SOL_SOCKET, SO_ERROR, [0], [4]) = 0</div><div class="line">close(9)                                = 0</div><div class="line">--- SIGCHLD (Child exited) @ 0 (0) ---</div></pre></td></tr></table></figure>
-<p>从这里发现Apache的主进程发了connect连接，然后自己断开连接。<br>但是为什么回出现这种情况呢？需要进一步查看代码查找原因。</p>
+<pre><code>waitpid(-1, 0xbffffa18, WNOHANG|WUNTRACED) = 0
+select(0, NULL, NULL, NULL, {1, 0})     = 0 (Timeout)
+write(5, &quot;!&quot;, 1)                        = 1
+socket(PF_INET, SOCK_STREAM, IPPROTO_IP) = 9
+fcntl64(9, F_GETFL)                     = 0x2 (flags O_RDWR)
+fcntl64(9, F_SETFL, O_RDWR|O_NONBLOCK)  = 0
+connect(9, {sa_family=AF_INET, sin_port=htons(447), sin_addr=inet_addr(&quot;0.0.0.0&quot;)}, 16) = -1 EINPROGRESS (Operation now in progress)
+poll([{fd=9, events=POLLOUT, revents=POLLOUT}], 1, 3000) = 1
+getsockopt(9, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
+close(9)                                = 0
+--- SIGCHLD (Child exited) @ 0 (0) ---
+</code></pre><p>从这里发现Apache的主进程发了connect连接，然后自己断开连接。<br>但是为什么回出现这种情况呢？需要进一步查看代码查找原因。</p>
 <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>压力测试的时候起了非常多的子进程。<br>但是压力测试之后不需要那么多的进程。<br>此时临时建立的子进程都阻塞在select上面。<br>Apache采用都策略就是主进程与阻塞都子进程建立连接，<br>然后关闭连接，所以看到都现象如上。</p>
 ]]></content>
     
@@ -290,21 +414,21 @@
     </summary>
     
     
-      <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
+      <category term="Tech" scheme="%5Bobject%20Object%5D/tags/Tech/"/>
     
   </entry>
   
   <entry>
     <title>搬家</title>
-    <link href="https://trree.github.io/2017/05/06/20170506/"/>
-    <id>https://trree.github.io/2017/05/06/20170506/</id>
+    <link href="%5Bobject%20Object%5D/2017/05/06/20170506/"/>
+    <id>[object Object]/2017/05/06/20170506/</id>
     <published>2017-05-06T09:21:59.000Z</published>
     <updated>2017-05-28T12:19:01.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近搬了新的住处，忽然不明白自己为什么在那里住了2年。<br><a id="more"></a></p>
 <p>最近搬了新的住处，在那个地方也住了两年，现在回想一下，<br>为什么自己会忍受那样的住了2年，我为什么要这么说呢？<br>因为那时候刚来上海，所以对生活对要求也不是很高，<br>是跟朋友合租的，地理位置挺方便的，而且价格也挺合理，<br>造成的结果就是房子比较老，所以一切配套的都是老家具。<br>因为对这个地方最初对定位就是睡觉。所以满足生活的基本<br>要求就满足了。就这样度过了两年。</p>
 <p>现在搬到公司附近，有了属于自己的独立的空间。<br>而且家具都是比较新的。这一切突然激发了自己的装饰欲望。</p>
-<p>于是在地板上铺好地毯。买了自己一直想种的花。<br><img src="/2017/05/06/20170506/flow.jpg" alt="organization" title="organization"></p>
+<p>于是在地板上铺好地毯。买了自己一直想种的花。<br></p>
 <p>买了梵高的星空，买了花瓶。<br>买了衣架，买了真空袋把一切都收拾的整整齐齐。<br>就连常年治不好的叠被子也因为不和谐而变得自然。</p>
 <p>一直知道自己需要什么，可是在老的住处，看着<br>那些陈旧的老东西，所有都还是老样子，没有改变。</p>
 <p>这一切都从我拥有了一双象牙筷子说起。</p>
@@ -317,22 +441,35 @@
     </summary>
     
     
-      <category term="Think" scheme="https://trree.github.io/tags/Think/"/>
+      <category term="Think" scheme="%5Bobject%20Object%5D/tags/Think/"/>
     
   </entry>
   
   <entry>
     <title>系统内存不足</title>
-    <link href="https://trree.github.io/2017/04/27/outOfMemory/"/>
-    <id>https://trree.github.io/2017/04/27/outOfMemory/</id>
+    <link href="%5Bobject%20Object%5D/2017/04/27/outOfMemory/"/>
+    <id>[object Object]/2017/04/27/outOfMemory/</id>
     <published>2017-04-27T02:22:15.000Z</published>
     <updated>2017-05-28T12:07:16.000Z</updated>
     
     <content type="html"><![CDATA[<p>有时候我们会面临一些非常情况的现象，<br>没有异常的情况下进程无缘无故的退出，<br>无法写如日志文件。<br>非常奇怪的错误抛出在终端。<br><a id="more"></a></p>
 <h2 id="现象及分析"><a href="#现象及分析" class="headerlink" title="现象及分析"></a>现象及分析</h2><p>有时候我们会面临一些非常情况的现象，<br>没有异常的情况下进程无缘无故的退出，<br>无法写如日志文件。<br>非常奇怪的错误抛出在终端。</p>
 <p>这个时候就需要查看一下系统日志 kern.log 了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">MAIN kernel: [17832.300370]  [&lt;c1090380&gt;] ? oom_kill_process+0x60/0x201</div><div class="line">MAIN kernel: [17832.300408]  [&lt;c10908fd&gt;] ? __out_of_memory+0xf4/0x107</div><div class="line">MAIN kernel: [17832.300445]  [&lt;c109096a&gt;] ? out_of_memory+0x5a/0x7c</div><div class="line">MAIN kernel: [17832.300482]  [&lt;c109322c&gt;] ? __alloc_pages_nodemask+0x3ef/0x4d9</div><div class="line">MAIN kernel: [17832.300522]  [&lt;c109460d&gt;] ? __do_page_cache_readahead+0x98/0x16b</div><div class="line">MAIN kernel: [17832.300562]  [&lt;c10946f4&gt;] ? ra_submit+0x14/0x18</div><div class="line">MAIN kernel: [17832.300597]  [&lt;c108ec9a&gt;] ? filemap_fault+0x16d/0x2e6</div><div class="line">MAIN kernel: [17832.300634]  [&lt;c10a0c9a&gt;] ? __do_fault+0x53/0x3fb</div><div class="line">MAIN kernel: [17832.300670]  [&lt;c10a2f56&gt;] ? handle_mm_fault+0x4d1/0xa22</div><div class="line">MAIN kernel: [17832.300708]  [&lt;c1144ae3&gt;] ? copy_to_user+0x29/0xf8</div><div class="line">MAIN kernel: [17832.300745]  [&lt;c10c6b9a&gt;] ? poll_select_copy_remaining+0xbd/0xd9</div><div class="line">MAIN kernel: [17832.300785]  [&lt;c12830a8&gt;] ? do_page_fault+0x2f1/0x307</div><div class="line">MAIN kernel: [17832.300822]  [&lt;c1282db7&gt;] ? do_page_fault+0x0/0x307</div><div class="line">MAIN kernel: [17832.300857]  [&lt;c12815e3&gt;] ? error_code+0x73/0x78</div></pre></td></tr></table></figure>
-<p>这个时候我们可以发现内存已经不足了。<br>Linux的保护机制在杀内存消耗大的进程。<br>所以会有进程无缘无故的推出。<br>有一些日志是先写到buffer的内存中，然后再调用日志接口把内存中的日志刷到文件中。<br>此时内存已经不足了，所以内存中已经写不进去了。<br>最终我们看到的现象就是写不到文件中。</p>
+<pre><code>MAIN kernel: [17832.300370]  [&lt;c1090380&gt;] ? oom_kill_process+0x60/0x201
+MAIN kernel: [17832.300408]  [&lt;c10908fd&gt;] ? __out_of_memory+0xf4/0x107
+MAIN kernel: [17832.300445]  [&lt;c109096a&gt;] ? out_of_memory+0x5a/0x7c
+MAIN kernel: [17832.300482]  [&lt;c109322c&gt;] ? __alloc_pages_nodemask+0x3ef/0x4d9
+MAIN kernel: [17832.300522]  [&lt;c109460d&gt;] ? __do_page_cache_readahead+0x98/0x16b
+MAIN kernel: [17832.300562]  [&lt;c10946f4&gt;] ? ra_submit+0x14/0x18
+MAIN kernel: [17832.300597]  [&lt;c108ec9a&gt;] ? filemap_fault+0x16d/0x2e6
+MAIN kernel: [17832.300634]  [&lt;c10a0c9a&gt;] ? __do_fault+0x53/0x3fb
+MAIN kernel: [17832.300670]  [&lt;c10a2f56&gt;] ? handle_mm_fault+0x4d1/0xa22
+MAIN kernel: [17832.300708]  [&lt;c1144ae3&gt;] ? copy_to_user+0x29/0xf8
+MAIN kernel: [17832.300745]  [&lt;c10c6b9a&gt;] ? poll_select_copy_remaining+0xbd/0xd9
+MAIN kernel: [17832.300785]  [&lt;c12830a8&gt;] ? do_page_fault+0x2f1/0x307
+MAIN kernel: [17832.300822]  [&lt;c1282db7&gt;] ? do_page_fault+0x0/0x307
+MAIN kernel: [17832.300857]  [&lt;c12815e3&gt;] ? error_code+0x73/0x78
+</code></pre><p>这个时候我们可以发现内存已经不足了。<br>Linux的保护机制在杀内存消耗大的进程。<br>所以会有进程无缘无故的推出。<br>有一些日志是先写到buffer的内存中，然后再调用日志接口把内存中的日志刷到文件中。<br>此时内存已经不足了，所以内存中已经写不进去了。<br>最终我们看到的现象就是写不到文件中。</p>
 <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><h3 id="内存确实不足"><a href="#内存确实不足" class="headerlink" title="内存确实不足"></a>内存确实不足</h3><p>最简单的办法就是直接使用 top 工具。<br>使用Memory usage的排序方式，实时查看进程的内存占用情况。<br>查看哪个服务占用了非常大的内存空间。<br>检查一下为什么占用的内存空间非常大。<br>是不是真的需要。</p>
 <h3 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h3><p>使用 valgrind 的工具运行程序检测内存释放出现泄漏。</p>
 ]]></content>
@@ -344,20 +481,35 @@
     </summary>
     
     
-      <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
+      <category term="Tech" scheme="%5Bobject%20Object%5D/tags/Tech/"/>
     
   </entry>
   
   <entry>
     <title>TCP 握手</title>
-    <link href="https://trree.github.io/2017/03/28/tcp-handshark/"/>
-    <id>https://trree.github.io/2017/03/28/tcp-handshark/</id>
+    <link href="%5Bobject%20Object%5D/2017/03/28/tcp-handshark/"/>
+    <id>[object Object]/2017/03/28/tcp-handshark/</id>
     <published>2017-03-28T13:44:05.000Z</published>
     <updated>2017-05-28T12:19:52.000Z</updated>
     
     <content type="html"><![CDATA[<p>tcp 报头的各个字段的作用<br>想象一下自己去设计一个TCP协议，最中的是保证可靠性。因为每个报文都是要包含这些字段，所以你要怎么保证它的简洁性，不浪费资源。<br><a id="more"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">source port:  源端口</div><div class="line">destination port: 目标端口</div><div class="line">sequence number: 序号，每一个TCP报文段都会有一个序列，序列号字段段值其实是本报文段所发送段第一个字节的序号，通过序号来确保服务的可靠性和有序性。</div><div class="line">ack number:确认号</div><div class="line">Data offset:数据偏移</div><div class="line">Reserved:保留字段</div><div class="line">URG(urgent)：紧急指针</div><div class="line">ACK ：确认字段 </div><div class="line">PSH：推送字段</div><div class="line">RST：复位字段</div><div class="line">SYN：同步字段</div><div class="line">FIN：终止字段</div><div class="line">Windows size：窗口大小</div><div class="line">checksum：检验和</div><div class="line">Urgent pointer：紧急指针</div><div class="line">options：选项</div></pre></td></tr></table></figure>
-<h3 id="tcp-三次握手"><a href="#tcp-三次握手" class="headerlink" title="tcp 三次握手"></a>tcp 三次握手</h3><p>为什么tcp握手需要三次？这个保证了什么东西？</p>
+<pre><code>source port:  源端口
+destination port: 目标端口
+sequence number: 序号，每一个TCP报文段都会有一个序列，序列号字段段值其实是本报文段所发送段第一个字节的序号，通过序号来确保服务的可靠性和有序性。
+ack number:确认号
+Data offset:数据偏移
+Reserved:保留字段
+URG(urgent)：紧急指针
+ACK ：确认字段 
+PSH：推送字段
+RST：复位字段
+SYN：同步字段
+FIN：终止字段
+Windows size：窗口大小
+checksum：检验和
+Urgent pointer：紧急指针
+options：选项
+</code></pre><h3 id="tcp-三次握手"><a href="#tcp-三次握手" class="headerlink" title="tcp 三次握手"></a>tcp 三次握手</h3><p>为什么tcp握手需要三次？这个保证了什么东西？</p>
 <ul>
 <li>客户端发送一个 SYN 给服务端。</li>
 <li>服务端返回一个ack和syn给客户端确认。</li>
@@ -385,14 +537,14 @@
     </summary>
     
     
-      <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
+      <category term="Tech" scheme="%5Bobject%20Object%5D/tags/Tech/"/>
     
   </entry>
   
   <entry>
     <title>apache多种debug调试方式</title>
-    <link href="https://trree.github.io/2017/03/22/apache-debug/"/>
-    <id>https://trree.github.io/2017/03/22/apache-debug/</id>
+    <link href="%5Bobject%20Object%5D/2017/03/22/apache-debug/"/>
+    <id>[object Object]/2017/03/22/apache-debug/</id>
     <published>2017-03-22T12:02:01.000Z</published>
     <updated>2017-03-22T12:20:05.000Z</updated>
     
@@ -447,14 +599,14 @@
     </summary>
     
     
-      <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
+      <category term="Tech" scheme="%5Bobject%20Object%5D/tags/Tech/"/>
     
   </entry>
   
   <entry>
     <title>水墨画的扩展</title>
-    <link href="https://trree.github.io/2017/02/15/wash-painting/"/>
-    <id>https://trree.github.io/2017/02/15/wash-painting/</id>
+    <link href="%5Bobject%20Object%5D/2017/02/15/wash-painting/"/>
+    <id>[object Object]/2017/02/15/wash-painting/</id>
     <published>2017-02-15T01:02:05.000Z</published>
     <updated>2017-02-15T13:24:22.000Z</updated>
     
@@ -482,20 +634,21 @@
     </summary>
     
     
-      <category term="Think" scheme="https://trree.github.io/tags/Think/"/>
+      <category term="Think" scheme="%5Bobject%20Object%5D/tags/Think/"/>
     
   </entry>
   
   <entry>
     <title>thread</title>
-    <link href="https://trree.github.io/2017/02/12/thread/"/>
-    <id>https://trree.github.io/2017/02/12/thread/</id>
+    <link href="%5Bobject%20Object%5D/2017/02/12/thread/"/>
+    <id>[object Object]/2017/02/12/thread/</id>
     <published>2017-02-12T06:57:05.000Z</published>
     <updated>2017-05-28T12:20:37.000Z</updated>
     
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">只要我时间了，我就把这本书看完。</div><div class="line">如果我有很多钱，我就要去全世界旅游。</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<img src="/2017/02/12/thread/thread.gif" alt="organization" title="organization">
+    <content type="html"><![CDATA[<pre><code>只要我时间了，我就把这本书看完。
+如果我有很多钱，我就要去全世界旅游。
+</code></pre><a id="more"></a>
+
 <p>总是喜欢信誓旦旦的对别人说着一些话，<br>不知道最后多少人达成了目标。<br>就像小时候想要的那个模型。<br>现在可以轻而易举的买下小时候的想要的任何东西。<br>可是突然失去了对这件事情的乐趣。<br>时间与环境的变化，那么事情本事早就失去了它原本的意义。</p>
 <p>太多时候总喜欢用如果只要达到什么条件，<br>那么我就要做什么。喜欢把生活一步一步的规划，<br>达到一个目标之后，才开始进行下一步。<br>如果有一步陷入了困境，那么就一直阻塞在那一步。</p>
 <p>计算机人员在解释多核的时候，喜欢用一个人在多项任务<br>之间切换得够快，那么像是在同时处理多件事情一样。<br>但是我们不能像孙悟空或者技术总监一样分身。分配人员<br>同时处理不同的事情。</p>
@@ -505,19 +658,21 @@
     
     <summary type="html">
     
-      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;只要我时间了，我就把这本书看完。&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;如果我有很多钱，我就要去全世界旅游。&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;pre&gt;&lt;code&gt;只要我时间了，我就把这本书看完。
+如果我有很多钱，我就要去全世界旅游。
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
     
-      <category term="Tech, Think" scheme="https://trree.github.io/tags/Tech-Think/"/>
+      <category term="Tech, Think" scheme="%5Bobject%20Object%5D/tags/Tech-Think/"/>
     
   </entry>
   
   <entry>
     <title>问问题</title>
-    <link href="https://trree.github.io/2017/02/08/ask-question/"/>
-    <id>https://trree.github.io/2017/02/08/ask-question/</id>
+    <link href="%5Bobject%20Object%5D/2017/02/08/ask-question/"/>
+    <id>[object Object]/2017/02/08/ask-question/</id>
     <published>2017-02-08T10:23:00.000Z</published>
     <updated>2017-02-08T10:23:00.000Z</updated>
     
@@ -542,14 +697,14 @@
     </summary>
     
     
-      <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
+      <category term="Tech" scheme="%5Bobject%20Object%5D/tags/Tech/"/>
     
   </entry>
   
   <entry>
     <title>Apache内存管理</title>
-    <link href="https://trree.github.io/2017/02/06/apache-pool/"/>
-    <id>https://trree.github.io/2017/02/06/apache-pool/</id>
+    <link href="%5Bobject%20Object%5D/2017/02/06/apache-pool/"/>
+    <id>[object Object]/2017/02/06/apache-pool/</id>
     <published>2017-02-06T11:47:33.000Z</published>
     <updated>2017-05-28T12:21:12.000Z</updated>
     
@@ -559,10 +714,10 @@
 <p>尤其需要注意Sockets。如果建立了一个Socket，但是在业务完成时没有释放它，那么其它的程序就不能使用这块内存。这些不断建立但<br>是未释放的Sockets会造成内存，CPU被占满。此时服务端一定会崩溃。许多服务端现在基本都是以多线程或者多进程的方式工作，这些<br>进程或者线程如果不按设计退出只能被管理员中断。如果一个程序不停止运行，那么服务端端资源会被立马占满并且崩溃。</p>
 <p>随着内存池的使用，开发者可以在一个已知生命周期的内存池中使用内存，sockets和进程。一旦这个内存池被摧毁，那么所有的资源都<br>会自动的释放。这样就只有一些仔细考虑后额外的例程才会需要考虑释放内存的事情。这样就变得更简单明了，减少了开发者的负担。</p>
 <p>重要的是，内存池可以提升服务器的性能。通常一个程序使用和释放内存，由于系统需要从虚拟内存中分配和释放内存，这些会造成<br>许多的开销，这将显著的降低性能。并且，不管请求了多少内存，系统通常分配一个最小数量的空间。<br>那么这将造成许多小的内存空间被浪费。经常这样做的话，那么你需要关注这些小内存的价值了.</p>
-<h3 id="内建池和生命周期"><a href="#内建池和生命周期" class="headerlink" title="内建池和生命周期"></a>内建池和生命周期</h3><img src="/2017/02/06/apache-pool/pools_hierarchy.gif" alt="organization" title="organization">
+<h3 id="内建池和生命周期"><a href="#内建池和生命周期" class="headerlink" title="内建池和生命周期"></a>内建池和生命周期</h3>
 <p>Apache内建的内存池都有不同的生命周期，如上图所示，该图描述了池的继承的层次结构。pglobal存在于服务器的真个运行周期，<br>pchaild存在于整个子虚拟机主机的生命周期，pconn是每一个连接的生命周期，preq是每一个请求的生命周期。通常开发者使用<br>最小的生命周期最小存储空间最小存放数据。</p>
 <p>如果开发者需要一个非常大的内存空间，而且没有一个合适生命周期的内存池。一个任意内建池的子池可以被创建。程序可以像<br>内建池一样使用这个内存池，也可以在不需要这个内存池的时候释放它。如果忘记了释放这个内存池，那么在它的父池被释放的<br>时候它会被自动释放。释放pglobal的时候，所以的子池都将被自动释放。每一个连接池是子服务池处理连接，所有的请求池都<br>是对应了连接池。</p>
-<h3 id="内存池的内部结构"><a href="#内存池的内部结构" class="headerlink" title="内存池的内部结构"></a>内存池的内部结构</h3><img src="/2017/02/06/apache-pool/pools_block.gif" alt="organization" title="organization">
+<h3 id="内存池的内部结构"><a href="#内存池的内部结构" class="headerlink" title="内存池的内部结构"></a>内存池的内部结构</h3>
 <p>如上图所示，一个池内部链接了一系列的子池，数据块，进程和回调函数。如果需要分配内存需要使用预定义的函数。这些函数<br>不只是分配内存，并且也可以释放内存。同样的进程也可以通过内存池建立，内存释放的时候进程结束。此外，每个池可以保存<br>关于在销毁所有存储器之前被调用的函数的信息。这样文件处理程序和套接字都可以注册一个池去销毁它。</p>
 <p>当一个内存池被销毁的时候，apache首先回调清理函数。所有注册的文件句柄和Sockets将被关闭。之后，池讲终止所有的注册<br>和进程。这些结束之后，数据块就被释放。通常apache并不是真的释放被其它程序使用的内存。而是将它从池中删除，将这段<br>内存放入空闲的内存块中。这样就将分配和释放内存的消耗降至最低。内核将立即分配这些空闲的内存。只有在池中所有的内<br>存都用完时才需要分配新的空间。</p>
 <p>refer: <a href="http://www.fmc-modeling.org/category/projects/apache/amp/4_6Memory_resource.html" target="_blank" rel="external">Memory_resource</a></p>
@@ -575,14 +730,14 @@
     </summary>
     
     
-      <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
+      <category term="Tech" scheme="%5Bobject%20Object%5D/tags/Tech/"/>
     
   </entry>
   
   <entry>
     <title>重复</title>
-    <link href="https://trree.github.io/2017/02/05/repetition-work/"/>
-    <id>https://trree.github.io/2017/02/05/repetition-work/</id>
+    <link href="%5Bobject%20Object%5D/2017/02/05/repetition-work/"/>
+    <id>[object Object]/2017/02/05/repetition-work/</id>
     <published>2017-02-05T14:36:33.000Z</published>
     <updated>2017-02-05T14:36:56.000Z</updated>
     
@@ -600,14 +755,14 @@
     </summary>
     
     
-      <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
+      <category term="Tech" scheme="%5Bobject%20Object%5D/tags/Tech/"/>
     
   </entry>
   
   <entry>
     <title>人头马身</title>
-    <link href="https://trree.github.io/2016/10/25/20161025/"/>
-    <id>https://trree.github.io/2016/10/25/20161025/</id>
+    <link href="%5Bobject%20Object%5D/2016/10/25/20161025/"/>
+    <id>[object Object]/2016/10/25/20161025/</id>
     <published>2016-10-25T00:48:22.000Z</published>
     <updated>2016-11-06T07:59:18.000Z</updated>
     
@@ -634,14 +789,14 @@
     </summary>
     
     
-      <category term="人头马身" scheme="https://trree.github.io/tags/%E4%BA%BA%E5%A4%B4%E9%A9%AC%E8%BA%AB/"/>
+      <category term="人头马身" scheme="%5Bobject%20Object%5D/tags/%E4%BA%BA%E5%A4%B4%E9%A9%AC%E8%BA%AB/"/>
     
   </entry>
   
   <entry>
     <title>深秋</title>
-    <link href="https://trree.github.io/2016/10/22/last-Fall/"/>
-    <id>https://trree.github.io/2016/10/22/last-Fall/</id>
+    <link href="%5Bobject%20Object%5D/2016/10/22/last-Fall/"/>
+    <id>[object Object]/2016/10/22/last-Fall/</id>
     <published>2016-10-22T09:28:47.000Z</published>
     <updated>2016-10-22T13:18:51.000Z</updated>
     
@@ -660,8 +815,8 @@
   
   <entry>
     <title>自测网关安全性</title>
-    <link href="https://trree.github.io/2016/10/20/gateway-s-safe/"/>
-    <id>https://trree.github.io/2016/10/20/gateway-s-safe/</id>
+    <link href="%5Bobject%20Object%5D/2016/10/20/gateway-s-safe/"/>
+    <id>[object Object]/2016/10/20/gateway-s-safe/</id>
     <published>2016-10-20T09:28:16.000Z</published>
     <updated>2016-10-20T09:35:57.000Z</updated>
     
@@ -685,14 +840,14 @@
     </summary>
     
     
-      <category term="Tech" scheme="https://trree.github.io/tags/Tech/"/>
+      <category term="Tech" scheme="%5Bobject%20Object%5D/tags/Tech/"/>
     
   </entry>
   
   <entry>
     <title>一个叫天南，一个叫地北</title>
-    <link href="https://trree.github.io/2016/10/17/wood/"/>
-    <id>https://trree.github.io/2016/10/17/wood/</id>
+    <link href="%5Bobject%20Object%5D/2016/10/17/wood/"/>
+    <id>[object Object]/2016/10/17/wood/</id>
     <published>2016-10-17T09:24:02.000Z</published>
     <updated>2016-10-17T12:33:09.000Z</updated>
     
@@ -707,7 +862,7 @@
     </summary>
     
     
-      <category term="Caprice" scheme="https://trree.github.io/tags/Caprice/"/>
+      <category term="Caprice" scheme="%5Bobject%20Object%5D/tags/Caprice/"/>
     
   </entry>
   
