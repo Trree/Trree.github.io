@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="%5Bobject%20Object%5D/"/>
-  <updated>2017-08-20T06:22:33.000Z</updated>
+  <updated>2017-08-20T06:23:17.000Z</updated>
   <id>[object Object]/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="%5Bobject%20Object%5D/2017/08/20/begin-ambiguous/"/>
     <id>[object Object]/2017/08/20/begin-ambiguous/</id>
     <published>2017-08-20T06:14:33.000Z</published>
-    <updated>2017-08-20T06:22:33.000Z</updated>
+    <updated>2017-08-20T06:23:17.000Z</updated>
     
     <content type="html"><![CDATA[<p>begin.cc</p>
 <pre><code>#include &lt;boost/range.hpp&gt;
@@ -60,7 +60,7 @@ using std::end;
 using boost::begin;
 using boost::end;
 #endif
-</code></pre><p>you can use __cplusplus distinguish c++11.</p>
+</code></pre><p>you can use __cplusplus to  distinguish c++11.</p>
 ]]></content>
     
     <summary type="html">
