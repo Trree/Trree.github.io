@@ -4,8 +4,43 @@
 
     
   <url>
+    <loc>%5Bobject%20Object%5D/2017/08/20/begin-ambiguous/</loc>
+    <lastmod>2017-08-20T06:22:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>begin ambiguous</title>
+        <pubTime>2017-08-20T06:14:33.000Z</pubTime>
+        
+        <tag>c++</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>%5Bobject%20Object%5D/2017/08/20/read/</loc>
+    <lastmod>2017-08-20T06:13:59.000Z</lastmod>
+    <data>
+        <display>
+        <title>如何获取有价值的信息</title>
+        <pubTime>2017-08-20T06:09:04.000Z</pubTime>
+        
+        <tag>Think</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
     <loc>%5Bobject%20Object%5D/2017/07/27/openvpn/</loc>
-    <lastmod>2017-07-27T12:10:20.000Z</lastmod>
+    <lastmod>2017-07-29T07:48:22.000Z</lastmod>
     <data>
         <display>
         <title>openvpn简述</title>
@@ -15,6 +50,9 @@
          
          
            
+             
+              <breadCrumb title="Tech" url="%5Bobject%20Object%5D/categories/Tech/"/>
+          
         </display>
     </data>
     </url>

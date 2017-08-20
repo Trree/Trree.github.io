@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="%5Bobject%20Object%5D/"/>
-  <updated>2017-07-27T12:10:20.000Z</updated>
+  <updated>2017-08-20T06:22:33.000Z</updated>
   <id>[object Object]/</id>
   
   <author>
@@ -16,11 +16,106 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>begin ambiguous</title>
+    <link href="%5Bobject%20Object%5D/2017/08/20/begin-ambiguous/"/>
+    <id>[object Object]/2017/08/20/begin-ambiguous/</id>
+    <published>2017-08-20T06:14:33.000Z</published>
+    <updated>2017-08-20T06:22:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>begin.cc</p>
+<pre><code>#include &lt;boost/range.hpp&gt;
+using boost::begin;
+using boost::end;
+
+int main()
+{
+  std::string cipher_name(“aaa&quot;);
+  int num_items1 = std::count(begin(cipher_name), end(cipher_name), &#39;-&#39;);
+  return 0;
+}
+</code></pre><p>if we don’t use c++11, then</p>
+<blockquote>
+<p>g++ -g begin.cc -o aa</p>
+</blockquote>
+<p>it ok.</p>
+<p>But if we use c++11, in the vs2015 or g++4.8</p>
+<blockquote>
+<p>g++ -g -std=c++ begin.cc -o aa</p>
+</blockquote>
+<p>then we will get</p>
+<pre><code> error: call of overloaded &#39;begin(std::string&amp;)&#39; is ambiguous
+    int num_items1 = std::count(begin(cipher_name), end(cipher_name), &#39;-&#39;);
+</code></pre><p>it is nonsense, we had used namespace boost::begin in the header, why it also use std::begin。<br>we write this code to compatible boost and std;<br>and this code is very simple ,we don’t use extra things.</p>
+<p>so we should read the api document.<br>In the std::being, we notes that </p>
+<pre><code>In addition to being included in &lt;iterator&gt;, std::begin is guaranteed to become available 
+if any of the following headers are included: &lt;array&gt;, &lt;deque&gt;, &lt;forward_list&gt;, &lt;list&gt;, 
+&lt;map&gt;, &lt;regex&gt;, &lt;set&gt;, &lt;string&gt;, &lt;unordered_map&gt;, &lt;unordered_set&gt;, and &lt;vector&gt;.
+</code></pre><p>so if we use std::string, c++11 use std::begin implicitly.<br>How can we solve this problem.<br>we can use __cplusplus to solve this problem.</p>
+<pre><code>#if __cplusplus &gt;= 199711L
+#include &lt;iterator&gt;
+using std::begin;
+using std::end;
+#else
+#include &lt;boost/range.hpp&gt;
+using boost::begin;
+using boost::end;
+#endif
+</code></pre><p>you can use __cplusplus distinguish c++11.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;begin.cc&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;boost/range.hpp&amp;gt;
+using boost::begin;
+using boost::end;
+
+int main()
+{
+  std::string cipher_name(“a
+    
+    </summary>
+    
+    
+      <category term="c++" scheme="%5Bobject%20Object%5D/tags/c/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何获取有价值的信息</title>
+    <link href="%5Bobject%20Object%5D/2017/08/20/read/"/>
+    <id>[object Object]/2017/08/20/read/</id>
+    <published>2017-08-20T06:09:04.000Z</published>
+    <updated>2017-08-20T06:13:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在这个资讯泛滥的时代，获取对自己有用的信息犹如沙里淘金。<br>我们如此容易沉浸在打发时间的中愉快中度日。<br>在片刻两手空空的时候是否想到哪些东西是我们真正需要的呢？</p>
+<p>最开始的时候是纸媒+新闻联播的时候，那时候的人们没有选择的余地，<br>因为可以选择的东西是在是太少了。<br>后来到了门户资讯时代，可是现在我们已经对引人眼球的标题早已经麻木。<br>对所有的东西都已经见怪不怪了。<br>现在的微博微信公众号占据了我们大量的时间。</p>
+<p>这些东西或许能够激起一时的阅读欲望，可是慢慢熟悉了这些刺激的套路之后，<br>慢慢陷入了一种知识荒漠的时候。</p>
+<p>其实综上，我们发现获取知识的方式都是被动型的，我们被动的接受着别人给予的一切，<br>他们永远比我们还要清楚我们的弱点，精准投放，然后我们接受着原始的刺激，兴奋的刷着一切。</p>
+<p>我们现在如何获取自己觉得有价值的东西呢？<br>其实我们只需要转变一下方式，将被动改为主动。<br>即主动去获取自己敢兴趣的东西。<br>具体的实现方式我认为是三个方面：<br>书籍+搜索+订阅</p>
+<p>书籍：虽然阅读书籍是最耗时的一件事情，而且现在最值钱的东西就是时间了，那么我们为什么还要花大量时间去看书呢？<br>首先书可以创建一个完整的知识体系，它首先应该是自洽的，而且是可以被证明是正确的。<br>每一个学科都是有一系列前人的总结的入门书籍，进阶书籍，学一门学科就是学它的历史，<br>通过前辈的推荐加上网上的搜索，我们可以很轻易的得到这么一个书单。<br>而且一本书的好坏现在有一种一般性的判断标准，豆瓣+知乎，在阅读这本书之前看看这本书的评分和评价。<br>然后再选择是否开始阅读这本书，虽然这种方法会有一定的缺陷，但是可以排除大量的烂书，毕竟时间才是最重要的。</p>
+<p>搜索：google+bing+baidu</p>
+<p>订阅：我们需要获取一些及时的消息来不被时代抛弃。最为一名程序员，毕竟需要查看一下时代的发展方向。<br>而且程序员大多提供的是技术博客，<br>很多的博客是独立博客的存在，虽然更新的比较慢，但是都是思考后的结果。<br>将这些博客集合到一起可以节省很多的时间。<br>对于大多数人来说，将自己感兴趣的网站集合到一个软件中，不用在多个之间进行切换。<br>提供RSS订阅的软件非常多，自己可以通过搜索得到。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在这个资讯泛滥的时代，获取对自己有用的信息犹如沙里淘金。&lt;br&gt;我们如此容易沉浸在打发时间的中愉快中度日。&lt;br&gt;在片刻两手空空的时候是否想到哪些东西是我们真正需要的呢？&lt;/p&gt;
+&lt;p&gt;最开始的时候是纸媒+新闻联播的时候，那时候的人们没有选择的余地，&lt;br&gt;因为可以选择的东
+    
+    </summary>
+    
+    
+      <category term="Think" scheme="%5Bobject%20Object%5D/tags/Think/"/>
+    
+  </entry>
+  
+  <entry>
     <title>openvpn简述</title>
     <link href="%5Bobject%20Object%5D/2017/07/27/openvpn/"/>
     <id>[object Object]/2017/07/27/openvpn/</id>
     <published>2017-07-27T12:06:27.000Z</published>
-    <updated>2017-07-27T12:10:20.000Z</updated>
+    <updated>2017-07-29T07:48:22.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><p>TCP/IP网络，IP路由</p>
 <h2 id="VPN与OpenVPN"><a href="#VPN与OpenVPN" class="headerlink" title="VPN与OpenVPN"></a>VPN与OpenVPN</h2><p>VPN是一种实现虚拟专用网的技术。 典型的实现有IPSec，L2TP，PPTP等，各类OS都有相应的支持，开源的轻量级实现有OpenVPN。</p>
@@ -212,6 +307,8 @@ echo $(date) &quot;client $name from $ real_addr disconnect&quot; &gt;&gt; /kssl
 &lt;h2 id=&quot;VPN与OpenVPN&quot;&gt;&lt;a href=&quot;#VPN与OpenVPN&quot; 
     
     </summary>
+    
+      <category term="Tech" scheme="%5Bobject%20Object%5D/categories/Tech/"/>
     
     
       <category term="Tech" scheme="%5Bobject%20Object%5D/tags/Tech/"/>
@@ -993,57 +1090,6 @@ options：选项
     
     
       <category term="人头马身" scheme="%5Bobject%20Object%5D/tags/%E4%BA%BA%E5%A4%B4%E9%A9%AC%E8%BA%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深秋</title>
-    <link href="%5Bobject%20Object%5D/2016/10/22/last-Fall/"/>
-    <id>[object Object]/2016/10/22/last-Fall/</id>
-    <published>2016-10-22T09:28:47.000Z</published>
-    <updated>2016-10-22T13:18:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>北方的气温已经降了下来，有必要套一件大衣了。<br>南方开始下雨，连门都出不了，不然就要拖着一身的风雨回来了。<br>深秋时节最美，这是生命的大繁华的时刻。<br>不宽的水泥地，青色的矮墙，燃烧的银杏树，点燃金色的光芒，虽是下午，但是前方布满薄雾。显得非常的深远。<br>雨巷还是随处可见，丁香一样的姑娘早已经离去，雨水依然滴答这石板。<br>秋天是一个收获的季节。<br>桔树，葡萄树经过一个夏天的生长，现在人们欣喜的把果子采摘下来，成为了人们口中甜美的美食。</p>
-<p>深秋了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;北方的气温已经降了下来，有必要套一件大衣了。&lt;br&gt;南方开始下雨，连门都出不了，不然就要拖着一身的风雨回来了。&lt;br&gt;深秋时节最美，这是生命的大繁华的时刻。&lt;br&gt;不宽的水泥地，青色的矮墙，燃烧的银杏树，点燃金色的光芒，虽是下午，但是前方布满薄雾。显得非常的深远。&lt;br&gt;雨
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>自测网关安全性</title>
-    <link href="%5Bobject%20Object%5D/2016/10/20/gateway-s-safe/"/>
-    <id>[object Object]/2016/10/20/gateway-s-safe/</id>
-    <published>2016-10-20T09:28:16.000Z</published>
-    <updated>2016-10-20T09:35:57.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>网关的主要作用是转换原B/S，C/S系统的协议，将原来未加密的协议转换成加密的协议。<br>在这里网关将未加密的HTTP协议或者TCP协议转换成SSL协议。<br>任何一个增加的系统都会增加安全性的问题，作为一款加密产品，那么它更应该注重自生的安全性问题。</p>
-<ul>
-<li>IP和端口扫描(nmap，netcat)</li>
-<li>对访问用户压测，看看有大量用户访问时是否会断开连接(burpsuit, ab, loadrunner)</li>
-<li>查看每一个连接中的关键数据是否加密</li>
-<li>传输的数据是否加密</li>
-<li>对文件上传和下载是否满足用户权限的要求，是否保护</li>
-<li>对shell和sql是否防止注入</li>
-<li>对网关的系统和服务器进行安全性扫描</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;网关的主要作用是转换原B/S，C/S系统的协议，将原来未加密的协议转换成加密的协议。&lt;br&gt;在这里网关将未加密的HTTP协议或者TCP协议转换成SSL协议。&lt;br&gt;任何一个增加的系统都会增加安全性的问题，作为一款加密产品，那么它更应该注重自生的安全性问题。&lt;/p&gt;
-&lt;ul&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="%5Bobject%20Object%5D/tags/Tech/"/>
     
   </entry>
   
