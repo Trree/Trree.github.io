@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Apache on Steam</title>
+    <link>https://trree.github.io/geek/tags/apache/</link>
+    <description>Recent content in Apache on Steam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Released under the MIT license.</copyright>
+    <lastBuildDate>Sun, 09 Jul 2017 11:26:10 +0000</lastBuildDate>
+    
+	<atom:link href="https://trree.github.io/geek/tags/apache/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Apache 讲解</title>
+      <link>https://trree.github.io/geek/posts/apache-pratice/</link>
+      <pubDate>Sun, 09 Jul 2017 11:26:10 +0000</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/apache-pratice/</guid>
+      <description>概述 简单服务器流程 Q1：简述在浏览器中输入 www.baidu.com 之后发生的一系列事情
+appendix1：http1.0 vs http1.1
+I/O 模型  阻塞式 I/O 模型  非阻塞 I/O 模型  I/O 复用 模型  异步 I/O 模型   UNIX网络编程(卷1)：套接字联网API(第3版)
+工作模式  event(多进程多线程)
+ prefork(多进程)
+ worker(多进程多线程)
+  查看apache的工作模式
+ /usr/sbin/apachectl -V
+ 内存管理 内存管理
+核心数据结构 request的关键元素
+The most essential part of any request is the request record. In a call to a handler function, this is represented by the request_rec structure passed along with every call that is made.</description>
+    </item>
+    
+    <item>
+      <title>绑定Apache信息</title>
+      <link>https://trree.github.io/geek/posts/apache-info/</link>
+      <pubDate>Sun, 16 Oct 2016 11:02:11 +0000</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/apache-info/</guid>
+      <description>在apache的使用中，如果是一个apache代理服务器，并且使用的证书的话， 我们不可避免的需要将从前端和证书中的信息传递给后端处理。 一般情况下，我们都是将这些信息绑定在http头中，cookie项中，这样后端比较容易处理。
+幸运的是，apache为我们提供了这么一个可选函数，可以任何的一个模块中获取 你需要的信息。 这个可选函数是在模块 mod_nw_ssl 中定义。 &amp;gt;APR_REGISTER_OPTIONAL_FN(ssl_var_lookup);
+可选函数
+[apache 可选函数原理]()
+可选函数实现
+声明
+APR_DECLARE_OPTIONAL_FN(char *, ssl_var_lookup, ​ (apr_pool_t *, server_rec *, ​ conn_rec *, request_rec *, ​ char *));  实现
+ char *ssl_var_lookup(apr_pool_t *p, server_rec *s, conn_rec *c, request_rec *r, char *var)
+ 注册
+ APR_REGISTER_OPTIONAL_FN(ssl_var_lookup);
+ 获取
+ static APR_OPTIONAL_FN_TYPE(ssl_var_lookup) *pfn_ssl_lookup = NULL; pfn_ssl_lookup = APR_RETRIEVE_OPTIONAL_FN(ssl_var_lookup);
+ 调用
+if (pfn_ssl_lookup) { server_rec *s = r-&amp;gt;server ? r-&amp;gt;server : c-&amp;gt;base_server; value = pfn_ssl_lookup(pool, s, c, r, var); }  信息绑定原理</description>
+    </item>
+    
+    <item>
+      <title>Apache缓存过滤及其原理</title>
+      <link>https://trree.github.io/geek/posts/apache-cache/</link>
+      <pubDate>Sun, 16 Oct 2016 10:59:47 +0000</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/apache-cache/</guid>
+      <description>背景 apche 提供了cache的功能，能够将应用服务端的资源缓存在apache中， 尤其是在apache是代理服务器，原始服务器的物理距离非常远的时候， 性能就能够非常好的体现。
+所以此时的网关服务器也可以作为缓存服务器使用。 因为公司使用的是apache2.0系列的。 所以在它那里发现它只支持URL的strcasecmp匹配。 所以匹配所有的URL为 &amp;lsquo;/&amp;lsquo;。但是我们希望提供普遍的过滤功能。 只缓存 .jpg,.png,.css 等不变的内容。而将经常需要改成的 .html , .js 不缓存。
+所以我们的方案是在 cacheenable 中增加一个可变参数，正则配置的参数。 当正则匹配存在的时候，只使用正则批准，如果不存在，则使用原来的 url的匹配。保证与原2.0的兼容性。
+网关cache原理  不存在缓存的时候，客户端发送请求给网关，网关再向后端发送请求，然后返回给网关，网关返回给客户端。 存在缓存的时候，首先，mod_cache将是一个URL映射模块，也就是说，如果一个URL已经被缓存并且这个缓存尚未失效，该请求将由mod_cache直接处理。这也意味着在处理一个请求时通常还要发生的其他阶段：比如权限验证，mod_proxy或mod_rewrite处理的阶段，将不会发生。网关可以直接返回内容给客户端。  cache 类型 mem 基于mem缓存,在高级设置中已经实现，填入mem会产生配置如下
+CacheEnable mem MCacheSize 4096 MCacheMaxObjectCount 4 MCacheMinObjectSize 1 MCacheMaxObjectSize 1048576  disk 基于disk缓存，需要另外填写配置文件
+CacheDefaultExpire 3600 CacheEnable disk / CacheRoot /tmp/apacheCache CacheDirLevels 3 CacheDirLength 4 CacheMaxFileSize 1048576 CacheMinFileSize 10  ramdisk实现方案 基于disk缓存，将CacheRoot设置为内存盘目录，开机的时候自动建立整个内存的10%用于存放缓存。 ​
+缓存文件 在CacheRoot的目录下，生成带后缀的缓存文件.data 和 .header。 可以使用strings命令查看文件 .data保存了缓存文件内容 .</description>
+    </item>
+    
+  </channel>
+</rss>

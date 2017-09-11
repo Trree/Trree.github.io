@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>绑定Apache信息 &middot; Steam</title>
+    <meta name="author" content="John Doe">
+    <meta name="description" content="Your description of the blog">
+    <meta name="generator" content="Hugo 0.26" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- RSS autodiscovery -->
+    
+
+    <link rel="shortcut icon" href="https://trree.github.io/geek/img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://trree.github.io/geek/css/screen.css">
+    <link rel="stylesheet" href="https://trree.github.io/geek/css/github.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://trree.github.io/geek/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://trree.github.io/geek/favicon.ico">
+    
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #33cc99;}
+    .pagination a {color: #33cc99;}
+    .gist .gist-file .gist-meta a:visited {color: #33cc99 !important;}
+    a:focus, a:hover {color: #178b6b;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #178b6b;}
+    .older-posts:hover, .newer-posts:hover {color: #178b6b;}
+</style>
+</head>
+
+<body class="home-template">
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="https://trree.github.io/geek/">Steam</a></h1>
+	
+	
+	<h1 class="blog-subtitle">a minimal theme for <del>Ghost</del> Hugo</h1>
+	
+</header>
+    
+    
+    <main class="content" role="main">
+    
+<article class="post">
+    <header>
+        <h1 class="post-title">绑定Apache信息</h1>
+        <div class="post-meta">
+            <time datetime="16 October 2016">
+                16 October 2016
+            </time>
+        </div>
+    </header>
+
+    <section class="post-content">
+        <p>在apache的使用中，如果是一个apache代理服务器，并且使用的证书的话，
+我们不可避免的需要将从前端和证书中的信息传递给后端处理。
+一般情况下，我们都是将这些信息绑定在http头中，cookie项中，这样后端比较容易处理。</p>
+
+<p>幸运的是，apache为我们提供了这么一个可选函数，可以任何的一个模块中获取
+你需要的信息。
+这个可选函数是在模块 mod_nw_ssl 中定义。
+&gt;APR_REGISTER_OPTIONAL_FN(ssl_var_lookup);</p>
+
+<p><strong>可选函数</strong></p>
+
+<p>[apache 可选函数原理]()</p>
+
+<p><strong>可选函数实现</strong></p>
+
+<p><strong>声明</strong></p>
+
+<pre><code>APR_DECLARE_OPTIONAL_FN(char *, ssl_var_lookup,                        
+ ​                        (apr_pool_t *,  server_rec *,                        
+ ​                        conn_rec *, request_rec *,                        
+ ​                        char *));
+
+</code></pre>
+
+<p><strong>实现</strong></p>
+
+<blockquote>
+<p>char *ssl_var_lookup(apr_pool_t *p, server_rec *s, conn_rec *c, request_rec *r, char *var)</p>
+</blockquote>
+
+<p><strong>注册</strong></p>
+
+<blockquote>
+<p>APR_REGISTER_OPTIONAL_FN(ssl_var_lookup);</p>
+</blockquote>
+
+<p><strong>获取</strong></p>
+
+<blockquote>
+<p>static APR_OPTIONAL_FN_TYPE(ssl_var_lookup) *pfn_ssl_lookup = NULL;
+pfn_ssl_lookup = APR_RETRIEVE_OPTIONAL_FN(ssl_var_lookup);</p>
+</blockquote>
+
+<p><strong>调用</strong></p>
+
+<pre><code>if (pfn_ssl_lookup) {
+  	server_rec *s = r-&gt;server ? r-&gt;server : c-&gt;base_server; 
+  	value = pfn_ssl_lookup(pool, s, c, r, var);
+}
+</code></pre>
+
+<p><strong>信息绑定原理</strong></p>
+
+<p><strong>可查询信息</strong></p>
+
+<ul>
+<li>http 头中的信息</li>
+<li>ssl 的参数，和对应使用的用户证书的各项内容。</li>
+<li>连接 socket 的各项参数- 格式化的各种时间</li>
+<li>保存在 r-&gt;notes 中的的环境变量- 如何找不到 key 对应的 value，则返回空字符串。</li>
+</ul>
+
+<p><strong>如何防止假冒参数</strong></p>
+
+<p>? 如果用户服务器里面有一个与网关相同的参数，你会怎么处理？</p>
+
+<ul>
+<li>用下划线替换假冒URL参数名的第一个字符<br /></li>
+</ul>
+
+    </section>
+
+    
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+	<div class="inner">
+		<section class="footer-social">
+      
+      <a href="//twitter.com/spf13" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp;
+      
+      
+      
+      
+      
+      
+      <a href="//github.com/spf13" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      
+      
+      
+      
+  </section>
+
+		<section class="copyright">&copy; 2017 <a href="https://trree.github.io/geek/">John Doe</a>. Released under the MIT license.</section>
+	</div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://trree.github.io/geek/js/index.js"></script>
+<script src="https://trree.github.io/geek/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+</html>

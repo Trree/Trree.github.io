@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>PHP Session超时设置 &middot; Steam</title>
+    <meta name="author" content="John Doe">
+    <meta name="description" content="Your description of the blog">
+    <meta name="generator" content="Hugo 0.26" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- RSS autodiscovery -->
+    
+
+    <link rel="shortcut icon" href="https://trree.github.io/geek/img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://trree.github.io/geek/css/screen.css">
+    <link rel="stylesheet" href="https://trree.github.io/geek/css/github.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://trree.github.io/geek/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://trree.github.io/geek/favicon.ico">
+    
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #33cc99;}
+    .pagination a {color: #33cc99;}
+    .gist .gist-file .gist-meta a:visited {color: #33cc99 !important;}
+    a:focus, a:hover {color: #178b6b;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #178b6b;}
+    .older-posts:hover, .newer-posts:hover {color: #178b6b;}
+</style>
+</head>
+
+<body class="home-template">
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="https://trree.github.io/geek/">Steam</a></h1>
+	
+	
+	<h1 class="blog-subtitle">a minimal theme for <del>Ghost</del> Hugo</h1>
+	
+</header>
+    
+    
+    <main class="content" role="main">
+    
+<article class="post">
+    <header>
+        <h1 class="post-title">PHP Session超时设置</h1>
+        <div class="post-meta">
+            <time datetime="16 October 2016">
+                16 October 2016
+            </time>
+        </div>
+    </header>
+
+    <section class="post-content">
+        
+
+<h3 id="php控制session的方法">PHP控制session的方法</h3>
+
+<p>环境：PHP的session控制使用crond定时检查
+debian3， ubuntu14.0.4</p>
+
+<p>PHP的session文件保存在 /var/lib/php5 中，如果是使用cookie保存session的方法，
+可以在浏览器中查看cookie，查看两个值是不是一样的。
+如果你手动清除这个文件，登陆页面马上放回到你需要跳转的页面。
+所以对session时间的控制就是对删除session文件时间的控制。</p>
+
+<p>删除session文件是使用
+首先查看 /etc/cron.d/php5 的文件</p>
+
+<blockquote>
+<p>09,39 *     * * *     root   [ -d /var/lib/php5   ] &amp;&amp; find /var/lib/php5/ -type f -cmin +$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm</p>
+</blockquote>
+
+<p>从这里可以看出系统定时检查session文件的修改时间，一旦超出maxlifetime，就将它删除。
+所以最后的控制就在 /usr/lib/php5/maxlifetime 中。</p>
+
+<p>我们查看这个文件做了什么事情
+这个文件中默认最大超时时间为 1440 秒，然后与 /etc/php5/*/php.ini 的session.gc_maxlifetime 时间比较，哪个大取哪个值。
+在 /etc/php5/*/php.ini 中默认时间也是 1440 秒，所以非常的麻烦修改三个文件。</p>
+
+<h3 id="最简单的设置session超时时间">最简单的设置session超时时间</h3>
+
+<p>直接修改 /usr/lib/php5/maxlifetime</p>
+
+<blockquote>
+<p>echo $time</p>
+</blockquote>
+
+<p>这个 $time 就是你设置的超时分钟。</p>
+
+    </section>
+
+    
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+	<div class="inner">
+		<section class="footer-social">
+      
+      <a href="//twitter.com/spf13" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp;
+      
+      
+      
+      
+      
+      
+      <a href="//github.com/spf13" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      
+      
+      
+      
+  </section>
+
+		<section class="copyright">&copy; 2017 <a href="https://trree.github.io/geek/">John Doe</a>. Released under the MIT license.</section>
+	</div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://trree.github.io/geek/js/index.js"></script>
+<script src="https://trree.github.io/geek/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+</html>

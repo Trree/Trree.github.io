@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Apache内存管理 &middot; Steam</title>
+    <meta name="author" content="John Doe">
+    <meta name="description" content="Your description of the blog">
+    <meta name="generator" content="Hugo 0.26" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- RSS autodiscovery -->
+    
+
+    <link rel="shortcut icon" href="https://trree.github.io/geek/img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://trree.github.io/geek/css/screen.css">
+    <link rel="stylesheet" href="https://trree.github.io/geek/css/github.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://trree.github.io/geek/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://trree.github.io/geek/favicon.ico">
+    
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #33cc99;}
+    .pagination a {color: #33cc99;}
+    .gist .gist-file .gist-meta a:visited {color: #33cc99 !important;}
+    a:focus, a:hover {color: #178b6b;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #178b6b;}
+    .older-posts:hover, .newer-posts:hover {color: #178b6b;}
+</style>
+</head>
+
+<body class="home-template">
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="https://trree.github.io/geek/">Steam</a></h1>
+	
+	
+	<h1 class="blog-subtitle">a minimal theme for <del>Ghost</del> Hugo</h1>
+	
+</header>
+    
+    
+    <main class="content" role="main">
+    
+<article class="post">
+    <header>
+        <h1 class="post-title">Apache内存管理</h1>
+        <div class="post-meta">
+            <time datetime="06 February 2017">
+                06 February 2017
+            </time>
+        </div>
+    </header>
+
+    <section class="post-content">
+        
+
+<p>Apache 提供了自己的内存和资源管理方式，称作内存池，内存池在apache中任何一个阶段被使用，所以也被外部模块使用。
+内存池可以管理内存，Sockets 和进程等服务系统所有的资源。
+<!-- more --></p>
+
+<p>内存池的使用可以降低程序设计错误的可能性。在程序中如果由于疏忽或错误造成程序未能释放已经不再使用的内存，造成内存泄露。
+内存泄漏并非指内存在物理上的消失，而是应用程序分配某段内存后，由于设计错误，导致在释放该段内存之前就失去了对该段内存的控制，
+从而造成了内存的浪费，其它的程序就不能够再使用这个内存段。</p>
+
+<p>客户端的程序因为运行不是非常长时间，退出后操作系统会自动释放资源，所以不是造成太大的危害。但是在服务端端程序由于长期运行，
+即使是一点地内存泄漏由于长期内存泄露造成服务端的崩溃。</p>
+
+<p>尤其需要注意Sockets。如果建立了一个Socket，但是在业务完成时没有释放它，那么其它的程序就不能使用这块内存。这些不断建立但
+是未释放的Sockets会造成内存，CPU被占满。此时服务端一定会崩溃。许多服务端现在基本都是以多线程或者多进程的方式工作，这些
+进程或者线程如果不按设计退出只能被管理员中断。如果一个程序不停止运行，那么服务端端资源会被立马占满并且崩溃。</p>
+
+<p>随着内存池的使用，开发者可以在一个已知生命周期的内存池中使用内存，sockets和进程。一旦这个内存池被摧毁，那么所有的资源都
+会自动的释放。这样就只有一些仔细考虑后额外的例程才会需要考虑释放内存的事情。这样就变得更简单明了，减少了开发者的负担。</p>
+
+<p>重要的是，内存池可以提升服务器的性能。通常一个程序使用和释放内存，由于系统需要从虚拟内存中分配和释放内存，这些会造成
+许多的开销，这将显著的降低性能。并且，不管请求了多少内存，系统通常分配一个最小数量的空间。
+那么这将造成许多小的内存空间被浪费。经常这样做的话，那么你需要关注这些小内存的价值了.</p>
+
+<h3 id="内建池和生命周期">内建池和生命周期</h3>
+
+<p><img src="/images/pools_hierarchy.gif" alt="img" /></p>
+
+<p>Apache内建的内存池都有不同的生命周期，如上图所示，该图描述了池的继承的层次结构。pglobal存在于服务器的真个运行周期，
+pchaild存在于整个子虚拟机主机的生命周期，pconn是每一个连接的生命周期，preq是每一个请求的生命周期。通常开发者使用
+最小的生命周期最小存储空间最小存放数据。</p>
+
+<p>如果开发者需要一个非常大的内存空间，而且没有一个合适生命周期的内存池。一个任意内建池的子池可以被创建。程序可以像
+内建池一样使用这个内存池，也可以在不需要这个内存池的时候释放它。如果忘记了释放这个内存池，那么在它的父池被释放的
+时候它会被自动释放。释放pglobal的时候，所以的子池都将被自动释放。每一个连接池是子服务池处理连接，所有的请求池都
+是对应了连接池。</p>
+
+<h3 id="内存池的内部结构">内存池的内部结构</h3>
+
+<p><img src="/images/pools_block.gif" alt="img" /></p>
+
+<p>如上图所示，一个池内部链接了一系列的子池，数据块，进程和回调函数。如果需要分配内存需要使用预定义的函数。这些函数
+不只是分配内存，并且也可以释放内存。同样的进程也可以通过内存池建立，内存释放的时候进程结束。此外，每个池可以保存
+关于在销毁所有存储器之前被调用的函数的信息。这样文件处理程序和套接字都可以注册一个池去销毁它。</p>
+
+<p>当一个内存池被销毁的时候，apache首先回调清理函数。所有注册的文件句柄和Sockets将被关闭。之后，池讲终止所有的注册
+和进程。这些结束之后，数据块就被释放。通常apache并不是真的释放被其它程序使用的内存。而是将它从池中删除，将这段
+内存放入空闲的内存块中。这样就将分配和释放内存的消耗降至最低。内核将立即分配这些空闲的内存。只有在池中所有的内
+存都用完时才需要分配新的空间。</p>
+
+<p>refer: <a href="http://www.fmc-modeling.org/category/projects/apache/amp/4_6Memory_resource.html">Memory_resource</a></p>
+
+    </section>
+
+    
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+	<div class="inner">
+		<section class="footer-social">
+      
+      <a href="//twitter.com/spf13" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp;
+      
+      
+      
+      
+      
+      
+      <a href="//github.com/spf13" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      
+      
+      
+      
+  </section>
+
+		<section class="copyright">&copy; 2017 <a href="https://trree.github.io/geek/">John Doe</a>. Released under the MIT license.</section>
+	</div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://trree.github.io/geek/js/index.js"></script>
+<script src="https://trree.github.io/geek/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+</html>

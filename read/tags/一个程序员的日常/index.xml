@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>一个程序员的日常 on </title>
+    <link>https://trree.github.io/read/tags/%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/</link>
+    <description>Recent content in 一个程序员的日常 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 28 May 2017 19:04:21 +0000</lastBuildDate>
+    
+	<atom:link href="https://trree.github.io/read/tags/%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>消失的五月</title>
+      <link>https://trree.github.io/read/posts/dismay/</link>
+      <pubDate>Sun, 28 May 2017 19:04:21 +0000</pubDate>
+      
+      <guid>https://trree.github.io/read/posts/dismay/</guid>
+      <description>五月好像一瞬间就过去了，在中间没有留下任何的痕迹。 生活仿佛没有波澜的心跳线。 火车穿过悠长的隧道。窗外失去了风景。 一切都在轨道上面。</description>
+    </item>
+    
+  </channel>
+</rss>

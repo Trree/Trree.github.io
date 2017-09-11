@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>restful 接口设计 &middot; Steam</title>
+    <meta name="author" content="John Doe">
+    <meta name="description" content="Your description of the blog">
+    <meta name="generator" content="Hugo 0.26" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- RSS autodiscovery -->
+    
+
+    <link rel="shortcut icon" href="https://trree.github.io/geek/img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://trree.github.io/geek/css/screen.css">
+    <link rel="stylesheet" href="https://trree.github.io/geek/css/github.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://trree.github.io/geek/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://trree.github.io/geek/favicon.ico">
+    
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #33cc99;}
+    .pagination a {color: #33cc99;}
+    .gist .gist-file .gist-meta a:visited {color: #33cc99 !important;}
+    a:focus, a:hover {color: #178b6b;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #178b6b;}
+    .older-posts:hover, .newer-posts:hover {color: #178b6b;}
+</style>
+</head>
+
+<body class="home-template">
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="https://trree.github.io/geek/">Steam</a></h1>
+	
+	
+	<h1 class="blog-subtitle">a minimal theme for <del>Ghost</del> Hugo</h1>
+	
+</header>
+    
+    
+    <main class="content" role="main">
+    
+<article class="post">
+    <header>
+        <h1 class="post-title">restful 接口设计</h1>
+        <div class="post-meta">
+            <time datetime="09 June 2017">
+                09 June 2017
+            </time>
+        </div>
+    </header>
+
+    <section class="post-content">
+        <p>最近在工作中需要实现一个跨平台，易实现，方便调试排错的接口。
+经过考虑之后，发现restful接口是非常合适的。</p>
+
+<p>接口的实现是基于c++的boost的。所以有两个非常重要的boost库需要介绍一下。</p>
+
+<p>首先我们需要想想我们需要怎样的借口调用方式，健壮的，易扩展的。</p>
+
+<pre><code>RequestHandler requesthandler;
+requesthandler.set_handler(&quot;sessions&quot;)
+  .get(boost::bind(&amp;handle_sessions_get_method, _1, _2))
+  .post(boost::bind(&amp;handle_sessions_post_method, _1, _2, boost::ref(vm)))
+  .put(boost::bind(&amp;handle_sessions_put_method, _1, _2))
+  .del(boost::bind(&amp;handle_sessions_delete_method, _1, _2));
+
+</code></pre>
+
+<p>我们在这个接口中注册请求处理函数，分别处理 get，post，put，delete请求。</p>
+
+<p><strong>Q1：为什么所有的method请求是连接在一起的？</strong>
+我们需要保持source的唯一性，一个source只能被声明一次，</p>
+
+<pre><code>/*  -&gt;  表示 key-&gt;value 的数据结构 */
+source: sessions
+action: get ,post, put, del
+callback: handle_sessions_*_method
+
+                           ++++++++++++++++++++++++++++++++++++++++++++
+    +++++++++++++          |  get   -&gt;  handle_sessions_get_method    |
+    |  sessions |  ---&gt;    |  post  -&gt;  handle_sessions_get_method    |
+    +++++++++++++          |  put   -&gt;  handle_sessions_put_method    |
+                           |  del   -&gt;  handle_sessions_delete_method |
+                           ++++++++++++++++++++++++++++++++++++++++++++
+
+</code></pre>
+
+<p>整个的调用就是两个 key-&gt; value 的形式</p>
+
+<p><strong>boost::functon</strong></p>
+
+<pre><code>typedef std::function&lt;void(response &amp;, const request &amp;)&gt;  served_req_handler;
+</code></pre>
+
+<p>boost::function 的boost提供的一个回调函数。</p>
+
+    </section>
+
+    
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+	<div class="inner">
+		<section class="footer-social">
+      
+      <a href="//twitter.com/spf13" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp;
+      
+      
+      
+      
+      
+      
+      <a href="//github.com/spf13" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      
+      
+      
+      
+  </section>
+
+		<section class="copyright">&copy; 2017 <a href="https://trree.github.io/geek/">John Doe</a>. Released under the MIT license.</section>
+	</div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://trree.github.io/geek/js/index.js"></script>
+<script src="https://trree.github.io/geek/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+</html>

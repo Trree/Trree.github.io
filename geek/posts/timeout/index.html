@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Apache 超时设置 &middot; Steam</title>
+    <meta name="author" content="John Doe">
+    <meta name="description" content="Your description of the blog">
+    <meta name="generator" content="Hugo 0.26" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- RSS autodiscovery -->
+    
+
+    <link rel="shortcut icon" href="https://trree.github.io/geek/img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://trree.github.io/geek/css/screen.css">
+    <link rel="stylesheet" href="https://trree.github.io/geek/css/github.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://trree.github.io/geek/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://trree.github.io/geek/favicon.ico">
+    
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #33cc99;}
+    .pagination a {color: #33cc99;}
+    .gist .gist-file .gist-meta a:visited {color: #33cc99 !important;}
+    a:focus, a:hover {color: #178b6b;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #178b6b;}
+    .older-posts:hover, .newer-posts:hover {color: #178b6b;}
+</style>
+</head>
+
+<body class="home-template">
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="https://trree.github.io/geek/">Steam</a></h1>
+	
+	
+	<h1 class="blog-subtitle">a minimal theme for <del>Ghost</del> Hugo</h1>
+	
+</header>
+    
+    
+    <main class="content" role="main">
+    
+<article class="post">
+    <header>
+        <h1 class="post-title">Apache 超时设置</h1>
+        <div class="post-meta">
+            <time datetime="16 October 2016">
+                16 October 2016
+            </time>
+        </div>
+    </header>
+
+    <section class="post-content">
+        <p>在apache的使用过程中，我们可以看到许多的超时设置，
+因为apache是一个web服务器，所以它的超时是包含底层的超时设置，例如tcp协议的。
+所以这一篇文档包含http，ssl，tcp等协议的超时设置。</p>
+
+<ul>
+<li><p>timeout tcp读写超时(wait_for_io_or_timeout)</p>
+
+<ul>
+<li>t &gt; 0  &ndash; read and write calls return APR_TIMEUP if specified time elapsess with no data read or written</li>
+<li>t == 0 &ndash; read and write calls never block</li>
+<li>t &lt; 0  &ndash; read and write calls block</li>
+</ul></li>
+
+<li><p>keepalivetimeout</p>
+
+<ul>
+<li>在keepalivetimeout时间后没有子请求，断开连接(ap_process_http_connection)</li>
+</ul></li>
+
+<li><p>proxytimeout</p>
+
+<ul>
+<li>没有设置的时候与 timeout 的一样</li>
+</ul></li>
+
+<li><p>RequestReadTimeout（reqtimeout_init）</p>
+
+<ul>
+<li>设置读取http头和http正文最大和最小超时时间</li>
+</ul></li>
+
+<li><p>默认值：</p>
+
+<ul>
+<li>MRT_DEFAULT_HEADER_TIMEOUT       20</li>
+<li>MRT_DEFAULT_HEADER_MAX_TIMEOUT   40</li>
+<li>MRT_DEFAULT_HEADER_MIN_RATE      500</li>
+<li>MRT_DEFAULT_BODY_TIMEOUT         20</li>
+<li>MRT_DEFAULT_BODY_MAX_TIMEOUT     0</li>
+<li>MRT_DEFAULT_BODY_MIN_RATE        500</li>
+</ul></li>
+
+<li><p>SSLSessionCacheTimeout</p>
+
+<ul>
+<li>ssl session 超时时间</li>
+</ul></li>
+</ul>
+
+    </section>
+
+    
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+	<div class="inner">
+		<section class="footer-social">
+      
+      <a href="//twitter.com/spf13" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp;
+      
+      
+      
+      
+      
+      
+      <a href="//github.com/spf13" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      
+      
+      
+      
+  </section>
+
+		<section class="copyright">&copy; 2017 <a href="https://trree.github.io/geek/">John Doe</a>. Released under the MIT license.</section>
+	</div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://trree.github.io/geek/js/index.js"></script>
+<script src="https://trree.github.io/geek/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+</html>

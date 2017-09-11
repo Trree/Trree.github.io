@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Think on Steam</title>
+    <link>https://trree.github.io/geek/tags/think/</link>
+    <description>Recent content in Think on Steam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Released under the MIT license.</copyright>
+    <lastBuildDate>Sat, 06 May 2017 17:21:59 +0000</lastBuildDate>
+    
+	<atom:link href="https://trree.github.io/geek/tags/think/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>搬家</title>
+      <link>https://trree.github.io/geek/posts/20170506/</link>
+      <pubDate>Sat, 06 May 2017 17:21:59 +0000</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/20170506/</guid>
+      <description>最近搬了新的住处，忽然不明白自己为什么在那里住了2年。 最近搬了新的住处，在那个地方也住了两年，现在回想一下， 为什么自己会忍受那样的住了2年，我为什么要这么说呢？ 因为那时候刚来上海，所以对生活对要求也不是很高， 是跟朋友合租的，地理位置挺方便的，而且价格也挺合理， 造成的结果就是房子比较老，所以一切配套的都是老家具。 因为对这个地方最初对定位就是睡觉。所以满足生活的基本 要求就满足了。就这样度过了两年。
+现在搬到公司附近，有了属于自己的独立的空间。 而且家具都是比较新的。这一切突然激发了自己的装饰欲望。
+于是在地板上铺好地毯。买了自己一直想种的花。 买了梵高的星空，买了花瓶。 买了衣架，买了真空袋把一切都收拾的整整齐齐。 就连常年治不好的叠被子也因为不和谐而变得自然。
+一直知道自己需要什么，可是在老的住处，看着 那些陈旧的老东西，所有都还是老样子，没有改变。
+这一切都从我拥有了一双象牙筷子说起。</description>
+    </item>
+    
+    <item>
+      <title>thread</title>
+      <link>https://trree.github.io/geek/posts/thread/</link>
+      <pubDate>Sun, 12 Feb 2017 14:57:05 +0000</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/thread/</guid>
+      <description>只要我时间了，我就把这本书看完。 如果我有很多钱，我就要去全世界旅游。  总是喜欢信誓旦旦的对别人说着一些话， 不知道最后多少人达成了目标。 就像小时候想要的那个模型。 现在可以轻而易举的买下小时候的想要的任何东西。 可是突然失去了对这件事情的乐趣。 时间与环境的变化，那么事情本事早就失去了它原本的意义。
+太多时候总喜欢用如果只要达到什么条件， 那么我就要做什么。喜欢把生活一步一步的规划， 达到一个目标之后，才开始进行下一步。 如果有一步陷入了困境，那么就一直阻塞在那一步。
+计算机人员在解释多核的时候，喜欢用一个人在多项任务 之间切换得够快，那么像是在同时处理多件事情一样。 但是我们不能像孙悟空或者技术总监一样分身。分配人员 同时处理不同的事情。
+但是可以像线程一样。 在保证主线程正常运行的时候， 使用多线程的方法，从现在慢慢就开始做自己喜欢的事情。 但是也要保证线程安全。
+refer: thread</description>
+    </item>
+    
+  </channel>
+</rss>

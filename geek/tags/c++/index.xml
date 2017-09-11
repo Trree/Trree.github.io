@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C&#43;&#43; on Steam</title>
+    <link>https://trree.github.io/geek/tags/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on Steam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Released under the MIT license.</copyright>
+    <lastBuildDate>Sun, 20 Aug 2017 14:14:33 +0000</lastBuildDate>
+    
+	<atom:link href="https://trree.github.io/geek/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>begin ambiguous</title>
+      <link>https://trree.github.io/geek/posts/begin-ambiguous/</link>
+      <pubDate>Sun, 20 Aug 2017 14:14:33 +0000</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/begin-ambiguous/</guid>
+      <description>begin.cc
+#include &amp;lt;boost/range.hpp&amp;gt; using boost::begin; using boost::end; int main() { std::string cipher_name(“aaa&amp;quot;); int num_items1 = std::count(begin(cipher_name), end(cipher_name), &#39;-&#39;); return 0; }  if we don&amp;rsquo;t use c++11, then
+ g++ -g begin.cc -o aa
+ it ok.
+But if we use c++11, in the vs2015 or g++4.8
+ g++ -g -std=c++ begin.cc -o aa
+ then we will get
+ error: call of overloaded &#39;begin(std::string&amp;amp;)&#39; is ambiguous int num_items1 = std::count(begin(cipher_name), end(cipher_name), &#39;-&#39;);  it is nonsense, we had used namespace boost::begin in the header, why it also use std::begin。 we write this code to compatible boost and std; and this code is very simple ,we don’t use extra things.</description>
+    </item>
+    
+  </channel>
+</rss>

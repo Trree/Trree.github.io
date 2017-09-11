@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>TCP 握手 &middot; Steam</title>
+    <meta name="author" content="John Doe">
+    <meta name="description" content="Your description of the blog">
+    <meta name="generator" content="Hugo 0.26" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- RSS autodiscovery -->
+    
+
+    <link rel="shortcut icon" href="https://trree.github.io/geek/img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://trree.github.io/geek/css/screen.css">
+    <link rel="stylesheet" href="https://trree.github.io/geek/css/github.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://trree.github.io/geek/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://trree.github.io/geek/favicon.ico">
+    
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #33cc99;}
+    .pagination a {color: #33cc99;}
+    .gist .gist-file .gist-meta a:visited {color: #33cc99 !important;}
+    a:focus, a:hover {color: #178b6b;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #178b6b;}
+    .older-posts:hover, .newer-posts:hover {color: #178b6b;}
+</style>
+</head>
+
+<body class="home-template">
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="https://trree.github.io/geek/">Steam</a></h1>
+	
+	
+	<h1 class="blog-subtitle">a minimal theme for <del>Ghost</del> Hugo</h1>
+	
+</header>
+    
+    
+    <main class="content" role="main">
+    
+<article class="post">
+    <header>
+        <h1 class="post-title">TCP 握手</h1>
+        <div class="post-meta">
+            <time datetime="28 March 2017">
+                28 March 2017
+            </time>
+        </div>
+    </header>
+
+    <section class="post-content">
+        
+
+<p>tcp 报头的各个字段的作用
+想象一下自己去设计一个TCP协议，最中的是保证可靠性。因为每个报文都是要包含这些字段，所以你要怎么保证它的简洁性，不浪费资源。
+<!-- more --></p>
+
+<pre><code>source port:  源端口
+destination port: 目标端口
+sequence number: 序号，每一个TCP报文段都会有一个序列，序列号字段段值其实是本报文段所发送段第一个字节的序号，通过序号来确保服务的可靠性和有序性。
+ack number:确认号
+Data offset:数据偏移
+Reserved:保留字段
+URG(urgent)：紧急指针
+ACK ：确认字段 
+PSH：推送字段
+RST：复位字段
+SYN：同步字段
+FIN：终止字段
+Windows size：窗口大小
+checksum：检验和
+Urgent pointer：紧急指针
+options：选项
+</code></pre>
+
+<h3 id="tcp-三次握手">tcp 三次握手</h3>
+
+<p>为什么tcp握手需要三次？这个保证了什么东西？</p>
+
+<ul>
+<li>客户端发送一个 SYN 给服务端。</li>
+<li>服务端返回一个ack和syn给客户端确认。</li>
+<li>客户端在返回一个ack确认。tcp连接建立。</li>
+</ul>
+
+<p>如果只有两次握手会怎样？
+客户端发送了一个连接请求的SYN，但是由于网络问题，以至这个连接释放之后才到达服务端，
+这时候服务器发送 ack 和 syn 给客户端。
+如果此时就建立连接，由于客户端已经废弃了这个 SYN，所以这个连接客户端什么
+都不会发送，白白浪费了资源。</p>
+
+<p>DDoS攻击的也有相似的原理</p>
+
+<blockquote>
+<p>为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误。</p>
+</blockquote>
+
+<h3 id="tcp-四次挥手">tcp 四次挥手</h3>
+
+<ul>
+<li>客户端发送一个 FIN 给服务端</li>
+<li>服务端发送一个ACK 确定</li>
+<li>服务端再发送一个 FIN 接收服务端的连接</li>
+<li>客户端发送 ACK 确定后关闭连接</li>
+</ul>
+
+<p>半连接的时候是怎么处理的？
+为什么要四次握手？
+time_wait 的作用是什么？危害是什么？</p>
+
+<p>tcp 连接是全双工的，所以一边发送FIN，都需要另一边 ACK 确定。</p>
+
+    </section>
+
+    
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+	<div class="inner">
+		<section class="footer-social">
+      
+      <a href="//twitter.com/spf13" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp;
+      
+      
+      
+      
+      
+      
+      <a href="//github.com/spf13" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      
+      
+      
+      
+  </section>
+
+		<section class="copyright">&copy; 2017 <a href="https://trree.github.io/geek/">John Doe</a>. Released under the MIT license.</section>
+	</div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://trree.github.io/geek/js/index.js"></script>
+<script src="https://trree.github.io/geek/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+</html>

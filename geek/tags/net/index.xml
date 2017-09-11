@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Net on Steam</title>
+    <link>https://trree.github.io/geek/tags/net/</link>
+    <description>Recent content in Net on Steam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Released under the MIT license.</copyright>
+    <lastBuildDate>Sun, 16 Oct 2016 11:02:39 +0000</lastBuildDate>
+    
+	<atom:link href="https://trree.github.io/geek/tags/net/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>自述Tcp超时与重传</title>
+      <link>https://trree.github.io/geek/posts/net-tcp/</link>
+      <pubDate>Sun, 16 Oct 2016 11:02:39 +0000</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/net-tcp/</guid>
+      <description>将tcp的超时与重传的文档太多了，我也是从tcp/ip详解这本书上学习了。所以如果你对这个不熟悉， 希望你先看书，不然基于我自己的理解，很容易让人误解。 但是如果有大神，如果有什么写错，或者理解错误的东西，希望指出，不胜感激。
+tcp的超时设置是为了防止网络问题和节省时间之间的一个平衡， 如果不设置超时，当一个ack没有获取，那么此时直接返回网络错误。 重传是为了防止偶然的网络问题。超时的时间间隔大部分都是指数间隔， 而不是线性的。
+tcp的所有超时的地方，从第一个客户端读取 syn ＋ ack 超时， 超时与重传 connect 超时 响应超时 读写超时 timewait超时
+超时重传机制 哪些会超时，哪些直接发送reset断开连接或者超时多长。</description>
+    </item>
+    
+  </channel>
+</rss>

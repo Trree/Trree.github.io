@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Apache 讲解 &middot; Steam</title>
+    <meta name="author" content="John Doe">
+    <meta name="description" content="Your description of the blog">
+    <meta name="generator" content="Hugo 0.26" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- RSS autodiscovery -->
+    
+
+    <link rel="shortcut icon" href="https://trree.github.io/geek/img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://trree.github.io/geek/css/screen.css">
+    <link rel="stylesheet" href="https://trree.github.io/geek/css/github.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://trree.github.io/geek/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://trree.github.io/geek/favicon.ico">
+    
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #33cc99;}
+    .pagination a {color: #33cc99;}
+    .gist .gist-file .gist-meta a:visited {color: #33cc99 !important;}
+    a:focus, a:hover {color: #178b6b;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #178b6b;}
+    .older-posts:hover, .newer-posts:hover {color: #178b6b;}
+</style>
+</head>
+
+<body class="home-template">
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="https://trree.github.io/geek/">Steam</a></h1>
+	
+	
+	<h1 class="blog-subtitle">a minimal theme for <del>Ghost</del> Hugo</h1>
+	
+</header>
+    
+    
+    <main class="content" role="main">
+    
+<article class="post">
+    <header>
+        <h1 class="post-title">Apache 讲解</h1>
+        <div class="post-meta">
+            <time datetime="09 July 2017">
+                09 July 2017
+            </time>
+        </div>
+    </header>
+
+    <section class="post-content">
+        
+
+<h2 id="概述">概述</h2>
+
+<h3 id="简单服务器流程">简单服务器流程</h3>
+
+<p>Q1：<a href="http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/">简述在浏览器中输入 www.baidu.com 之后发生的一系列事情</a></p>
+
+<p><img src="/images/web.png" alt="img" /></p>
+
+<p>appendix1：<a href="https://stackoverflow.com/questions/246859/http-1-0-vs-1-1">http1.0 vs http1.1</a></p>
+
+<h3 id="i-o-模型">I/O 模型</h3>
+
+<ul>
+<li>阻塞式 I/O 模型 <img src="/images/block-i-o.png" alt="img" /></li>
+<li>非阻塞 I/O 模型 <img src="/images/non-block-i-o.png" alt="img" /></li>
+<li>I/O 复用 模型   <img src="/images/io-sync.png" alt="img" /></li>
+<li>异步 I/O 模型   <img src="/images/io-async.png" alt="img" /></li>
+</ul>
+
+<p><a href="http://download.csdn.net/download/xumaojun/4680440"><em>UNIX网络编程</em>(卷1)：套接字联网API(第3版)</a></p>
+
+<h3 id="工作模式">工作模式</h3>
+
+<ul>
+<li><p><a href="https://httpd.apache.org/docs/2.4/mod/event.html">event</a>(多进程多线程)</p></li>
+
+<li><p><a href="https://httpd.apache.org/docs/2.4/mod/prefork.html">prefork</a>(多进程)</p></li>
+
+<li><p><a href="https://httpd.apache.org/docs/2.4/mod/worker.html">worker</a>(多进程多线程)</p></li>
+</ul>
+
+<p><strong>查看apache的工作模式</strong></p>
+
+<blockquote>
+<p>/usr/sbin/apachectl -V</p>
+</blockquote>
+
+<h3 id="内存管理">内存管理</h3>
+
+<p><a href="https://trree.github.io/2017/02/06/apache-pool/">内存管理</a></p>
+
+<h3 id="核心数据结构">核心数据结构</h3>
+
+<p><img src="/images/datastruct.png" alt="img" /></p>
+
+<p><strong>request的关键元素</strong></p>
+
+<p>The most essential part of any request is the <strong>request record</strong>. In a call to a handler function, this is represented by the <strong>request_rec</strong> structure passed along with every call that is made. This struct, typically just referred to as <code>r</code> in modules, contains all the information you need for your module to fully process any HTTP request and respond accordingly.</p>
+
+<p>Some key elements of the <code>request\_rec</code>structure are:</p>
+
+<ul>
+<li><code>r-&gt;handler (char*):</code> Contains the name of the handler the server is currently asking to do the handling of this request</li>
+<li><code>r-&gt;method (char*):</code> Contains the HTTP method being used, f.x. GET or POST</li>
+<li><code>r-&gt;filename (char*):</code> Contains the translated filename the client is requesting</li>
+<li><code>r-&gt;args (char*):</code> Contains the query string of the request, if any</li>
+<li><code>r-&gt;headers_in (apr_table_t*):</code> Contains all the headers sent by the client</li>
+<li><code>r-&gt;connection (conn_rec*):</code> A record containing information about the current connection</li>
+<li><code>r-&gt;user (char*):</code> If the URI requires authentication, this is set to the username provided</li>
+<li><code>r-&gt;useragent_ip (char*):</code> The IP address of the client connecting to us</li>
+<li><code>r-&gt;pool (apr_pool_t*)</code>: The memory pool of this request. We&rsquo;ll discuss this in the &ldquo;<a href="https://httpd.apache.org/docs/2.4/en/developer/#memory">Memory management</a>&rdquo; chapter.</li>
+</ul>
+
+<p><a href="http://wiki.koal.com/wiki/index.php/Apache:%E6%A0%B8%E5%BF%83%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">核心数据结构</a></p>
+
+<h3 id="mod-helloworld-模块讲解">mod_helloworld 模块讲解</h3>
+
+<p><a href="https://httpd.apache.org/docs/2.4/en/developer/modguide.html">modguide</a></p>
+
+<p><a href="http://wiki.koal.com/wiki/index.php/Apache:%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B">Apache: 启动流程</a></p>
+
+<p><a href="http://wiki.koal.com/wiki/index.php/Apache:%E8%BF%9E%E6%8E%A5/%E8%AF%B7%E6%B1%82%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B">Apache: 连接 / 请求处理流程</a></p>
+
+<blockquote>
+<p>apxs -n helloworld -g</p>
+</blockquote>
+
+<p><strong>Defining a module</strong></p>
+
+<pre><code class="language-c">#include &quot;httpd.h&quot;
+#include &quot;http_config.h&quot;
+#include &quot;http_protocol.h&quot;
+#include &quot;ap_config.h&quot;
+
+/* The sample content handler */
+static int helloworld_handler(request_rec *r)
+{
+    if (strcmp(r-&gt;handler, &quot;helloworld&quot;)) {
+        return DECLINED;
+    }
+    r-&gt;content_type = &quot;text/html&quot;;
+
+    if (!r-&gt;header_only)
+        ap_rputs(&quot;The sample page from mod_helloworld.c\n&quot;, r);
+    return OK;
+}
+
+
+static void helloworld_register_hooks(apr_pool_t *p)
+{
+    ap_hook_handler(helloworld_handler, NULL, NULL, APR_HOOK_MIDDLE);
+}
+
+/* Dispatch list for API hooks */
+/* 标记服务器能够加载的模块名 */
+/* 为模块配置设置一个命名空间 */
+module AP_MODULE_DECLARE_DATA helloworld_module = {
+    STANDARD20_MODULE_STUFF,
+    NULL,                  /* create per-dir    config structures */
+    NULL,                  /* merge  per-dir    config structures */
+    NULL,                  /* create per-server config structures */
+    NULL,                  /* merge  per-server config structures */
+    helloworld_directives, /* table of config file commands       */
+    helloworld_register_hooks  /* register hooks                      */
+};
+</code></pre>
+
+<h3 id="指令">指令</h3>
+
+<pre><code class="language-c">typedef struct {
+    int         enabled;      /* Enable or disable our module */
+    const char *path;         /* Some path to...something */
+    int         typeOfAction; /* 1 means action A, 2 means action B and so on */
+} example_config;
+
+static const command_rec helloworld_directives[] =
+{
+    AP_INIT_TAKE1(&quot;exampleEnabled&quot;, example_set_enabled, NULL, RSRC_CONF, &quot;Enable or disable mod_example&quot;),
+    AP_INIT_TAKE1(&quot;examplePath&quot;, example_set_path, NULL, RSRC_CONF, &quot;The path to whatever&quot;),
+    AP_INIT_TAKE2(&quot;exampleAction&quot;, example_set_action, NULL, RSRC_CONF, &quot;Special action value!&quot;),
+    { NULL }
+};
+</code></pre>
+
+<p><img src="/images/build_a_mod_4.png" alt="img" /></p>
+
+<h4 id="配置的作用域">配置的作用域</h4>
+
+<ul>
+<li>OR_ALL 所有的地方使用</li>
+<li>ACCESS_CONF：允许指令出现这Directiory Location 区间<strong>以内</strong>的顶级命令区，一般是用来设置特定文的指令控制</li>
+<li>RSRC_CONF: 允许指令出现在 Directiory Location 区间<strong>以外</strong>的顶级命令区</li>
+</ul>
+
+<h4 id="配置段合并">配置段合并</h4>
+
+<p>配置段会按非常特别的顺序依次生效，由于这会对配置指令的处理结果产生重大影响，因此理解它的流程非常重要。</p>
+
+<p>合并的顺序是：</p>
+
+<ol>
+<li><code>&lt;Directory&gt;</code>(除了正则表达式)和<code>.htaccess</code>同时处理；(如果允许的话，<code>.htaccess</code>的设置会覆盖<code>&lt;Directory&gt;</code>的设置)</li>
+<li><code>&lt;DirectoryMatch&gt;</code>(和<code>&lt;Directory ~&gt;</code>)</li>
+<li><code>&lt;Files&gt;</code>和<code>&lt;FilesMatch&gt;</code>同时处理</li>
+<li><code>&lt;Location&gt;</code>和<code>&lt;LocationMatch&gt;</code>同时处理</li>
+</ol>
+
+<p>除了<code>&lt;Directory&gt;</code>，每个组都按它们在配置文件中出现的顺序被依次处理，而<code>&lt;Directory&gt;</code>(上面的第1组)，会按字典顺序由短到长被依次处理。例如：<code>&lt;Directory /var/web/dir&gt;</code>会先于<code>&lt;Directory /var/web/dir/subdir&gt;</code>被处理。如果有多个指向同一个目录的<code>&lt;Directory&gt;</code>段，则按它们在配置文件中的顺序被依次处理。用<code>Include</code>指令包含进来的配置被视为按原样插入到<code>Include</code>指令的位置。</p>
+
+<p>位于<code>&lt;VirtualHost&gt;</code>容器中的配置段在外部对应的段处理完毕*以后*再处理，这样就允许虚拟主机覆盖主服务器的设置。</p>
+
+<p><strong>代码示例</strong></p>
+
+<pre><code class="language-c">void *create_dir_conf(apr_pool_t *pool, char *context) {
+    context = context ? context : &quot;(undefined context)&quot;;
+    example_config *cfg = apr_pcalloc(pool, sizeof(example_config));
+    if(cfg) {
+        /* Set some default values */
+        strcpy(cfg-&gt;context, context);
+        cfg-&gt;enabled = 0;
+        cfg-&gt;path = &quot;/foo/bar&quot;;
+        cfg-&gt;typeOfAction = 0x11;
+    }
+    return cfg;
+}
+
+void *merge_dir_conf(apr_pool_t *pool, void *BASE, void *ADD) {
+    example_config *base = (example_config *) BASE ; /* This is what was set in the parent context */
+    example_config *add = (example_config *) ADD ;   /* This is what is set in the new context */
+    example_config *conf = (example_config *) create_dir_conf(pool, &quot;Merged configuration&quot;); /* This will be the merged configuration */
+    
+    /* Merge configurations */
+    conf-&gt;enabled = ( add-&gt;enabled == 0 ) ? base-&gt;enabled : add-&gt;enabled ;
+    conf-&gt;typeOfAction = add-&gt;typeOfAction ? add-&gt;typeOfAction : base-&gt;typeOfAction;
+    strcpy(conf-&gt;path, strlen(add-&gt;path) ? add-&gt;path : base-&gt;path);
+    
+    return conf ;
+}
+
+module AP_MODULE_DECLARE_DATA   example_module =
+{
+    STANDARD20_MODULE_STUFF,
+    create_dir_conf, /* Per-directory configuration handler */
+    merge_dir_conf,  /* Merge handler for per-directory configurations */
+    NULL,            /* Per-server configuration handler */
+    NULL,            /* Merge handler for per-server configurations */
+    directives,      /* Any directives we may have for httpd */
+    register_hooks   /* Our hook registering function */
+};
+
+</code></pre>
+
+<h3 id="hook-钩子">hook 钩子</h3>
+
+<p><img src="/images/build_a_mod_2.png" alt="img" /></p>
+
+<p><strong>钩子的处理</strong></p>
+
+<ul>
+<li><pre><code class="language-c">/*在这个钩子处按照顺序运行所有的被注册函数*/
+AP_IMPLEMENT_HOOK_VOID(do_something, (request_rec *r, int n), (r, n))
+</code></pre></li>
+
+<li><pre><code class="language-c">/*在这个钩子处运行所有的被注册函数直到返回了一个不是DECLINED的值*/
+AP_IMPLEMENT_HOOK_RUN_FIRST(int, do_something, (request_rec *r, int n), (r, n), DECLINED)
+</code></pre></li>
+
+<li><pre><code class="language-c">/*运行所有的函数直到或者除非返回一个错误*/
+AP_IMPLEMENT_HOOK_RUN_ALL(int, do_something, (request_rec *r, int n), (r, n), OK, DECLINED)
+</code></pre></li>
+</ul>
+
+<p><strong>其它有用的钩子</strong></p>
+
+<p>Hooking into the request handling phase is but one of many hooks that you can create. Some other ways of hooking are:</p>
+
+<ul>
+<li><p><code>ap_hook_child_init</code>: Place a hook that executes when a child process is spawned (commonly used for initializing modules after the server has forked)</p></li>
+
+<li><p><code>ap_hook_pre_config</code>: Place a hook that executes before any configuration data has been read (very early hook)</p></li>
+
+<li><p><code>ap_hook_post_config</code>: Place a hook that executes after configuration has been parsed, but before the server has forked</p></li>
+
+<li><p><code>ap_hook_translate_name</code>: Place a hook that executes when a URI needs to be translated into a filename on the server (think <code>mod_rewrite</code>)</p></li>
+
+<li><p><code>ap_hook_quick_handler</code>: Similar to <code>ap_hook_handler</code>, except it is run before any other request hooks (translation, auth, fixups etc)</p></li>
+
+<li><p><code>ap_hook_log_transaction</code>: Place a hook that executes when the server is about to add a log entry of the current request</p></li>
+</ul>
+
+<p>​</p>
+
+<h3 id="代码调试">代码调试</h3>
+
+<p><a href="https://trree.github.io/2017/03/22/apache-debug/">apache调试</a></p>
+
+    </section>
+
+    
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+	<div class="inner">
+		<section class="footer-social">
+      
+      <a href="//twitter.com/spf13" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp;
+      
+      
+      
+      
+      
+      
+      <a href="//github.com/spf13" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      
+      
+      
+      
+  </section>
+
+		<section class="copyright">&copy; 2017 <a href="https://trree.github.io/geek/">John Doe</a>. Released under the MIT license.</section>
+	</div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://trree.github.io/geek/js/index.js"></script>
+<script src="https://trree.github.io/geek/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+</html>
