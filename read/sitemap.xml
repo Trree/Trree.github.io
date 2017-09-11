@@ -28,8 +28,18 @@
   </url>
   
   <url>
+    <loc>https://trree.github.io/read/posts/20170506/</loc>
+    <lastmod>2017-05-06T17:21:59+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://trree.github.io/read/posts/wash-painting/</loc>
     <lastmod>2017-02-15T09:02:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://trree.github.io/read/posts/20161025/</loc>
+    <lastmod>2016-10-25T08:48:22+00:00</lastmod>
   </url>
   
   <url>
@@ -101,6 +111,12 @@
   
   <url>
     <loc>https://trree.github.io/read/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://trree.github.io/read/tags/novel/</loc>
+    <lastmod>2016-10-25T08:48:22+00:00</lastmod>
     <priority>0</priority>
   </url>
   

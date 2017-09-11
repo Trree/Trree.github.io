@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Network on Trree</title>
+    <link>https://trree.github.io/geek/tags/network/</link>
+    <description>Recent content in Network on Trree</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Released under the MIT license.</copyright>
+    <lastBuildDate>Tue, 28 Mar 2017 21:44:05 +0000</lastBuildDate>
+    
+	<atom:link href="https://trree.github.io/geek/tags/network/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>TCP 握手</title>
+      <link>https://trree.github.io/geek/posts/tcp-handshark/</link>
+      <pubDate>Tue, 28 Mar 2017 21:44:05 +0000</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/tcp-handshark/</guid>
+      <description>tcp 报头的各个字段的作用 想象一下自己去设计一个TCP协议，最中的是保证可靠性。因为每个报文都是要包含这些字段，所以你要怎么保证它的简洁性，不浪费资源。 source port: 源端口 destination port: 目标端口 sequence number: 序号，每一个TCP报文段都会有一个序列，序列号字段段值其实是本报文段所发送段第一个字节的序号，通过序号来确保服务的可靠性和有序性。 ack number:确认号 Data offset:数据偏移 Reserved:保留字段 URG(urgent)：紧急指针 ACK ：确认字段 PSH：推送字段 RST：复位字段 SYN：同步字段 FIN：终止字段 Windows size：窗口大小 checksum：检验和 Urgent pointer：紧急指针 options：选项  tcp 三次握手 为什么tcp握手需要三次？这个保证了什么东西？
+ 客户端发送一个 SYN 给服务端。 服务端返回一个ack和syn给客户端确认。 客户端在返回一个ack确认。tcp连接建立。  如果只有两次握手会怎样？ 客户端发送了一个连接请求的SYN，但是由于网络问题，以至这个连接释放之后才到达服务端， 这时候服务器发送 ack 和 syn 给客户端。 如果此时就建立连接，由于客户端已经废弃了这个 SYN，所以这个连接客户端什么 都不会发送，白白浪费了资源。
+DDoS攻击的也有相似的原理
+ 为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误。
+ tcp 四次挥手  客户端发送一个 FIN 给服务端 服务端发送一个ACK 确定 服务端再发送一个 FIN 接收服务端的连接 客户端发送 ACK 确定后关闭连接  半连接的时候是怎么处理的？ 为什么要四次握手？ time_wait 的作用是什么？危害是什么？</description>
+    </item>
+    
+    <item>
+      <title>自述Tcp超时与重传</title>
+      <link>https://trree.github.io/geek/posts/net-tcp/</link>
+      <pubDate>Sun, 16 Oct 2016 11:02:39 +0000</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/net-tcp/</guid>
+      <description>将tcp的超时与重传的文档太多了，我也是从tcp/ip详解这本书上学习了。所以如果你对这个不熟悉， 希望你先看书，不然基于我自己的理解，很容易让人误解。 但是如果有大神，如果有什么写错，或者理解错误的东西，希望指出，不胜感激。
+tcp的超时设置是为了防止网络问题和节省时间之间的一个平衡， 如果不设置超时，当一个ack没有获取，那么此时直接返回网络错误。 重传是为了防止偶然的网络问题。超时的时间间隔大部分都是指数间隔， 而不是线性的。
+tcp的所有超时的地方，从第一个客户端读取 syn ＋ ack 超时， 超时与重传 connect 超时 响应超时 读写超时 timewait超时
+超时重传机制 哪些会超时，哪些直接发送reset断开连接或者超时多长。</description>
+    </item>
+    
+    <item>
+      <title>一个偶然的arp网络错误</title>
+      <link>https://trree.github.io/geek/posts/net-arp/</link>
+      <pubDate>Sun, 16 Oct 2016 11:02:27 +0000</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/net-arp/</guid>
+      <description>在网络的使用中这个是我们比较少关注的一个协议， 它是用来查看ip地址和mac地址的对应关系。
+一般情况下网络问题很少出现在这个地方。而且如果查看这个值出现问题的时候， 一般是上层的协议出现了问题，或者就是整个网络出现了问题。
+但是今天需要讲述一个比较特殊的情况下arp的网络问题。 问题的起源是我使用openvpn搭建一个client-to-client 的环境。 就是使用一台openvpn的服务器，然后使用两台openvpn的客户端去连接openvpn的服务器。 我在openvpn中配好 client-to-client 选项后， 然后两台openvpn的客户端可以ping通服务端，也可以看到下发的策略。 但是在两台客户端的中相互ping对方，却是不通的。 查看ip和tcp，都是正常的。没有检查到异常，但是一直都是不通的。
+最后没有办法，只能按照网络协议层一层一层的往下去分析。 在windows的cmd下，查看路由 route print。路由正常。 ip和端口正常，ip层和tcp层都是正常的。 使用arp -a的指令，得到
+arp -a 172.16.0.2 ether 00:ff:90:4e:20:cc C tap0 172.16.0.3 ether 00:ff:90:4e:20:cc C tap0  172.16.0.0/16 是虚拟IP的地址，第三项是对应的Mac地址， 所以到链路层之后，有两个相同的mac地址。 所以从mac地址转换成IP地址的时候丢失了IP地址。所以一直访问不通。
+为什么会有两个相同的mac地址呢？第二个openvpn的客户端是直接复制第一个 openvpn的虚拟机。所以出现了两个相同的mac地址。修改其中一个虚拟IP的mac地址 之后就可以相互ping通对方了。
+如果想重现问题，可以将两个IP地址改成相同的mac地址，查看一下你的那边会出现什么情况。
+###虚拟IP
+arp -a 192.168.41.97 ether 00:0C:29:EB:70:DA C eth0 192.168.41.92 ether 00:0C:29:EB:70:DA C eth0  有时候我们可以在同一台机器上看到两个IP有相同的物理地址。 traceroute 这两个IP都是正常的，可以访问的。 没有出现上面不能访问的情况。
+         MAC destination MAC source   Source Address Destination Address(ip/Virtual_ip)   MAC destination MAC source    在这种情况下主机中发出的数据中包含了目标地址的IP，所以可以正常到达目标主机。 但是如果是两个Mac相同，发送apr的tell数据包的时候，会有两个地方都会响应， 那么就会造成Mac地址冲突了。</description>
+    </item>
+    
+  </channel>
+</rss>

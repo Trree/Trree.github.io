@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Steam</title>
+    <title>Trree</title>
     <link>https://trree.github.io/geek/</link>
-    <description>Recent content on Steam</description>
+    <description>Recent content on Trree</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Released under the MIT license.</copyright>
@@ -79,11 +79,11 @@ Q1：为什么所有的method请求是连接在一起的？ 我们需要保持so
     
     <item>
       <title>Apache 压力测试后的大量本地连接</title>
-      <link>https://trree.github.io/geek/posts/20170520/</link>
+      <link>https://trree.github.io/geek/posts/apache-bench/</link>
       <pubDate>Sat, 20 May 2017 13:32:10 +0000</pubDate>
       
-      <guid>https://trree.github.io/geek/posts/20170520/</guid>
-      <description>在对Apache（prefork多进程模式）进行压力测试对时候， 发现一旦停止压力测试对时候。 会出现非常多的本地连接 背景 在对Apache（prefork多进程模式）进行压力测试对时候， 客户端IP：192.168.41.96 网关IP和端口; 0.0.0.0:447 发现一旦停止压力测试对时候。 使用 netstat -an | grep 127 会出现非常多的 127.0.0.1:447 连接
+      <guid>https://trree.github.io/geek/posts/apache-bench/</guid>
+      <description>背景 在对Apache（prefork多进程模式）进行压力测试对时候， 客户端IP：192.168.41.96 网关IP和端口; 0.0.0.0:447 发现一旦停止压力测试对时候。 使用 netstat -an | grep 127 会出现非常多的 127.0.0.1:447 连接
 tcp 0 0 127.0.0.1:38984 127.0.0.1:447 TIME_WAIT tcp 0 0 127.0.0.1:38994 127.0.0.1:447 TIME_WAIT  查看的时候连接都已经是 TIME_WAIT 的状态，无法查看它是通过哪些进程查看它建立连接。 我们怀疑这些连接可能对性能会有影响。 所以对这个问题进行了排查。
 问题解决 因为所有的127.0.0.1的端口都与447端口断开连接，又因为这些无法有效都用gdb调试。 所以使用 strace 的方式跟踪进程。
  strace -p 683 -o filename_childpid strace -p 899 -o filename_masterpid
@@ -99,19 +99,6 @@ accept(3, {sa_family=AF_INET, sin_port=htons(36448), sin_addr=inet_addr(&amp;quo
       
       <guid>https://trree.github.io/geek/posts/ask-question/</guid>
       <description> 在问问题之前不需要问在不在，一般上班时间并且头像是亮着的话人是在的。 这个项目的背景是怎样的？问题是在什么时候产生的，是在部署的时候还是网关在运行的时候产生的，如果是网关在运行的时候产生的，那么在之前有没有进行过什么操作。需要能够描述问题产生原因。而不是只是描述一个结果。 问题能否重现，重现的方法是什么，如果不能重现，说明不能重现的理由。（在自己电脑中使用虚拟机搭建网关的环境） 提供网关的版本号，升级包记录等相关信息。 需要时要能够使用tcpdump到网关后台抓包。平时需要学会使用tcpdump和wireshare等简单的工具。 简单的学会一些linux的命令行，vim等操作。 问问题之前先参考wiki或者FAQ上是否存在类似的问题。 学会怎么问问题。提供以上信息，并且能够一次性把问题描述清楚。  </description>
-    </item>
-    
-    <item>
-      <title>搬家</title>
-      <link>https://trree.github.io/geek/posts/20170506/</link>
-      <pubDate>Sat, 06 May 2017 17:21:59 +0000</pubDate>
-      
-      <guid>https://trree.github.io/geek/posts/20170506/</guid>
-      <description>最近搬了新的住处，忽然不明白自己为什么在那里住了2年。 最近搬了新的住处，在那个地方也住了两年，现在回想一下， 为什么自己会忍受那样的住了2年，我为什么要这么说呢？ 因为那时候刚来上海，所以对生活对要求也不是很高， 是跟朋友合租的，地理位置挺方便的，而且价格也挺合理， 造成的结果就是房子比较老，所以一切配套的都是老家具。 因为对这个地方最初对定位就是睡觉。所以满足生活的基本 要求就满足了。就这样度过了两年。
-现在搬到公司附近，有了属于自己的独立的空间。 而且家具都是比较新的。这一切突然激发了自己的装饰欲望。
-于是在地板上铺好地毯。买了自己一直想种的花。 买了梵高的星空，买了花瓶。 买了衣架，买了真空袋把一切都收拾的整整齐齐。 就连常年治不好的叠被子也因为不和谐而变得自然。
-一直知道自己需要什么，可是在老的住处，看着 那些陈旧的老东西，所有都还是老样子，没有改变。
-这一切都从我拥有了一双象牙筷子说起。</description>
     </item>
     
     <item>
@@ -193,27 +180,6 @@ refer: Memory_resource</description>
 在工作的时候哪些场景会让你不开心，不开心的原因是什么， 是因为事情本身，还是这种交互之间占据了太多时间，是对方的原因，还是自己没有讲清楚的原因。
 什么场景下你会感到非常的烦躁，是因为工作事情本身的原因， 还是没有休息好的原因。
 什么东西会影响你工作的效率，突然的电话的打扰，消息，邮箱的打扰。 身边同事的打扰，什么打扰你可以忍受，什么打扰你不可以忍受。 什么东西会促进你的工作效率，在工作的时候听音乐可以促进你的工作效率吗？ 在什么情况下你需要音乐去促进你的效率。 还有什么硬件或者软件可以促进你的效率，你有争取去改进你的原有的什么方式吗？</description>
-    </item>
-    
-    <item>
-      <title>人头马身</title>
-      <link>https://trree.github.io/geek/posts/20161025/</link>
-      <pubDate>Tue, 25 Oct 2016 08:48:22 +0000</pubDate>
-      
-      <guid>https://trree.github.io/geek/posts/20161025/</guid>
-      <description>(一)
-来到这个城市已经十年，时间在指尖上溜过，却什么也不曾留下，一无所有的来，可是比到来变得更加得一无所有， 来的时候以为能够在这个城市留下辉煌，可是我是留下来，也把我的卑微也留下。 如果我手中有一把剑，我会成为一位剑客，纵横四海，无所畏惧，可是我手中没有剑。 如果我会跳舞，我会在月光下，在舞台中央，在所有的目光中灼灼生辉，可是我不会跳舞。 如果我活在魏晋，我会成为一个放浪形骸的人，饮觞取酒，或宠辱不惊，或尽情悲痛，可是我活在不一样的时代。 如果，如果，我只是一个普普通通的一个人，什么也不会，什么也做不了。 如果我手中有一个键盘，是的，我手中现在只剩下键盘。看着屏幕，顾影自怜。 我是一名程序员，版本更新之后，旧的代码已经面目全非。时间也就变得面目全非。
-你是否感觉到，这个世界每时每刻都在变化，在你闭上眼的那一刻，在你早上醒过来的那一刻，你已经转换到了另一个时空， 细微的变化并没有让你察觉，可是在睁开眼睛的那一刻，你是否有一丝的恍惚? 你不能同时存在一条河里两次，你不动，水已经动了，你跟着水动，位置已经变了。 我已经变得越来越恍惚，越来越心不在焉，头脑昏沉。我的意志感觉不受束缚，手也已经开始不受控制。 “你好，我叫陈晓，来自你的平行世界。” 仿佛一瞬间清醒过来，感觉到恐惧，难道那个世界的科技已经发达到了这种程度。 不知道为什么那个平行世界会找上我,难道是他能够感受到每个时间线，在所有的时间线上选择了我。或者我们身上有着一个相同的时间节点。 记得那是一个非常普通的的晚上，我坐在我的电脑前面，可能那个时候我意外的成为了一个叠加态，在理论物理和工作两个态之间做选择。 我的世界坍塌在工作上面，而另一个我坍塌在做科研，而且是理论物理的方向。 “如果你能够看到，那么在明天凌晨2点到xx区xx路xx广场见面。”
-刚上出租车，出租车司机就开始自说自话了，聊东聊西。他们是这个城市半夜的孤魂，永远也找不到自己的出口。 接着就开始抱怨：“那些男司机每天下班回家，家里都会做好饭，喜好衣服，把一切都弄好，我们呢？休息的时候 还要早起洗衣服做饭，拖地板。永远没有休息的时候。” “其实我还算幸运的了，我载完你去洗车，然后去交接车子之后就可以回家了。 我的一个同事就辛苦的多了，好不容易在老家盖起了房子，贷款还没还清，老公就检查出来癌症， 平常她的老公也没有对她怎么怎么好，可是却要一起去承担这种事情。看她的样子都老了好多。” 她没有讲完我就到目的地了，可是感觉她永远也有讲不完的故事，然后对着不同的人讲着相似的故事。
-下车之后12点多了，在这个城市中游荡，此时正是盛宴之后。商厦这时候都已经关门，却依然发出艳丽的霓虹灯。 路灯这时候撑起昏黄的小伞，清冷的空气扑面而来。 这时候路上已经没有什么人，可以听见脚底与路面的摩擦的声音。呼吸的声音。 月亮挂在高远的天空中。 此刻仿佛有着黑洞在靠近，将一切都吸引过去，包括光，内心也变得恐惧起来。
-静谧一下子被打破，所有的东西都动了起来。一切都开始扭曲。 所有的东西都长出了脚，高楼缓慢笨拙的移动着，路灯开始奔跑起来，远方传来响亮的嘶吼声。 仿佛一只蚂蚁在人群之中一样，他们走动，巨大的脚掌在空中移动，明与暗不停的交错，我却也无处可躲， 我是如此的微小，他们也感受不到我的存在。
-在慌乱中我呆滞地站在原地，看着一切。
-(2)
-达达的马蹄，一匹马在暗黑的玻璃上，在流动的水上飞跃。 它停在我的面前，载起我，飞驰而上， 流动的城市形成了一个八卦阵的形状。一辆辆车子在其中左突，右冲，可是总是在这个城市中打圈。
-是的，他的人生毫无价值，你看，他蜷缩在那个角落中，衣衫褴褛，比一张废纸还不如。
-你看那个齿轮，他天生就是一块齿轮吗？ 你知道齿轮的生产过程马？他们本是一块铁，因为特殊的需要，经过高温溶成铁水，然后浇筑在模版上。
-来到镜子面前，仔细的端详着这张脸，这么熟悉，我仔细的看着，仿佛看着一个非常熟悉是字一样，突然间变得非常的陌生， 文字好像突然有了形象，而这张脸仿佛逐渐变成了一个符号，没有什么特点，没有美丑，没有颜色，只剩下一个粗劣的线条。 另一面镜子就竖在对面，瞬间这张脸被复制了无数遍，
-你是谁，你在干什么，你想要什么？</description>
     </item>
     
     <item>
@@ -331,13 +297,13 @@ New, TLSv1/SSLv3, Cipher is ECDHE-RSA-AES256-GCM-SHA384 Server public key is 204
       <pubDate>Sun, 16 Oct 2016 10:59:47 +0000</pubDate>
       
       <guid>https://trree.github.io/geek/posts/apache-cache/</guid>
-      <description>背景 apche 提供了cache的功能，能够将应用服务端的资源缓存在apache中， 尤其是在apache是代理服务器，原始服务器的物理距离非常远的时候， 性能就能够非常好的体现。
+      <description>apche 提供了cache的功能，能够将应用服务端的资源缓存在apache中， 尤其是在apache是代理服务器，原始服务器的物理距离非常远的时候， 性能就能够非常好的体现。
 所以此时的网关服务器也可以作为缓存服务器使用。 因为公司使用的是apache2.0系列的。 所以在它那里发现它只支持URL的strcasecmp匹配。 所以匹配所有的URL为 &amp;lsquo;/&amp;lsquo;。但是我们希望提供普遍的过滤功能。 只缓存 .jpg,.png,.css 等不变的内容。而将经常需要改成的 .html , .js 不缓存。
 所以我们的方案是在 cacheenable 中增加一个可变参数，正则配置的参数。 当正则匹配存在的时候，只使用正则批准，如果不存在，则使用原来的 url的匹配。保证与原2.0的兼容性。
 网关cache原理  不存在缓存的时候，客户端发送请求给网关，网关再向后端发送请求，然后返回给网关，网关返回给客户端。 存在缓存的时候，首先，mod_cache将是一个URL映射模块，也就是说，如果一个URL已经被缓存并且这个缓存尚未失效，该请求将由mod_cache直接处理。这也意味着在处理一个请求时通常还要发生的其他阶段：比如权限验证，mod_proxy或mod_rewrite处理的阶段，将不会发生。网关可以直接返回内容给客户端。  cache 类型 mem 基于mem缓存,在高级设置中已经实现，填入mem会产生配置如下
 CacheEnable mem MCacheSize 4096 MCacheMaxObjectCount 4 MCacheMinObjectSize 1 MCacheMaxObjectSize 1048576  disk 基于disk缓存，需要另外填写配置文件
 CacheDefaultExpire 3600 CacheEnable disk / CacheRoot /tmp/apacheCache CacheDirLevels 3 CacheDirLength 4 CacheMaxFileSize 1048576 CacheMinFileSize 10  ramdisk实现方案 基于disk缓存，将CacheRoot设置为内存盘目录，开机的时候自动建立整个内存的10%用于存放缓存。 ​
-缓存文件 在CacheRoot的目录下，生成带后缀的缓存文件.data 和 .header。 可以使用strings命令查看文件 .data保存了缓存文件内容 .</description>
+缓存文件 在CacheRoot的目录下，生成带后缀的缓存文件.data 和 .header。 可以使用strings命令查看文件 .data保存了缓存文件内容 .header保存了缓存文件的头信息。</description>
     </item>
     
     <item>
@@ -350,7 +316,7 @@ CacheDefaultExpire 3600 CacheEnable disk / CacheRoot /tmp/apacheCache CacheDirLe
 windows软件 - zeal(Mac dash) API 查看工具 - typrora makrdown所见即所得工具 - launch 快速启动工具 - everything 快速文档搜索工具 - bash on-my-zsh
 在线工具 - processon - workflowy - google analyze - baidu analyze - google drive
 blog
- hexo  翻墙 - XX-Net</description>
+ hugo  翻墙 - XX-Net</description>
     </item>
     
   </channel>

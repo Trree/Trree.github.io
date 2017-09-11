@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Apache on Steam</title>
+    <title>Apache on Trree</title>
     <link>https://trree.github.io/geek/tags/apache/</link>
-    <description>Recent content in Apache on Steam</description>
+    <description>Recent content in Apache on Trree</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Released under the MIT license.</copyright>
@@ -32,6 +32,53 @@ The most essential part of any request is the request record. In a call to a han
     </item>
     
     <item>
+      <title>Apache 压力测试后的大量本地连接</title>
+      <link>https://trree.github.io/geek/posts/apache-bench/</link>
+      <pubDate>Sat, 20 May 2017 13:32:10 +0000</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/apache-bench/</guid>
+      <description>背景 在对Apache（prefork多进程模式）进行压力测试对时候， 客户端IP：192.168.41.96 网关IP和端口; 0.0.0.0:447 发现一旦停止压力测试对时候。 使用 netstat -an | grep 127 会出现非常多的 127.0.0.1:447 连接
+tcp 0 0 127.0.0.1:38984 127.0.0.1:447 TIME_WAIT tcp 0 0 127.0.0.1:38994 127.0.0.1:447 TIME_WAIT  查看的时候连接都已经是 TIME_WAIT 的状态，无法查看它是通过哪些进程查看它建立连接。 我们怀疑这些连接可能对性能会有影响。 所以对这个问题进行了排查。
+问题解决 因为所有的127.0.0.1的端口都与447端口断开连接，又因为这些无法有效都用gdb调试。 所以使用 strace 的方式跟踪进程。
+ strace -p 683 -o filename_childpid strace -p 899 -o filename_masterpid
+ filename_childpid 是在压力测试的时候临时创建出来的子进程 filename_masterpid 是Apache的主进程
+在压力测试时候出现的子进程中可以看到
+accept(3, {sa_family=AF_INET, sin_port=htons(36448), sin_addr=inet_addr(&amp;quot;127.0.0.1&amp;quot;)}, [16]) = 6 getsockname(6, {sa_family=AF_INET, sin_port=htons(447), sin_addr=inet_addr(&amp;quot;127.0.0.1&amp;quot;)}, [16]) = 0  发现这个子进程是accept了连接。但是这些环回地址是如何产生的？</description>
+    </item>
+    
+    <item>
+      <title>apache多种debug调试方式</title>
+      <link>https://trree.github.io/geek/posts/apache-debug/</link>
+      <pubDate>Wed, 22 Mar 2017 20:02:01 +0000</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/apache-debug/</guid>
+      <description> 将正在测试的机器上都打开 coredump，等待重现
+ 在linux系统中执行 ulimit -c unlimited 配置文件中添加 CoreDumpDirectory directory  尝试 valgrind 追踪内存错误
+ valgrind &amp;ndash;tool=memcheck &amp;ndash;leak-check=yes &amp;ndash;show-reachable=yes &amp;ndash;error-limit=no apache  strace 调试 - strace -f -p pid
+ 尝试用 gdb 启动，等待重现 - 使用gdb启动服务，直接run，等待进程崩溃
+ apache信号调试
+ gdb attach进主线程或者需要的线程 breakpoints continue 访问服务或者发信号 gdb接收信号，然后continue 调试   </description>
+    </item>
+    
+    <item>
+      <title>Apache内存管理</title>
+      <link>https://trree.github.io/geek/posts/apache-pool/</link>
+      <pubDate>Mon, 06 Feb 2017 19:47:33 +0000</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/apache-pool/</guid>
+      <description>Apache 提供了自己的内存和资源管理方式，称作内存池，内存池在apache中任何一个阶段被使用，所以也被外部模块使用。 内存池可以管理内存，Sockets 和进程等服务系统所有的资源。 内存池的使用可以降低程序设计错误的可能性。在程序中如果由于疏忽或错误造成程序未能释放已经不再使用的内存，造成内存泄露。 内存泄漏并非指内存在物理上的消失，而是应用程序分配某段内存后，由于设计错误，导致在释放该段内存之前就失去了对该段内存的控制， 从而造成了内存的浪费，其它的程序就不能够再使用这个内存段。
+客户端的程序因为运行不是非常长时间，退出后操作系统会自动释放资源，所以不是造成太大的危害。但是在服务端端程序由于长期运行， 即使是一点地内存泄漏由于长期内存泄露造成服务端的崩溃。
+尤其需要注意Sockets。如果建立了一个Socket，但是在业务完成时没有释放它，那么其它的程序就不能使用这块内存。这些不断建立但 是未释放的Sockets会造成内存，CPU被占满。此时服务端一定会崩溃。许多服务端现在基本都是以多线程或者多进程的方式工作，这些 进程或者线程如果不按设计退出只能被管理员中断。如果一个程序不停止运行，那么服务端端资源会被立马占满并且崩溃。
+随着内存池的使用，开发者可以在一个已知生命周期的内存池中使用内存，sockets和进程。一旦这个内存池被摧毁，那么所有的资源都 会自动的释放。这样就只有一些仔细考虑后额外的例程才会需要考虑释放内存的事情。这样就变得更简单明了，减少了开发者的负担。
+重要的是，内存池可以提升服务器的性能。通常一个程序使用和释放内存，由于系统需要从虚拟内存中分配和释放内存，这些会造成 许多的开销，这将显著的降低性能。并且，不管请求了多少内存，系统通常分配一个最小数量的空间。 那么这将造成许多小的内存空间被浪费。经常这样做的话，那么你需要关注这些小内存的价值了.
+内建池和生命周期 Apache内建的内存池都有不同的生命周期，如上图所示，该图描述了池的继承的层次结构。pglobal存在于服务器的真个运行周期， pchaild存在于整个子虚拟机主机的生命周期，pconn是每一个连接的生命周期，preq是每一个请求的生命周期。通常开发者使用 最小的生命周期最小存储空间最小存放数据。
+如果开发者需要一个非常大的内存空间，而且没有一个合适生命周期的内存池。一个任意内建池的子池可以被创建。程序可以像 内建池一样使用这个内存池，也可以在不需要这个内存池的时候释放它。如果忘记了释放这个内存池，那么在它的父池被释放的 时候它会被自动释放。释放pglobal的时候，所以的子池都将被自动释放。每一个连接池是子服务池处理连接，所有的请求池都 是对应了连接池。
+内存池的内部结构 如上图所示，一个池内部链接了一系列的子池，数据块，进程和回调函数。如果需要分配内存需要使用预定义的函数。这些函数 不只是分配内存，并且也可以释放内存。同样的进程也可以通过内存池建立，内存释放的时候进程结束。此外，每个池可以保存 关于在销毁所有存储器之前被调用的函数的信息。这样文件处理程序和套接字都可以注册一个池去销毁它。
+当一个内存池被销毁的时候，apache首先回调清理函数。所有注册的文件句柄和Sockets将被关闭。之后，池讲终止所有的注册 和进程。这些结束之后，数据块就被释放。通常apache并不是真的释放被其它程序使用的内存。而是将它从池中删除，将这段 内存放入空闲的内存块中。这样就将分配和释放内存的消耗降至最低。内核将立即分配这些空闲的内存。只有在池中所有的内 存都用完时才需要分配新的空间。
+refer: Memory_resource</description>
+    </item>
+    
+    <item>
       <title>绑定Apache信息</title>
       <link>https://trree.github.io/geek/posts/apache-info/</link>
       <pubDate>Sun, 16 Oct 2016 11:02:11 +0000</pubDate>
@@ -54,18 +101,48 @@ if (pfn_ssl_lookup) { server_rec *s = r-&amp;gt;server ? r-&amp;gt;server : c-&a
     </item>
     
     <item>
+      <title>Apache 超时设置</title>
+      <link>https://trree.github.io/geek/posts/timeout/</link>
+      <pubDate>Sun, 16 Oct 2016 11:01:53 +0000</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/timeout/</guid>
+      <description>在apache的使用过程中，我们可以看到许多的超时设置， 因为apache是一个web服务器，所以它的超时是包含底层的超时设置，例如tcp协议的。 所以这一篇文档包含http，ssl，tcp等协议的超时设置。
+ timeout tcp读写超时(wait_for_io_or_timeout)
+ t &amp;gt; 0 &amp;ndash; read and write calls return APR_TIMEUP if specified time elapsess with no data read or written t == 0 &amp;ndash; read and write calls never block t &amp;lt; 0 &amp;ndash; read and write calls block  keepalivetimeout
+ 在keepalivetimeout时间后没有子请求，断开连接(ap_process_http_connection)  proxytimeout
+ 没有设置的时候与 timeout 的一样  RequestReadTimeout（reqtimeout_init）
+ 设置读取http头和http正文最大和最小超时时间  默认值：
+ MRT_DEFAULT_HEADER_TIMEOUT 20 MRT_DEFAULT_HEADER_MAX_TIMEOUT 40 MRT_DEFAULT_HEADER_MIN_RATE 500 MRT_DEFAULT_BODY_TIMEOUT 20 MRT_DEFAULT_BODY_MAX_TIMEOUT 0 MRT_DEFAULT_BODY_MIN_RATE 500  SSLSessionCacheTimeout</description>
+    </item>
+    
+    <item>
+      <title>SSL Session 和 Session Tickets</title>
+      <link>https://trree.github.io/geek/posts/ssl-session/</link>
+      <pubDate>Sun, 16 Oct 2016 11:00:00 +0000</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/ssl-session/</guid>
+      <description>背景 在对http和https性能比较的时候，可以发现http性能比https高出几个数量级。 因为https使用了tls/SSL协议，客户端与服务端进行ssl握手， 在握手的时候需要进行密钥协商，密钥交换，身份认证等过程，尤其是在 这中间必须要传递证书确定身份。
+为了在安全和性能之间寻找一个平衡点，SSL Session 是解决这个问题的一个方法。 SSL Session的安全性是建立在必需要获取整个 Session ，只是获取明文传输的的 Session ID 是无法握手成功的，Session是缓存在客户端中，要窃取客户端的Session 是非常困难的。
+SSLSessionTickets在apache中是默认开启的。如果需要关闭必须加上 SSLSessionTickets Off。
+Client Server ClientHello (SessionTicket extension) --------&amp;gt; ServerHello (empty SessionTicket extension) NewSessionTicket [ChangeCipherSpec] &amp;lt;-------- Finished [ChangeCipherSpec] Finished --------&amp;gt; Application Data &amp;lt;-------&amp;gt; Application Data  测试session ticket重用  openssl s_client -connect host:port -sess_out session_file
+openssl s_client -connect host:port -sess_in session_file
+ 第一次访问的New session
+New, TLSv1/SSLv3, Cipher is ECDHE-RSA-AES256-GCM-SHA384 Server public key is 2048 bit Secure Renegotiation IS supported Compression: NONE Expansion: NONE No ALPN negotiated SSL-Session: Protocol : TLSv1.</description>
+    </item>
+    
+    <item>
       <title>Apache缓存过滤及其原理</title>
       <link>https://trree.github.io/geek/posts/apache-cache/</link>
       <pubDate>Sun, 16 Oct 2016 10:59:47 +0000</pubDate>
       
       <guid>https://trree.github.io/geek/posts/apache-cache/</guid>
-      <description>背景 apche 提供了cache的功能，能够将应用服务端的资源缓存在apache中， 尤其是在apache是代理服务器，原始服务器的物理距离非常远的时候， 性能就能够非常好的体现。
+      <description>apche 提供了cache的功能，能够将应用服务端的资源缓存在apache中， 尤其是在apache是代理服务器，原始服务器的物理距离非常远的时候， 性能就能够非常好的体现。
 所以此时的网关服务器也可以作为缓存服务器使用。 因为公司使用的是apache2.0系列的。 所以在它那里发现它只支持URL的strcasecmp匹配。 所以匹配所有的URL为 &amp;lsquo;/&amp;lsquo;。但是我们希望提供普遍的过滤功能。 只缓存 .jpg,.png,.css 等不变的内容。而将经常需要改成的 .html , .js 不缓存。
 所以我们的方案是在 cacheenable 中增加一个可变参数，正则配置的参数。 当正则匹配存在的时候，只使用正则批准，如果不存在，则使用原来的 url的匹配。保证与原2.0的兼容性。
 网关cache原理  不存在缓存的时候，客户端发送请求给网关，网关再向后端发送请求，然后返回给网关，网关返回给客户端。 存在缓存的时候，首先，mod_cache将是一个URL映射模块，也就是说，如果一个URL已经被缓存并且这个缓存尚未失效，该请求将由mod_cache直接处理。这也意味着在处理一个请求时通常还要发生的其他阶段：比如权限验证，mod_proxy或mod_rewrite处理的阶段，将不会发生。网关可以直接返回内容给客户端。  cache 类型 mem 基于mem缓存,在高级设置中已经实现，填入mem会产生配置如下
 CacheEnable mem MCacheSize 4096 MCacheMaxObjectCount 4 MCacheMinObjectSize 1 MCacheMaxObjectSize 1048576  disk 基于disk缓存，需要另外填写配置文件
 CacheDefaultExpire 3600 CacheEnable disk / CacheRoot /tmp/apacheCache CacheDirLevels 3 CacheDirLength 4 CacheMaxFileSize 1048576 CacheMinFileSize 10  ramdisk实现方案 基于disk缓存，将CacheRoot设置为内存盘目录，开机的时候自动建立整个内存的10%用于存放缓存。 ​
-缓存文件 在CacheRoot的目录下，生成带后缀的缓存文件.data 和 .header。 可以使用strings命令查看文件 .data保存了缓存文件内容 .</description>
+缓存文件 在CacheRoot的目录下，生成带后缀的缓存文件.data 和 .header。 可以使用strings命令查看文件 .data保存了缓存文件内容 .header保存了缓存文件的头信息。</description>
     </item>
     
   </channel>

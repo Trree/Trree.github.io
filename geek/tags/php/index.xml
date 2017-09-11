@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Php on Trree</title>
+    <link>https://trree.github.io/geek/tags/php/</link>
+    <description>Recent content in Php on Trree</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Released under the MIT license.</copyright>
+    <lastBuildDate>Sun, 16 Oct 2016 11:01:02 +0000</lastBuildDate>
+    
+	<atom:link href="https://trree.github.io/geek/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PHP Session超时设置</title>
+      <link>https://trree.github.io/geek/posts/php-session/</link>
+      <pubDate>Sun, 16 Oct 2016 11:01:02 +0000</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/php-session/</guid>
+      <description>PHP控制session的方法 环境：PHP的session控制使用crond定时检查 debian3， ubuntu14.0.4
+PHP的session文件保存在 /var/lib/php5 中，如果是使用cookie保存session的方法， 可以在浏览器中查看cookie，查看两个值是不是一样的。 如果你手动清除这个文件，登陆页面马上放回到你需要跳转的页面。 所以对session时间的控制就是对删除session文件时间的控制。
+删除session文件是使用 首先查看 /etc/cron.d/php5 的文件
+ 09,39 * * * * root [ -d /var/lib/php5 ] &amp;amp;&amp;amp; find /var/lib/php5/ -type f -cmin +$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm
+ 从这里可以看出系统定时检查session文件的修改时间，一旦超出maxlifetime，就将它删除。 所以最后的控制就在 /usr/lib/php5/maxlifetime 中。
+我们查看这个文件做了什么事情 这个文件中默认最大超时时间为 1440 秒，然后与 /etc/php5/*/php.ini 的session.gc_maxlifetime 时间比较，哪个大取哪个值。 在 /etc/php5/*/php.ini 中默认时间也是 1440 秒，所以非常的麻烦修改三个文件。
+最简单的设置session超时时间 直接修改 /usr/lib/php5/maxlifetime
+ echo $time
+ 这个 $time 就是你设置的超时分钟。</description>
+    </item>
+    
+  </channel>
+</rss>

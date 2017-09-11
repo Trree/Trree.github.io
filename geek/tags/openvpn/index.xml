@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Openvpn on Trree</title>
+    <link>https://trree.github.io/geek/tags/openvpn/</link>
+    <description>Recent content in Openvpn on Trree</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Released under the MIT license.</copyright>
+    <lastBuildDate>Thu, 27 Jul 2017 20:06:27 +0000</lastBuildDate>
+    
+	<atom:link href="https://trree.github.io/geek/tags/openvpn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>openvpn简述</title>
+      <link>https://trree.github.io/geek/posts/openvpn/</link>
+      <pubDate>Thu, 27 Jul 2017 20:06:27 +0000</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/openvpn/</guid>
+      <description>前置知识 TCP/IP网络，IP路由
+VPN与OpenVPN VPN是一种实现虚拟专用网的技术。 典型的实现有IPSec，L2TP，PPTP等，各类OS都有相应的支持，开源的轻量级实现有OpenVPN。
+OpenVPN OpenVPN实现了一个灵活的VPN，和通过修改协议栈而实现的基于IPSec的VPN相比，OpenVPN有以下的优点：
+ OpenVPN无需对协议栈进行任何修改，无需专门的策略来解决VPN数据穿越NAT的问题，因此可在现有的网络进行规划； OpenVPN使用虚拟网卡和路由进行虚拟网络的构建，配置十分方便； OpenVPN使用SSL协议对虚拟网络提供保护，从而实现“专用”，而SSL提供了丰富灵活的安全特性； OpenVPN的push模式可以最大限度简化客户端配置，服务器和客户端可以不必花费太多的精力来使得两端一致。 OpenVPN实际上是虚拟网卡设备，TCP/IP网络技术，路由技术，SSL结合而成的一个应用，前三者构建了虚拟网络—隧道连接的网络，最后的SSL保证了虚拟网络通信的安全——隧道通信的认证和加密，因此使用OpenVPN的过程基本就是对上述四方面进行配置的过程。  数据流  OpenVPN 协议  OpenVPN连接建立  OpenVPN协议解析-网络结构之外
+关键概念 虚拟网卡——OpenVPN最重要的概念 虚拟网卡 TUN/TAP 驱动程序设计原理
+虚拟网卡可以看作是一个连接协议栈底层和用户态应用程序的一个管道，数据从虚拟网卡流出，进入应用程序，封装后发出，如下图所示：
+IP路由 IP路由在OpenVPN中起着至关重要的作用，数据包之所以能被截获进而被加密，完全靠IP路由
+OpenVPN服务端配置实例 #执行外部程序的安全等级 script-security 2 #虚拟网卡设备：tun封装三层IP数据报，tap封装二层以太帧，支持非IP协议 dev tap #使用的封装协议：tcp与udp proto udp #SSL握手时的角色 tls-server tls-cipher RC4-MD5 cipher BF-CBC #心跳保活 keepalive 1 5 #模式：p2p-仅两端端点；server-一个server可以被多个client连接 mode server #虚拟IP地址池 server 128.129.0.0 255.255.0.0 #本地侦听地址和端口 local 0.0.0.0 port 6119 #日志等级 verb 4 dh dh1024.pem.dh.conf #配置证书链 ca sslvpn.</description>
+    </item>
+    
+  </channel>
+</rss>

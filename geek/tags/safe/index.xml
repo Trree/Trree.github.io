@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Safe on Trree</title>
+    <link>https://trree.github.io/geek/tags/safe/</link>
+    <description>Recent content in Safe on Trree</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Released under the MIT license.</copyright>
+    <lastBuildDate>Thu, 20 Oct 2016 17:28:16 +0000</lastBuildDate>
+    
+	<atom:link href="https://trree.github.io/geek/tags/safe/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>自测网关安全性</title>
+      <link>https://trree.github.io/geek/posts/gateway-s-safe/</link>
+      <pubDate>Thu, 20 Oct 2016 17:28:16 +0000</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/gateway-s-safe/</guid>
+      <description>网关的主要作用是转换原B/S，C/S系统的协议，将原来未加密的协议转换成加密的协议。 在这里网关将未加密的HTTP协议或者TCP协议转换成SSL协议。 任何一个增加的系统都会增加安全性的问题，作为一款加密产品，那么它更应该注重自生的安全性问题。
+ IP和端口扫描(nmap，netcat) 对访问用户压测，看看有大量用户访问时是否会断开连接(burpsuit, ab, loadrunner) 查看每一个连接中的关键数据是否加密 传输的数据是否加密 对文件上传和下载是否满足用户权限的要求，是否保护 对shell和sql是否防止注入 对网关的系统和服务器进行安全性扫描  </description>
+    </item>
+    
+  </channel>
+</rss>

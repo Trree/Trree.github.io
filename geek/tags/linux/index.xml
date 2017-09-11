@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Trree</title>
+    <link>https://trree.github.io/geek/tags/linux/</link>
+    <description>Recent content in Linux on Trree</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Released under the MIT license.</copyright>
+    <lastBuildDate>Thu, 27 Apr 2017 10:22:15 +0000</lastBuildDate>
+    
+	<atom:link href="https://trree.github.io/geek/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>系统内存不足</title>
+      <link>https://trree.github.io/geek/posts/outofmemory/</link>
+      <pubDate>Thu, 27 Apr 2017 10:22:15 +0000</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/outofmemory/</guid>
+      <description>有时候我们会面临一些非常情况的现象， 没有异常的情况下进程无缘无故的退出， 无法写如日志文件。 非常奇怪的错误抛出在终端。 现象及分析 有时候我们会面临一些非常情况的现象， 没有异常的情况下进程无缘无故的退出， 无法写如日志文件。 非常奇怪的错误抛出在终端。
+这个时候就需要查看一下系统日志 kern.log 了。
+MAIN kernel: [17832.300370] [&amp;lt;c1090380&amp;gt;] ? oom_kill_process+0x60/0x201 MAIN kernel: [17832.300408] [&amp;lt;c10908fd&amp;gt;] ? __out_of_memory+0xf4/0x107 MAIN kernel: [17832.300445] [&amp;lt;c109096a&amp;gt;] ? out_of_memory+0x5a/0x7c MAIN kernel: [17832.300482] [&amp;lt;c109322c&amp;gt;] ? __alloc_pages_nodemask+0x3ef/0x4d9 MAIN kernel: [17832.300522] [&amp;lt;c109460d&amp;gt;] ? __do_page_cache_readahead+0x98/0x16b MAIN kernel: [17832.300562] [&amp;lt;c10946f4&amp;gt;] ? ra_submit+0x14/0x18 MAIN kernel: [17832.300597] [&amp;lt;c108ec9a&amp;gt;] ? filemap_fault+0x16d/0x2e6 MAIN kernel: [17832.300634] [&amp;lt;c10a0c9a&amp;gt;] ? __do_fault+0x53/0x3fb MAIN kernel: [17832.300670] [&amp;lt;c10a2f56&amp;gt;] ? handle_mm_fault+0x4d1/0xa22 MAIN kernel: [17832.300708] [&amp;lt;c1144ae3&amp;gt;] ?</description>
+    </item>
+    
+  </channel>
+</rss>
