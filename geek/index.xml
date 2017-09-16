@@ -118,7 +118,8 @@ MAIN kernel: [17832.300370] [&amp;lt;c1090380&amp;gt;] ? oom_kill_process+0x60/0
       <pubDate>Tue, 28 Mar 2017 21:44:05 +0000</pubDate>
       
       <guid>https://trree.github.io/geek/posts/tcp-handshark/</guid>
-      <description>tcp 报头的各个字段的作用 想象一下自己去设计一个TCP协议，最中的是保证可靠性。因为每个报文都是要包含这些字段，所以你要怎么保证它的简洁性，不浪费资源。 source port: 源端口 destination port: 目标端口 sequence number: 序号，每一个TCP报文段都会有一个序列，序列号字段段值其实是本报文段所发送段第一个字节的序号，通过序号来确保服务的可靠性和有序性。 ack number:确认号 Data offset:数据偏移 Reserved:保留字段 URG(urgent)：紧急指针 ACK ：确认字段 PSH：推送字段 RST：复位字段 SYN：同步字段 FIN：终止字段 Windows size：窗口大小 checksum：检验和 Urgent pointer：紧急指针 options：选项  tcp 三次握手 为什么tcp握手需要三次？这个保证了什么东西？
+      <description>想象一下自己去设计一个TCP协议，最重要的是保证可靠性，安全性，又足够的简洁。
+source port: 源端口 destination port: 目标端口 sequence number: 序号，每一个TCP报文段都会有一个序列，序列号字段段值其实是本报文段所发送段第一个字节的序号，通过序号来确保服务的可靠性和有序性。 ack number:确认号 Data offset:数据偏移 Reserved:保留字段 URG(urgent)：紧急指针 ACK ：确认字段 PSH：推送字段 RST：复位字段 SYN：同步字段 FIN：终止字段 Windows size：窗口大小 checksum：检验和 Urgent pointer：紧急指针 options：选项  tcp 三次握手 为什么tcp握手需要三次？这个保证了什么东西？
  客户端发送一个 SYN 给服务端。 服务端返回一个ack和syn给客户端确认。 客户端在返回一个ack确认。tcp连接建立。  如果只有两次握手会怎样？ 客户端发送了一个连接请求的SYN，但是由于网络问题，以至这个连接释放之后才到达服务端， 这时候服务器发送 ack 和 syn 给客户端。 如果此时就建立连接，由于客户端已经废弃了这个 SYN，所以这个连接客户端什么 都不会发送，白白浪费了资源。
 DDoS攻击的也有相似的原理
  为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误。
