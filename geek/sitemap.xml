@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://trree.github.io/geek/posts/function-first/</loc>
+    <lastmod>2017-10-22T17:34:37+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://trree.github.io/geek/posts/begin-ambiguous/</loc>
     <lastmod>2017-08-20T14:14:33+00:00</lastmod>
   </url>
@@ -115,7 +120,7 @@
   
   <url>
     <loc>https://trree.github.io/geek/tags/c&#43;&#43;/</loc>
-    <lastmod>2017-08-20T14:14:33+00:00</lastmod>
+    <lastmod>2017-10-22T17:34:37+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -150,7 +155,7 @@
   
   <url>
     <loc>https://trree.github.io/geek/posts/</loc>
-    <lastmod>2017-08-20T14:14:33+00:00</lastmod>
+    <lastmod>2017-10-22T17:34:37+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -192,7 +197,7 @@
   
   <url>
     <loc>https://trree.github.io/geek/</loc>
-    <lastmod>2017-08-20T14:14:33+00:00</lastmod>
+    <lastmod>2017-10-22T17:34:37+08:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Released under the MIT license.</copyright>
-    <lastBuildDate>Sun, 20 Aug 2017 14:14:33 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Oct 2017 17:34:37 +0800</lastBuildDate>
     
 	<atom:link href="https://trree.github.io/geek/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>从功能完成说起</title>
+      <link>https://trree.github.io/geek/posts/function-first/</link>
+      <pubDate>Sun, 22 Oct 2017 17:34:37 +0800</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/function-first/</guid>
+      <description>功能完成是编程的开始，它只是这一切的基础。 不要太舒心了，因为开始。
+ indent，代码的格式是否符合要求，风格是否与以前的代码一致。 文件的目录是否足够清晰，容易查找。 函数名，类名，变量名风格是否统一，名字是否语义清晰，最好能够看其名，知其意，语义最好能够与STL的保持一致。 检查 const ，首先是变量名，这个变量是否是常量，返回值是否是常量，成员函数中的成员是否是常量。能够加入的都尽量加入，一旦出错编译器马上就可以报错。 关键词的使用，例如 explicit, override, noexcept。 一致性，是否保持接口的一致性，接口都是对称的，构造析构，new／delete是一致的。保持这种一致性。 保证实现足够简单，不使用非常复杂的东西，这些对后续的开发和维护都是负担。 检查是否需要扩展，需要扩展的话是否方便扩展，哪些接口是公用需要暴露出来的。 是否需要区分读写。 异常的设计是否清晰合理。  </description>
+    </item>
     
     <item>
       <title>std::begin ambiguous</title>
