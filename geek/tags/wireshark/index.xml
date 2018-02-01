@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wireshark on Trree</title>
+    <link>https://trree.github.io/geek/tags/wireshark/</link>
+    <description>Recent content in Wireshark on Trree</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 01 Oct 2017 10:04:54 +0800</lastBuildDate>
+    
+	<atom:link href="https://trree.github.io/geek/tags/wireshark/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Wireshark分析数据包</title>
+      <link>https://trree.github.io/geek/posts/wireshark/</link>
+      <pubDate>Sun, 01 Oct 2017 10:04:54 +0800</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/wireshark/</guid>
+      <description> 抓取查看数据包判断网络问题是非常基本的技能。 wireshark对于软件开发人员来说，是一个非常基础的工具。 平常用它抓包看包是非常普遍的事情。但是会用和用好就是两回事了。
+因为工作的需要经常要查看SSL的数据包，所以平常需要看数据包的机会是非常多的。 一旦牵扯到网络问题或许协议的问题，没有明确的判断方向的情况下，抓包是最快捷判断问题的方式了。 在数据包中你可以得到非常丰富的信息。这些信息值得去挖掘。
+分析和统计信息 wireshark提供了非常多的分析和统计信息，查看软件提供的分析和统计信息。需要能够从哪里查到所以的错误数据包，
+ 分析&amp;ndash;&amp;gt;专家信息 统计&amp;ndash;&amp;gt;服务响应时间&amp;ndash;&amp;gt;ONC-RPC 统计&amp;ndash;&amp;gt;捕获文件属性  过滤数据包 对于数据过滤，wireshark提供了丰富的过滤机制，例如过滤POST数据包：http.request.method==&amp;ldquo;POST&amp;rdquo;。
+但是，这些东西都是不需要自己去记住。wireshark已经提供了一个右键的过滤选项。你只需要查看数据包，选择需要查看的字段，应用为过滤就可以了。
+协议 wireshark只是工具而已，对于TCP/IP协议的各个字段如果不了解的话也是盲人摸象。 所以如果没有读完TCP/IP相关的数据还是需要先详细的了解这些协议的具体内容。 当然，实际也是非常重要的，一个非常简单的一个字段的选择，就会直接影响网络的性能。这个就需自己经常去实际，查看真实场景下的数据包。
+讲到这里，就不得不提 TCP/IP 详解了，附录中提供了链接。 对于实践方面，推荐一本 wireshark网络分析的艺术，相比于计算机的大块头，这个书是非常的轻薄的。如果有基础的网络知识，这本书快的话一天就可以看完。是一部非常值得话时间阅读的书籍。
+生活 wireshark与实际生活的联系是非常紧密的。你感觉网络突然变慢了吗？抓个包看看吧。
+Refer  wireshark网络分析的艺术 TCP/IP详解 卷1：协议  </description>
+    </item>
+    
+  </channel>
+</rss>

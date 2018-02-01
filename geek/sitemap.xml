@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>https://trree.github.io/geek/posts/wireshark/</loc>
+    <lastmod>2017-10-01T10:04:54+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://trree.github.io/geek/posts/begin-ambiguous/</loc>
     <lastmod>2017-08-20T14:14:33+00:00</lastmod>
   </url>
@@ -172,6 +177,12 @@
   </url>
   
   <url>
+    <loc>https://trree.github.io/geek/tags/tcp/ip/</loc>
+    <lastmod>2017-10-01T10:04:54+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://trree.github.io/geek/tags/tech/</loc>
     <lastmod>2017-07-27T20:06:27+00:00</lastmod>
     <priority>0</priority>
@@ -198,6 +209,12 @@
   <url>
     <loc>https://trree.github.io/geek/</loc>
     <lastmod>2017-10-22T17:34:37+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://trree.github.io/geek/tags/wireshark/</loc>
+    <lastmod>2017-10-01T10:04:54+08:00</lastmod>
     <priority>0</priority>
   </url>
   

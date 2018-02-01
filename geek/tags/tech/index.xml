@@ -6,7 +6,6 @@
     <description>Recent content in Tech on Trree</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <copyright>Released under the MIT license.</copyright>
     <lastBuildDate>Thu, 27 Jul 2017 20:06:27 +0000</lastBuildDate>
     
 	<atom:link href="https://trree.github.io/geek/tags/tech/index.xml" rel="self" type="application/rss+xml" />
@@ -230,7 +229,9 @@ PHP的session文件保存在 /var/lib/php5 中，如果是使用cookie保存sess
 我们查看这个文件做了什么事情 这个文件中默认最大超时时间为 1440 秒，然后与 /etc/php5/*/php.ini 的session.gc_maxlifetime 时间比较，哪个大取哪个值。 在 /etc/php5/*/php.ini 中默认时间也是 1440 秒，所以非常的麻烦修改三个文件。
 最简单的设置session超时时间 直接修改 /usr/lib/php5/maxlifetime
  echo $time
- 这个 $time 就是你设置的超时分钟。</description>
+ 这个 $time 就是你设置的超时分钟。
+最后将 /etc/cron.d/php5 的脚本执行时间改成1分钟
+ 0-59&amp;frasl;1 * * * * root [ -d /var/lib/php5 ] &amp;amp;&amp;amp; find /var/lib/php5/ -type f -cmin +$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm</description>
     </item>
     
     <item>

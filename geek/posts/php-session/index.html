@@ -7,7 +7,7 @@
     <title>PHP Session超时设置 &middot; Trree</title>
     <meta name="author" content="Feilong Wu">
     <meta name="description" content="Your description of the blog">
-    <meta name="generator" content="Hugo 0.26" />
+    <meta name="generator" content="Hugo 0.35" />
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -100,6 +100,14 @@ debian3， ubuntu14.0.4</p>
 
 <p>这个 $time 就是你设置的超时分钟。</p>
 
+<p>最后将 /etc/cron.d/php5 的脚本执行时间改成1分钟</p>
+
+<blockquote>
+<p>0-<sup>59</sup>&frasl;<sub>1</sub>  *     * * *     root   [ -d /var/lib/php5   ] &amp;&amp; find /var/lib/php5/ -type f -cmin +$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm</p>
+</blockquote>
+
+<p>这样误差时间在1分钟之内。</p>
+
     </section>
 
     
@@ -125,7 +133,7 @@ debian3， ubuntu14.0.4</p>
       
   </section>
 
-		<section class="copyright">&copy; 2017 <a href="https://trree.github.io/geek/">Feilong Wu</a>. Released under the MIT license.</section>
+		<section class="copyright">&copy; 2018 <a href="https://trree.github.io/geek/">Feilong Wu</a>. Released under the MIT license.</section>
 	</div>
 </footer>
 

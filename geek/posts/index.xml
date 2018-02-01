@@ -6,7 +6,6 @@
     <description>Recent content in Posts on Trree</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <copyright>Released under the MIT license.</copyright>
     <lastBuildDate>Sun, 22 Oct 2017 17:34:37 +0800</lastBuildDate>
     
 	<atom:link href="https://trree.github.io/geek/posts/index.xml" rel="self" type="application/rss+xml" />
@@ -20,6 +19,23 @@
       <guid>https://trree.github.io/geek/posts/function-first/</guid>
       <description>功能完成是编程的开始，它只是这一切的基础。 不要太舒心了，因为开始。
  indent，代码的格式是否符合要求，风格是否与以前的代码一致。 文件的目录是否足够清晰，容易查找。 函数名，类名，变量名风格是否统一，名字是否语义清晰，最好能够看其名，知其意，语义最好能够与STL的保持一致。 检查 const ，首先是变量名，这个变量是否是常量，返回值是否是常量，成员函数中的成员是否是常量。能够加入的都尽量加入，一旦出错编译器马上就可以报错。 关键词的使用，例如 explicit, override, noexcept。 一致性，是否保持接口的一致性，接口都是对称的，构造析构，new／delete是一致的。保持这种一致性。 保证实现足够简单，不使用非常复杂的东西，这些对后续的开发和维护都是负担。 检查是否需要扩展，需要扩展的话是否方便扩展，哪些接口是公用需要暴露出来的。 是否需要区分读写。 异常的设计是否清晰合理。  </description>
+    </item>
+    
+    <item>
+      <title>Wireshark分析数据包</title>
+      <link>https://trree.github.io/geek/posts/wireshark/</link>
+      <pubDate>Sun, 01 Oct 2017 10:04:54 +0800</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/wireshark/</guid>
+      <description> 抓取查看数据包判断网络问题是非常基本的技能。 wireshark对于软件开发人员来说，是一个非常基础的工具。 平常用它抓包看包是非常普遍的事情。但是会用和用好就是两回事了。
+因为工作的需要经常要查看SSL的数据包，所以平常需要看数据包的机会是非常多的。 一旦牵扯到网络问题或许协议的问题，没有明确的判断方向的情况下，抓包是最快捷判断问题的方式了。 在数据包中你可以得到非常丰富的信息。这些信息值得去挖掘。
+分析和统计信息 wireshark提供了非常多的分析和统计信息，查看软件提供的分析和统计信息。需要能够从哪里查到所以的错误数据包，
+ 分析&amp;ndash;&amp;gt;专家信息 统计&amp;ndash;&amp;gt;服务响应时间&amp;ndash;&amp;gt;ONC-RPC 统计&amp;ndash;&amp;gt;捕获文件属性  过滤数据包 对于数据过滤，wireshark提供了丰富的过滤机制，例如过滤POST数据包：http.request.method==&amp;ldquo;POST&amp;rdquo;。
+但是，这些东西都是不需要自己去记住。wireshark已经提供了一个右键的过滤选项。你只需要查看数据包，选择需要查看的字段，应用为过滤就可以了。
+协议 wireshark只是工具而已，对于TCP/IP协议的各个字段如果不了解的话也是盲人摸象。 所以如果没有读完TCP/IP相关的数据还是需要先详细的了解这些协议的具体内容。 当然，实际也是非常重要的，一个非常简单的一个字段的选择，就会直接影响网络的性能。这个就需自己经常去实际，查看真实场景下的数据包。
+讲到这里，就不得不提 TCP/IP 详解了，附录中提供了链接。 对于实践方面，推荐一本 wireshark网络分析的艺术，相比于计算机的大块头，这个书是非常的轻薄的。如果有基础的网络知识，这本书快的话一天就可以看完。是一部非常值得话时间阅读的书籍。
+生活 wireshark与实际生活的联系是非常紧密的。你感觉网络突然变慢了吗？抓个包看看吧。
+Refer  wireshark网络分析的艺术 TCP/IP详解 卷1：协议  </description>
     </item>
     
     <item>
@@ -285,7 +301,9 @@ PHP的session文件保存在 /var/lib/php5 中，如果是使用cookie保存sess
 我们查看这个文件做了什么事情 这个文件中默认最大超时时间为 1440 秒，然后与 /etc/php5/*/php.ini 的session.gc_maxlifetime 时间比较，哪个大取哪个值。 在 /etc/php5/*/php.ini 中默认时间也是 1440 秒，所以非常的麻烦修改三个文件。
 最简单的设置session超时时间 直接修改 /usr/lib/php5/maxlifetime
  echo $time
- 这个 $time 就是你设置的超时分钟。</description>
+ 这个 $time 就是你设置的超时分钟。
+最后将 /etc/cron.d/php5 的脚本执行时间改成1分钟
+ 0-59&amp;frasl;1 * * * * root [ -d /var/lib/php5 ] &amp;amp;&amp;amp; find /var/lib/php5/ -type f -cmin +$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm</description>
     </item>
     
     <item>
