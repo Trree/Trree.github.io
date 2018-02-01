@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>最小完备的项目 &middot; Trree</title>
+    <meta name="author" content="Feilong Wu">
+    <meta name="description" content="Your description of the blog">
+    <meta name="generator" content="Hugo 0.35" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- RSS autodiscovery -->
+    
+
+    <link rel="shortcut icon" href="https://trree.github.io/geek/img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://trree.github.io/geek/css/screen.css">
+    <link rel="stylesheet" href="https://trree.github.io/geek/css/github.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://trree.github.io/geek/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://trree.github.io/geek/favicon.ico">
+    
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #33cc99;}
+    .pagination a {color: #33cc99;}
+    .gist .gist-file .gist-meta a:visited {color: #33cc99 !important;}
+    a:focus, a:hover {color: #178b6b;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #178b6b;}
+    .older-posts:hover, .newer-posts:hover {color: #178b6b;}
+</style>
+</head>
+
+<body class="home-template">
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="https://trree.github.io/geek/">Trree</a></h1>
+	
+	
+	<h1 class="blog-subtitle">wechat: FeilongWuTree</h1>
+	
+</header>
+    
+    
+    <main class="content" role="main">
+    
+<article class="post">
+    <header>
+        <h1 class="post-title">最小完备的项目</h1>
+        <div class="post-meta">
+            <time datetime="01 February 2018">
+                01 February 2018
+            </time>
+        </div>
+    </header>
+
+    <section class="post-content">
+        
+
+<p><a href="https://github.com/Trree/MiniCompleteProject.git"><strong>MiniCompleteProject</strong></a></p>
+
+<p>这个项目的目标是提供一个集开发，跨平台，自动测试的平台。</p>
+
+<p>使用docker可以跨平台开发。CMake可以跨平台编译，并且在自动CI的时候自动在linux/Unix/Windows和GUN/CLANG/MSVS中进行编译，单元测试和集成测试。</p>
+
+<!-- TOC -->
+
+<ul>
+<li><a href="#%E6%9C%80%E5%B0%8F%E5%AE%8C%E5%A4%87%E7%9A%84%E9%A1%B9%E7%9B%AE">最小完备的项目</a>
+
+<ul>
+<li><a href="#start">Start</a></li>
+<li><a href="#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83docker">开发环境(docker)</a></li>
+<li><a href="#%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91cmake">跨平台开发(CMake)</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96">代码格式化</a></li>
+<li><a href="#%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5">静态代码检查</a></li>
+<li><a href="#%E5%86%85%E5%AD%98%E6%A3%80%E6%B5%8B">内存检测</a></li>
+<li><a href="#mr%E7%9A%84%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B">MR的开发流程</a></li>
+<li><a href="#%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95">基准测试</a></li>
+<li><a href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95">单元测试</a></li>
+<li><a href="#%E5%86%92%E7%83%9F%E6%B5%8B%E8%AF%95">冒烟测试</a></li>
+<li><a href="#ci%E7%9A%84%E9%9B%86%E6%88%90">CI的集成</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E5%BC%80%E5%A7%8B%E4%BD%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E9%A1%B9%E7%9B%AE">如何开始你自己的项目</a></li>
+</ul></li>
+</ul>
+
+<!-- /TOC -->
+
+<h2 id="start">Start</h2>
+
+<p>本项目提供了两种编译方式</p>
+
+<p><strong>Linux本地</strong></p>
+
+<p>如果是使用本地的开发环境</p>
+
+<pre><code>mkdir build
+cd build
+cmake ..
+make
+ctest --output-on-failure
+
+make clang-format
+make clang-tidy
+make valgrind
+</code></pre>
+
+<p><strong>docker</strong></p>
+
+<p>如果是使用docker开发，需要先到 docker 目录中的dockerfile处，编译出docker镜像。
+&gt;sudo docker build -t {mini-complete-linux-platform} .</p>
+
+<p>然后回到主目录中用build.py编译docker镜像下的文件</p>
+
+<blockquote>
+<p>python3 build.py &ndash;docker-name {mini-complete-linux-platform}</p>
+</blockquote>
+
+<p>编译后会在 stage 目录下根据相应的平台和类型生成测试结果，测试:</p>
+
+<blockquote>
+<p>sudo docker run -it &ndash;rm -v &ldquo;$PWD&rdquo;:&ldquo;$PWD&rdquo; -w &ldquo;$PWD&rdquo; {mini-complete-linux-platform}  stage/{mini-complete-linux-platform}/release/main</p>
+</blockquote>
+
+<h2 id="开发环境-docker">开发环境(docker)</h2>
+
+<p>开发环境我们是用docker的镜像完成的。
+为什么需要使用docker去搭建开发环境，docker本身的优势我们是知道的。</p>
+
+<ul>
+<li>本项目主要是使用C++去做开发的，所以基本的GCC的开发编译环境是需要的，项目依赖boost，编译依赖CMake和Python。这里最主要的就是boost的编译开发环境，编译这个库需要的工作量对于一个新的开发者是不
+低的。所以我们使用了一个统一的镜像环境。</li>
+<li>本项目需要支持多个Linux系统，在多个系统中编译这些开发环境也是需要环境的，我们是最开始提供一个dockerfile，然后使用这个dockerfile制作多个linux版本的开发环境</li>
+<li>跨平台开发，因为提供了开发环境，所以我们可以直接在mac或者任意的环境开发，而且这些都是轻量级的，没有虚拟机那么重</li>
+<li>文件的统一，虽然我们已经使用了git做代码的管理，但是因为是使用docker编译的，所以我们只需要在编译的时候指定volume，这样就可以不同在不同的开发环境中都保存同一份代码了。</li>
+</ul>
+
+<h2 id="跨平台开发-cmake">跨平台开发(CMake)</h2>
+
+<p>在跨平台开发中我们主要支持Linux平台，Android平台，Windows平台，本项目希望能够使用一条命令就可以将编译出当前平台的代码。</p>
+
+<p>CMake是当前最流行的跨平台构建技术
+除了跨平台的优势外，使用现代CMake（CMake 3.0以上）能很大程度上模块化管理，并且支持ctest。</p>
+
+<p>在cmake目录中提供了三个Cmake模块</p>
+
+<ul>
+<li>clang-cxx-dev-tools.cmake 支持clang-format和clang-tidy</li>
+<li>common.cmake 提供了跨平台的编译器选项，并且提供了比较全面的警告选项</li>
+<li>memory-check.cmake 支持内存检测</li>
+</ul>
+
+<h2 id="代码格式化">代码格式化</h2>
+
+<p><strong>集成到Cmake中</strong></p>
+
+<p>代码格式化使用的是 clang-format，提供一个统一的代码格式。</p>
+
+<p>在项目中增加定制的 .clang-format 文件，然后增加一个python的格式化脚本，</p>
+
+<h2 id="静态代码检查">静态代码检查</h2>
+
+<p><strong>集成到Cmake中</strong></p>
+
+<p>在C++的代码中，提供静态代码检测是需要的，这样更好的防止错误的发生。
+本项目中使用的是clang-tidy，并且cmake中支持集成这个工具。</p>
+
+<h2 id="内存检测">内存检测</h2>
+
+<p><strong>集成到Cmake中</strong></p>
+
+<p>如果你的平台中安装了valgrind，可以提供内存检测。</p>
+
+<h2 id="mr的开发流程">MR的开发流程</h2>
+
+<p>在搭建完基本的项目框架之后，本项目的开发流程是基本MR的开发方式。</p>
+
+<p>不使用分支的原因是分支不能提供清晰的注释的地方。并且在issue提供完整的需要，在MR处提供完整的技术方案，在后期的代码查找提供了方向。</p>
+
+<pre><code>issue(需求)-&gt;MR(技术方案)-&gt;coding-&gt;code review-&gt;merge
+
+</code></pre>
+
+<h2 id="基准测试">基准测试</h2>
+
+<p>这个提供了最简功能的代码，代码核心的最简版，不提供多余的功能。</p>
+
+<p>这样提供了测试的基准，新增代码对项目的性能的影响。</p>
+
+<h2 id="单元测试">单元测试</h2>
+
+<p>本项目使用的是doctest，当然在不同的项目中使用单元测试是权衡的结果。</p>
+
+<h2 id="冒烟测试">冒烟测试</h2>
+
+<p>这个主要提供了最简单的集成测试。核心代码的功能测试。</p>
+
+<h2 id="ci的集成">CI的集成</h2>
+
+<ul>
+<li><a href="https://travis-ci.org">Travis CI</a> (Linux全平台测试和GUN/clang测试)</li>
+<li>[appveyor](<a href="https://ci.appveyor.com）(VS2012-2017全版本测试">https://ci.appveyor.com）(VS2012-2017全版本测试</a>)</li>
+</ul>
+
+<p>因为是在github平台，所以项目使用了Travis CI 和 appveyor。提供了一个.travis.yml 和 appveyor.yml的示例。</p>
+
+<p>在这个项目中CI集成的优势是提供了代码合并的要求。
+在CI中我们集成了编译，单元测试，冒烟测试。
+在每一次的代码提交的时候都会做一次测试，必须通过所有的测试才可以代码合并。
+这样防止了主分支出现初级的错误。</p>
+
+<h2 id="如何开始你自己的项目">如何开始你自己的项目</h2>
+
+<p>Fork这个项目到自己的仓库中，然后在<a href="https://travis-ci.org/">Travis-CI</a>和<a href="https://ci.appveyor.com">appveyor</a>中开启自动测试的功能。</p>
+
+<p>用你自己的程序替代main.cpp，提交代码后可以跨平台自动集成测试。</p>
+
+    </section>
+
+    
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+	<div class="inner">
+		<section class="footer-social">
+      
+      <a href="//twitter.com/spf13" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp;
+      
+      
+      
+      
+      
+      
+      <a href="//github.com/spf13" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      
+      
+      
+      
+  </section>
+
+		<section class="copyright">&copy; 2018 <a href="https://trree.github.io/geek/">Feilong Wu</a>. Released under the MIT license.</section>
+	</div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://trree.github.io/geek/js/index.js"></script>
+<script src="https://trree.github.io/geek/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-91534723-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ci on Trree</title>
+    <link>https://trree.github.io/geek/tags/ci/</link>
+    <description>Recent content in Ci on Trree</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 01 Feb 2018 13:57:40 +0800</lastBuildDate>
+    
+	<atom:link href="https://trree.github.io/geek/tags/ci/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>最小完备的项目</title>
+      <link>https://trree.github.io/geek/posts/minicompletepro/</link>
+      <pubDate>Thu, 01 Feb 2018 13:57:40 +0800</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/minicompletepro/</guid>
+      <description>MiniCompleteProject
+这个项目的目标是提供一个集开发，跨平台，自动测试的平台。
+使用docker可以跨平台开发。CMake可以跨平台编译，并且在自动CI的时候自动在linux/Unix/Windows和GUN/CLANG/MSVS中进行编译，单元测试和集成测试。
+ 最小完备的项目  Start 开发环境(docker) 跨平台开发(CMake) 代码格式化 静态代码检查 内存检测 MR的开发流程 基准测试 单元测试 冒烟测试 CI的集成 如何开始你自己的项目   Start 本项目提供了两种编译方式
+Linux本地
+如果是使用本地的开发环境
+mkdir build cd build cmake .. make ctest --output-on-failure make clang-format make clang-tidy make valgrind  docker
+如果是使用docker开发，需要先到 docker 目录中的dockerfile处，编译出docker镜像。 &amp;gt;sudo docker build -t {mini-complete-linux-platform} .
+然后回到主目录中用build.py编译docker镜像下的文件
+ python3 build.py &amp;ndash;docker-name {mini-complete-linux-platform}
+ 编译后会在 stage 目录下根据相应的平台和类型生成测试结果，测试:
+ sudo docker run -it &amp;ndash;rm -v &amp;ldquo;$PWD&amp;rdquo;:&amp;ldquo;$PWD&amp;rdquo; -w &amp;ldquo;$PWD&amp;rdquo; {mini-complete-linux-platform} stage/{mini-complete-linux-platform}/release/main</description>
+    </item>
+    
+  </channel>
+</rss>

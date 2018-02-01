@@ -6,10 +6,40 @@
     <description>Recent content in Posts on Trree</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 22 Oct 2017 17:34:37 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 01 Feb 2018 13:57:40 +0800</lastBuildDate>
     
 	<atom:link href="https://trree.github.io/geek/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>最小完备的项目</title>
+      <link>https://trree.github.io/geek/posts/minicompletepro/</link>
+      <pubDate>Thu, 01 Feb 2018 13:57:40 +0800</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/minicompletepro/</guid>
+      <description>MiniCompleteProject
+这个项目的目标是提供一个集开发，跨平台，自动测试的平台。
+使用docker可以跨平台开发。CMake可以跨平台编译，并且在自动CI的时候自动在linux/Unix/Windows和GUN/CLANG/MSVS中进行编译，单元测试和集成测试。
+ 最小完备的项目  Start 开发环境(docker) 跨平台开发(CMake) 代码格式化 静态代码检查 内存检测 MR的开发流程 基准测试 单元测试 冒烟测试 CI的集成 如何开始你自己的项目   Start 本项目提供了两种编译方式
+Linux本地
+如果是使用本地的开发环境
+mkdir build cd build cmake .. make ctest --output-on-failure make clang-format make clang-tidy make valgrind  docker
+如果是使用docker开发，需要先到 docker 目录中的dockerfile处，编译出docker镜像。 &amp;gt;sudo docker build -t {mini-complete-linux-platform} .
+然后回到主目录中用build.py编译docker镜像下的文件
+ python3 build.py &amp;ndash;docker-name {mini-complete-linux-platform}
+ 编译后会在 stage 目录下根据相应的平台和类型生成测试结果，测试:
+ sudo docker run -it &amp;ndash;rm -v &amp;ldquo;$PWD&amp;rdquo;:&amp;ldquo;$PWD&amp;rdquo; -w &amp;ldquo;$PWD&amp;rdquo; {mini-complete-linux-platform} stage/{mini-complete-linux-platform}/release/main</description>
+    </item>
+    
+    <item>
+      <title>由Effictive C&#43;&#43;说起</title>
+      <link>https://trree.github.io/geek/posts/effictive-cpp/</link>
+      <pubDate>Tue, 21 Nov 2017 13:34:49 +0800</pubDate>
+      
+      <guid>https://trree.github.io/geek/posts/effictive-cpp/</guid>
+      <description>每当我在C++方面有什么东西觉得需要写博客的时候，当我由浅及深的思考这些东西之间的关系的时候。 最后突然发现在Effective系列的书中已经有说明了，例如对虚函数在什么情况下使用的相关问题。 当我翻看书的时候，越发觉得自惭形秽，对问题思考的广度，深度实在是力所不能及。 把我自己思考的东西记录下来给别人看完全是在误导别人。 所以还是老老实实的看书，然后推荐好的数据给别人看才是最有帮助的。
+最近在stackoverflow中搜索 c++ faq 的时候，投票最高的问题 The Definitive C++ Book Guide and List 就是关于C++书籍的。 这个问题的最高回答也是非常好的列出了在学习C++各个阶段中应该阅读的书籍。 这个答案就不贴出来，自己点击一下链接就可以了，然后查看一下这个网站中的c++ faq。 相信这些给你的帮助更大。</description>
+    </item>
     
     <item>
       <title>从功能完成说起</title>
