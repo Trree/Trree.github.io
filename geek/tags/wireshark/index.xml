@@ -6,6 +6,7 @@
     <description>Recent content in Wireshark on Trree</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
+    <copyright>Released under the MIT license.</copyright>
     <lastBuildDate>Sun, 01 Oct 2017 10:04:54 +0800</lastBuildDate>
     
 	<atom:link href="https://trree.github.io/geek/tags/wireshark/index.xml" rel="self" type="application/rss+xml" />
