@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Ipv6 &middot; Trree</title>
+    <meta name="author" content="Feilong Wu">
+    <meta name="description" content="Your description of the blog">
+    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- RSS autodiscovery -->
+    
+
+    <link rel="shortcut icon" href="https://trree.github.io/geek/img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://trree.github.io/geek/css/screen.css">
+    <link rel="stylesheet" href="https://trree.github.io/geek/css/github.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://trree.github.io/geek/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://trree.github.io/geek/favicon.ico">
+    
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #33cc99;}
+    .pagination a {color: #33cc99;}
+    .gist .gist-file .gist-meta a:visited {color: #33cc99 !important;}
+    a:focus, a:hover {color: #178b6b;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #178b6b;}
+    .older-posts:hover, .newer-posts:hover {color: #178b6b;}
+</style>
+</head>
+
+<body class="home-template">
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="https://trree.github.io/geek/">Trree</a></h1>
+	
+	
+	<h1 class="blog-subtitle">wechat: FeilongWuTree</h1>
+	
+</header>
+    
+    
+    <main class="content" role="main">
+    
+<article class="post">
+    <header>
+        <h1 class="post-title">Ipv6</h1>
+        <div class="post-meta">
+            <time datetime="01 March 2018">
+                01 March 2018
+            </time>
+        </div>
+    </header>
+
+    <section class="post-content">
+        
+
+<h1 id="ipv6-培训">IPv6 培训</h1>
+
+<h2 id="ipv6核心协议">IPv6核心协议</h2>
+
+<h3 id="ipv6协议头-https-tools-ietf-org-html-rfc2460"><a href="https://tools.ietf.org/html/rfc2460">IPv6协议头</a></h3>
+
+<pre><code>   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |Version| Traffic Class |           Flow Label                  |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |         Payload Length        |  Next Header  |   Hop Limit   |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                                                               |
+   +                                                               +
+   |                                                               |
+   +                         Source Address                        +
+   |                                                               |
+   +                                                               +
+   |                                                               |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                                                               |
+   +                                                               +
+   |                                                               |
+   +                      Destination Address                      +
+   |                                                               |
+   +                                                               +
+   |                                                               |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</code></pre>
+
+<p><img src="/uploads/ae2ae5f01efbe03b331a1db065c2640e/ipv6.png" alt="ipv6" /></p>
+
+<ul>
+<li>version</li>
+<li>Traffic Class</li>
+<li>Flow Label</li>
+<li>PayLoad Length</li>
+<li>Next Header</li>
+<li>Hop Limit(替代TTL)</li>
+<li>Source Address(128)</li>
+<li>Source Address(128)</li>
+</ul>
+
+<h3 id="与ipv4的异同">与IPv4的异同</h3>
+
+<pre><code>    0                   1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |Version|  IHL  |Type of Service|          Total Length         |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |         Identification        |Flags|      Fragment Offset    |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |  Time to Live |    Protocol   |         Header Checksum       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                       Source Address                          |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                    Destination Address                        |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                    Options                    |    Padding    |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+                    Example Internet Datagram Header
+</code></pre>
+
+<ol>
+<li>由原来的32字节变为128字节</li>
+<li>简化包头</li>
+</ol>
+
+<h3 id="地址类型">地址类型</h3>
+
+<ul>
+<li>单播
+
+<ul>
+<li>本地链路地址(fe80)</li>
+<li>映射IPv4格式(::ffff:192.168.80.160)</li>
+<li>站点本地地址(fec0)</li>
+<li>可集聚全球单播地址(prefix)</li>
+</ul></li>
+<li>组播</li>
+<li>任播(<a href="https://en.wikipedia.org/wiki/Anycast">anycast</a>)</li>
+</ul>
+
+<h3 id="邻居发现协议-https-tools-ietf-org-html-rfc4861"><a href="https://tools.ietf.org/html/rfc4861">邻居发现协议</a></h3>
+
+<p>同一链路上的IPv6节点(hosts and routers)使用邻居发现来发现彼此的存在，确定彼此的链路层地址，查找路由器以及维护与活动邻居的路径的可达性信息。</p>
+
+<p>ND 定义了 5 个不同的 ICMP 分组类型： Router Solicitation 和 Router Advertisement 消
+息， Neighbor Solicitation 和 Neighbor Advertisements 消息，以及 Redirect message 消息。这
+些消息服务于下述目的：</p>
+
+<ul>
+<li><strong>Router Solicitation</strong>：当接口能使后，主机可以发出 Router Solicitations，要求路由器立即</li>
+</ul>
+
+<p>生成 Router Advertisements，而不是在它们的下一个规定时间生成。</p>
+
+<p>wireshark filter: icmpv6.type == <strong>133</strong></p>
+
+<pre><code>
+      0                   1                   2                   3
+      0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+     |     Type      |     Code      |          Checksum             |
+     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+     |                            Reserved                           |
+     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+     |   Options ...
+     +-+-+-+-+-+-+-+-+-+-+-+-
+
+</code></pre>
+
+<ul>
+<li><strong>Router Advertisement</strong>：路由器周期地用此消息通告它们的存在及各种链路参数和互联网参数，或响应 Router Solicitation 消息。 Router Advertisements 包括前缀，这些前缀用于确定是否另一个地址共享相同链路(on-link 确认)和/或地址配置， 建议的跳数限制值，等等。</li>
+</ul>
+
+<p>wireshark filter: icmpv6.type == <strong>134</strong></p>
+
+<pre><code>
+      0                   1                   2                   3
+      0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+     |     Type      |     Code      |          Checksum             |
+     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+     | Cur Hop Limit |M|O|  Reserved |       Router Lifetime         |
+     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+     |                         Reachable Time                        |
+     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+     |                          Retrans Timer                        |
+     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+     |   Options ...
+     +-+-+-+-+-+-+-+-+-+-+-+-
+</code></pre>
+
+<p><img src="/uploads/dd519d79d28ba6c751490996c2093620/RA_validlifetime.png" alt="RA_validlifetime" /></p>
+
+<ul>
+<li><strong>Neighbor Solicitation</strong>： 由节点发送，以便确定邻居的链路层地址，或者通过缓存的链路</li>
+</ul>
+
+<p>层地址验证邻居仍然可达。 Neighbor Solicitations也用于Duplicate Address Detection。</p>
+
+<p>wireshark filter: icmpv6.type == <strong>135</strong></p>
+
+<pre><code>      0                   1                   2                   3
+      0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+     |     Type      |     Code      |          Checksum             |
+     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+     |                           Reserved                            |
+     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+     |                                                               |
+     +                                                               +
+     |                                                               |
+     +                       Target Address                          +
+     |                                                               |
+     +                                                               +
+     |                                                               |
+     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+     |   Options ...
+     +-+-+-+-+-+-+-+-+-+-+-+-
+
+</code></pre>
+
+<ul>
+<li><strong>Neighbor Advertisement</strong>： 响应Neighbor Solicitation消息。 节点也可以发送非请求的</li>
+</ul>
+
+<p>Neighbor Advertisements，通知链路层地址改变。</p>
+
+<p>wireshark filter: icmpv6.type == <strong>136</strong></p>
+
+<pre><code>       0                   1                   2                   3
+       0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+      |     Type      |     Code      |          Checksum             |
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+      |R|S|O|                     Reserved                            |
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+      |                                                               |
+      +                                                               +
+      |                                                               |
+      +                       Target Address                          +
+      |                                                               |
+      +                                                               +
+      |                                                               |
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+      |   Options ...
+      +-+-+-+-+-+-+-+-+-+-+-+-
+
+</code></pre>
+
+<ul>
+<li><strong>Redirect</strong>：由路由器使用，用于通知主机有到目的地的较好的第一跳。</li>
+</ul>
+
+<pre><code>       0                   1                   2                   3
+       0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+      |     Type      |     Code      |          Checksum             |
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+      |                           Reserved                            |
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+      |                                                               |
+      +                                                               +
+      |                                                               |
+      +                       Target Address                          +
+      |                                                               |
+      +                                                               +
+      |                                                               |
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+      |                                                               |
+      +                                                               +
+      |                                                               |
+      +                     Destination Address                       +
+      |                                                               |
+      +                                                               +
+      |                                                               |
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+      |   Options ...
+      +-+-+-+-+-+-+-+-+-+-+-+-
+</code></pre>
+
+<h3 id="无状态地址自动配置-https-tools-ietf-org-html-rfc4862"><a href="https://tools.ietf.org/html/rfc4862">无状态地址自动配置</a></h3>
+
+<p>无状态地址自动配置描述了在 IPv6 中，主机在决定如何自动配置它的接口时采取的步骤。自动配置
+处理包括利用无状态地址自动配置生成链路本地地址， 生成全球地址，以及启动验证链路上
+地址唯一性的重复地址检测(Duplicate Address Detection)程序</p>
+
+<h3 id="重复地址检测-duplicate-address-detection">重复地址检测(Duplicate Address Detection)</h3>
+
+<p>重复地址检测(Duplicate Address Detection)必须在所有单播地址上执行， 是在这些地址
+被分配到接口前执行，无论这些地址是通过无状态自动配置， DHCPv6，或手工配置获得的.</p>
+
+<p><img src="/uploads/b604306caa0651c6b78f648897ce1499/2018-04-18_09-32-38屏幕截图.png" alt="2018-04-18_09-32-38屏幕截图" /></p>
+
+<h3 id="生存期">生存期</h3>
+
+<p><strong>tentative address</strong></p>
+
+<p>临时地址。一个地址，在被分配到接口前，它在链路上的唯一性正在被验证。 一般意义上，
+不认为将临时地址分配给接口。接口抛弃收到的寻址到临时地址的分组， 但是接受与临时
+地址的 Duplicate Address Detection 相关的 Neighbor Discovery 分组。</p>
+
+<p><strong>preferred address</strong></p>
+
+<p>优先地址。 分配到接口的可由上层协议不受限制使用的地址。优先地址可用作发送到(或来
+自)该接口的分组的源地址(或目的地地址)。</p>
+
+<p><strong>deprecated address</strong></p>
+
+<p>过时地址。分配到接口的地址，它的使用不受鼓励，但是不被禁止。在新的通信中应当不
+再用过时地址作为源地址，但是发送到或来自过时地址的分组被正常交付。在这样的情况
+过时地址可以继续作为源地址在通信中使用，那里转变到优先地址会给特定上层活动(例如，
+现存 TCP 连接)带来困难。</p>
+
+<p><strong>valid address</strong></p>
+
+<p>合法地址。优先地址或过时地址。合法地址可作为分组的源地址或目的地地址，并且可以
+期待互联网路由系统会将发送到合法地址的分组交付到它们的预期接收者。</p>
+
+<p><strong>invalid address</strong></p>
+
+<p>不合法地址。没有分配给任何接口的地址。合法地址在它的合法生存期到期后将变成不合
+法地址。 不合法地址不应当作为分组的目的地地址或源地址。 对于前者，互联网路由系统
+将不能传递该分组；对于后者，分组的接收者将不能响应该分组。</p>
+
+<p><strong>preferred lifetime</strong></p>
+
+<p>优先生存期。合法地址处于优先状态的时间长度(即， 到过时前的时间)。当优先生存期到
+期，地址变成过时地址。</p>
+
+<p><strong>valid lifetime</strong></p>
+
+<p>合法生存期。地址保持合法状态的时间长度(即，到不合法前的时间)。 合法生存期必须大
+于等于优先生存期。 合法生存期到期，地址将变成不合法</p>
+
+<p><img src="/uploads/1b756ed56f5cdbaf6816cb5aa7b0dfc4/lifetime.png" alt="lifetime" /></p>
+
+<h3 id="path-mtu-https-tools-ietf-org-html-rfc1981"><a href="https://tools.ietf.org/html/rfc1981">Path MTU</a></h3>
+
+<p>当一个IPv6节点有大量数据要发送到另一个节点时，数据将通过一系列IPv6数据包进行传输。这些数据包通常最好能够成功地遍历从源节点到目的节点的路径。这个数据包大小被称为路径MTU（PMTU），它等于路径中所有链路的最小链路MTU。 IPv6为节点发现任意路径的PMTU定义了一个标准机制。</p>
+
+<p>未实现路径MTU发现的节点使用中定义的IPv6最小链路MTU作为最大数据包大小。在大多数情况下，这会导致使用比必要的更小的数据包，因为大多数路径的PMTU大于IPv6最小链路MTU。发送比路径MTU小得多的分组的节点正在浪费网络资源并且可能获得不理想的吞吐量。</p>
+
+<p>使用ping6测试：</p>
+
+<pre><code>       -M pmtudisc_opt
+              Select  Path MTU Discovery strategy.  pmtudisc_option may be either do (prohibit fragmentation, even local one), want (do PMTU discovery, fragment locally when packet size
+              is large), or dont (do not set DF flag).
+
+</code></pre>
+
+<h3 id="icmpv6-https-tools-ietf-org-html-rfc4443"><a href="https://tools.ietf.org/html/rfc4443">ICMPv6</a></h3>
+
+<pre><code>0                   1                   2                   3
+0  1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|     Type      |     Code       |        Checksum              |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                         Message Body                          +
+|                                                               |
+</code></pre>
+
+<p>ICMPv6 messages are grouped into two classes: error messages and
+informational messages. Error messages are identified as such by a
+zero in the high-order bit of their message Type field values. Thus,
+error messages have message types from 0 to 127; informational
+messages have message types from 128 to 255.</p>
+
+<pre><code>ICMPv6 error messages:
+	1 Destination Unreachable (see Section 3.1)
+	2 Packet Too Big (see Section 3.2)
+	3 Time Exceeded (see Section 3.3)
+	4 Parameter Problem (see Section 3.4)
+
+	100 Private experimentation
+	101 Private experimentation
+
+	127 Reserved for expansion of ICMPv6 error messages
+
+ICMPv6 informational messages:
+	128 Echo Request (see Section 4.1)
+	129 Echo Reply (see Section 4.2)
+	
+	200 Private experimentation
+	201 Private experimentation
+	
+	255 Reserved for expansion of ICMPv6 informational messages
+</code></pre>
+
+<p><img src="/uploads/69ff48afb11fe6a6b5c86a7e868e9fca/2018-04-18_09-49-21屏幕截图.png" alt="2018-04-18_09-49-21屏幕截图" /></p>
+
+<h2 id="linux-ipv6-使用-http-tldp-org-howto-linux-ipv6-howto-index-html"><a href="http://tldp.org/HOWTO/Linux+IPv6-HOWTO/index.html">Linux IPv6 使用</a></h2>
+
+<h3 id="ipv6-配置-http-tldp-org-howto-linux-ipv6-howto-ch06-html"><a href="http://tldp.org/HOWTO/Linux+IPv6-HOWTO/ch06.html">IPv6 配置</a></h3>
+
+<ul>
+<li>查看IPv6地址</li>
+</ul>
+
+<p><strong>ip -6 addr show</strong></p>
+
+<pre><code>  1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 state UNKNOWN qlen 1000
+      inet6 ::1/128 scope host 
+         valid_lft forever preferred_lft forever
+  2: enp1s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 state UP qlen 1000
+      inet6 2001:db8::5cb:18af:38c4:d0c7/64 scope global temporary dynamic 
+         valid_lft 80331sec preferred_lft 8331sec
+      inet6 2001:db8::b533:1a84:429:c0f3/64 scope global temporary deprecated dynamic 
+         valid_lft 66129sec preferred_lft 0sec
+      inet6 2001:db8::c4cf:abd0:a33f:dcf8/64 scope global temporary deprecated dynamic 
+         valid_lft 51996sec preferred_lft 0sec
+      inet6 2001:db8::c85f:3777:d1fd:2f87/64 scope global temporary deprecated dynamic 
+         valid_lft 37938sec preferred_lft 0sec
+      inet6 2001:db8::80be:cf50:b6e1:f77e/64 scope global temporary deprecated dynamic 
+         valid_lft 23806sec preferred_lft 0sec
+      inet6 2001:db8::880b:1908:9925:9350/64 scope global temporary deprecated dynamic 
+         valid_lft 9664sec preferred_lft 0sec
+      inet6 2001:db8::b4fe:91cf:10dd:a0be/64 scope global mngtmpaddr noprefixroute dynamic 
+         valid_lft 86259sec preferred_lft 14259sec
+      inet6 fe80::d586:f818:7bc7:4db6/64 scope link 
+         valid_lft forever preferred_lft forever
+  4: vmnet1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 state UNKNOWN qlen 1000
+      inet6 fe80::250:56ff:fec0:1/64 scope link 
+         valid_lft forever preferred_lft forever
+
+</code></pre>
+
+<p>​</p>
+
+<ul>
+<li>查看IPv6路由</li>
+</ul>
+
+<p><strong>ip -6 route show</strong></p>
+
+<pre><code>  2001:db8::/64 dev enp1s0  proto kernel  metric 256  expires 35070sec pref medium
+  fe80::/64 dev enp1s0  proto kernel  metric 256  pref medium
+  fe80::/64 dev vmnet1  proto kernel  metric 256  pref medium
+  fe80::/64 dev vmnet2  proto kernel  metric 256  pref medium
+  fe80::/64 dev vmnet3  proto kernel  metric 256  pref medium
+  fe80::/64 dev vmnet8  proto kernel  metric 256  pref medium
+  default via fe80::20c:29ff:fe69:acf2 dev enp1s0  proto static  metric 100  pref medium
+</code></pre>
+
+<p>​</p>
+
+<ul>
+<li><p>添加IPv6地址</p></li>
+
+<li><p>添加IPv6路由</p></li>
+
+<li><p>软件测试IPv6自动分配地址</p>
+
+<ul>
+<li>radvd</li>
+</ul></li>
+</ul>
+
+<p>​</p>
+
+<h2 id="ipv6-系统配置参数-http-tldp-org-howto-linux-ipv6-howto-ch11s02-html"><a href="http://tldp.org/HOWTO/Linux+IPv6-HOWTO/ch11s02.html">IPv6 系统配置参数</a></h2>
+
+<ul>
+<li>Sysctl
+
+<ul>
+<li>/etc/sysctl.conf</li>
+<li>/proc/sys/net/ipv6</li>
+</ul></li>
+</ul>
+
+<hr />
+
+<h2 id="ipv6-测试及查看数据包-http-tldp-org-howto-linux-ipv6-howto-ch04s03-html"><a href="http://tldp.org/HOWTO/Linux+IPv6-HOWTO/ch04s03.html">IPv6 测试及查看数据包</a></h2>
+
+<ul>
+<li><p>测试本地链路地址</p>
+
+<ul>
+<li>ping6 -I dev fe80::</li>
+</ul></li>
+
+<li><p>测试全局地址</p>
+
+<ul>
+<li>ping xxxx</li>
+</ul></li>
+
+<li><p>查看路由</p>
+
+<ul>
+<li>traceroute6</li>
+</ul></li>
+
+<li><p>测试 PMTU</p>
+
+<ul>
+<li><p>tracepath6</p></li>
+
+<li><p>ping6 -c 1 -M dont -s 1452 -I le0 FF1E::1:2</p></li>
+
+<li><p>ping6 -c 1 -M dont -s 1352 -I le0 FF1E::1:2</p></li>
+</ul>
+
+<p>​
+​</p></li>
+</ul>
+
+<h3 id="ipv6与ipv4编程-https-linux-die-net-man-3-getaddrinfo"><a href="https://linux.die.net/man/3/getaddrinfo">IPv6与IPv4编程</a></h3>
+
+<pre><code>struct addrinfo {
+    int              ai_flags;
+    int              ai_family;
+    int              ai_socktype;
+    int              ai_protocol;
+    socklen_t        ai_addrlen;
+    struct sockaddr *ai_addr;
+    char            *ai_canonname;
+    struct addrinfo *ai_next;
+};
+</code></pre>
+
+<h2 id="其他">其他</h2>
+
+<h3 id="ipv6选路">IPv6选路</h3>
+
+<p>ipv6 的选路方式还是与ipv4一样，主要如下两种：</p>
+
+<ul>
+<li>选路信息协议 ( RIP )</li>
+</ul>
+
+<p>RIP协议是一种内部网关协议（IGP），是一种动态路由选择协议，用于自治系统（AS）内的路由信息的传递。RIP协议基于距离矢量算法（DistanceVectorAlgorithms），使用“跳数”(即metric)来衡量到达目标地址的路由距离。</p>
+
+<ul>
+<li>最短路径优先 ( OSPF )协议</li>
+</ul>
+
+<p>开放最短路径优先（OSPF）是Internet协议（IP）网络的路由协议。 它使用链路状态路由（LSR）算法，属于一组内部网关协议（IGP），在单个自治系统（AS）内运行。 OSPF通过路由器之间通告网络接口的状态来建立链路状态数据库，生成最短路径树，每个OSPF路由器使用这些最短路径构造路由表。</p>
+
+<p>ref: ipv6详解</p>
+
+<h3 id="ipv6-安全性">IPv6 安全性</h3>
+
+<p>ref: <a href="https://tools.ietf.org/html/rfc2401">https://tools.ietf.org/html/rfc2401</a></p>
+
+<p>在IPv6中去除了检验和，因为上层都提供了检验和的功能，另外的话是使用 IPSec 来保证安全。</p>
+
+    </section>
+
+    
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+	<div class="inner">
+		<section class="footer-social">
+      
+      <a href="//twitter.com/spf13" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp;
+      
+      
+      
+      
+      
+      
+      <a href="//github.com/spf13" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      
+      
+      
+      
+  </section>
+
+		<section class="copyright">&copy; 2018 <a href="https://trree.github.io/geek/">Feilong Wu</a>. Released under the MIT license.</section>
+	</div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://trree.github.io/geek/js/index.js"></script>
+<script src="https://trree.github.io/geek/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-91534723-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+</body>
+</html>
